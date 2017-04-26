@@ -10,7 +10,7 @@ export default class Landing extends Component {
 
   render() {
     return (
-      <div className="container-fluid" id="landing">
+      <div>
         <img id="banner" src={require('../../lib/images/landing.png')} alt="FRESH AIR" />
         <Col sm={4}>
         </Col>

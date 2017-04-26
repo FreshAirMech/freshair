@@ -10,7 +10,7 @@ module.exports = {
   }
   devtool: 'source-map',
   module: {
-    loaders: {
+    loaderszz: {
       test: /\.jsx?$/,
       loader: 'babel-loader'
     }
