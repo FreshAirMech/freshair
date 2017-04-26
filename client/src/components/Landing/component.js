@@ -12,7 +12,6 @@ export default class Landing extends Component {
   }
 
   render() {
-    console.log('rendering')
     return (
       <div className="container-fluid" id="landing">
         <Col sm={12}>
