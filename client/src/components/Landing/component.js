@@ -8,11 +8,19 @@ export default class Landing extends Component {
     };
   }
 
+  componentDidMount() {
+  }
+
   render() {
+    console.log('rendering')
     return (
       <div className="container-fluid" id="landing">
+        <Col sm={12}>
+          <p>
+            Welcome to Fresh Air
+          </p>
+        </Col>
         <Col sm={4}>
-          awojidasd
         </Col>
         <Col sm={8}>
         </Col>

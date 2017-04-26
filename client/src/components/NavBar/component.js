@@ -4,15 +4,14 @@ import { LinkContainer, IndexLinkContainer } from 'react-router-bootstrap/lib';
 import { Link } from 'react-router';
 
 export default class NavBar extends Component {
-
   render() {
     return (
       <div>
         <div>
-          <Navbar inverse collapseOnSelect>
+          <Navbar inverse collapseOnSelect id="navbar">
             <Navbar.Header>
               <Navbar.Brand>
-                <Link to={{ pathname: '/landing' }}>
+                <Link to={{ pathname: '/' }}>
                   Fresh Air
                 </Link>
               </Navbar.Brand>
@@ -20,13 +19,19 @@ export default class NavBar extends Component {
             </Navbar.Header>
             <Navbar.Collapse>
               <Nav pullRight>
-                <IndexLinkContainer to={{ pathname: '/' }}>
-                  <NavItem eventKey={1}>Home</NavItem>
+                <IndexLinkContainer to={{ pathname: '/service' }}>
+                  <NavItem eventKey={1}>Services</NavItem>
                 </IndexLinkContainer>
+                <LinkContainer to={{ pathname: '/about' }}>
+                  <NavItem eventKey={2}>About Us</NavItem>
+                </LinkContainer>
               </Nav>
             </Navbar.Collapse>
           </Navbar>
         </div>
+        {
+          this.props.children
+        }
       </div>
     );
   }
