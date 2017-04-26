@@ -10,6 +10,7 @@ html,body
 #banner {
   position: absolute;
   margin-top: -20px;
+  height: 100vh;
   width: 100%;
 	-webkit-animation: fadein 1s; 
      -moz-animation: fadein 1s; 
