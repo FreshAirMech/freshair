@@ -8,17 +8,10 @@ export default class Landing extends Component {
     };
   }
 
-  componentDidMount() {
-  }
-
   render() {
     return (
       <div className="container-fluid" id="landing">
-        <Col sm={12}>
-          <p>
-            Welcome to Fresh Air
-          </p>
-        </Col>
+        <img id="banner" src={require('../../lib/images/landing.png')} alt="FRESH AIR" />
         <Col sm={4}>
         </Col>
         <Col sm={8}>

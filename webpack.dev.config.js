@@ -1,5 +1,15 @@
 var path = require('path');
 
+var query = {
+  bypassOnDebug: true,
+  optipng: {
+    optimizationLevel: true
+  },
+  gifsicle: {
+    interlaced: false
+  }
+};
+
 module.exports = {
   entry: './client/src/index.js',
   output: {
@@ -30,9 +40,9 @@ module.exports = {
         test: /\.(jpe?g|png|gif|svg)$/i,
         loaders: [
             'file-loader?hash=sha512&digest=hex&name=[hash].[ext]',
-            'image-webpack-loader?bypassOnDebug&optimizationLevel=7&interlaced=false'
+            'image-webpack-loader?${JSON.stringify(query)}',
         ]
-      }
+      },
     ]
   }
 }
