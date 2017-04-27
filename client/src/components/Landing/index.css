@@ -21,24 +21,30 @@ div {
   float: left;
 }
 
-.col-md-12 {
-  padding-left: 0;
-  padding-right: 0;
-}
-
-#why {
-  background-color: #635f5b;
+.landing-div {
   padding: 8% 0 12%;
   color: #fff;
 }
 
-#why hr {
+#why {
+  background-color: #635f5b;
+}
+
+#services {
+  background-color: #68abdd;
+}
+
+.landing-div hr {
   width: 25%;
   border-top-color: #8c8c8c;
   padding-bottom: 50px;
 }
 
-#why h2 {
+#services hr {
+  border-top-color: #fff;
+}
+
+.landing-div h2 {
   text-align: center;
   font-size: 1.7em;
   font-weight: bold;

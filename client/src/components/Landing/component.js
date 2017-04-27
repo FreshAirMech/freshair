@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Col } from 'react-bootstrap/lib';
+import { Col, Row } from 'react-bootstrap/lib';
 
 export default class Landing extends Component {
   constructor(props) {
@@ -11,14 +11,14 @@ export default class Landing extends Component {
   render() {
     return (
       <div>
-        <Col md={12}>
+        <Row>
           <img id="banner" src={require('../../lib/images/landing.png')} alt="FRESH AIR" />
-        </Col>
-        <Col md={12} id="why">
-          <Col md={12}>
-            <h2> Why Others Choose FRESH AIR</h2>
+        </Row>
+        <Row id="why" className="landing-div">
+          <Row>
+            <h2>Why Others Choose FRESH AIR</h2>
             <hr></hr>
-          </Col>
+          </Row>
           <Col sm={4}>
             <h2><i className="fa fa-check-square-o fa-lg" aria-hidden="true"></i>  Reliability</h2>
             <p>Once a deal is confirmed, customers can rest easy knowing that the job will be done correctly.</p>
@@ -31,7 +31,13 @@ export default class Landing extends Component {
             <h2><i className="fa fa-user-o fa-lg" aria-hidden="true"></i>  Serviceability</h2>
             <p>We ensure caring and thoughtful customer service so that no issue is overlooked.</p>
           </Col>
-        </Col>
+        </Row>
+        <Row id="services" className="landing-div">
+          <Row>
+            <h2>Examples of Services</h2>
+            <hr></hr>
+          </Row>
+        </Row>
       </div>  
     );
   }
