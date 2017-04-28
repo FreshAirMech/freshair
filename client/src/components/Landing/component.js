@@ -16,7 +16,7 @@ export default class Landing extends Component {
         </Row>
         <Row id="why" className="landing-div">
           <Row>
-            <h2>Why Others Choose FRESH AIR</h2>
+            <h1>Why Others Choose FRESH AIR</h1>
             <hr></hr>
           </Row>
           <Col sm={4}>
@@ -34,8 +34,51 @@ export default class Landing extends Component {
         </Row>
         <Row id="services" className="landing-div">
           <Row>
-            <h2>Examples of Services</h2>
+            <h1>Examples of Services</h1>
             <hr></hr>
+          </Row>
+          <Row>
+            <ul>
+              <li>Air Conditioning and Refrigeration Installation and Maintenance</li>
+              <li>Design Considerations that calculate load, noise and space to prevent any future problems </li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul>
+          </Row>
+        </Row>
+        <Row id="clients" className="landing-div">
+          <Row>
+            <h1>Some of Our Clients</h1>
+            <hr></hr>
+          </Row>
+          <Row>
+            <table>
+              <tr>
+                <td>
+                  <img src="https://upload.wikimedia.org/wikipedia/en/thumb/0/06/Duane_Reade_Logo.svg/849px-Duane_Reade_Logo.svg.png" />
+                </td>
+                <td>
+                  <img src="https://keyfood.com/wp-content/uploads/2015/03/55-Fulton-Market-300x151.jpg" />
+                </td>
+                <td>
+                  <img src="https://res.cloudinary.com/grubhub/image/upload/w_400,h_300,f_auto,fl_lossy,q_80,c_fit/u7i8y6yoyawurbjoemlz" />
+                </td>
+                <td>
+                  <img src="http://www.parisbaguettefamily.com/wp-content/uploads/2017/01/Banner-Logo.png" />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <img src="http://static1.squarespace.com/static/562945abe4b085cd47b1544a/t/58c082535016e17d84d2d9e3/1493142648920/?format=1000w" />
+                </td>
+                <td>
+
+                </td>
+              </tr>
+            </table>
+            
           </Row>
         </Row>
       </div>  

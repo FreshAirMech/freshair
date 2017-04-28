@@ -22,8 +22,12 @@ div {
 }
 
 .landing-div {
-  padding: 8% 0 12%;
+  padding: 6% 4%;
   color: #fff;
+}
+
+.col-sm-4 {
+  padding: 0 4%;
 }
 
 #why {
@@ -32,6 +36,29 @@ div {
 
 #services {
   background-color: #68abdd;
+}
+
+#clients {
+  color: #68abdd;
+}
+
+#clients table {
+  width: 100%;
+}
+
+#clients tr {
+  padding: 2%;
+}
+
+#clients td {
+  width: 25%;
+  height: 20%;
+}
+
+#clients img {
+  width: 75%;
+  display: block;
+  margin: auto;
 }
 
 .landing-div hr {
@@ -44,14 +71,30 @@ div {
   border-top-color: #fff;
 }
 
-.landing-div h2 {
+#services {
+  font-size: 1.4em;
+}
+
+.landing-div h1, .landing-div h2 {
   text-align: center;
-  font-size: 1.7em;
   font-weight: bold;
   margin-bottom: 10px;
   margin-top: 20px;
   line-height: 1.1;
 }
+
+.landing-div h1 {
+  font-size: 3em;
+}
+
+.landing-div h2 {
+  font-size: 2.3em;
+}
+
+.landing-div p {
+  font-size: 1.4em;
+}
+
 
 #why p {
   padding-left: 30px;
