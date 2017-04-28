@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Navbar, Nav, NavItem } from 'react-bootstrap';
+import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 import { LinkContainer, IndexLinkContainer } from 'react-router-bootstrap/lib';
 import { Link } from 'react-router';
 
@@ -34,7 +34,11 @@ export default class NavBar extends Component {
                 {
                   username 
                   ? (
-                      <NavItem onClick={requestLogout} eventKey={3}>Logout</NavItem>
+                      <NavDropdown eventKey={3} title={username} id="basic-nav-dropdown">
+                        <MenuItem eventKey={3.1}>Settings</MenuItem>
+                        <MenuItem divider />
+                        <MenuItem onClick={requestLogout} eventKey={3.2}>Logout</MenuItem>
+                      </NavDropdown>
                     )
                   : (
                       <LinkContainer to={{ pathname: '/login' }}>
