@@ -12,6 +12,20 @@ const port = process.env.PORT || 3000;
 
 app.use(morgan('dev'));
 
+app.use(session({
+  secret: secrets.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    maxAge: 1000 * 60 * 60 * 24 * 7
+  }
+}));
+
+app.use((req, res, next) => {
+  console.log(req.session);
+  next();
+});
+
 app.use(express.static(__dirname + '/../public/'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());

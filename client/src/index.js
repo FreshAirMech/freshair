@@ -9,6 +9,7 @@ import store from './store/configureStore';
 
 import NavBar from './components/NavBar';
 import Landing from './components/Landing';
+import AuthPage from './components/AuthPage';
 
 const history = syncHistoryWithStore(browserHistory, store);
 
@@ -17,7 +18,7 @@ ReactDOM.render(
     <Router history={history}>
       <Route path="/" component={NavBar}>
         <IndexRoute component={Landing} />
-        <Route path="/landing" component={Landing}/>
+        <Route path="/login" component={AuthPage}/>
       </Route>
       <Route path="*">
         {browserHistory.push('/')}

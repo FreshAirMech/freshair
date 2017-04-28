@@ -13,16 +13,16 @@ div {
 
 #banner {
   width: 100%;
+  float: left;
   -webkit-animation: fadein 1s; 
      -moz-animation: fadein 1s; 
       -ms-animation: fadein 1s;
        -o-animation: fadein 1s; 
           animation: fadein 1s;
-  float: left;
 }
 
 .landing-div {
-  padding: 6% 4%;
+  padding: 6% 10%;
   color: #fff;
 }
 
@@ -75,6 +75,14 @@ div {
   font-size: 1.4em;
 }
 
+#copyright {
+  color: #8c8c8c;
+  background-color: #4d4d4d;
+  font-size: 1.4em;
+  padding-top: 3%;
+  padding-bottom: 3%;
+}
+
 .landing-div h1, .landing-div h2 {
   text-align: center;
   font-weight: bold;
@@ -84,17 +92,12 @@ div {
 }
 
 .landing-div h1 {
-  font-size: 3em;
-}
-
-.landing-div h2 {
-  font-size: 2.3em;
+  font-size: 48px;
 }
 
 .landing-div p {
   font-size: 1.4em;
 }
-
 
 #why p {
   padding-left: 30px;

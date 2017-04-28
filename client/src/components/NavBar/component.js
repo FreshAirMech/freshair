@@ -4,7 +4,13 @@ import { LinkContainer, IndexLinkContainer } from 'react-router-bootstrap/lib';
 import { Link } from 'react-router';
 
 export default class NavBar extends Component {
+
+  componentDidMount() {
+    this.props.requestSession();
+  }
+
   render() {
+    const { username, requestLogout } = this.props;
     return (
       <div>
         <div>
@@ -25,6 +31,17 @@ export default class NavBar extends Component {
                 <LinkContainer to={{ pathname: '/about' }}>
                   <NavItem eventKey={2}>About Us</NavItem>
                 </LinkContainer>
+                {
+                  username 
+                  ? (
+                      <NavItem onClick={requestLogout} eventKey={3}>Logout</NavItem>
+                    )
+                  : (
+                      <LinkContainer to={{ pathname: '/login' }}>
+                        <NavItem eventKey={3}><i className="fa fa-user" aria-hidden="true" id="user-icon"></i>  Login/Sign Up</NavItem>
+                      </LinkContainer>
+                    )
+                }
               </Nav>
             </Navbar.Collapse>
           </Navbar>
