@@ -23,12 +23,14 @@ router.post('/login', (req, res, next) => {
     if (user.password === passwordAttempt) {
       req.session.user = {
         id: user.id,
-        username: user.username
+        username: user.username,
+        email: user.email
       };
       
       res.json({
         id: user.id,
         username: user.username,
+        email: user.email
       });
     } else {
       const error = new Error('Incorrect Password.');
@@ -49,28 +51,38 @@ router.post('/signup', (req, res, next) => {
 
   User.findOne({
     where: {
-      username: req.body.username
+      $or: [
+        {username: req.body.username},
+        {email: req.body.email}
+      ]
     }
   })
   .then(function (user) {
     if (user) {
-      const error = new Error('Username already taken.');
+      var error;
+      if (user.username === req.body.username)
+        error = new Error('Username already taken.');
+      else
+        error = new Error('Email already in use.');
       error.status = 400;
       throw error;
     }
     return User.create({
       username: req.body.username,
-      password: req.body.password
+      password: req.body.password,
+      email: req.body.email
     });
   })
   .then(function (user) {
     req.session.user = {
       id: user.id,
-      username: user.username
+      username: user.username,
+      email: user.email
     };
     res.json({
       id: user.id,
       username: user.username,
+      email: user.email
     });
   })
   .catch(next);
@@ -89,6 +101,7 @@ router.get('/session', (req, res, next) => {
     res.json({
       id: user.id,
       username: user.username,
+      email: user.email
     })
   })
   .catch(next);

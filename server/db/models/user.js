@@ -15,7 +15,17 @@ module.exports = function (db) {
             }
         },
         password: {
-            type: Sequelize.STRING
+            type: Sequelize.STRING,
+            validate: {
+                notEmpty: true,
+            }
+        },
+        email: {
+            type: Sequelize.STRING,
+            validate: {
+                notEmpty: true,
+                isEmail: true
+            }
         },
         salt: {
             type: Sequelize.STRING

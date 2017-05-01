@@ -9,7 +9,8 @@ export default class SignUpForm extends Component {
       username: '',
       password: '',
       reenterPassword: '',
-      reenterDirty: false
+      reenterDirty: false,
+      email: ''
 
     };
     this.handleChange = this.handleChange.bind(this);
@@ -29,7 +30,7 @@ export default class SignUpForm extends Component {
   }
 
   submitSignUpForm(e) {
-    const { username, password, reenterPassword } = this.state;
+    const { username, password, reenterPassword, email } = this.state;
     const { requestSignUp } = this.props;
 
     e.preventDefault();
@@ -37,12 +38,13 @@ export default class SignUpForm extends Component {
     requestSignUp({
       username,
       password,
-      reenterPassword
+      reenterPassword,
+      email
     });
   }
 
   checkValidationState() {
-    const { username, password, reenterPassword, reenterDirty } = this.state;
+    const { username, password, reenterPassword, reenterDirty, email } = this.state;
 
     if (reenterDirty) {
       if (password === reenterPassword) {
@@ -54,12 +56,12 @@ export default class SignUpForm extends Component {
   }
 
   checkFormIsValid() {
-    const { username, password, reenterPassword, reenterDirty } = this.state;
-    return username && password === reenterPassword && reenterDirty;
+    const { username, password, reenterPassword, reenterDirty, email } = this.state;
+    return username && password === reenterPassword && reenterDirty && email;
   }
 
   render() {
-    const { username, password, reenterPassword, reenterDirty } = this.state;
+    const { username, password, reenterPassword, reenterDirty, email } = this.state;
     const { isFetching, error } = this.props;
 
     return (
@@ -93,6 +95,16 @@ export default class SignUpForm extends Component {
                 name="reenterPassword"
                 type="password"
                 value={ reenterPassword }
+                onChange={this.handleChange}
+              />
+            </FormGroup>
+
+            <FormGroup>
+              <ControlLabel>Email Address</ControlLabel>
+              <FormControl
+                name="email"
+                type="email"
+                value={ email }
                 onChange={this.handleChange}
               />
             </FormGroup>
