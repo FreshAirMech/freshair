@@ -9,11 +9,15 @@
 	border-radius: 0;
 }
 
-.navbar-inverse .navbar-nav>li>a {
+#navbar a {
 	color: #222;
+	background-color: transparent;
 }
 
-.navbar-inverse .navbar-nav>li>a:focus,
-.navbar-inverse .navbar-nav>li>a:hover {
-	color: #229cdd;
+#navbar .dropdown-menu {
+	-webkit-animation: fadein 0.2s; 
+     -moz-animation: fadein 0.2s; 
+      -ms-animation: fadein 0.2s;
+       -o-animation: fadein 0.2s; 
+          animation: fadein 0.2s;
 }

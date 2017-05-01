@@ -2,12 +2,15 @@ import { connect } from 'react-redux';
 import component from './component';
 import './index.css';
 
-function mapStateToProps(state) {
-  return {};
+const mapStateToProps = (state) => {
+  return {
+    username: state.user.profile.username
+  };
 }
 
-function mapDispatchToProps(dispatch) {
-  return {};
+const mapDispatchToProps = (dispatch) => {
+  return {
+  };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(component);

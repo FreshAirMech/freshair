@@ -35,7 +35,9 @@ export default class NavBar extends Component {
                   username 
                   ? (
                       <NavDropdown eventKey={3} title={username} id="basic-nav-dropdown">
-                        <MenuItem eventKey={3.1}>Settings</MenuItem>
+                        <LinkContainer to={{ pathname: '/settings' }}>
+                          <MenuItem eventKey={3.1}>Settings</MenuItem>
+                        </LinkContainer>
                         <MenuItem divider />
                         <MenuItem onClick={requestLogout} eventKey={3.2}>Logout</MenuItem>
                       </NavDropdown>
