@@ -10,24 +10,32 @@ export default class Landing extends Component {
 
   render() {
     return (
-      <div>
-        <Row className="settings-div">
+      <div className="settings">
+        <Row id="settings-header" className="settings-row">
           <h1>Settings</h1>
         </Row>
-        <Row>
-          <Col sm={4}>
+        <Row className="settings-row">
+          <Col sm={6}>
             <Panel>
               <h3>Update Photo</h3>
+
             </Panel>
           </Col>
-          <Col sm={4}>
+          <Col sm={6}>
             <Panel>
-              <h3>Update Photo</h3>
+              <h3>Reset Password</h3>
             </Panel>
           </Col>
-          <Col sm={4}>
+        </Row>
+        <Row className="settings-row">
+          <Col sm={6}>
             <Panel>
-              <h3>Update Photo</h3>
+              <h3>Update Phone Settings</h3>
+            </Panel>
+          </Col>
+          <Col sm={6}>
+            <Panel>
+              <h3>Update Email Address</h3>
             </Panel>
           </Col>
         </Row>

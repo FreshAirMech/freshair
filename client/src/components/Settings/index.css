@@ -1,13 +1,16 @@
-.settings-div {
-	padding: 2% 10%;
+#settings-header {
 	padding-top: 85px;
 	background-color: #dbdbdb;
 }
 
-.settings-div h1 {
+.settings-row {
+	padding: 2% 10%;
+}
+
+.settings h1 {
 	font-weight: bold;
 }
 
-.settings-div h3 {
+.settings h3 {
 	text-align: center;
 }
