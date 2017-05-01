@@ -7,10 +7,6 @@ html, body {
   font-family: "Trebuchet MS", sans-serif;
 }
 
-div {
-  overflow: hidden;
-}
-
 #banner {
   width: 100%;
   float: left;
