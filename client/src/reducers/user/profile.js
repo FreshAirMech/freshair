@@ -11,7 +11,8 @@ export default (state = initialState, action) => {
         ...state,
         username: action.result.username,
         id: action.result.id,
-        email: action.result.email
+        email: action.result.email,
+        phone: action.result.phone
       };
     case ConstsUser.CHECKINFO_REQUEST:
       return {

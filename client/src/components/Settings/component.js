@@ -9,7 +9,8 @@ export default class Settings extends Component {
       newEmail: '',
       reenterNewEmail: '',
       reenterDirty: false,
-      newPhone: this.props.phone || ''
+      newPhone: '',
+      phoneFormDirty: false
     };
     this.handleChange = this.handleChange.bind(this);
     this.submitPhoneForm = this.submitPhoneForm.bind(this);
@@ -21,6 +22,11 @@ export default class Settings extends Component {
       this.setState({
         reenterDirty: true
       });
+    }
+    if (e.target.name === 'newPhone' && !this.state.phoneFormDirty) {
+      this.setState({
+        phoneFormDirty: true
+      })
     }
 
     this.setState({
@@ -68,7 +74,7 @@ export default class Settings extends Component {
 
   isPhoneNumber() {
     const { newPhone } = this.state;
-    if (newPhone.length !== 10) return false;
+    if (!newPhone || newPhone.length !== 10) return false;
     for (let i = 0; i < newPhone.length; i++) {
       let digit = newPhone.toString()[i];
       let diff = digit - '0';
@@ -86,8 +92,8 @@ export default class Settings extends Component {
   }
 
   render() {
-    const { email, isFetching, error } = this.props;
-    const { newEmail, reenterNewEmail, newPhone } = this.state;
+    const { email, isFetching, error, phone } = this.props;
+    const { newEmail, reenterNewEmail, newPhone, phoneFormDirty } = this.state;
     return (
       <div className="settings">
         <Row id="settings-header" className="settings-row">
@@ -117,7 +123,7 @@ export default class Settings extends Component {
                     name="newPhone"
                     type="text"
                     maxLength={10}
-                    value={ newPhone }
+                    value={ phoneFormDirty ? newPhone : phone }
                     onChange={this.handleChange}
                   />
                 </FormGroup>
