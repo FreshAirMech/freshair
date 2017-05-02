@@ -24,14 +24,11 @@ router.post('/login', (req, res, next) => {
       req.session.user = {
         id: user.id,
         username: user.username,
-        email: user.email
+        email: user.email,
+        phone: user.phone
       };
       
-      res.json({
-        id: user.id,
-        username: user.username,
-        email: user.email
-      });
+      res.json(req.session.user);
     } else {
       const error = new Error('Incorrect Password.');
       error.status = 400;
