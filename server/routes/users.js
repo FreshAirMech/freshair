@@ -19,30 +19,46 @@ router.put('/changeInfo', function(req, res, next) {
     next(error);
     return;
   }
-  User.findOne({
-    where: {
-      email: req.body.newEmail
-    }
-  })
-  .then(user => {
-    if (user) {
-      const error = new Error('New email already in use.');
-      error.status = 400;
-      throw error;
-    }
-    return User.findOne({
+  if (req.body.newPhone) {
+    User.findOne({
       where: {
         username: req.body.username
       }
-    });
-  })
-  .then(user => {
-    return user.update({email: req.body.newEmail})
-  })
-  .then(user => {
-    res.json(user);
-  })
-  .catch(next);
+    })
+    .then(user => {
+      return user.update({phone: req.body.newPhone})
+    })
+    .then(user => {
+      res.json(user);
+    })
+    .catch(next);
+  }
+  if (req.body.newEmail) {
+    User.findOne({
+      where: {
+        email: req.body.newEmail
+      }
+    })
+    .then(user => {
+      if (user) {
+        const error = new Error('New email already in use.');
+        error.status = 400;
+        throw error;
+      }
+      return User.findOne({
+        where: {
+          username: req.body.username
+        }
+      });
+    })
+    .then(user => {
+      return user.update({email: req.body.newEmail})
+    })
+    .then(user => {
+      res.json(user);
+    })
+    .catch(next);
+  }
 });
 
 router.param('userId', function(req, res, next, userId) {
