@@ -20,12 +20,14 @@ export default (state = initialState, action) => {
         error: null
       };
     case ConstsUser.CHECKINFO_SUCCESS:
-      return {
+      let returnObj = {
         ...state,
-        email: action.result.email,
         isFetching: false,
         error: null
       };
+      if (action.result.email) returnObj['email'] = action.result.email;
+      if (action.result.phone) returnObj['phone'] = action.result.phone;
+      return returnObj;
     case ConstsUser.CHECKINFO_FAILED:
       return {
         ...state,

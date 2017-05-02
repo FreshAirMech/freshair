@@ -27,6 +27,12 @@ module.exports = function (db) {
                 isEmail: true
             }
         },
+        phone: {
+            type: Sequelize.STRING,
+            validate: {
+                isNumeric: true
+            }
+        },
         salt: {
             type: Sequelize.STRING
         },

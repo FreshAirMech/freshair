@@ -70,20 +70,18 @@ router.post('/signup', (req, res, next) => {
     return User.create({
       username: req.body.username,
       password: req.body.password,
-      email: req.body.email
+      email: req.body.email,
+      phone: req.body.phone
     });
   })
   .then(user => {
     req.session.user = {
       id: user.id,
       username: user.username,
-      email: user.email
+      email: user.email,
+      phone: user.phone
     };
-    res.json({
-      id: user.id,
-      username: user.username,
-      email: user.email
-    });
+    res.json(req.session.user);
   })
   .catch(next);
 });
@@ -101,7 +99,8 @@ router.get('/session', (req, res, next) => {
     res.json({
       id: user.id,
       username: user.username,
-      email: user.email
+      email: user.email,
+      phone: user.phone
     })
   })
   .catch(next);

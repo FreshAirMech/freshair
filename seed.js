@@ -32,7 +32,9 @@ const seedUsers = function () {
         },
         {
             username: 'm',
-            password: 'm'
+            password: 'm',
+            email: 'm@m.com',
+            phone: '7188885555'
         },
     ];
 

@@ -66,21 +66,21 @@ export default class Settings extends Component {
     return null;
   }
 
+  isPhoneNumber() {
+    const { newPhone } = this.state;
+    if (newPhone.length !== 10) return false;
+    for (let i = 0; i < newPhone.length; i++) {
+      let digit = newPhone.toString()[i];
+      let diff = digit - '0';
+      if (isNaN(diff) || diff > 9 || diff < 0) return false;
+    }
+    return true;
+  }
+
   checkFormIsValid(form) {
-    const { newEmail, reenterNewEmail, newPhone } = this.state;
+    const { newEmail, reenterNewEmail } = this.state;
     const { email } = this.props;
-    function isPhoneNumber(value) {
-      if (value.length !== 10) return false;
-      for (let i = 0; i < value.length; i++) {
-        let digit = value.toString()[i];
-        let diff = digit - '0';
-        if (isNaN(diff) || diff > 9 || diff < 0) return false;
-      }
-      return true;
-    }
-    if (form === 'phone') {
-      return newPhone && isPhoneNumber(newPhone);
-    }
+    
     if (form === 'email')
       return newEmail && reenterNewEmail && newEmail === reenterNewEmail && newEmail !== email;
   }
@@ -123,7 +123,7 @@ export default class Settings extends Component {
                 </FormGroup>
 
                 <FormGroup validationState="error" className="auth-form-error">
-                  <Button type="submit" disabled={ !this.checkFormIsValid('phone') } bsStyle="success">
+                  <Button type="submit" disabled={ !this.isPhoneNumber() } bsStyle="success">
                     { isFetching ? <Spinner /> : 'Confirm Phone Changes' }
                   </Button>
                   {

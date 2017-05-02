@@ -10,8 +10,8 @@ export default class SignUpForm extends Component {
       password: '',
       reenterPassword: '',
       reenterDirty: false,
-      email: ''
-
+      email: '',
+      phone: ''
     };
     this.handleChange = this.handleChange.bind(this);
     this.submitSignUpForm = this.submitSignUpForm.bind(this);
@@ -30,7 +30,7 @@ export default class SignUpForm extends Component {
   }
 
   submitSignUpForm(e) {
-    const { username, password, reenterPassword, email } = this.state;
+    const { username, password, reenterPassword, email, phone } = this.state;
     const { requestSignUp } = this.props;
 
     e.preventDefault();
@@ -39,12 +39,25 @@ export default class SignUpForm extends Component {
       username,
       password,
       reenterPassword,
-      email
+      email,
+      phone
     });
   }
 
+  isPhoneNumber(bool) {
+    const { phone } = this.state;
+    if (phone.length === 0) return bool ? false : null;
+    if (phone.length !== 10) return bool ? false : 'error';
+    for (let i = 0; i < phone.length; i++) {
+      let digit = phone.toString()[i];
+      let diff = digit - '0';
+      if (isNaN(diff) || diff > 9 || diff < 0) return bool? false : 'error';
+    }
+    return bool ? true : 'success';
+  }
+
   checkValidationState() {
-    const { username, password, reenterPassword, reenterDirty, email } = this.state;
+    const { username, password, reenterPassword, reenterDirty } = this.state;
 
     if (reenterDirty) {
       if (password === reenterPassword) {
@@ -56,12 +69,13 @@ export default class SignUpForm extends Component {
   }
 
   checkFormIsValid() {
-    const { username, password, reenterPassword, reenterDirty, email } = this.state;
-    return username && password === reenterPassword && reenterDirty && email;
+    const { username, password, reenterPassword, reenterDirty, email, phone } = this.state;
+    return username && password === reenterPassword && reenterDirty && email 
+    && phone && this.isPhoneNumber(true);
   }
 
   render() {
-    const { username, password, reenterPassword, reenterDirty, email } = this.state;
+    const { username, password, reenterPassword, reenterDirty, email, phone } = this.state;
     const { isFetching, error } = this.props;
 
     return (
@@ -105,6 +119,17 @@ export default class SignUpForm extends Component {
                 name="email"
                 type="email"
                 value={ email }
+                onChange={this.handleChange}
+              />
+            </FormGroup>
+
+            <FormGroup validationState={ this.isPhoneNumber(false) }>
+              <ControlLabel>Phone Number (10 digits, no formatting)</ControlLabel>
+              <FormControl
+                name="phone"
+                type="text"
+                maxLength={10}
+                value={ phone }
                 onChange={this.handleChange}
               />
             </FormGroup>
