@@ -13,4 +13,13 @@
 
 .settings h3 {
 	text-align: center;
+	margin-bottom: 30px;
+}
+
+.settings {
+	font-size: 16px;
+}
+
+.settings label {
+	color: #919191;
 }
