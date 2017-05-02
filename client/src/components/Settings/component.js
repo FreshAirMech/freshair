@@ -9,7 +9,7 @@ export default class Settings extends Component {
       newEmail: '',
       reenterNewEmail: '',
       reenterDirty: false,
-      newPhone: this.props.phone || null
+      newPhone: this.props.phone || ''
     };
     this.handleChange = this.handleChange.bind(this);
     this.submitPhoneForm = this.submitPhoneForm.bind(this);
@@ -69,11 +69,18 @@ export default class Settings extends Component {
   checkFormIsValid(form) {
     const { newEmail, reenterNewEmail, newPhone } = this.state;
     const { email } = this.props;
-    function isInt(value) {
-      return !isNaN(value) && (function(x) { return (x | 0) === x; })(parseFloat(value))
+    function isPhoneNumber(value) {
+      if (value.length !== 10) return false;
+      for (let i = 0; i < value.length; i++) {
+        let digit = value.toString()[i];
+        let diff = digit - '0';
+        if (isNaN(diff) || diff > 9 || diff < 0) return false;
+      }
+      return true;
     }
-    if (form === 'phone')
-      return newPhone && isInt(newPhone) && newPhone.toString().length === 10;
+    if (form === 'phone') {
+      return newPhone && isPhoneNumber(newPhone);
+    }
     if (form === 'email')
       return newEmail && reenterNewEmail && newEmail === reenterNewEmail && newEmail !== email;
   }
@@ -108,7 +115,8 @@ export default class Settings extends Component {
                   <ControlLabel><label>Phone Number (10 digits, no formatting)</label></ControlLabel>
                   <FormControl
                     name="newPhone"
-                    type="number"
+                    type="text"
+                    maxLength={10}
                     value={ newPhone }
                     onChange={this.handleChange}
                   />
