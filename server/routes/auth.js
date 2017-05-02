@@ -57,7 +57,7 @@ router.post('/signup', (req, res, next) => {
       ]
     }
   })
-  .then(function (user) {
+  .then(user => {
     if (user) {
       var error;
       if (user.username === req.body.username)
@@ -73,7 +73,7 @@ router.post('/signup', (req, res, next) => {
       email: req.body.email
     });
   })
-  .then(function (user) {
+  .then(user => {
     req.session.user = {
       id: user.id,
       username: user.username,
@@ -97,7 +97,7 @@ router.get('/session', (req, res, next) => {
   }
 
   User.findById(req.session.user.id)
-  .then(function (user) {
+  .then(user => {
     res.json({
       id: user.id,
       username: user.username,

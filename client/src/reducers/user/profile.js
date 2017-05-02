@@ -22,6 +22,7 @@ export default (state = initialState, action) => {
     case ConstsUser.CHECKINFO_SUCCESS:
       return {
         ...state,
+        email: action.result.email,
         isFetching: false,
         error: null
       };

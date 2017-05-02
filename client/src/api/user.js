@@ -2,12 +2,12 @@
 import { baseFetchOptions, checkStatus } from './utils';
 
 export const requestCheckInfo = (userInfo) => {
-  return fetch('/users/check', {
+  return fetch('/users/changeInfo', {
     ...baseFetchOptions,
     headers: {
       'Content-Type': 'application/json'
     },
-    method: 'GET',
+    method: 'PUT',
     body: JSON.stringify(userInfo)
   })
   .then(res => res.json())

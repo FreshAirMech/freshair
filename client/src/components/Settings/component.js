@@ -27,12 +27,13 @@ export default class Settings extends Component {
   }
 
   submitUpdateForm(e) {
-    const { newEmail, reenterNewEmail, email } = this.state;
-    const { requestCheckInfo } = this.props;
+    const { newEmail, reenterNewEmail } = this.state;
+    const { requestCheckInfo, username, email } = this.props;
 
     e.preventDefault();
 
     requestCheckInfo({
+      username,
       newEmail,
       reenterNewEmail
     });
@@ -40,6 +41,7 @@ export default class Settings extends Component {
 
   checkValidationState() {
     const { newEmail, reenterNewEmail, reenterDirty } = this.state;
+    const { email } = this.props;
 
     if (reenterDirty) {
       if (newEmail === reenterNewEmail) {
@@ -52,7 +54,8 @@ export default class Settings extends Component {
 
   checkFormIsValid() {
     const { newEmail, reenterNewEmail } = this.state;
-    return newEmail === reenterNewEmail;
+    const { email } = this.props;
+    return newEmail === reenterNewEmail && newEmail !== email;
   }
 
   render() {
