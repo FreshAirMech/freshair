@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Col, Row, Panel, Form, FormGroup, FormControl, ControlLabel, Button } from 'react-bootstrap/lib';
+import { Col, Row, Panel, Form, FormGroup, FormControl, ControlLabel, Button, HelpBlock } from 'react-bootstrap/lib';
 import Spinner from 'lib/Spinner';
 
 export default class Settings extends Component {
@@ -133,6 +133,7 @@ export default class Settings extends Component {
     const { email, isFetching, error, phone } = this.props;
     const { oldPassword, newPassword, reenterNewPassword,
             newEmail, reenterNewEmail, newPhone, phoneFormDirty } = this.state;
+    let doPasswordsMatch = this.checkValidationState('password');
     return (
       <div className="settings">
         <Row id="settings-header" className="settings-row">
@@ -151,7 +152,7 @@ export default class Settings extends Component {
 
               <Form onSubmit={this.submitPasswordForm}>
                 <FormGroup>
-                  <ControlLabel><label>Old Password</label></ControlLabel>
+                  <ControlLabel>Old Password</ControlLabel>
                   <FormControl
                     name="oldPassword"
                     type="password"
@@ -161,7 +162,7 @@ export default class Settings extends Component {
                 </FormGroup>
 
                 <FormGroup>
-                  <ControlLabel><label>New Password</label></ControlLabel>
+                  <ControlLabel>New Password</ControlLabel>
                   <FormControl
                     name="newPassword"
                     type="password"
@@ -170,14 +171,23 @@ export default class Settings extends Component {
                   />
                 </FormGroup>
 
-                <FormGroup validationState={ this.checkValidationState('password') }>
-                  <ControlLabel><label>Confirm New Password</label></ControlLabel>
+                <FormGroup
+                  controlId={ doPasswordsMatch ? 
+                              "formValidationSuccess2" :
+                              "formValidationError2" }
+                  validationState={ doPasswordsMatch }
+                >
+                  <ControlLabel>Re-enter New Password</ControlLabel>
                   <FormControl
                     name="reenterNewPassword"
                     type="password"
                     value={ reenterNewPassword }
                     onChange={this.handleChange}
                   />
+                  <FormControl.Feedback />
+                  {
+                    (doPasswordsMatch === 'error' && reenterNewPassword) && <HelpBlock>Re-enter new password correctly.</HelpBlock>
+                  }
                 </FormGroup>
 
                 <FormGroup validationState="error" className="auth-form-error">
@@ -200,12 +210,12 @@ export default class Settings extends Component {
 
               <Form onSubmit={this.submitPhoneForm}>
                 <FormGroup>
-                  <ControlLabel><label>Phone Number (10 digits, no formatting)</label></ControlLabel>
+                  <ControlLabel>Phone Number (10 digits, no formatting)</ControlLabel>
                   <FormControl
                     name="newPhone"
                     type="text"
                     maxLength={10}
-                    value={ phoneFormDirty ? newPhone : phone }
+                    value={ phoneFormDirty ? newPhone : (phone || '') }
                     onChange={this.handleChange}
                   />
                 </FormGroup>
@@ -230,7 +240,7 @@ export default class Settings extends Component {
 
               <Form onSubmit={this.submitEmailForm}>
                 <FormGroup>
-                  <ControlLabel><label>New Email Address</label></ControlLabel>
+                  <ControlLabel>New Email Address</ControlLabel>
                   <FormControl
                     name="newEmail"
                     type="email"
@@ -240,7 +250,7 @@ export default class Settings extends Component {
                 </FormGroup>
 
                 <FormGroup validationState={ this.checkValidationState('email') }>
-                  <ControlLabel><label>Confirm New Email</label></ControlLabel>
+                  <ControlLabel>Re-enter New Email</ControlLabel>
                   <FormControl
                     name="reenterNewEmail"
                     type="email"

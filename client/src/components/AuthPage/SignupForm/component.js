@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Panel, Button, Form, FormGroup, ControlLabel, FormControl, HelpBlock } from 'react-bootstrap/lib';
 import Spinner from 'lib/Spinner';
+import authFunctions from 'lib/functions/authentication';
 
 export default class SignUpForm extends Component {
   constructor(props) {
@@ -51,7 +52,7 @@ export default class SignUpForm extends Component {
     for (let i = 0; i < phone.length; i++) {
       let digit = phone.toString()[i];
       let diff = digit - '0';
-      if (isNaN(diff) || diff > 9 || diff < 0) return bool? false : 'error';
+      if (isNaN(diff) || diff > 9 || diff < 0) return bool ? false : 'error';
     }
     return bool ? true : 'success';
   }
@@ -77,7 +78,7 @@ export default class SignUpForm extends Component {
   render() {
     const { username, password, reenterPassword, reenterDirty, email, phone } = this.state;
     const { isFetching, error } = this.props;
-
+    let validPassword = authFunctions.isPasswordValid(password), doPasswordsMatch = this.checkValidationState();
     return (
       <div className="signupPanel">
         <Panel header="Sign Up" bsStyle="success">
@@ -93,7 +94,12 @@ export default class SignUpForm extends Component {
               />
             </FormGroup>
 
-            <FormGroup>
+            <FormGroup
+              controlId={ validPassword ? 
+                              "formValidationSuccess2" :
+                              "formValidationError2" }
+              validationState={ password ? (validPassword ? 'success' : 'error') : null}
+            >
               <ControlLabel>Password</ControlLabel>
               <FormControl
                 name="password"
@@ -101,9 +107,22 @@ export default class SignUpForm extends Component {
                 value={ password }
                 onChange={this.handleChange}
               />
+              <FormControl.Feedback />
+              {
+                (!validPassword && password) && 
+                <HelpBlock>
+                  Enter a password between 7-14 characters, with
+                  at least one capital letter and at least one number.
+                </HelpBlock>
+              }
             </FormGroup>
 
-            <FormGroup validationState={ this.checkValidationState() }>
+            <FormGroup 
+              controlId={ doPasswordsMatch ? 
+                              "formValidationSuccess2" :
+                              "formValidationError2" }
+              validationState={ doPasswordsMatch }
+            >
               <ControlLabel>Re-enter Password</ControlLabel>
               <FormControl
                 name="reenterPassword"
@@ -111,6 +130,10 @@ export default class SignUpForm extends Component {
                 value={ reenterPassword }
                 onChange={this.handleChange}
               />
+              <FormControl.Feedback />
+              {
+                (doPasswordsMatch === 'error' && reenterPassword) && <HelpBlock>Re-enter password correctly.</HelpBlock>
+              }
             </FormGroup>
 
             <FormGroup>
