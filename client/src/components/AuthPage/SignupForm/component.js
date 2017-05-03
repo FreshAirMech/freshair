@@ -72,7 +72,8 @@ export default class SignUpForm extends Component {
   checkFormIsValid() {
     const { username, password, reenterPassword, reenterDirty, email, phone } = this.state;
     return username && password === reenterPassword && reenterDirty && email 
-    && phone && this.isPhoneNumber(true);
+    && phone && this.isPhoneNumber(true) && 
+    authFunctions.isPasswordValid(password) && this.checkValidationState();
   }
 
   render() {

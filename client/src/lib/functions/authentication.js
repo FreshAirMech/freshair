@@ -6,7 +6,6 @@ module.exports = {
     	if (pass[i] === pass[i].toUpperCase() && pass[i] !== pass[i].toLowerCase()) 
     		capitalLetterExists = true;
     	if (parseInt(pass[i], 10) > 0) numberExists = true;
-    	console.log(pass[i]-'A', numberExists)
     }
     if (!capitalLetterExists || !numberExists) return false;
     return true;

@@ -51,8 +51,7 @@ router.put('/changeInfo', function(req, res, next) {
       else {
         const error = new Error('You entered your old password incorrectly.');
         error.status = 400;
-        next(error);
-        return;
+        throw error;
       }
     })
     .then(user => {

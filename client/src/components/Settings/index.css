@@ -23,3 +23,7 @@
 .settings label {
 	color: #919191;
 }
+
+.settings .has-feedback label~.form-control-feedback {
+	top: 28px;
+}

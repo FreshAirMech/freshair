@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Col, Row, Panel, Form, FormGroup, FormControl, ControlLabel, Button, HelpBlock } from 'react-bootstrap/lib';
 import Spinner from 'lib/Spinner';
+import authFunctions from 'lib/functions/authentication';
 
 export default class Settings extends Component {
   constructor(props) {
@@ -125,15 +126,17 @@ export default class Settings extends Component {
     
     if (form === 'email')
       return newEmail && reenterNewEmail && newEmail === reenterNewEmail && newEmail !== email;
-    if (form === 'password')
-      return oldPassword && newPassword && reenterNewPassword && newPassword === reenterNewPassword;
+    if (form === 'password') {
+      return oldPassword && newPassword && reenterNewPassword && newPassword === reenterNewPassword
+      && authFunctions.isPasswordValid(newPassword) && this.checkValidationState('password');
+    }
   }
 
   render() {
     const { email, isFetching, error, phone } = this.props;
     const { oldPassword, newPassword, reenterNewPassword,
             newEmail, reenterNewEmail, newPhone, phoneFormDirty } = this.state;
-    let doPasswordsMatch = this.checkValidationState('password');
+    let validPassword = authFunctions.isPasswordValid(newPassword), doPasswordsMatch = this.checkValidationState('password');
     return (
       <div className="settings">
         <Row id="settings-header" className="settings-row">
@@ -161,7 +164,12 @@ export default class Settings extends Component {
                   />
                 </FormGroup>
 
-                <FormGroup>
+                <FormGroup
+                  controlId={ validPassword ? 
+                                  "formValidationSuccess2" :
+                                  "formValidationError2" }
+                  validationState={ newPassword ? (validPassword ? 'success' : 'error') : null}
+                >
                   <ControlLabel>New Password</ControlLabel>
                   <FormControl
                     name="newPassword"
@@ -169,6 +177,14 @@ export default class Settings extends Component {
                     value={ newPassword }
                     onChange={this.handleChange}
                   />
+                  <FormControl.Feedback />
+                  {
+                    (!validPassword && newPassword) && 
+                    <HelpBlock>
+                      Enter a new password between 7-14 characters, with
+                      at least one capital letter and at least one number.
+                    </HelpBlock>
+                  }
                 </FormGroup>
 
                 <FormGroup
