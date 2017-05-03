@@ -35,7 +35,7 @@ router.put('/changeInfo', function(req, res, next) {
       return user.update({phone: req.body.newPhone})
     })
     .then(user => {
-      res.json(user);
+      res.json({newPhone: req.body.newPhone});
     })
     .catch(next);
   }
@@ -55,7 +55,7 @@ router.put('/changeInfo', function(req, res, next) {
       }
     })
     .then(user => {
-      res.json(user);
+      res.json({newPassword: req.body.newPassword});
     })
     .catch(next);
   }
@@ -81,7 +81,7 @@ router.put('/changeInfo', function(req, res, next) {
       return user.update({email: req.body.newEmail})
     })
     .then(user => {
-      res.json(user);
+      res.json({newEmail: req.body.newEmail});
     })
     .catch(next);
   }

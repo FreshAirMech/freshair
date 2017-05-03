@@ -15,26 +15,52 @@ export default (state = initialState, action) => {
         phone: action.result.phone
       };
     case ConstsUser.CHECKINFO_REQUEST:
-      return {
-        ...state,
-        isFetching: true,
-        error: null
-      };
+      let returnObjRequest = {...state};
+      if (action.userInfo.newPassword) {
+        returnObjRequest['isFetchingPassword'] = true;
+        returnObjRequest['errorPassword'] = null;
+      }
+      else if (action.userInfo.newEmail) {
+        returnObjRequest['isFetchingEmail'] = true;
+        returnObjRequest['errorEmail'] = null;
+      }
+      else {
+        returnObjRequest['isFetchingPhone'] = true;
+        returnObjRequest['errorPhone'] = null;
+      }
+      return returnObjRequest;
     case ConstsUser.CHECKINFO_SUCCESS:
-      let returnObj = {
-        ...state,
-        isFetching: false,
-        error: null
-      };
-      if (action.result.email) returnObj['email'] = action.result.email;
-      if (action.result.phone) returnObj['phone'] = action.result.phone;
-      return returnObj;
+      let returnObjSuccess = {...state};
+      if (action.result.newEmail) {
+        returnObjSuccess['email'] = action.result.newEmail;
+        returnObjSuccess['isFetchingEmail'] = false;
+        returnObjSuccess['errorEmail'] = null;
+      }
+      else if (action.result.newPhone) {
+        returnObjSuccess['phone'] = action.result.newPhone;
+        returnObjSuccess['isFetchingPhone'] = false;
+        returnObjSuccess['errorPhone'] = null;
+      }
+      else {
+        returnObjSuccess['isFetchingPassword'] = false;
+        returnObjSuccess['errorPassword'] = null;
+      }
+      return returnObjSuccess;
     case ConstsUser.CHECKINFO_FAILED:
-      return {
-        ...state,
-        isFetching: false,
-        error: action.error
-      };
+      let returnObjFailed = {...state};
+      if (action.error.message.search(/email/i) > 0) {
+        returnObjFailed['isFetchingEmail'] = false;
+        returnObjFailed['errorEmail'] = action.error;
+      }
+      else if (action.error.message.search(/password/i) > 0) {
+        returnObjFailed['isFetchingPassword'] = false;
+        returnObjFailed['errorPassword'] = action.error;
+      }
+      else {
+        returnObjFailed['isFetchingPhone'] = false;
+        returnObjFailed['errorPhone'] = action.error;
+      }
+      return returnObjFailed;
     case ConstsAuth.SESSION_FAILED:
     case ConstsAuth.LOGOUT_SUCCESS:
       return {};

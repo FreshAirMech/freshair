@@ -134,7 +134,10 @@ export default class Settings extends Component {
   }
 
   render() {
-    const { email, isFetching, error, phone } = this.props;
+    const { email, phone,
+            isFetchingEmail, errorEmail,
+            isFetchingPhone, errorPhone,
+            isFetchingPassword, errorPassword } = this.props;
     const { oldPassword, newPassword, reenterNewPassword,
             newEmail, reenterNewEmail, newPhone, phoneFormDirty } = this.state;
     let validPassword = authFunctions.isPasswordValid(newPassword),
@@ -205,10 +208,10 @@ export default class Settings extends Component {
 
                 <FormGroup validationState="error" className="auth-form-error">
                   <Button type="submit" disabled={ !this.checkFormIsValid('password') } bsStyle="success">
-                    { isFetching ? <Spinner /> : 'Confirm Password Changes' }
+                    { isFetchingPassword ? <Spinner /> : 'Confirm Password Changes' }
                   </Button>
                   {
-                    (!isFetching && error) && <ControlLabel className="auth-form-error-message">{ error.message }</ControlLabel>
+                    (!isFetchingPassword && errorPassword) && <ControlLabel className="auth-form-error-message">{ errorPassword.message }</ControlLabel>
                   }
                 </FormGroup>
 
@@ -235,10 +238,10 @@ export default class Settings extends Component {
 
                 <FormGroup validationState="error" className="auth-form-error">
                   <Button type="submit" disabled={ !this.isPhoneNumber() } bsStyle="success">
-                    { isFetching ? <Spinner /> : 'Confirm Phone Changes' }
+                    { isFetchingPhone ? <Spinner /> : 'Confirm Phone Changes' }
                   </Button>
                   {
-                    (!isFetching && error) && <ControlLabel className="auth-form-error-message">{ error.message }</ControlLabel>
+                    (!isFetchingPhone && errorPhone) && <ControlLabel className="auth-form-error-message">{ errorPhone.message }</ControlLabel>
                   }
                 </FormGroup>
 
@@ -280,10 +283,10 @@ export default class Settings extends Component {
 
                 <FormGroup validationState="error" className="auth-form-error">
                   <Button type="submit" disabled={ !this.checkFormIsValid('email') } bsStyle="success">
-                    { isFetching ? <Spinner /> : 'Confirm Email Changes' }
+                    { isFetchingEmail ? <Spinner /> : 'Confirm Email Changes' }
                   </Button>
                   {
-                    (!isFetching && error) && <ControlLabel className="auth-form-error-message">{ error.message }</ControlLabel>
+                    (!isFetchingEmail && errorEmail) && <ControlLabel className="auth-form-error-message">{ errorEmail.message }</ControlLabel>
                   }
                 </FormGroup>
 
