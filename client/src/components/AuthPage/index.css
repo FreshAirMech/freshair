@@ -13,10 +13,16 @@
 	height: 342px;
 }
 
-.auth-form-error .auth-form-error-message {
-	margin-left: 15px;
+.auth-form-error .auth-form-message-error {
+	margin-top: 10px;
+	display: block;
 }
 
-.auth-form-error .fa-spinner{
+.auth-form-error .auth-form-message-success {
+	margin-left: 10px;
+	color: #2ed638;
+}
+
+.auth-form .fa-spinner{
 	font-size: 1.7em;
 }

@@ -96,9 +96,6 @@ export default class SignUpForm extends Component {
             </FormGroup>
 
             <FormGroup
-              controlId={ validPassword ? 
-                              "formValidationSuccess2" :
-                              "formValidationError2" }
               validationState={ password ? (validPassword ? 'success' : 'error') : null}
             >
               <ControlLabel>Password</ControlLabel>

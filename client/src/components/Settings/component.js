@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Col, Row, Panel, Form, FormGroup, FormControl, ControlLabel, Button, HelpBlock } from 'react-bootstrap/lib';
 import Spinner from 'lib/Spinner';
 import authFunctions from 'lib/functions/authentication';
+import PasswordSettings from './Password';
 
 export default class Settings extends Component {
   constructor(props) {
@@ -15,28 +16,45 @@ export default class Settings extends Component {
       reenterNewPassword: '',
       reenterPasswordDirty: false,
       newPhone: '',
-      phoneFormDirty: false
+      phoneFormDirty: false,
+      savedPassword: false,
+      savedPhone: false,
+      savedEmail: false
     };
     this.handleChange = this.handleChange.bind(this);
     this.submitPasswordForm = this.submitPasswordForm.bind(this);
     this.submitPhoneForm = this.submitPhoneForm.bind(this);
     this.submitEmailForm = this.submitEmailForm.bind(this);
+    this.checkFormIsValid = this.checkFormIsValid.bind(this);
   }
 
   handleChange(e) {
     if (e.target.name === 'reenterNewPassword' && !this.state.reenterPasswordDirty) {
       this.setState({
-        reenterPasswordDirty: true
+        reenterPasswordDirty: true,
+        savedPassword: false
+      });
+    }
+    if (e.target.name === 'newPassword' || e.target.name === 'oldPassword') {
+      this.setState({
+        savedPassword: false
       });
     }
     if (e.target.name === 'reenterNewEmail' && !this.state.reenterEmailDirty) {
       this.setState({
-        reenterEmailDirty: true
+        reenterEmailDirty: true,
+        savedEmail: false
+      });
+    }
+    if (e.target.name === 'newEmail') {
+      this.setState({
+        savedEmail: false
       });
     }
     if (e.target.name === 'newPhone' && !this.state.phoneFormDirty) {
       this.setState({
-        phoneFormDirty: true
+        phoneFormDirty: true,
+        savedPhone: false
       })
     }
 
@@ -54,7 +72,8 @@ export default class Settings extends Component {
     this.setState({
       oldPassword: '',
       newPassword: '',
-      reenterNewPassword: ''
+      reenterNewPassword: '',
+      savedPassword: true
     })
 
     requestCheckInfo({
@@ -71,6 +90,10 @@ export default class Settings extends Component {
 
     e.preventDefault();
 
+    this.setState({
+      savedPhone: true
+    })
+
     requestCheckInfo({
       username,
       newPhone
@@ -85,7 +108,8 @@ export default class Settings extends Component {
 
     this.setState({
       newEmail: '',
-      reenterNewEmail: ''
+      reenterNewEmail: '',
+      savedEmail: true
     })
 
     requestCheckInfo({
@@ -139,7 +163,8 @@ export default class Settings extends Component {
             isFetchingPhone, errorPhone,
             isFetchingPassword, errorPassword } = this.props;
     const { oldPassword, newPassword, reenterNewPassword,
-            newEmail, reenterNewEmail, newPhone, phoneFormDirty } = this.state;
+            newEmail, reenterNewEmail, newPhone, phoneFormDirty,
+            savedPassword, savedEmail, savedPhone } = this.state;
     let validPassword = authFunctions.isPasswordValid(newPassword),
         doPasswordsMatch = this.checkValidationState('password'),
         doEmailsMatch = this.checkValidationState('email');
@@ -156,67 +181,19 @@ export default class Settings extends Component {
             </Panel>
           </Col>
           <Col sm={6}>
-            <Panel>
-              <h3>Reset Password</h3>
-
-              <Form onSubmit={this.submitPasswordForm}>
-                <FormGroup>
-                  <ControlLabel>Old Password</ControlLabel>
-                  <FormControl
-                    name="oldPassword"
-                    type="password"
-                    value={ oldPassword }
-                    onChange={this.handleChange}
-                  />
-                </FormGroup>
-
-                <FormGroup
-                  validationState={ newPassword ? (validPassword ? 'success' : 'error') : null}
-                >
-                  <ControlLabel>New Password</ControlLabel>
-                  <FormControl
-                    name="newPassword"
-                    type="password"
-                    value={ newPassword }
-                    onChange={this.handleChange}
-                  />
-                  <FormControl.Feedback />
-                  {
-                    (!validPassword && newPassword) && 
-                    <HelpBlock>
-                      Enter a new password between 7-14 characters, with
-                      at least one capital letter and at least one number.
-                    </HelpBlock>
-                  }
-                </FormGroup>
-
-                <FormGroup
-                  validationState={ doPasswordsMatch }
-                >
-                  <ControlLabel>Re-enter New Password</ControlLabel>
-                  <FormControl
-                    name="reenterNewPassword"
-                    type="password"
-                    value={ reenterNewPassword }
-                    onChange={this.handleChange}
-                  />
-                  <FormControl.Feedback />
-                  {
-                    (doPasswordsMatch === 'error' && reenterNewPassword) && <HelpBlock>Re-enter new password correctly.</HelpBlock>
-                  }
-                </FormGroup>
-
-                <FormGroup validationState="error" className="auth-form-error">
-                  <Button type="submit" disabled={ !this.checkFormIsValid('password') } bsStyle="success">
-                    { isFetchingPassword ? <Spinner /> : 'Confirm Password Changes' }
-                  </Button>
-                  {
-                    (!isFetchingPassword && errorPassword) && <ControlLabel className="auth-form-error-message">{ errorPassword.message }</ControlLabel>
-                  }
-                </FormGroup>
-
-              </Form>
-            </Panel>
+            <PasswordSettings 
+              isFetchingPassword={isFetchingPassword}
+              errorPassword={errorPassword}
+              oldPassword={oldPassword}
+              newPassword={newPassword}
+              reenterNewPassword={reenterNewPassword}
+              doPasswordsMatch={doPasswordsMatch}
+              validPassword={validPassword}
+              submitPasswordForm={this.submitPasswordForm}
+              handleChange={this.handleChange}
+              checkFormIsValid={this.checkFormIsValid}
+              savedPassword={savedPassword}
+            />
           </Col>
         </Row>
         <Row className="settings-row">
@@ -241,7 +218,7 @@ export default class Settings extends Component {
                     { isFetchingPhone ? <Spinner /> : 'Confirm Phone Changes' }
                   </Button>
                   {
-                    (!isFetchingPhone && errorPhone) && <ControlLabel className="auth-form-error-message">{ errorPhone.message }</ControlLabel>
+                    (!isFetchingPhone && errorPhone) && <ControlLabel className="auth-form-message-error">{ errorPhone.message }</ControlLabel>
                   }
                 </FormGroup>
 
@@ -286,7 +263,7 @@ export default class Settings extends Component {
                     { isFetchingEmail ? <Spinner /> : 'Confirm Email Changes' }
                   </Button>
                   {
-                    (!isFetchingEmail && errorEmail) && <ControlLabel className="auth-form-error-message">{ errorEmail.message }</ControlLabel>
+                    (!isFetchingEmail && errorEmail) && <ControlLabel className="auth-form-message-error">{ errorEmail.message }</ControlLabel>
                   }
                 </FormGroup>
 
