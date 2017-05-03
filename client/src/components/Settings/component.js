@@ -39,6 +39,7 @@ export default class Settings extends Component {
         phoneFormDirty: true
       })
     }
+    console.log(e.target.name)
 
     this.setState({
       [e.target.name]: e.target.value
@@ -136,7 +137,9 @@ export default class Settings extends Component {
     const { email, isFetching, error, phone } = this.props;
     const { oldPassword, newPassword, reenterNewPassword,
             newEmail, reenterNewEmail, newPhone, phoneFormDirty } = this.state;
-    let validPassword = authFunctions.isPasswordValid(newPassword), doPasswordsMatch = this.checkValidationState('password');
+    let validPassword = authFunctions.isPasswordValid(newPassword),
+        doPasswordsMatch = this.checkValidationState('password'),
+        doEmailsMatch = this.checkValidationState('email');
     return (
       <div className="settings">
         <Row id="settings-header" className="settings-row">
@@ -188,7 +191,7 @@ export default class Settings extends Component {
                 </FormGroup>
 
                 <FormGroup
-                  controlId={ doPasswordsMatch ? 
+                  controlId={ (newPassword && reenterNewPassword && doPasswordsMatch) ? 
                               "formValidationSuccess2" :
                               "formValidationError2" }
                   validationState={ doPasswordsMatch }
@@ -265,7 +268,12 @@ export default class Settings extends Component {
                   />
                 </FormGroup>
 
-                <FormGroup validationState={ this.checkValidationState('email') }>
+                <FormGroup
+                  controlId={ (newEmail && reenterNewEmail && doEmailsMatch) ? 
+                              "formValidationSuccess2" :
+                              "formValidationError2" }
+                  validationState={ doEmailsMatch }
+                >
                   <ControlLabel>Re-enter New Email</ControlLabel>
                   <FormControl
                     name="reenterNewEmail"
@@ -273,6 +281,10 @@ export default class Settings extends Component {
                     value={ reenterNewEmail }
                     onChange={this.handleChange}
                   />
+                  <FormControl.Feedback />
+                  {
+                    (doEmailsMatch === 'error' && reenterNewEmail) && <HelpBlock>Re-enter new email correctly.</HelpBlock>
+                  }
                 </FormGroup>
 
                 <FormGroup validationState="error" className="auth-form-error">
