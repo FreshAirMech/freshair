@@ -39,7 +39,6 @@ export default class Settings extends Component {
         phoneFormDirty: true
       })
     }
-    console.log(e.target.name)
 
     this.setState({
       [e.target.name]: e.target.value
@@ -101,13 +100,14 @@ export default class Settings extends Component {
             reenterEmailDirty, reenterPasswordDirty } = this.state;
     const { email } = this.props;
 
+    if (form === 'password' && reenterNewPassword === '') return null;
+    if (form === 'email' && reenterNewEmail === '') return null;
     if (reenterEmailDirty || reenterPasswordDirty) {
       if (form === 'email' && newEmail === reenterNewEmail ||
           form === 'password' && newPassword === reenterNewPassword) 
         return 'success';
       return 'error';
     }
-    return null;
   }
 
   isPhoneNumber() {
@@ -168,9 +168,6 @@ export default class Settings extends Component {
                 </FormGroup>
 
                 <FormGroup
-                  controlId={ validPassword ? 
-                                  "formValidationSuccess2" :
-                                  "formValidationError2" }
                   validationState={ newPassword ? (validPassword ? 'success' : 'error') : null}
                 >
                   <ControlLabel>New Password</ControlLabel>
@@ -191,9 +188,6 @@ export default class Settings extends Component {
                 </FormGroup>
 
                 <FormGroup
-                  controlId={ (newPassword && reenterNewPassword && doPasswordsMatch) ? 
-                              "formValidationSuccess2" :
-                              "formValidationError2" }
                   validationState={ doPasswordsMatch }
                 >
                   <ControlLabel>Re-enter New Password</ControlLabel>
@@ -269,9 +263,6 @@ export default class Settings extends Component {
                 </FormGroup>
 
                 <FormGroup
-                  controlId={ (newEmail && reenterNewEmail && doEmailsMatch) ? 
-                              "formValidationSuccess2" :
-                              "formValidationError2" }
                   validationState={ doEmailsMatch }
                 >
                   <ControlLabel>Re-enter New Email</ControlLabel>

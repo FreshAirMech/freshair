@@ -61,12 +61,12 @@ export default class SignUpForm extends Component {
     const { username, password, reenterPassword, reenterDirty } = this.state;
 
     if (reenterDirty) {
-      if (password === reenterPassword) {
+      if (password && reenterPassword && password === reenterPassword) {
         return 'success';
       }
+      if (reenterPassword === '') return null;
       return 'error';
     }
-    return null;
   }
 
   checkFormIsValid() {
@@ -118,11 +118,7 @@ export default class SignUpForm extends Component {
               }
             </FormGroup>
 
-            <FormGroup 
-              controlId={ doPasswordsMatch ? 
-                              "formValidationSuccess2" :
-                              "formValidationError2" }
-              validationState={ doPasswordsMatch }
+            <FormGroup validationState={ doPasswordsMatch }
             >
               <ControlLabel>Re-enter Password</ControlLabel>
               <FormControl
