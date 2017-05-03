@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Col, Row, Panel, Form, FormGroup, FormControl, ControlLabel, Button, HelpBlock } from 'react-bootstrap/lib';
 import Spinner from 'lib/Spinner';
-import authFunctions from 'lib/functions/authentication';
 
 export default (props) => {
 	let { isFetchingPassword, errorPassword, oldPassword, savedPassword,
@@ -63,7 +62,7 @@ export default (props) => {
 		        { isFetchingPassword ? <Spinner /> : 'Confirm Password Changes' }
 		      </Button>
 		      {
-		        (savedPassword && !errorPassword) && <ControlLabel className="auth-form-message-success">Saved!</ControlLabel>
+		        (savedPassword && !isFetchingPassword && !errorPassword) && <ControlLabel className="auth-form-message-success">Saved!</ControlLabel>
 		      }
 		      {
 		        (!isFetchingPassword && errorPassword) && <ControlLabel className="auth-form-message-error">{ errorPassword.message }</ControlLabel>

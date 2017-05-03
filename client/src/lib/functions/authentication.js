@@ -9,5 +9,14 @@ module.exports = {
     }
     if (!capitalLetterExists || !numberExists) return false;
     return true;
+  },
+  isPhoneNumber(number) {
+    if (!number || number.length !== 10) return false;
+    for (let i = 0; i < number.length; i++) {
+      let digit = number.toString()[i];
+      let diff = digit - '0';
+      if (isNaN(diff) || diff > 9 || diff < 0) return false;
+    }
+    return true;
   }
 }

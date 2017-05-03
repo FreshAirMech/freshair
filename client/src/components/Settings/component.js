@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { Col, Row, Panel, Form, FormGroup, FormControl, ControlLabel, Button, HelpBlock } from 'react-bootstrap/lib';
 import Spinner from 'lib/Spinner';
-import authFunctions from 'lib/functions/authentication';
+import { isPasswordValid, isPhoneNumber } from 'lib/functions/authentication';
 import PasswordSettings from './Password';
+import PhoneSettings from './Phone';
+import EmailSettings from './Email';
 
 export default class Settings extends Component {
   constructor(props) {
@@ -134,17 +136,6 @@ export default class Settings extends Component {
     }
   }
 
-  isPhoneNumber() {
-    const { newPhone } = this.state;
-    if (!newPhone || newPhone.length !== 10) return false;
-    for (let i = 0; i < newPhone.length; i++) {
-      let digit = newPhone.toString()[i];
-      let diff = digit - '0';
-      if (isNaN(diff) || diff > 9 || diff < 0) return false;
-    }
-    return true;
-  }
-
   checkFormIsValid(form) {
     const { newEmail, reenterNewEmail, oldPassword, newPassword, reenterNewPassword } = this.state;
     const { email } = this.props;
@@ -153,7 +144,7 @@ export default class Settings extends Component {
       return newEmail && reenterNewEmail && newEmail === reenterNewEmail && newEmail !== email;
     if (form === 'password') {
       return oldPassword && newPassword && reenterNewPassword && newPassword === reenterNewPassword
-      && authFunctions.isPasswordValid(newPassword) && this.checkValidationState('password');
+      && isPasswordValid(newPassword) && this.checkValidationState('password');
     }
   }
 
@@ -165,7 +156,7 @@ export default class Settings extends Component {
     const { oldPassword, newPassword, reenterNewPassword,
             newEmail, reenterNewEmail, newPhone, phoneFormDirty,
             savedPassword, savedEmail, savedPhone } = this.state;
-    let validPassword = authFunctions.isPasswordValid(newPassword),
+    let validPassword = isPasswordValid(newPassword),
         doPasswordsMatch = this.checkValidationState('password'),
         doEmailsMatch = this.checkValidationState('email');
     return (
@@ -198,77 +189,30 @@ export default class Settings extends Component {
         </Row>
         <Row className="settings-row">
           <Col sm={6}>
-            <Panel>
-              <h3>Update Phone Settings</h3>
-
-              <Form onSubmit={this.submitPhoneForm}>
-                <FormGroup>
-                  <ControlLabel>Phone Number (10 digits, no formatting)</ControlLabel>
-                  <FormControl
-                    name="newPhone"
-                    type="text"
-                    maxLength={10}
-                    value={ phoneFormDirty ? newPhone : (phone || '') }
-                    onChange={this.handleChange}
-                  />
-                </FormGroup>
-
-                <FormGroup validationState="error" className="auth-form-error">
-                  <Button type="submit" disabled={ !this.isPhoneNumber() } bsStyle="success">
-                    { isFetchingPhone ? <Spinner /> : 'Confirm Phone Changes' }
-                  </Button>
-                  {
-                    (!isFetchingPhone && errorPhone) && <ControlLabel className="auth-form-message-error">{ errorPhone.message }</ControlLabel>
-                  }
-                </FormGroup>
-
-              </Form>
-            </Panel>
+            <PhoneSettings
+              submitPhoneForm={this.submitPhoneForm}
+              handleChange={this.handleChange}
+              newPhone={newPhone}
+              phone={phone}
+              phoneFormDirty={phoneFormDirty}
+              isFetchingPhone={isFetchingPhone}
+              errorPhone={errorPhone}
+              savedPhone={savedPhone}
+            />
           </Col>
           <Col sm={6}>
-            <Panel>
-              <h3>Update Email Address</h3>
-              <label>Current Email Address</label>
-              <p>{email}</p>
-
-              <Form onSubmit={this.submitEmailForm}>
-                <FormGroup>
-                  <ControlLabel>New Email Address</ControlLabel>
-                  <FormControl
-                    name="newEmail"
-                    type="email"
-                    value={ newEmail }
-                    onChange={this.handleChange}
-                  />
-                </FormGroup>
-
-                <FormGroup
-                  validationState={ doEmailsMatch }
-                >
-                  <ControlLabel>Re-enter New Email</ControlLabel>
-                  <FormControl
-                    name="reenterNewEmail"
-                    type="email"
-                    value={ reenterNewEmail }
-                    onChange={this.handleChange}
-                  />
-                  <FormControl.Feedback />
-                  {
-                    (doEmailsMatch === 'error' && reenterNewEmail) && <HelpBlock>Re-enter new email correctly.</HelpBlock>
-                  }
-                </FormGroup>
-
-                <FormGroup validationState="error" className="auth-form-error">
-                  <Button type="submit" disabled={ !this.checkFormIsValid('email') } bsStyle="success">
-                    { isFetchingEmail ? <Spinner /> : 'Confirm Email Changes' }
-                  </Button>
-                  {
-                    (!isFetchingEmail && errorEmail) && <ControlLabel className="auth-form-message-error">{ errorEmail.message }</ControlLabel>
-                  }
-                </FormGroup>
-
-              </Form>
-            </Panel>
+            <EmailSettings
+              submitEmailForm={this.submitEmailForm}
+              handleChange={this.handleChange}
+              checkFormIsValid={this.checkFormIsValid}
+              email={email}
+              newEmail={newEmail}
+              reenterNewEmail={reenterNewEmail}
+              doEmailsMatch={doEmailsMatch}
+              isFetchingEmail={isFetchingEmail}
+              errorEmail={errorEmail}
+              savedEmail={savedEmail}
+            />
           </Col>
         </Row>
       </div>  
