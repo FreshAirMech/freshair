@@ -14,7 +14,13 @@ router.get('/', function(req, res) {
 
 router.put('/changeInfo', function(req, res, next) {
   if (req.body.newEmail !== req.body.reenterNewEmail) {
-    const error = new Error('You reentered your email incorrectly.');
+    const error = new Error('You reentered your new email incorrectly.');
+    error.status = 400;
+    next(error);
+    return;
+  }
+  if (req.body.newPassword !== req.body.reenterNewPassword) {
+    const error = new Error('You reentered your new password incorrectly.');
     error.status = 400;
     next(error);
     return;
@@ -27,6 +33,27 @@ router.put('/changeInfo', function(req, res, next) {
     })
     .then(user => {
       return user.update({phone: req.body.newPhone})
+    })
+    .then(user => {
+      res.json(user);
+    })
+    .catch(next);
+  }
+  if (req.body.newPassword) {
+    User.findOne({
+      where: {
+        username: req.body.username
+      }
+    })
+    .then(user => {
+      if (user.correctPassword(req.body.oldPassword))
+        return user.update({password: req.body.newPassword})
+      else {
+        const error = new Error('You entered your old password incorrectly.');
+        error.status = 400;
+        next(error);
+        return;
+      }
     })
     .then(user => {
       res.json(user);
