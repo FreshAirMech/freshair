@@ -25,7 +25,8 @@ router.post('/login', (req, res, next) => {
         id: user.id,
         username: user.username,
         email: user.email,
-        phone: user.phone
+        phone: user.phone,
+        photoURL: user.photoURL
       };
       
       res.json(req.session.user);

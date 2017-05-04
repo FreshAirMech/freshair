@@ -12,7 +12,8 @@ export default (state = initialState, action) => {
         username: action.result.username,
         id: action.result.id,
         email: action.result.email,
-        phone: action.result.phone
+        phone: action.result.phone,
+        photoURL: action.result.photoURL
       };
     case ConstsUser.CHANGEINFO_REQUEST:
       let returnObjRequest = {...state};
