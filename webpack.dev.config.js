@@ -22,7 +22,10 @@ module.exports = {
       lib: path.resolve(__dirname, 'client/src/lib'),
       actions: path.resolve(__dirname, 'client/src/actions'),
       constants: path.resolve(__dirname, 'client/src/constants')
-    }
+    },
+    root: [
+      path.resolve(__dirname)
+    ]
   },
   devtool: 'source-map',
   module: {

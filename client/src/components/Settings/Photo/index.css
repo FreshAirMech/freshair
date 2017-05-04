@@ -1,0 +1,21 @@
+#uploadedImg, .dropzone, .img-div {
+	width: 200px;
+	height: 200px;
+	border-radius: 10px;
+}
+
+.dropzone, .img-div {
+	margin: 54px auto;
+}
+
+.dropzone {
+	padding: 75px 0;
+  border-width: 2px;
+  border-color: rgb(102, 102, 102);
+  border-style: dashed;
+  border-radius: 10px;
+}
+
+.dropzone p {
+	text-align: center;
+}

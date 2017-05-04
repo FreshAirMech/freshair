@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import { Col, Row, Panel, Form, FormGroup, FormControl, ControlLabel, Button, HelpBlock } from 'react-bootstrap/lib';
 import Spinner from 'lib/Spinner';
 import { isPasswordValid, isPhoneNumber } from 'lib/functions/authentication';
+import { CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET, CLOUDINARY_ENV,
+          CLOUDINARY_UPLOAD_PRESET, CLOUDINARY_UPLOAD_URL } from 'secrets';
+import request from 'superagent';
+import PhotoSettings from './Photo';
 import PasswordSettings from './Password';
 import PhoneSettings from './Phone';
 import EmailSettings from './Email';
@@ -10,6 +14,7 @@ export default class Settings extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      uploadedFileCloudinaryUrl: '',
       newEmail: '',
       reenterNewEmail: '',
       reenterEmailDirty: false,
@@ -24,6 +29,8 @@ export default class Settings extends Component {
       savedEmail: false
     };
     this.handleChange = this.handleChange.bind(this);
+    this.onImageDrop = this.onImageDrop.bind(this);
+    this.handleImageUpload = this.handleImageUpload.bind(this);
     this.submitPasswordForm = this.submitPasswordForm.bind(this);
     this.submitPhoneForm = this.submitPhoneForm.bind(this);
     this.submitEmailForm = this.submitEmailForm.bind(this);
@@ -62,6 +69,33 @@ export default class Settings extends Component {
 
     this.setState({
       [e.target.name]: e.target.value
+    });
+  }
+
+  onImageDrop(files) {
+    this.setState({
+      uploadedFile: files[0]
+    })
+
+    this.handleImageUpload(files[0]);
+  }
+
+  handleImageUpload(file) {
+    let upload = request.post(CLOUDINARY_UPLOAD_URL)
+                        .field('upload_preset', CLOUDINARY_UPLOAD_PRESET)
+                        .field('file', file);
+    console.log(file)
+    upload.end((err, response) => {
+      if (err) {
+        console.error(err);
+      }
+
+      if (response.body.secure_url && response.body.secure_url !== '') {
+        console.log(response.body.secure_url)
+        this.setState({
+          uploadedFileCloudinaryUrl: response.body.secure_url
+        });
+      }
     });
   }
 
@@ -155,7 +189,8 @@ export default class Settings extends Component {
             isFetchingPassword, errorPassword } = this.props;
     const { oldPassword, newPassword, reenterNewPassword,
             newEmail, reenterNewEmail, newPhone, phoneFormDirty,
-            savedPassword, savedEmail, savedPhone } = this.state;
+            savedPassword, savedEmail, savedPhone,
+            uploadedFileCloudinaryUrl, uploadedFile } = this.state;
     let validPassword = isPasswordValid(newPassword),
         doPasswordsMatch = this.checkValidationState('password'),
         doEmailsMatch = this.checkValidationState('email');
@@ -166,10 +201,11 @@ export default class Settings extends Component {
         </Row>
         <Row className="settings-row">
           <Col sm={6}>
-            <Panel>
-              <h3>Update Photo</h3>
-
-            </Panel>
+            <PhotoSettings
+              onImageDrop={this.onImageDrop}
+              uploadedFileCloudinaryUrl={uploadedFileCloudinaryUrl}
+              uploadedFile={uploadedFile}
+            />
           </Col>
           <Col sm={6}>
             <PasswordSettings 
