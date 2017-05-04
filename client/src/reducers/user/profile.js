@@ -14,7 +14,7 @@ export default (state = initialState, action) => {
         email: action.result.email,
         phone: action.result.phone
       };
-    case ConstsUser.CHECKINFO_REQUEST:
+    case ConstsUser.CHANGEINFO_REQUEST:
       let returnObjRequest = {...state};
       if (action.userInfo.newPassword) {
         returnObjRequest['isFetchingPassword'] = true;
@@ -24,12 +24,12 @@ export default (state = initialState, action) => {
         returnObjRequest['isFetchingEmail'] = true;
         returnObjRequest['errorEmail'] = null;
       }
-      else {
+      else if (action.userInfo.newPhone) {
         returnObjRequest['isFetchingPhone'] = true;
         returnObjRequest['errorPhone'] = null;
       }
       return returnObjRequest;
-    case ConstsUser.CHECKINFO_SUCCESS:
+    case ConstsUser.CHANGEINFO_SUCCESS:
       let returnObjSuccess = {...state};
       if (action.result.newEmail) {
         returnObjSuccess['email'] = action.result.newEmail;
@@ -41,12 +41,12 @@ export default (state = initialState, action) => {
         returnObjSuccess['isFetchingPhone'] = false;
         returnObjSuccess['errorPhone'] = null;
       }
-      else {
+      else if (action.result.newPassword) {
         returnObjSuccess['isFetchingPassword'] = false;
         returnObjSuccess['errorPassword'] = null;
       }
       return returnObjSuccess;
-    case ConstsUser.CHECKINFO_FAILED:
+    case ConstsUser.CHANGEINFO_FAILED:
       let returnObjFailed = {...state};
       if (action.error.message.search(/email/i) > 0) {
         returnObjFailed['isFetchingEmail'] = false;
@@ -56,7 +56,7 @@ export default (state = initialState, action) => {
         returnObjFailed['isFetchingPassword'] = false;
         returnObjFailed['errorPassword'] = action.error;
       }
-      else {
+      else if (action.error.message.search(/phone/i) > 0) {
         returnObjFailed['isFetchingPhone'] = false;
         returnObjFailed['errorPhone'] = action.error;
       }

@@ -5,17 +5,17 @@ import * as Api from '../api/user';
 import * as Actions from 'actions/user';
 import * as Consts from 'constants/user';
 
-function* requestCheckInfo(action) {
+function* requestChangeInfo(action) {
   try {
-    const result = yield call(Api.requestCheckInfo, action.userInfo);
-    yield put(Actions.checkInfoSuccess(result));
+    const result = yield call(Api.requestChangeInfo, action.userInfo);
+    yield put(Actions.changeInfoSuccess(result));
   } catch (error) {
-    yield put(Actions.checkInfoFailed(error));
+    yield put(Actions.changeInfoFailed(error));
   }
 }
 
 export default function* watchUser() {
   yield [
-    takeLatest(Consts.CHECKINFO_REQUEST, requestCheckInfo)
+    takeLatest(Consts.CHANGEINFO_REQUEST, requestChangeInfo)
   ];
 }

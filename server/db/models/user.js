@@ -33,6 +33,12 @@ module.exports = function (db) {
                 isNumeric: true
             }
         },
+        photoURL: {
+            type: Sequelize.STRING,
+            validate: {
+                isUrl: true
+            }
+        },
         salt: {
             type: Sequelize.STRING
         },

@@ -1,7 +1,7 @@
 // make sure to encrypt this in future to prevent man in the middle attacks
 import { baseFetchOptions, checkStatus } from './utils';
 
-export const requestCheckInfo = (userInfo) => {
+export const requestChangeInfo = (userInfo) => {
   return fetch('/users/changeInfo', {
     ...baseFetchOptions,
     headers: {

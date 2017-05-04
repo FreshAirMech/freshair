@@ -84,16 +84,19 @@ export default class Settings extends Component {
     let upload = request.post(CLOUDINARY_UPLOAD_URL)
                         .field('upload_preset', CLOUDINARY_UPLOAD_PRESET)
                         .field('file', file);
-    console.log(file)
+    const { requestChangeInfo, username } = this.props;
     upload.end((err, response) => {
       if (err) {
         console.error(err);
       }
-
-      if (response.body.secure_url && response.body.secure_url !== '') {
-        console.log(response.body.secure_url)
+      let photoURL = response.body.secure_url;
+      if (photoURL && photoURL !== '') {
         this.setState({
-          uploadedFileCloudinaryUrl: response.body.secure_url
+          uploadedFileCloudinaryUrl: photoURL
+        });
+        requestChangeInfo({
+          username,
+          photoURL
         });
       }
     });
@@ -101,7 +104,7 @@ export default class Settings extends Component {
 
   submitPasswordForm(e) {
     const { oldPassword, newPassword, reenterNewPassword } = this.state;
-    const { requestCheckInfo, username } = this.props;
+    const { requestChangeInfo, username } = this.props;
 
     e.preventDefault();
 
@@ -112,7 +115,7 @@ export default class Settings extends Component {
       savedPassword: true
     })
 
-    requestCheckInfo({
+    requestChangeInfo({
       username,
       oldPassword,
       newPassword,
@@ -122,7 +125,7 @@ export default class Settings extends Component {
 
   submitPhoneForm(e) {
     const { newPhone } = this.state;
-    const { requestCheckInfo, username } = this.props;
+    const { requestChangeInfo, username } = this.props;
 
     e.preventDefault();
 
@@ -130,7 +133,7 @@ export default class Settings extends Component {
       savedPhone: true
     })
 
-    requestCheckInfo({
+    requestChangeInfo({
       username,
       newPhone
     });
@@ -138,7 +141,7 @@ export default class Settings extends Component {
 
   submitEmailForm(e) {
     const { newEmail, reenterNewEmail } = this.state;
-    const { requestCheckInfo, username } = this.props;
+    const { requestChangeInfo, username } = this.props;
 
     e.preventDefault();
 
@@ -148,7 +151,7 @@ export default class Settings extends Component {
       savedEmail: true
     })
 
-    requestCheckInfo({
+    requestChangeInfo({
       username,
       newEmail,
       reenterNewEmail

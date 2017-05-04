@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import component from './component';
-import { requestCheckInfo } from 'actions/user';
+import { requestChangeInfo } from 'actions/user';
 import './index.css';
 
 const mapStateToProps = (state) => {
@@ -19,7 +19,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-  	requestCheckInfo: userInfo => dispatch(requestCheckInfo(userInfo))
+  	requestChangeInfo: userInfo => dispatch(requestChangeInfo(userInfo))
   };
 }
 

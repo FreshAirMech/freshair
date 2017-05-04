@@ -12,7 +12,22 @@ router.get('/', function(req, res) {
   });
 });
 
+
 router.put('/changeInfo', function(req, res, next) {
+  if (req.body.photoURL) {
+    User.findOne({
+      where: {
+        username: req.body.username
+      }
+    })
+    .then(user => {
+      return user.update({photoURL: req.body.photoURL})
+    })
+    .then(user => {
+      res.json({photoURL: req.body.photoURL})
+    })
+    .catch(next);
+  }
   if (req.body.newEmail !== req.body.reenterNewEmail) {
     const error = new Error('You reentered your new email incorrectly.');
     error.status = 400;
