@@ -9,10 +9,6 @@
 	vertical-align: top;
 }
 
-.loginPanel div.panel{
-	height: 342px;
-}
-
 .auth-form-error .auth-form-message-error {
 	margin-top: 10px;
 	display: block;
@@ -25,4 +21,8 @@
 
 .auth-form .fa-spinner{
 	font-size: 1.7em;
+}
+
+#auth-container .btn {
+	float: right;
 }

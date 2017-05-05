@@ -1,5 +1,5 @@
 #settings-header {
-	padding-top: 85px;
+	padding-top: 95px;
 	background-color: #dbdbdb;
 }
 
@@ -26,4 +26,8 @@
 
 .settings .has-feedback label~.form-control-feedback {
 	top: 28px;
+}
+
+.settings .btn-success {
+	float: right;
 }
