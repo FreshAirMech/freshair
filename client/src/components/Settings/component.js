@@ -185,8 +185,16 @@ export default class Settings extends Component {
     }
   }
 
+  componentDidUpdate() {
+    if (this.state.uploadedFileCloudinaryUrl !== this.props.photoURL) {
+      this.setState({
+        uploadedFileCloudinaryUrl: this.props.photoURL
+      });
+    }
+  }
+
   render() {
-    const { email, phone,
+    const { email, phone, photoURL,
             isFetchingEmail, errorEmail,
             isFetchingPhone, errorPhone,
             isFetchingPassword, errorPassword } = this.props;

@@ -9,20 +9,20 @@ export default (props) => {
 		<Panel>
 		  <h3>Update Photo</h3>
 	  	<div>
-	  	{
-	  		(!uploadedFileCloudinaryUrl || uploadedFileCloudinaryUrl === '') ? 
 		  	<Dropzone
 		  		className="dropzone"
 		  		multiple={false}
 		  		accept="image/*"
 		  		onDrop={onImageDrop}>
-		  		<p>Drop an image or click to select a file to upload.</p>
+	  			{
+	  				(!uploadedFileCloudinaryUrl || uploadedFileCloudinaryUrl === '') ? 
+		  			<p>Drop an image or click to select a file to upload.</p>
+					  :
+					  <div className="img-div">
+			      	<img id="uploadedImg" src={uploadedFileCloudinaryUrl} />
+			      </div>
+			    }
 		  	</Dropzone>
-			  :
-			  <div className="img-div">
-	      	<img id="uploadedImg" src={uploadedFileCloudinaryUrl} />
-	      </div>
-  		}
 	  	</div>
 		</Panel>
 	);
