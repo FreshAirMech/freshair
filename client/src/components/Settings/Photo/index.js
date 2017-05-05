@@ -23,11 +23,14 @@ export default (props) => {
 			      </div>
 			    }
 		  	</Dropzone>
-		  	<div id="delete-photo">
-	      	<Button bsStyle="danger">
-	      		Delete Photo
-	    		</Button>
-	    	</div>
+		  	{
+		  		uploadedFileCloudinaryUrl &&
+			  	<div id="delete-photo">
+		      	<Button bsStyle="danger">
+		      		Delete Photo
+		    		</Button>
+		    	</div>
+	    	}
 	  	</div>
 		</Panel>
 	);

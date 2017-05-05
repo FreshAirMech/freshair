@@ -5,7 +5,7 @@
 }
 
 .dropzone {
-	margin: 0 auto;
+	margin: 52px auto;
 }
 
 #uploadedImg:hover, .dropzone:hover {
@@ -30,7 +30,8 @@
 }
 
 #delete-photo {
-	margin: 23px 0;
+	margin-top: -35px;
+  margin-bottom: 5px;
 	padding: 0 25%;
 }
 
