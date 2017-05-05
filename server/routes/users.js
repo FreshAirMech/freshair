@@ -3,6 +3,13 @@ var router = require('express').Router();
 var db = require('../db');
 var User = db.model('user');
 var Auth = require('../configure/auth-middleware');
+var cloudinary = require('cloudinary');
+var secrets = require('../../secrets');
+cloudinary.config({ 
+  cloud_name: secrets.CLOUDINARY_CLOUD_NAME, 
+  api_key: secrets.CLOUDINARY_API_KEY, 
+  api_secret: secrets.CLOUDINARY_API_SECRET
+});
 
 // router.get('/', Auth.assertAdmin, function (req, res) {
 router.get('/', function(req, res) {
@@ -21,6 +28,11 @@ router.put('/changeInfo', function(req, res, next) {
       }
     })
     .then(user => {
+      if (user.photoURL) {
+        var regex = /upload\/[a-zA-z0-9]+\/([a-zA-z0-9]+)/;
+        var match = regex.exec(user.photoURL);
+        cloudinary.uploader.destroy(match[1], result => { console.log(result) });
+      }
       return user.update({photoURL: req.body.photoURL})
     })
     .then(user => {

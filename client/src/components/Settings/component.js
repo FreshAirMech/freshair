@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { Col, Row, Panel, Form, FormGroup, FormControl, ControlLabel, Button, HelpBlock } from 'react-bootstrap/lib';
 import Spinner from 'lib/Spinner';
 import { isPasswordValid, isPhoneNumber } from 'lib/functions/authentication';
-import { CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET, CLOUDINARY_ENV,
-          CLOUDINARY_UPLOAD_PRESET, CLOUDINARY_UPLOAD_URL } from 'secrets';
+import { CLOUDINARY_UPLOAD_PRESET, CLOUDINARY_UPLOAD_URL } from 'secrets';
 import request from 'superagent';
 import PhotoSettings from './Photo';
 import PasswordSettings from './Password';
