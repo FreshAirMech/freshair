@@ -34,10 +34,7 @@ module.exports = function (db) {
             }
         },
         photoURL: {
-            type: Sequelize.STRING,
-            validate: {
-                isUrl: true
-            }
+            type: Sequelize.STRING
         },
         salt: {
             type: Sequelize.STRING

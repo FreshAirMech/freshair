@@ -14,7 +14,7 @@ router.get('/', function(req, res) {
 
 
 router.put('/changeInfo', function(req, res, next) {
-  if (req.body.photoURL) {
+  if (req.body.photoURL || req.body.photoURL === '') {
     User.findOne({
       where: {
         username: req.body.username

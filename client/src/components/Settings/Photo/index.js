@@ -4,7 +4,7 @@ import Dropzone from 'react-dropzone';
 import './index.css';
 
 export default (props) => {
-	const { onImageDrop, uploadedFileCloudinaryUrl, uploadedFile } = props;
+	const { onImageDrop, uploadedFileCloudinaryUrl, uploadedFile, deletePhoto } = props;
 	return (
 		<Panel>
 		  <h3>Update Photo</h3>
@@ -26,7 +26,7 @@ export default (props) => {
 		  	{
 		  		uploadedFileCloudinaryUrl &&
 			  	<div id="delete-photo">
-		      	<Button bsStyle="danger">
+		      	<Button bsStyle="danger" onClick={deletePhoto}>
 		      		Delete Photo
 		    		</Button>
 		    	</div>

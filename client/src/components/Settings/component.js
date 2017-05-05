@@ -31,6 +31,7 @@ export default class Settings extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.onImageDrop = this.onImageDrop.bind(this);
     this.handleImageUpload = this.handleImageUpload.bind(this);
+    this.deletePhoto = this.deletePhoto.bind(this);
     this.submitPasswordForm = this.submitPasswordForm.bind(this);
     this.submitPhoneForm = this.submitPhoneForm.bind(this);
     this.submitEmailForm = this.submitEmailForm.bind(this);
@@ -99,6 +100,17 @@ export default class Settings extends Component {
           photoURL
         });
       }
+    });
+  }
+
+  deletePhoto() {
+    const { requestChangeInfo, username } = this.props;
+    this.setState({
+      uploadedFileCloudinaryUrl: ''
+    });
+    requestChangeInfo({
+      username,
+      photoURL: ''
     });
   }
 
@@ -216,6 +228,7 @@ export default class Settings extends Component {
               onImageDrop={this.onImageDrop}
               uploadedFileCloudinaryUrl={uploadedFileCloudinaryUrl}
               uploadedFile={uploadedFile}
+              deletePhoto={this.deletePhoto}
             />
           </Col>
           <Col sm={6}>
