@@ -30,9 +30,9 @@ export default class LoginForm extends Component {
 
     return (
       <div className="loginPanel">
-        <Panel header="Login" bsStyle="info">
+        <Panel>
+          <h3>Login</h3>
           <Form onSubmit={this.submitLoginForm}>
-
             <FormGroup>
               <ControlLabel>Username</ControlLabel>
               <FormControl

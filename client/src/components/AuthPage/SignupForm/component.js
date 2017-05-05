@@ -80,9 +80,9 @@ export default class SignUpForm extends Component {
     let validPassword = isPasswordValid(password), doPasswordsMatch = this.checkValidationState();
     return (
       <div className="signupPanel">
-        <Panel header="Sign Up" bsStyle="success">
+        <Panel>
+          <h3>Sign Up</h3>
           <Form onSubmit={this.submitSignUpForm}>
-
             <FormGroup>
               <ControlLabel>Username</ControlLabel>
               <FormControl
