@@ -6,10 +6,6 @@
 
 .dropzone {
 	margin: 54px auto;
-  border-width: 2px;
-  border-color: rgb(102, 102, 102);
-  border-style: dashed;
-  border-radius: 10px;
 }
 
 #uploadedImg:hover, .dropzone:hover {
@@ -23,4 +19,11 @@
 .dropzone p {
 	margin-top: 75px;
 	text-align: center;
+	width: 200px;
+	height: 200px;
+	margin: 54px auto;
+  border-width: 2px;
+  border-color: rgb(102, 102, 102);
+  border-style: dashed;
+  border-radius: 10px;
 }

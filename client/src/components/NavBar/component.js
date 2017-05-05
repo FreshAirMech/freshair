@@ -35,10 +35,12 @@ export default class NavBar extends Component {
                   username 
                   ? (
                       <NavDropdown
+                        className="nav-li"
                         eventKey={3}
-                        title={<span>
-                                 {username} <img id="navbar-img" src={photoURL} />
-                               </span>
+                        title={
+                                <span>
+                                  {username} {photoURL && <img id="navbar-img" src={photoURL} />}
+                                </span>
                               } 
                         id="basic-nav-dropdown">
                         <LinkContainer to={{ pathname: '/settings' }}>
