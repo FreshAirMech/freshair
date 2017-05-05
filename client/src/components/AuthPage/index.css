@@ -26,3 +26,12 @@
 #auth-container .btn {
 	float: right;
 }
+
+.name-form {
+	display: inline-block;
+	width: 47%;
+}
+
+#lastName-form {
+	margin-left: 29px;
+}

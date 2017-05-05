@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Panel, Button, Form, FormGroup, ControlLabel, FormControl, HelpBlock } from 'react-bootstrap/lib';
 import Spinner from 'lib/Spinner';
-import authFunctions from 'lib/functions/authentication';
+import { isPasswordValid, isPhoneNumber } from 'lib/functions/authentication';
 
 export default class SignUpForm extends Component {
   constructor(props) {
@@ -11,6 +11,8 @@ export default class SignUpForm extends Component {
       password: '',
       reenterPassword: '',
       reenterDirty: false,
+      firstName: '',
+      lastName: '',
       email: '',
       phone: ''
     };
@@ -31,7 +33,7 @@ export default class SignUpForm extends Component {
   }
 
   submitSignUpForm(e) {
-    const { username, password, reenterPassword, email, phone } = this.state;
+    const { username, password, reenterPassword, email, phone, firstName, lastName } = this.state;
     const { requestSignUp } = this.props;
 
     e.preventDefault();
@@ -40,21 +42,18 @@ export default class SignUpForm extends Component {
       username,
       password,
       reenterPassword,
+      firstName,
+      lastName,
       email,
       phone
     });
   }
 
-  isPhoneNumber(bool) {
+  isPhoneNumberValidationState() {
     const { phone } = this.state;
-    if (phone.length === 0) return bool ? false : null;
-    if (phone.length !== 10) return bool ? false : 'error';
-    for (let i = 0; i < phone.length; i++) {
-      let digit = phone.toString()[i];
-      let diff = digit - '0';
-      if (isNaN(diff) || diff > 9 || diff < 0) return bool ? false : 'error';
-    }
-    return bool ? true : 'success';
+    const validPhoneNumber = isPhoneNumber(phone);
+    return validPhoneNumber ? 'success' :
+           ((phone.length === 0) ? null : 'error');
   }
 
   checkValidationState() {
@@ -70,16 +69,15 @@ export default class SignUpForm extends Component {
   }
 
   checkFormIsValid() {
-    const { username, password, reenterPassword, reenterDirty, email, phone } = this.state;
-    return username && password === reenterPassword && reenterDirty && email 
-    && phone && this.isPhoneNumber(true) && 
-    authFunctions.isPasswordValid(password) && this.checkValidationState();
+    const { username, password, reenterPassword, reenterDirty, firstName, lastName, email, phone } = this.state;
+    return username && password === reenterPassword && reenterDirty && email && firstName && lastName
+    && phone && isPhoneNumber(phone) && isPasswordValid(password) && this.checkValidationState();
   }
 
   render() {
-    const { username, password, reenterPassword, reenterDirty, email, phone } = this.state;
+    const { username, password, reenterPassword, firstName, lastName, reenterDirty, email, phone } = this.state;
     const { isFetching, error } = this.props;
-    let validPassword = authFunctions.isPasswordValid(password), doPasswordsMatch = this.checkValidationState();
+    let validPassword = isPasswordValid(password), doPasswordsMatch = this.checkValidationState();
     return (
       <div className="signupPanel">
         <Panel header="Sign Up" bsStyle="success">
@@ -130,6 +128,26 @@ export default class SignUpForm extends Component {
               }
             </FormGroup>
 
+            <FormGroup className="name-form">
+              <ControlLabel>First Name</ControlLabel>
+              <FormControl
+                name="firstName"
+                type="text"
+                value={ firstName }
+                onChange={this.handleChange}
+              />
+            </FormGroup>
+
+            <FormGroup className="name-form" id="lastName-form">
+              <ControlLabel>Last Name</ControlLabel>
+              <FormControl
+                name="lastName"
+                type="text"
+                value={ lastName }
+                onChange={this.handleChange}
+              />
+            </FormGroup>
+
             <FormGroup>
               <ControlLabel>Email Address</ControlLabel>
               <FormControl
@@ -140,7 +158,7 @@ export default class SignUpForm extends Component {
               />
             </FormGroup>
 
-            <FormGroup validationState={ this.isPhoneNumber(false) }>
+            <FormGroup validationState={ this.isPhoneNumberValidationState() }>
               <ControlLabel>Phone Number (10 digits, no formatting)</ControlLabel>
               <FormControl
                 name="phone"
