@@ -10,7 +10,7 @@ export default class NavBar extends Component {
   }
 
   render() {
-    const { username, requestLogout } = this.props;
+    const { username, photoURL, requestLogout } = this.props;
     return (
       <div>
         <div>
@@ -25,16 +25,22 @@ export default class NavBar extends Component {
             </Navbar.Header>
             <Navbar.Collapse>
               <Nav pullRight>
-                <IndexLinkContainer to={{ pathname: '/service' }}>
+                <IndexLinkContainer className="nav-li" to={{ pathname: '/service' }}>
                   <NavItem eventKey={1}>Services</NavItem>
                 </IndexLinkContainer>
-                <LinkContainer to={{ pathname: '/about' }}>
+                <LinkContainer className="nav-li" to={{ pathname: '/about' }}>
                   <NavItem eventKey={2}>About Us</NavItem>
                 </LinkContainer>
                 {
                   username 
                   ? (
-                      <NavDropdown eventKey={3} title={username} id="basic-nav-dropdown">
+                      <NavDropdown
+                        eventKey={3}
+                        title={<span>
+                                 {username} <img id="navbar-img" src={photoURL} />
+                               </span>
+                              } 
+                        id="basic-nav-dropdown">
                         <LinkContainer to={{ pathname: '/settings' }}>
                           <MenuItem eventKey={3.1}>Settings</MenuItem>
                         </LinkContainer>
@@ -43,7 +49,7 @@ export default class NavBar extends Component {
                       </NavDropdown>
                     )
                   : (
-                      <LinkContainer to={{ pathname: '/login' }}>
+                      <LinkContainer className="nav-li" to={{ pathname: '/login' }}>
                         <NavItem eventKey={3}><i className="fa fa-user" aria-hidden="true" id="user-icon"></i>  Login/Sign Up</NavItem>
                       </LinkContainer>
                     )

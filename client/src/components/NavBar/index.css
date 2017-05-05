@@ -14,6 +14,16 @@
 	background-color: transparent;
 }
 
+#navbar-img {
+	width: 40px;
+	height: 40px;
+	border-radius: 20px;
+}
+
+.nav-li {
+	margin: 8px 0;
+}
+
 #navbar .dropdown-menu {
 	-webkit-animation: fadein 0.2s; 
      -moz-animation: fadein 0.2s; 
