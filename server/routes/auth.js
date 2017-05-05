@@ -23,6 +23,8 @@ router.post('/login', (req, res, next) => {
     if (user.password === passwordAttempt) {
       req.session.user = {
         id: user.id,
+        firstName: user.firstName,
+        lastName: user.lastName,
         username: user.username,
         email: user.email,
         phone: user.phone,
@@ -68,6 +70,8 @@ router.post('/signup', (req, res, next) => {
     return User.create({
       username: req.body.username,
       password: req.body.password,
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
       email: req.body.email,
       phone: req.body.phone
     });
@@ -75,6 +79,8 @@ router.post('/signup', (req, res, next) => {
   .then(user => {
     req.session.user = {
       id: user.id,
+      firstName: user.firstName,
+      lastName: user.lastName,
       username: user.username,
       email: user.email,
       phone: user.phone
@@ -96,6 +102,8 @@ router.get('/session', (req, res, next) => {
   .then(user => {
     res.json({
       id: user.id,
+      firstName: user.firstName,
+      lastName: user.lastName,
       username: user.username,
       email: user.email,
       phone: user.phone,

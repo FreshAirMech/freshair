@@ -10,7 +10,7 @@ export default class NavBar extends Component {
   }
 
   render() {
-    const { username, photoURL, requestLogout } = this.props;
+    const { firstName, username, photoURL, requestLogout } = this.props;
     return (
       <div>
         <div>
@@ -39,7 +39,7 @@ export default class NavBar extends Component {
                         eventKey={3}
                         title={
                                 <span>
-                                  {username} {photoURL && <img id="navbar-img" src={photoURL} />}
+                                  {firstName || username} {photoURL && <img id="navbar-img" src={photoURL} />}
                                 </span>
                               } 
                         id="basic-nav-dropdown">

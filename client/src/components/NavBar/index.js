@@ -5,6 +5,7 @@ import './index.css';
 
 const mapStateToProps = (state) => {
   return {
+  	firstName: state.user.profile.firstName,
     username: state.user.profile.username,
     photoURL: state.user.profile.photoURL
   };

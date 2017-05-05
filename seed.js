@@ -24,17 +24,23 @@ const seedUsers = function () {
     const users = [
         {
             username: 'testing',
-            password: 'password'
+            password: 'password',
+            firstName: '2',
+            lastName: 'B'
         },
         {
             username: 'obama',
-            password: 'potus'
+            password: 'potus',
+            firstName: 'Barack',
+            lastName: 'Obama'
         },
         {
             username: 'm',
             password: 'm',
             email: 'm@m.com',
-            phone: '7188885555'
+            phone: '7188885555',
+            firstName: 'Jonathan',
+            lastName: 'Rim'
         },
     ];
 
@@ -43,7 +49,9 @@ const seedUsers = function () {
         return {
             username: name.toLowerCase(),
             password: 'password',
-            ign: chance.word()
+            firstName: chance.word(),
+            lastName: chance.word(),
+
         };
     }
 

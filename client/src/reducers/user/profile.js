@@ -9,6 +9,8 @@ export default (state = initialState, action) => {
     case ConstsAuth.SESSION_SUCCESS:
       return {
         ...state,
+        firstName: action.result.firstName,
+        lastName: action.result.lastName,
         username: action.result.username,
         id: action.result.id,
         email: action.result.email,
