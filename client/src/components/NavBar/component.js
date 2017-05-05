@@ -18,7 +18,7 @@ export default class NavBar extends Component {
             <Navbar.Header>
               <Navbar.Brand>
                 <Link to={{ pathname: '/' }}>
-                  Fresh Air
+                  <img id="navbar-logo" src={require('lib/images/logo.png')} alt="Fresh Aire"></img>
                 </Link>
               </Navbar.Brand>
               <Navbar.Toggle/>

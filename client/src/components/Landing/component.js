@@ -12,7 +12,7 @@ export default class Landing extends Component {
     return (
       <div>
         <Row>
-          <img id="banner" src={require('../../lib/images/landing.png')} alt="FRESH AIR" />
+          <img id="banner" src={require('lib/images/landing.png')} alt="FRESH AIR" />
         </Row>
         <Row id="why" className="landing-div">
           <Row>

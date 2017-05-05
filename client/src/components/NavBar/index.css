@@ -9,6 +9,12 @@
 	border-radius: 0;
 }
 
+#navbar-logo {
+	position: absolute;
+	top: 14px;
+	width: 300px;
+}
+
 #navbar a {
 	color: #222;
 	background-color: transparent;

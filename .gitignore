@@ -4,4 +4,5 @@ dist
 secrets.js
 public/bundle.js
 public/bundle.js.map
+public/*.png
 .DS_Store
