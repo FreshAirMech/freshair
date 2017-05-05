@@ -26,7 +26,8 @@ export default class Settings extends Component {
       phoneFormDirty: false,
       savedPassword: false,
       savedPhone: false,
-      savedEmail: false
+      savedEmail: false,
+      deletedPhoto: false
     };
     this.handleChange = this.handleChange.bind(this);
     this.onImageDrop = this.onImageDrop.bind(this);
@@ -106,7 +107,8 @@ export default class Settings extends Component {
   deletePhoto() {
     const { requestChangeInfo, username } = this.props;
     this.setState({
-      uploadedFileCloudinaryUrl: ''
+      uploadedFileCloudinaryUrl: '',
+      deletedPhoto: true
     });
     requestChangeInfo({
       username,
@@ -199,9 +201,16 @@ export default class Settings extends Component {
 
   componentDidUpdate() {
     if (this.state.uploadedFileCloudinaryUrl !== this.props.photoURL) {
-      this.setState({
-        uploadedFileCloudinaryUrl: this.props.photoURL
-      });
+      if (this.state.deletedPhoto) {
+        this.setState({
+          deletedPhoto: false
+        });
+      }
+      else {
+        this.setState({
+          uploadedFileCloudinaryUrl: this.props.photoURL
+        });
+      }
     }
   }
 

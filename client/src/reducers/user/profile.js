@@ -46,6 +46,9 @@ export default (state = initialState, action) => {
         returnObjSuccess['isFetchingPassword'] = false;
         returnObjSuccess['errorPassword'] = null;
       }
+      else if (action.result.photoURL) {
+        returnObjSuccess['photoURL'] = action.result.photoURL;
+      }
       return returnObjSuccess;
     case ConstsUser.CHANGEINFO_FAILED:
       let returnObjFailed = {...state};
