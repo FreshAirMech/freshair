@@ -11,6 +11,7 @@ import NavBar from './components/NavBar';
 import Landing from './components/Landing';
 import AuthPage from './components/AuthPage';
 import Settings from './components/Settings';
+import About from './components/About';
 
 const history = syncHistoryWithStore(browserHistory, store);
 
@@ -21,6 +22,7 @@ ReactDOM.render(
         <IndexRoute component={Landing} />
         <Route path="/login" component={AuthPage}/>
         <Route path="/settings" component={Settings}/>
+        <Route path="/about" component={About}/>
       </Route>
       <Route path="*" component={NavBar}>
         <IndexRoute component={Landing} />

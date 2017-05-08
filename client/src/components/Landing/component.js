@@ -14,7 +14,7 @@ export default class Landing extends Component {
         <Row>
           <img id="banner" src={require('lib/images/landing.png')} alt="FRESH AIR" />
         </Row>
-        <Row id="why" className="landing-div">
+        <Row id="why" className="standard-div">
           <Row>
             <h1>Why Others Choose FRESH AIR</h1>
             <hr></hr>
@@ -32,7 +32,7 @@ export default class Landing extends Component {
             <p>We ensure caring and thoughtful customer service so that no issue is overlooked.</p>
           </Col>
         </Row>
-        <Row id="services" className="landing-div">
+        <Row id="services" className="standard-div">
           <Row>
             <h1>Examples of Services</h1>
             <hr></hr>
@@ -48,7 +48,7 @@ export default class Landing extends Component {
             </ul>
           </Row>
         </Row>
-        <Row id="clients" className="landing-div">
+        <Row id="clients" className="standard-div">
           <Row>
             <h1>Some of Our Clients</h1>
             <hr></hr>
@@ -88,7 +88,7 @@ export default class Landing extends Component {
             </table>
           </Row>
         </Row>
-        <Row id="copyright" className="landing-div">
+        <Row id="copyright" className="standard-div">
           Copyright © 2017, Fresh Air Mechanical Co.
         </Row>
       </div>  

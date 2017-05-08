@@ -17,7 +17,7 @@ html, body {
           animation: fadein 1s;
 }
 
-.landing-div {
+.standard-div {
   padding: 6% 10%;
   color: #fff;
 }
@@ -57,7 +57,7 @@ html, body {
   margin: auto;
 }
 
-.landing-div hr {
+.standard-div hr {
   width: 25%;
   border-top-color: #8c8c8c;
   padding-bottom: 50px;
@@ -79,7 +79,7 @@ html, body {
   padding-bottom: 3%;
 }
 
-.landing-div h1, .landing-div h2 {
+.standard-div h1, .standard-div h2 {
   text-align: center;
   font-weight: bold;
   margin-bottom: 10px;
@@ -87,11 +87,11 @@ html, body {
   line-height: 1.1;
 }
 
-.landing-div h1 {
+.standard-div h1 {
   font-size: 48px;
 }
 
-.landing-div p {
+.standard-div p {
   font-size: 1.4em;
 }
 
