@@ -16,7 +16,14 @@ export default class Landing extends Component {
             <h1>About Us</h1>
             <hr></hr>
           </Row>
-          <Row>
+          <Row className="team">
+            <img src={require('lib/images/pic1.png')}></img>
+          </Row>
+          <Row className="team">
+            <img src={require('lib/images/pic2.png')}></img>
+          </Row>
+          <Row className="team">
+            <img src={require('lib/images/pic1.png')}></img>
           </Row>
         </Row>
         <Row id="copyright" className="standard-div">

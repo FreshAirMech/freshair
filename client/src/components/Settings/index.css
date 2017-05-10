@@ -1,6 +1,6 @@
 #settings-header {
 	padding-top: 95px;
-	background-color: #dbdbdb;
+	background-color: #f5f5f5;
 }
 
 .settings-row {
@@ -8,8 +8,9 @@
 }
 
 .settings h1 {
-	font-weight: bold;
 	padding-left: 20px;
+	font-family: fantasy;
+  font-weight: lighter;
 }
 
 .settings h3 {
