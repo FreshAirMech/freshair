@@ -4,7 +4,7 @@
 }
 
 #about hr {
-	width: 20%;
+	width: 10%;
 	margin-bottom: -10px;
 }
 
@@ -22,7 +22,11 @@
 	padding: 20px;
 }
 
+.img-col {
+	max-width: 20vw;
+}
+
 #about img {
-	width: 20vw;
+	width: 100%;
 	border-radius: 10px;
 }

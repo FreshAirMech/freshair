@@ -4,7 +4,12 @@ html, body {
   margin: 0px;
   padding: 0px;
   overflow-x: hidden; 
-  font-family: "Trebuchet MS", sans-serif;
+  font-family: "proxima-nova", sans-serif;
+}
+
+@font-face {
+  font-family: "proxima-nova";
+  src: url('../../lib/fonts/proxima-nova.woff') format("woff");
 }
 
 #banner {
@@ -29,6 +34,10 @@ html, body {
 
 #why {
   background-color: #635f5b;
+}
+
+#why i {
+  margin-right: 10px;
 }
 
 #services {
@@ -84,6 +93,9 @@ html, body {
   text-align: center;
   margin-bottom: 10px;
   margin-top: 20px;
+}
+
+.standard-div h1, .standard-div h2, .standard-div h3 {
   line-height: 1.1;
   font-family: fantasy;
   font-weight: lighter;

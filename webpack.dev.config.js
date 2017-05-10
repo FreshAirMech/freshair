@@ -46,6 +46,10 @@ module.exports = {
             'image-webpack-loader?${JSON.stringify(query)}',
         ]
       },
+      {
+        test: /\.(eot|svg|ttf|woff|woff2)$/,
+        loader: 'file?name=fonts/[name].[ext]'
+      }
     ]
   }
 }

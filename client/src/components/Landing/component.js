@@ -16,19 +16,19 @@ export default class Landing extends Component {
         </Row>
         <Row id="why" className="standard-div">
           <Row>
-            <h1>Why Others Choose FRESH AIR</h1>
+            <h1>Why Others Choose FRESH AIRE</h1>
             <hr></hr>
           </Row>
           <Col sm={4}>
-            <h2><i className="fa fa-check-square-o fa-lg" aria-hidden="true"></i>  Reliability</h2>
+            <h2><i className="fa fa-check-square-o fa-lg" aria-hidden="true"></i>Reliability</h2>
             <p>Once a deal is confirmed, customers can rest easy knowing that the job will be done correctly.</p>
           </Col>
           <Col sm={4}>
-            <h2><i className="fa fa-flash fa-lg" aria-hidden="true"></i>  Efficiency</h2>
+            <h2><i className="fa fa-flash fa-lg" aria-hidden="true"></i>Efficiency</h2>
             <p>Requests for installation and maintenance are fulfilled as quickly and efficiently as possible.</p>
           </Col>
           <Col sm={4}>
-            <h2><i className="fa fa-user-o fa-lg" aria-hidden="true"></i>  Serviceability</h2>
+            <h2><i className="fa fa-user-o fa-lg" aria-hidden="true"></i>Serviceability</h2>
             <p>We ensure caring and thoughtful customer service so that no issue is overlooked.</p>
           </Col>
         </Row>
