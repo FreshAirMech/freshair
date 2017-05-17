@@ -16,7 +16,7 @@ export default class Landing extends Component {
         </Row>
         <Row id="why" className="standard-div">
           <Row>
-            <h1>Why Others Choose FRESH AIRE</h1>
+            <h1>Why FRESH AIRE</h1>
             <hr></hr>
           </Row>
           <Col sm={4}>

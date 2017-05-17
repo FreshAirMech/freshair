@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Panel, Button, Form, FormGroup, ControlLabel, FormControl, HelpBlock } from 'react-bootstrap/lib';
 import Spinner from 'lib/Spinner';
 import { isPasswordValid, isPhoneNumber } from 'lib/functions/authentication';
+import { Col } from 'react-bootstrap/lib';
 
 export default class SignUpForm extends Component {
   constructor(props) {
@@ -128,25 +129,29 @@ export default class SignUpForm extends Component {
               }
             </FormGroup>
 
-            <FormGroup className="name-form">
-              <ControlLabel>First Name</ControlLabel>
-              <FormControl
-                name="firstName"
-                type="text"
-                value={ firstName }
-                onChange={this.handleChange}
-              />
-            </FormGroup>
+            <Col xs={6} className="name-col">
+              <FormGroup className="name-form">
+                <ControlLabel>First Name</ControlLabel>
+                <FormControl
+                  name="firstName"
+                  type="text"
+                  value={ firstName }
+                  onChange={this.handleChange}
+                />
+              </FormGroup>
+            </Col>
 
-            <FormGroup className="name-form" id="lastName-form">
-              <ControlLabel>Last Name</ControlLabel>
-              <FormControl
-                name="lastName"
-                type="text"
-                value={ lastName }
-                onChange={this.handleChange}
-              />
-            </FormGroup>
+            <Col xs={6} className="name-col">
+              <FormGroup className="name-form" id="lastName-form">
+                <ControlLabel>Last Name</ControlLabel>
+                <FormControl
+                  name="lastName"
+                  type="text"
+                  value={ lastName }
+                  onChange={this.handleChange}
+                />
+              </FormGroup>
+            </Col>
 
             <FormGroup>
               <ControlLabel>Email Address</ControlLabel>

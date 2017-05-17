@@ -1,4 +1,5 @@
 import 'babel-polyfill';
+import _ from "lodash";
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore, combineReducers } from 'redux';
@@ -14,6 +15,7 @@ import Settings from './components/Settings';
 import About from './components/About';
 
 const history = syncHistoryWithStore(browserHistory, store);
+
 
 ReactDOM.render(
   <Provider store={store}>

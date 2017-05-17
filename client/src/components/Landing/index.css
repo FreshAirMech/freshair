@@ -97,8 +97,7 @@ html, body {
 
 .standard-div h1, .standard-div h2, .standard-div h3 {
   line-height: 1.1;
-  font-family: fantasy;
-  font-weight: lighter;
+  font-weight: bold;
 }
 
 .standard-div h1 {

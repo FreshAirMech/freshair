@@ -5,7 +5,7 @@
 .loginPanel, .signupPanel, .guestPanel {
 	margin: 50px 2% 0 2%;
 	display: inline-block;
-	width: 46%;
+	width: 100%;
 	vertical-align: top;
 }
 
@@ -33,10 +33,13 @@
 }
 
 .name-form {
-	display: inline-block;
-	width: 47%;
+	width: 98%;
+}
+
+.name-col {
+	padding: 0;
 }
 
 #lastName-form {
-	margin-left: 24px;
+	float: right;
 }

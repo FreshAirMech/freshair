@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Col, Row } from 'react-bootstrap/lib';
+import setGoogleMap from 'lib/Map';
 
-export default class Landing extends Component {
+export default class About extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -46,6 +47,9 @@ export default class Landing extends Component {
               <h4>Other Staff</h4>
             </Col>
           </Row>
+        </Row>
+        <Row>
+          <setGoogleMap />
         </Row>
         <Row id="copyright" className="standard-div">
           Copyright © 2017, Fresh Air Mechanical Co.
