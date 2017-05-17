@@ -39,9 +39,9 @@ export default class Landing extends Component {
           </Row>
           <Row>
             <ul>
-              <li>Air Conditioning and Refrigeration Installation and Maintenance</li>
+              <li>HVAC Installation and Maintenance for personal homes, commercial buildings, and industrial businesses</li>
               <li>Design Considerations that calculate load, noise and space to prevent any future problems </li>
-              <li></li>
+              <li>Troubleshooting for systems installed either by us or a different company</li>
               <li></li>
               <li></li>
               <li></li>
