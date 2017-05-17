@@ -104,11 +104,8 @@ html, body {
   font-size: 48px;
 }
 
-.standard-div p {
-  font-size: 1.4em;
-}
-
 #why p {
+  font-size: 1.4em;
   padding-left: 30px;
 }
 

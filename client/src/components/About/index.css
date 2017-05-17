@@ -30,3 +30,24 @@
 	width: 100%;
 	border-radius: 10px;
 }
+
+#about h2 {
+	color: #000;
+}
+
+#contact {
+	background-color: #635f5b;
+}
+
+#contact h2 {
+	margin: -10px 0 45px;
+}
+
+.team-name {
+	font-size: 1.4em;
+}
+
+.team-role {
+	font-size: 1em;
+	color: #949494;
+}

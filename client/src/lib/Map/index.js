@@ -1,13 +1,10 @@
-import {
-  default as React,
-  Component,
-} from "react";
+import React, { Component } from 'react';
 
 import {
   withGoogleMap,
   GoogleMap,
   Marker,
-} from "react-google-maps";
+} from 'react-google-maps';
 
 /*
  * This is the modify version of:
@@ -31,22 +28,24 @@ const setupGoogleMap = withGoogleMap(props => (
   </GoogleMap>
 ));
 
-export default class setGoogleMap extends Component {
+export default class SetGoogleMap extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      markers: [{
+        position: {
+          lat: 40.725248,
+          lng: -73.9066951,
+        },
+        key: `Maspeth`,
+        defaultAnimation: 2,
+      }],
+    };
 
-  state = {
-    markers: [{
-      position: {
-        lat: 40.725248,
-        lng: -73.9066951,
-      },
-      key: `Maspeth`,
-      defaultAnimation: 2,
-    }],
-  };
-
-  handleMapLoad = this.handleMapLoad.bind(this);
-  handleMapClick = this.handleMapClick.bind(this);
-  handleMarkerRightClick = this.handleMarkerRightClick.bind(this);
+    this.handleMapLoad = this.handleMapLoad.bind(this);
+    this.handleMapClick = this.handleMapClick.bind(this);
+    this.handleMarkerRightClick = this.handleMarkerRightClick.bind(this);
+  }
 
   handleMapLoad(map) {
     this._mapComponent = map;
