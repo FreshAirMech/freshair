@@ -48,7 +48,7 @@ export default class EmailForm extends Component {
     return (isPhoneNumber(phone) && phone || !phone) && name && email && subject && message;
   }
 
-  componentDidUpdate() {
+  fillOutForm() {
   	if (!this.state.email && this.props.email) {
 	  	this.setState({
 				firstName: this.props.firstName,
@@ -61,6 +61,14 @@ export default class EmailForm extends Component {
 				sentEmail: false
 			});
   	}
+  }
+
+  componentDidUpdate() {
+  	this.fillOutForm.bind(this)();
+  }
+
+  componentWillMount() {
+  	this.fillOutForm.bind(this)();
   }
 
 	render() {

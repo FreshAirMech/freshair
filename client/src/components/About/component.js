@@ -71,7 +71,7 @@ export default class About extends Component {
         </Row>
         <Row id="contact" className="standard-div">
           <Col xs={6}>
-            <h2>Contact</h2>
+            <h2>Contact Us</h2>
             <ul>
               <Row>
                 <Col xs={2}>

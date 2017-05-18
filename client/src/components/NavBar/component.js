@@ -29,7 +29,7 @@ export default class NavBar extends Component {
                   <NavItem eventKey={1}>Services</NavItem>
                 </IndexLinkContainer>
                 <LinkContainer className="nav-li" to={{ pathname: '/about' }}>
-                  <NavItem eventKey={2}>About</NavItem>
+                  <NavItem eventKey={2}>About/Contact</NavItem>
                 </LinkContainer>
                 {
                   username 
