@@ -105,6 +105,7 @@ export default class About extends Component {
                 </Col>
               </Row>
             </ul>
+            <img src={require('lib/images/location.png')}></img>
           </Col>
           <Col xs={6}>
             <h2>Send us an Email</h2>
