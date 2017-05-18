@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Col, Row } from 'react-bootstrap/lib';
 import SetGoogleMap from 'lib/Map';
-import EmailForm from 'lib/EmailForm';
+import EmailForm from './EmailForm';
 
 export default class About extends Component {
   constructor(props) {

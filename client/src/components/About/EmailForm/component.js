@@ -8,6 +8,11 @@ export default class EmailForm extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+			name: '',
+			email: '',
+			phone: '',
+			subject: '',
+			message: '',
 			sentEmail: false
 		};
 		this.handleChange = this.handleChange.bind(this);
@@ -49,7 +54,7 @@ export default class EmailForm extends Component {
   }
 
   fillOutForm() {
-  	if (!this.state.email && this.props.email) {
+  	if (!this.state.firstName && this.props.firstName) {
 	  	this.setState({
 				firstName: this.props.firstName,
 				lastName: this.props.lastName,

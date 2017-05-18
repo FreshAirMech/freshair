@@ -43,6 +43,10 @@
 	margin: -10px 0 45px;
 }
 
+#contact p {
+	margin: 0 0 5px;
+}
+
 .team-name {
 	font-size: 1.4em;
 	margin: 0;
