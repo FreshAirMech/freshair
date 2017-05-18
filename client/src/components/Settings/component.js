@@ -13,7 +13,7 @@ export default class Settings extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      uploadedFileCloudinaryUrl: this.props.photoURL || '',
+      uploadedFileCloudinaryUrl: '',
       newEmail: '',
       reenterNewEmail: '',
       reenterEmailDirty: false,

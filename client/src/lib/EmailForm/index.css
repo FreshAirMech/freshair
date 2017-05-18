@@ -1,0 +1,27 @@
+#emailForm-name {
+	padding-left: 0;
+}
+
+#emailForm-email {
+	padding: 0;
+}
+
+#emailForm-phone {
+	padding-right: 0;
+}
+
+#emailForm-message {
+	height: 300px;
+}
+
+#emailForm-message .form-control {
+	height: 265px;
+}
+
+#emailForm-button {
+	float: right;
+}
+
+#emailForm-required {
+	float: left;
+}

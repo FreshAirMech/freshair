@@ -8,13 +8,6 @@ export default class EmailForm extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			firstName: props.firstName,
-			lastName: props.lastName,
-			name: (props.firstName + ' ' + props.lastName) || '', 
-			email: props.email,
-			phone: props.phone,
-			subject: '',
-			message: '',
 			sentEmail: false
 		};
 		this.handleChange = this.handleChange.bind(this);
@@ -37,7 +30,7 @@ export default class EmailForm extends Component {
 
     this.setState({
     	sentEmail: true,
-    	isFetchingMessage: true
+    	isFetching: true
     });
 
     requestSendEmail({
@@ -55,44 +48,62 @@ export default class EmailForm extends Component {
     return (isPhoneNumber(phone) && phone || !phone) && name && email && subject && message;
   }
 
+  componentDidUpdate() {
+  	if (!this.state.email && this.props.email) {
+	  	this.setState({
+				firstName: this.props.firstName,
+				lastName: this.props.lastName,
+				name: (this.props.firstName + ' ' + this.props.lastName) || '', 
+				email: this.props.email,
+				phone: this.props.phone,
+				subject: '',
+				message: '',
+				sentEmail: false
+			});
+  	}
+  }
+
 	render() {
 		let { name, email, phone, subject, message, sentEmail } = this.state;
-		const { isFetchingMessage, errorMessage } = this.props;
+		const { isFetching, error } = this.props;
 		const { submitEmailForm, handleChange, checkFormIsValid } = this;
 		return (
 			<Form onSubmit={submitEmailForm}>
+				<Col sm={4} id="emailForm-name">
+				  <FormGroup>
+				    <ControlLabel>Name *</ControlLabel>
+				    <FormControl
+				      name="name"
+				      type="text"
+				      value={ name }
+				      onChange={handleChange}
+				    />
+				  </FormGroup>
+				</Col>
+				<Col sm={4} id="emailForm-email">
+				  <FormGroup>
+				    <ControlLabel>Email *</ControlLabel>
+				    <FormControl
+				      name="email"
+				      type="email"
+				      value={ email }
+				      onChange={handleChange}
+				    />
+				  </FormGroup>
+				</Col>
+				<Col sm={4} id="emailForm-phone">
+				  <FormGroup>
+				    <ControlLabel>Phone</ControlLabel>
+				    <FormControl
+				      name="phone"
+				      type="text"
+				      value={ phone }
+				      onChange={handleChange}
+				    />
+				  </FormGroup>
+				</Col>
 			  <FormGroup>
-			    <ControlLabel>Name</ControlLabel>
-			    <FormControl
-			      name="name"
-			      type="text"
-			      value={ name }
-			      onChange={handleChange}
-			    />
-			  </FormGroup>
-
-			  <FormGroup>
-			    <ControlLabel>Email</ControlLabel>
-			    <FormControl
-			      name="email"
-			      type="email"
-			      value={ email }
-			      onChange={handleChange}
-			    />
-			  </FormGroup>
-
-			  <FormGroup>
-			    <ControlLabel>Phone</ControlLabel>
-			    <FormControl
-			      name="phone"
-			      type="text"
-			      value={ phone }
-			      onChange={handleChange}
-			    />
-			  </FormGroup>
-
-			  <FormGroup>
-			    <ControlLabel>Subject</ControlLabel>
+			    <ControlLabel>Subject *</ControlLabel>
 			    <FormControl
 			      name="subject"
 			      type="text"
@@ -100,26 +111,27 @@ export default class EmailForm extends Component {
 			      onChange={handleChange}
 			    />
 			  </FormGroup>
-
-			  <FormGroup>
-			    <ControlLabel>Message</ControlLabel>
-			    <FormControl
-			      name="message"
-			      type="text"
-			      value={ message }
-			      onChange={handleChange}
-			    />
-			  </FormGroup>
-
+			  <Col id="emailForm-message">
+				  <FormGroup>
+				    <ControlLabel>Message *</ControlLabel>
+				    <FormControl
+				      name="message"
+				      componentClass="textarea"
+				      value={ message }
+				      onChange={handleChange}
+				    />
+				  </FormGroup>
+				</Col>
 			  <FormGroup validationState="error" className="auth-form-error">
-			    <Button type="submit" disabled={ !checkFormIsValid() } bsStyle="success">
-			      { isFetchingMessage ? <Spinner /> : 'Send Email Message' }
+			  	<p id="emailForm-required">*Required fields</p>
+			    <Button id="emailForm-button" type="submit" disabled={ !checkFormIsValid() } bsStyle="success">
+			      { isFetching ? <Spinner /> : 'Send Email Message' }
 			    </Button>
 			    {
-			      (sentEmail && !isFetchingMessage && !errorMessage) && <ControlLabel className="auth-form-message-success">Sent!</ControlLabel>
+			      (sentEmail && !isFetching && !error) && <ControlLabel className="auth-form-message-success">Sent!</ControlLabel>
 			    }
 			    {
-			      (!isFetchingMessage && errorMessage) && <ControlLabel className="auth-form-message-error">{ errorMessage.message }</ControlLabel>
+			      (!isFetching && error) && <ControlLabel className="auth-form-message-error">{ error.message }</ControlLabel>
 			    }
 			  </FormGroup>
 			</Form>
