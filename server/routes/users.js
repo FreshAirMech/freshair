@@ -39,9 +39,9 @@ router.post('/formInfo', function(req, res, next) {
   }
   // setup email data with unicode symbols
   let mailOptions = {
-    from: '"' + req.body.name + '" <' + req.body.email + '>', // sender address
+    from: '"' + req.body.name + ' ' + req.body.email + '"', // sender address
     to: 'jonrim@umich.edu, rim.jonathan16@gmail.com', // list of receivers
-    subject: req.body.subject, // Subject line
+    subject: req.body.email + ': ' + req.body.subject, // Subject line
     text: req.body.message, // plain text body
     html: '' // html body
   };
@@ -50,7 +50,7 @@ router.post('/formInfo', function(req, res, next) {
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
       const err = new Error(error);
-      err.message = error;
+      err.message = "Error on server-side";
       next(err);
       return console.log(error);
     }

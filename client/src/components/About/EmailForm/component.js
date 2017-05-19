@@ -140,10 +140,10 @@ export default class EmailForm extends Component {
 			      { isFetching ? <Spinner /> : 'Send Email Message' }
 			    </Button>
 			    {
-			      (sentEmail && !isFetching && !error) && <ControlLabel className="auth-form-message-success">Sent!</ControlLabel>
+			      (sentEmail && !isFetching && !error) && <ControlLabel className="emailForm-response auth-form-message-success">Sent!</ControlLabel>
 			    }
 			    {
-			      (!isFetching && error) && <ControlLabel className="auth-form-message-error">{ error.message }</ControlLabel>
+			      (!isFetching && error) && <ControlLabel className="auth-form-message-error emailForm-response">{ error.message }</ControlLabel>
 			    }
 			  	<p id="emailForm-required">*Required fields</p>
 			  </FormGroup>
