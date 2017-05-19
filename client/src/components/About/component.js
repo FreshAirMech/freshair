@@ -22,12 +22,12 @@ export default class About extends Component {
             <h2>Our Team</h2>
           </Row>
           <Row className="team">
-            <Col xs={4} md={3}>
+            <Col sm={3}>
               <div className="img-col">
                 <img src={require('lib/images/pic1.png')}></img>
               </div>
             </Col>
-            <Col xs={8} md={9}>
+            <Col sm={9}>
               <p className="team-name">Kenny Rim</p>
               <p className="team-role">FOUNDER, CEO, BUSINESSMAN, ELECTRICAL & MECHANICAL ENGINEER</p>
               <p className="team-description">Kenny founded Fresh Air in 1981 as a sole proprietorship. Using his Bachelor's degree
@@ -37,12 +37,12 @@ export default class About extends Component {
             </Col>
           </Row>
           <Row className="team">
-            <Col xs={4} md={3}>
+            <Col sm={3}>
               <div className="img-col">
                 <img src={require('lib/images/pic2.png')}></img>
               </div>
             </Col>
-            <Col xs={8} md={9}>
+            <Col sm={9}>
               <p className="team-name">Jonathan Rim</p>
               <p className="team-role">SOFTWARE ENGINEER</p>
               <p className="team-description">Jonathan built our website and ensures that everything runs smoothly on both the front-end
@@ -53,12 +53,12 @@ export default class About extends Component {
             </Col>
           </Row>
           <Row className="team">
-            <Col xs={4} md={3}>
+            <Col sm={3}>
               <div className="img-col">
                 <img src={require('lib/images/pic1.png')}></img>
               </div>
             </Col>
-            <Col xs={8} md={9}>
+            <Col sm={9}>
               <p className="team-name">Other Staff</p>
               <p className="team-role">TECHNICIAN TEAM</p>
               <p className="team-description">Our team of 8 technicians are sent out to different sites of our clients, 
@@ -70,44 +70,44 @@ export default class About extends Component {
           </Row>
         </Row>
         <Row id="contact" className="standard-div">
-          <Col xs={6}>
+          <Col sm={6}>
             <h2>Contact Us</h2>
             <ul>
               <Row>
-                <Col xs={2}>
+                <Col sm={2}>
                   <li>
                     <p>Location:</p>
                   </li>
                 </Col>
-                <Col xs={6}>
+                <Col sm={6}>
                   <p>59-58 56th Ave</p>
                   <p>Maspeth, NY 11378</p>
                 </Col>
               </Row>
               <Row>
-                <Col xs={1}>
+                <Col sm={1}>
                   <li>
                     <p>Tel:</p>
                   </li>
                 </Col>
-                <Col xs={6}>
+                <Col sm={6}>
                   <p>(347) 612-4006</p>
                 </Col>
               </Row>
               <Row>
-                <Col xs={1}>
+                <Col sm={1}>
                   <li>
                     <p>Fax:</p>
                   </li>
                 </Col>
-                <Col xs={6}>
+                <Col sm={6}>
                   <p>(718) 456-7090</p>
                 </Col>
               </Row>
             </ul>
             <img src={require('lib/images/location.png')}></img>
           </Col>
-          <Col xs={6}>
+          <Col sm={6} className="email-col">
             <h2>Send us an Email</h2>
             <EmailForm />
           </Col>

@@ -136,7 +136,6 @@ export default class EmailForm extends Component {
 				  </FormGroup>
 				</Col>
 			  <FormGroup validationState="error" className="auth-form-error">
-			  	<p id="emailForm-required">*Required fields</p>
 			    <Button id="emailForm-button" type="submit" disabled={ !checkFormIsValid() } bsStyle="success">
 			      { isFetching ? <Spinner /> : 'Send Email Message' }
 			    </Button>
@@ -146,6 +145,7 @@ export default class EmailForm extends Component {
 			    {
 			      (!isFetching && error) && <ControlLabel className="auth-form-message-error">{ error.message }</ControlLabel>
 			    }
+			  	<p id="emailForm-required">*Required fields</p>
 			  </FormGroup>
 			</Form>
 		);
