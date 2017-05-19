@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import component from './component';
+import { requestSendEmail } from 'actions/user';
 import './index.css';
 
 function mapStateToProps(state) {
@@ -15,6 +16,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
+    requestSendEmail: formInfo => dispatch(requestSendEmail(formInfo))
   };
 }
 

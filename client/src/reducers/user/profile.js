@@ -67,6 +67,24 @@ export default (state = initialState, action) => {
         returnObjFailed['errorPhone'] = action.error;
       }
       return returnObjFailed;
+    case ConstsUser.SENDEMAIL_REQUEST:
+      return {
+        ...state,
+        isFetchingMessage: true,
+        errorMessage: false
+      }
+    case ConstsUser.SENDEMAIL_SUCCESS:
+      return {
+        ...state,
+        isFetchingMessage: false,
+        errorMessage: false
+      }
+    case ConstsUser.SENDEMAIL_FAILED:
+      return {
+        ...state,
+        isFetchingMessage: false,
+        errorMessage: true
+      }
     case ConstsAuth.SESSION_FAILED:
     case ConstsAuth.LOGOUT_SUCCESS:
       return {};

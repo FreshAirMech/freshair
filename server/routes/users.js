@@ -19,6 +19,15 @@ router.get('/', function(req, res) {
   });
 });
 
+router.post('/formInfo', function(req, res, next) {
+  if (!req.body.name || !req.body.email || !req.body.subject || !req.body.message) {
+    const error = new Error('Fill out the required forms.');
+    error.status(400);
+    next(error);
+    return;
+  }
+  res.json({a: 'success'})
+});
 
 router.put('/changeInfo', function(req, res, next) {
   if (req.body.photoURL || req.body.photoURL === '') {

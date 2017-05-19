@@ -13,3 +13,16 @@ export const requestChangeInfo = (userInfo) => {
   .then(res => res.json())
   .then(checkStatus);
 }
+
+export const requestSendEmail = (formInfo) => {
+  return fetch('/users/formInfo', {
+    ...baseFetchOptions,
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    method: 'POST',
+    body: JSON.stringify(formInfo)
+  })
+  .then(res => res.json())
+  .then(checkStatus);
+}

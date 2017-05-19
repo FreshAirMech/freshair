@@ -14,8 +14,18 @@ function* requestChangeInfo(action) {
   }
 }
 
+function* requestSendEmail(action) {
+	try {
+    const result = yield call(Api.requestSendEmail, action.formInfo);
+    yield put(Actions.sendEmailSuccess(result));
+  } catch (error) {
+    yield put(Actions.sendEmailFailed(error));
+  }
+}
+
 export default function* watchUser() {
   yield [
-    takeLatest(Consts.CHANGEINFO_REQUEST, requestChangeInfo)
+    takeLatest(Consts.CHANGEINFO_REQUEST, requestChangeInfo),
+    takeLatest(Consts.SENDEMAIL_REQUEST, requestSendEmail)
   ];
 }
