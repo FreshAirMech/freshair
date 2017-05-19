@@ -11,6 +11,17 @@ cloudinary.config({
   api_secret: secrets.CLOUDINARY_API_SECRET
 });
 
+const nodemailer = require('nodemailer');
+
+// create reusable transporter object using the default SMTP transport
+let transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: secrets.TRANSPORTER_USER,
+        pass: secrets.TRANSPORTER_PASS
+    }
+});
+
 // router.get('/', Auth.assertAdmin, function (req, res) {
 router.get('/', function(req, res) {
   User.all()
@@ -26,7 +37,26 @@ router.post('/formInfo', function(req, res, next) {
     next(error);
     return;
   }
-  res.json({a: 'success'})
+  // setup email data with unicode symbols
+  let mailOptions = {
+    from: '"' + req.body.name + '" <' + req.body.email + '>', // sender address
+    to: 'jonrim@umich.edu, rim.jonathan16@gmail.com', // list of receivers
+    subject: req.body.subject, // Subject line
+    text: req.body.message, // plain text body
+    html: '' // html body
+  };
+
+  // send mail with defined transport object
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      const err = new Error(error);
+      err.message = error;
+      next(err);
+      return console.log(error);
+    }
+    console.log('Message %s sent: %s', info.messageId, info.response);
+    res.json({success: true})
+  });
 });
 
 router.put('/changeInfo', function(req, res, next) {

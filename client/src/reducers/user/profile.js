@@ -83,7 +83,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         isFetchingMessage: false,
-        errorMessage: true
+        errorMessage: action.error
       }
     case ConstsAuth.SESSION_FAILED:
     case ConstsAuth.LOGOUT_SUCCESS:

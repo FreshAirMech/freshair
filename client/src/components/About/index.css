@@ -13,12 +13,17 @@
 }
 
 #about .team {
-	margin: 5vw 0;
+	margin: 5vw -5px;
 	border-width: 1px;
 	border-color: #f0f0f0;
 	background-color: rgba(0,0,0,0.01);
 	border-style: solid;
 	border-radius: 10px;
+	padding: 3vw;
+	overflow: hidden;
+}
+
+#about .team .row {
 	padding: 20px;
 }
 
@@ -29,10 +34,10 @@
 #about img {
 	width: 100%;
 	border-radius: 10px;
-}
-
-#about .img-col {
-	min-width: 100px;
+	max-width: 20vw;
+	margin-right: 3vw;
+	margin-bottom: 1.5vw;
+	float: left;
 }
 
 #about h2 {
@@ -60,6 +65,10 @@
 .team-role {
 	font-size: 1em;
 	color: #949494;
+}
+
+.team-description {
+	margin-top: 10px;
 }
 
 #contact img {
