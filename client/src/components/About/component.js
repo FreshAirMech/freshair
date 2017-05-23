@@ -2,12 +2,18 @@ import React, { Component } from 'react';
 import { Col, Row } from 'react-bootstrap/lib';
 import SetGoogleMap from 'lib/Map';
 import EmailForm from './EmailForm';
+import Scroll from 'react-scroll';
+var scroll = Scroll.animateScroll;
 
 export default class About extends Component {
   constructor(props) {
     super(props);
     this.state = {
     };
+  }
+
+  componentDidMount() {
+    scroll.scrollToTop({duration: 1});
   }
 
   render() {

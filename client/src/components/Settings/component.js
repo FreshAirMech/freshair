@@ -9,6 +9,9 @@ import PasswordSettings from './Password';
 import PhoneSettings from './Phone';
 import EmailSettings from './Email';
 
+import Scroll from 'react-scroll';
+var scroll = Scroll.animateScroll;
+
 export default class Settings extends Component {
   constructor(props) {
     super(props);
@@ -211,6 +214,10 @@ export default class Settings extends Component {
         });
       }
     }
+  }
+
+  componentDidMount() {
+    scroll.scrollToTop({duration: 1});
   }
 
   render() {

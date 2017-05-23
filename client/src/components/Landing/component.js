@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Col, Row } from 'react-bootstrap/lib';
 import Scroll from 'react-scroll';
-import $ from 'jquery'; 
 
 var { Link, Element, Events, scrollSpy } = Scroll;
+var scroll = Scroll.animateScroll;
 
 export default class Landing extends Component {
   constructor(props) {
@@ -19,36 +19,31 @@ export default class Landing extends Component {
     document.getElementsByClassName('navbar-collapse')[0].style["background-color"] = "rgba(255,255,255," + ((top/200 < 0.9) ? (top/1000) : 0.5) + ")";
   }
 
-  componentDidMount() {
+  initializeNavbarOpacity() {
     let top = window.pageYOffset || document.documentElement.scrollTop;
     if (top === 0) {
       document.getElementById('navbar-container').style["background-color"] = "rgba(255,255,255,0)";
       document.getElementsByClassName('navbar-collapse')[0].style["background-color"] = "rgba(255,255,255,0)";
     }
+  }
 
+  componentDidMount() {
+    this.initializeNavbarOpacity();
+    scroll.scrollToTop({duration: 200});
     window.addEventListener('resize', e => {
       this.setState({offsetHeight: document.getElementById('navbar-container').offsetHeight});
     })
     
     window.addEventListener('scroll', this.changeOpacityOnScroll);
 
-    Events.scrollEvent.register('begin', function() {
-      console.log("begin", arguments);
-    });
-
-    Events.scrollEvent.register('end', function() {
-      console.log("end", arguments);
-    });
-
     scrollSpy.update();
   }
 
   componentWillUnmount() {
+    // reset opacity for other component views
     document.getElementById('navbar-container').style["background-color"] = "rgba(255,255,255,1)";
     document.getElementsByClassName('navbar-collapse')[0].style["background-color"] = "rgba(255,255,255,1)";
     window.removeEventListener('scroll', this.changeOpacityOnScroll);
-    Events.scrollEvent.remove('begin');
-    Events.scrollEvent.remove('end');
   }
 
   render() {

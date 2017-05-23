@@ -59,3 +59,15 @@
        -o-animation: fadein 0.2s; 
           animation: fadein 0.2s;
 }
+
+#navbar .icon-bar {
+	background-color: #000;
+}
+
+.navbar-toggle {
+	background-color: transparent;
+}
+
+.navbar-toggle:active {
+	background-color: #333;
+}
