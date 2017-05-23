@@ -9,11 +9,12 @@ export default class NavBar extends Component {
     this.props.requestSession();
   }
 
+
   render() {
     const { firstName, username, photoURL, requestLogout } = this.props;
     return (
       <div>
-        <div>
+        <div id="navbar-container">
           <Navbar inverse collapseOnSelect id="navbar">
             <Navbar.Header>
               <Navbar.Brand>
@@ -43,11 +44,14 @@ export default class NavBar extends Component {
                                 </span>
                               } 
                         id="basic-nav-dropdown">
+                        <LinkContainer to={{ pathname: '/account' }}>
+                          <MenuItem eventKey={3.1}>Account</MenuItem>
+                        </LinkContainer>
                         <LinkContainer to={{ pathname: '/settings' }}>
-                          <MenuItem eventKey={3.1}>Settings</MenuItem>
+                          <MenuItem eventKey={3.2}>Settings</MenuItem>
                         </LinkContainer>
                         <MenuItem divider />
-                        <MenuItem onClick={requestLogout} eventKey={3.2}>Logout</MenuItem>
+                        <MenuItem onClick={requestLogout} eventKey={3.3}>Logout</MenuItem>
                       </NavDropdown>
                     )
                   : (

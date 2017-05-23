@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import { Col, Row } from 'react-bootstrap/lib';
+import Scroll from 'react-scroll';
+import $ from 'jquery'; 
+
+var { Link, Element, Events, scrollSpy } = Scroll;
 
 export default class Landing extends Component {
   constructor(props) {
@@ -8,29 +12,71 @@ export default class Landing extends Component {
     };
   }
 
+  handleScroll(e) {
+    console.log('handle scroll')
+    console.log($(document).scrollTop())
+    $(document).on('scroll', function (e) {
+        $('#navbar-container').css('opacity', ($(document).scrollTop() / 500));
+    });
+  }
+
+  checkScroll(){
+    var startY = $('#navbar').height() * 2; //The point where the navbar changes in px
+
+    if($(window).scrollTop() > startY){
+        $('#navbar').addClass("scrolled");
+    }else{
+        $('#navbar').removeClass("scrolled");
+    }
+  }
+
+  componentDidMount() {
+    window.addEventListener('scroll', this.handleScroll.bind(this));
+    Events.scrollEvent.register('begin', function() {
+      console.log("begin", arguments);
+    });
+
+    Events.scrollEvent.register('end', function() {
+      console.log("end", arguments);
+    });
+
+    scrollSpy.update();
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll.bind(this));
+    Events.scrollEvent.remove('begin');
+    Events.scrollEvent.remove('end');
+  }
+
   render() {
     return (
       <div>
+        <Link activeClass="hideWhyButton" className="whyButton" to="whyDiv" spy={true} smooth={true} duration={500}>
+          <img id="scrollImage" src={require('lib/images/arrows.png')} alt="SCROLL DOWN" />
+        </Link>
         <Row>
           <img id="banner" src={require('lib/images/landing.png')} alt="FRESH AIR" />
         </Row>
         <Row id="why" className="standard-div">
-          <Row>
-            <h1>Why FRESH AIRE</h1>
-            <hr></hr>
-          </Row>
-          <Col sm={4}>
-            <h2><i className="fa fa-check-square-o fa-lg" aria-hidden="true"></i>Reliability</h2>
-            <p>Once a deal is confirmed, customers can rest easy knowing that the job will be done correctly.</p>
-          </Col>
-          <Col sm={4}>
-            <h2><i className="fa fa-flash fa-lg" aria-hidden="true"></i>Efficiency</h2>
-            <p>Requests for installation and maintenance are fulfilled as quickly and efficiently as possible.</p>
-          </Col>
-          <Col sm={4}>
-            <h2><i className="fa fa-user-o fa-lg" aria-hidden="true"></i>Serviceability</h2>
-            <p>We ensure caring and thoughtful customer service so that no issue is overlooked.</p>
-          </Col>
+          <Element name="whyDiv" className="element">
+            <Row>
+              <h1>Why FRESH AIRE</h1>
+              <hr></hr>
+            </Row>
+            <Col sm={4}>
+              <h2><i className="fa fa-check-square-o fa-lg" aria-hidden="true"></i>Reliability</h2>
+              <p>Once a deal is confirmed, customers can rest easy knowing that the job will be done correctly.</p>
+            </Col>
+            <Col sm={4}>
+              <h2><i className="fa fa-flash fa-lg" aria-hidden="true"></i>Efficiency</h2>
+              <p>Requests for installation and maintenance are fulfilled as quickly and efficiently as possible.</p>
+            </Col>
+            <Col sm={4}>
+              <h2><i className="fa fa-user-o fa-lg" aria-hidden="true"></i>Serviceability</h2>
+              <p>We ensure caring and thoughtful customer service so that no issue is overlooked.</p>
+            </Col>
+          </Element>
         </Row>
         <Row id="services" className="standard-div">
           <Row>

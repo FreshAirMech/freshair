@@ -109,6 +109,24 @@ html, body {
   padding-left: 30px;
 }
 
+.whyButton {
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+  background-color: #292929;
+  bottom: 0;
+  text-align: center;
+}
+
+.hideWhyButton {
+  visibility: hidden;
+}
+
+#scrollImage {
+  width: 3vw;
+  margin: 1vw;
+}
+
 @keyframes fadein {
     from { opacity: 0; }
     to   { opacity: 1; }
