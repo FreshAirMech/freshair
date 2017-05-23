@@ -31,9 +31,9 @@ export default class Landing extends Component {
   componentDidMount() {
     let bodyTop = document.body.getBoundingClientRect().top
     this.setState({
-      whyDivOffset: document.getElementById('why').getBoundingClientRect().top,
-      servicesDivOffset: document.getElementById('services').getBoundingClientRect().top,
-      clientsDivOffset: document.getElementById('clients').getBoundingClientRect().top
+      whyDivOffset: document.getElementById('why').getBoundingClientRect().top - bodyTop,
+      servicesDivOffset: document.getElementById('services').getBoundingClientRect().top - bodyTop,
+      clientsDivOffset: document.getElementById('clients').getBoundingClientRect().top - bodyTop
     })
 
     this.initializeNavbarOpacity();
@@ -75,14 +75,16 @@ export default class Landing extends Component {
       duration: 500
     };
 
-    if (window.pageYOffset < whyDivOffset) {
+    console.log(window.pageYOffset, whyDivOffset, servicesDivOffset, clientsDivOffset)
+
+    if (window.pageYOffset + 75 * window.innerWidth / 900 < whyDivOffset) {
       scroller.scrollTo('why-div', options);
     }
-    else if (window.pageYOffset < servicesDivOffset) {
+    else if (window.pageYOffset + 75 * window.innerWidth / 900 < servicesDivOffset) {
       scroller.scrollTo('services-div', options);
     }
     else {
-      if (window.pageYOffset < clientsDivOffset)
+      if (window.pageYOffset + 75 * window.innerWidth / 900 < clientsDivOffset)
         scroller.scrollTo('clients-div', options);
       let arrowButtonStyle = document.getElementsByClassName('arrowButton')[0].style;
       arrowButtonStyle.display = 'none';
