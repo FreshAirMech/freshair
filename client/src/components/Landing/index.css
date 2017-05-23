@@ -124,6 +124,7 @@ html, body {
 #scrollImage {
   width: 2vw;
   max-width: 20px;
+  min-width: 10px;
   -webkit-animation: animateArrow 1s infinite; 
      -moz-animation: animateArrow 1s infinite; 
       -ms-animation: animateArrow 1s infinite;
@@ -157,26 +158,26 @@ html, body {
 }
 
 @keyframes animateArrow {
-    from { margin-top: 0.9vw; }
-    to   { margin-top: 1.5vw; }
+    from { margin-top: 0.7vw; }
+    to   { margin-top: 1.8vw; }
 }
 
 @-moz-keyframes animateArrow {
-    from { margin-top: 0.9vw; }
-    to   { margin-top: 1.5vw; }
+    from { margin-top: 0.7vw; }
+    to   { margin-top: 1.8vw; }
 }
 
 @-webkit-keyframes animateArrow {
-    from { margin-top: 0.9vw; }
-    to   { margin-top: 1.5vw; }
+    from { margin-top: 0.7vw; }
+    to   { margin-top: 1.8vw; }
 }
 
 @-ms-keyframes animateArrow {
-    from { margin-top: 0.9vw; }
-    to   { margin-top: 1.5vw; }
+    from { margin-top: 0.7vw; }
+    to   { margin-top: 1.8vw; }
 }
 
 @-o-keyframes animateArrow {
-    from { margin-top: 0.9vw; }
-    to   { margin-top: 1.5vw; }
+    from { margin-top: 0.7vw; }
+    to   { margin-top: 1.8vw; }
 }
