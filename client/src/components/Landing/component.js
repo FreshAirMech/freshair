@@ -30,10 +30,11 @@ export default class Landing extends Component {
 
   componentDidMount() {
     let bodyTop = document.body.getBoundingClientRect().top
+    console.log(bodyTop)
     this.setState({
-      whyDivOffset: document.getElementById('why').offsetHeight,
-      servicesDivOffset: document.getElementById('services').offsetHeight,
-      clientsDivOffset: document.getElementById('clients').offsetHeight
+      whyDivOffset: document.getElementById('why').getBoundingClientRect().top,
+      servicesDivOffset: document.getElementById('services').getBoundingClientRect().top,
+      clientsDivOffset: document.getElementById('clients').getBoundingClientRect().top
     })
 
     this.initializeNavbarOpacity();
@@ -74,10 +75,6 @@ export default class Landing extends Component {
       smooth: true,
       duration: 500
     };
-    console.log(window.pageYOffset)
-    console.log(whyDivOffset)
-    console.log(servicesDivOffset)
-    console.log(clientsDivOffset)
 
     if (window.pageYOffset < whyDivOffset) {
       scroller.scrollTo('whyDiv', options);
@@ -97,9 +94,9 @@ export default class Landing extends Component {
     let { offsetHeight } = this.state;
     return (
       <div>
-        <Link onClick={this.goToNextDiv} className="arrowButton">
+        <a onClick={this.goToNextDiv} className="arrowButton">
           <img id="scrollImage" src={require('lib/images/arrows.png')} alt="SCROLL DOWN" />
-        </Link>
+        </a>
         <Row>
           <img id="banner" src={require('lib/images/landing.png')} alt="FRESH AIR" />
         </Row>

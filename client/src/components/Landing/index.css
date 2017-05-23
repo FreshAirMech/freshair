@@ -115,18 +115,15 @@ html, body {
   bottom: 0;
   text-align: center;
   height: 6.5vw;
-  opacity: 1;
+  max-height: 50px;
+  opacity: 0.96;
   display: block;
-  -webkit-animation: fadein 0.5s; 
-     -moz-animation: fadein 0.5s; 
-      -ms-animation: fadein 0.5s;
-       -o-animation: fadein 0.5s; 
-          animation: fadein 0.5s;
   cursor: pointer;
 }
 
 #scrollImage {
   width: 2vw;
+  max-width: 20px;
   -webkit-animation: animateArrow 1s infinite; 
      -moz-animation: animateArrow 1s infinite; 
       -ms-animation: animateArrow 1s infinite;
@@ -160,26 +157,26 @@ html, body {
 }
 
 @keyframes animateArrow {
-    from { margin-top: 1.5vw; }
-    to   { margin-top: 2.5vw; }
+    from { margin-top: 0.9vw; }
+    to   { margin-top: 1.5vw; }
 }
 
 @-moz-keyframes animateArrow {
-    from { margin-top: 1.5vw; }
-    to   { margin-top: 2.5vw; }
+    from { margin-top: 0.9vw; }
+    to   { margin-top: 1.5vw; }
 }
 
 @-webkit-keyframes animateArrow {
-    from { margin-top: 1.5vw; }
-    to   { margin-top: 2.5vw; }
+    from { margin-top: 0.9vw; }
+    to   { margin-top: 1.5vw; }
 }
 
 @-ms-keyframes animateArrow {
-    from { margin-top: 1.5vw; }
-    to   { margin-top: 2.5vw; }
+    from { margin-top: 0.9vw; }
+    to   { margin-top: 1.5vw; }
 }
 
 @-o-keyframes animateArrow {
-    from { margin-top: 1.5vw; }
-    to   { margin-top: 2.5vw; }
+    from { margin-top: 0.9vw; }
+    to   { margin-top: 1.5vw; }
 }
