@@ -11,9 +11,18 @@ html, body {
   src: url('../../lib/fonts/proxima-nova.woff') format("woff");
 }
 
+#banner-div {
+  background-image: url("../../lib/images/landing.png");
+  background-size: 100% auto;
+  background-attachment: fixed;
+  height: 52vw;
+  background-position: center top;
+}
+
 #banner {
   width: 100%;
   float: left;
+  z-index: -1;
   -webkit-animation: fadein 0.5s; 
      -moz-animation: fadein 0.5s; 
       -ms-animation: fadein 0.5s;
@@ -44,6 +53,7 @@ html, body {
 
 #clients {
   color: #68abdd;
+  background-color: #fff;
 }
 
 #clients table {

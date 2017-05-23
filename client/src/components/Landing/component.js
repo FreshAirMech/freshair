@@ -30,7 +30,6 @@ export default class Landing extends Component {
 
   componentDidMount() {
     let bodyTop = document.body.getBoundingClientRect().top
-    console.log(bodyTop)
     this.setState({
       whyDivOffset: document.getElementById('why').getBoundingClientRect().top,
       servicesDivOffset: document.getElementById('services').getBoundingClientRect().top,
@@ -77,14 +76,14 @@ export default class Landing extends Component {
     };
 
     if (window.pageYOffset < whyDivOffset) {
-      scroller.scrollTo('whyDiv', options);
+      scroller.scrollTo('why-div', options);
     }
     else if (window.pageYOffset < servicesDivOffset) {
-      scroller.scrollTo('servicesDiv', options);
+      scroller.scrollTo('services-div', options);
     }
     else {
       if (window.pageYOffset < clientsDivOffset)
-        scroller.scrollTo('clientsDiv', options);
+        scroller.scrollTo('clients-div', options);
       let arrowButtonStyle = document.getElementsByClassName('arrowButton')[0].style;
       arrowButtonStyle.display = 'none';
     }
@@ -97,11 +96,10 @@ export default class Landing extends Component {
         <a onClick={this.goToNextDiv} className="arrowButton">
           <img id="scrollImage" src={require('lib/images/arrows.png')} alt="SCROLL DOWN" />
         </a>
-        <Row>
-          <img id="banner" src={require('lib/images/landing.png')} alt="FRESH AIR" />
+        <Row id="banner-div">
         </Row>
         <Row id="why" className="standard-div">
-          <Element name="whyDiv" className="element">
+          <Element name="why-div" className="element">
             <Row>
               <h1>Why FRESH AIRE</h1>
               <hr></hr>
@@ -121,7 +119,7 @@ export default class Landing extends Component {
           </Element>
         </Row>
         <Row id="services" className="standard-div">
-          <Element name="servicesDiv" className="element">
+          <Element name="services-div" className="element">
             <Row>
               <h1>Examples of Services</h1>
               <hr></hr>
@@ -139,7 +137,7 @@ export default class Landing extends Component {
           </Element>
         </Row>
         <Row id="clients" className="standard-div">
-          <Element name="clientsDiv" className="element">
+          <Element name="clients-div" className="element">
             <Row>
               <h1>Some of Our Clients</h1>
               <hr></hr>
