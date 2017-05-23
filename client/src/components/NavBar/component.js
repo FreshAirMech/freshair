@@ -6,6 +6,12 @@ import { Link } from 'react-router';
 export default class NavBar extends Component {
 
   componentDidMount() {
+    document.getElementById('navbar-container').style.height = document.getElementById('navbar').offsetHeight + 'px';
+
+    window.addEventListener('resize', e => {
+      document.getElementById('navbar-container').style.height = document.getElementById('navbar').offsetHeight + 'px';
+    });
+    
     this.props.requestSession();
   }
 
@@ -15,7 +21,7 @@ export default class NavBar extends Component {
     return (
       <div>
         <div id="navbar-container">
-          <Navbar inverse collapseOnSelect id="navbar">
+          <Navbar inverse collapseOnSelect id="navbar" fixedTop={true}>
             <Navbar.Header>
               <Navbar.Brand>
                 <Link to={{ pathname: '/' }}>

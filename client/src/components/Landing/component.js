@@ -12,26 +12,21 @@ export default class Landing extends Component {
     };
   }
 
-  handleScroll(e) {
-    console.log('handle scroll')
-    console.log($(document).scrollTop())
-    $(document).on('scroll', function (e) {
-        $('#navbar-container').css('opacity', ($(document).scrollTop() / 500));
-    });
-  }
-
-  checkScroll(){
-    var startY = $('#navbar').height() * 2; //The point where the navbar changes in px
-
-    if($(window).scrollTop() > startY){
-        $('#navbar').addClass("scrolled");
-    }else{
-        $('#navbar').removeClass("scrolled");
-    }
+  changeOpacityOnScroll(e) {
+    let top = window.pageYOffset || document.documentElement.scrollTop;
+    document.getElementById('navbar-container').style["background-color"] = "rgba(255,255,255," + top/200 + ")";
+    document.getElementsByClassName('navbar-collapse')[0].style["background-color"] = "rgba(255,255,255," + top/1000 + ")";
   }
 
   componentDidMount() {
-    window.addEventListener('scroll', this.handleScroll.bind(this));
+    let top = window.pageYOffset || document.documentElement.scrollTop;
+    if (top === 0) {
+      document.getElementById('navbar-container').style["background-color"] = "rgba(255,255,255,0)";
+      document.getElementsByClassName('navbar-collapse')[0].style["background-color"] = "rgba(255,255,255,0)";
+    }
+    
+    window.addEventListener('scroll', this.changeOpacityOnScroll);
+
     Events.scrollEvent.register('begin', function() {
       console.log("begin", arguments);
     });
@@ -44,7 +39,9 @@ export default class Landing extends Component {
   }
 
   componentWillUnmount() {
-    window.removeEventListener('scroll', this.handleScroll.bind(this));
+    document.getElementById('navbar-container').style["background-color"] = "rgba(255,255,255,1)";
+    document.getElementsByClassName('navbar-collapse')[0].style["background-color"] = "rgba(255,255,255,1)";
+    window.removeEventListener('scroll', this.changeOpacityOnScroll);
     Events.scrollEvent.remove('begin');
     Events.scrollEvent.remove('end');
   }

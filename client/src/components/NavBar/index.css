@@ -1,24 +1,36 @@
-#navbar {
-	position: fixed;
+#navbar-container, #navbar {
 	width: 100%;
 	z-index: 1;
-	background-color: #fff;
+}
+
+#navbar-container {
+	position: fixed;
+  background-color: rgba(255,255,255,1);
+  max-height: 93px;
+}
+
+.navbar-header {
+	height: 83px;
+}
+
+#navbar {
+	background-color: transparent;
 	padding-top: 10px;
 	padding-bottom: 10px;
 	font-size: 1.4em;
 	font-weight: bold;
 	border-radius: 0;
-  border-color: #f5f5f5;
-  -webkit-transition: all 0.6s ease-out;
-  -moz-transition: all 0.6s ease-out;
-  -o-transition: all 0.6s ease-out;
-  -ms-transition: all 0.6s ease-out;
-  transition: all 0.6s ease-out;
+  border-color: transparent;
+}
+
+#navbar .collapse {
+	padding-top: 0.25vw;
 }
 
 #navbar-logo {
 	position: absolute;
-	top: 16px;
+	margin-top: -0.7vw;
+	margin-left: 15px;
 	max-width: 300px;
 	width: 27vw;
 	min-width: 180px;
@@ -46,9 +58,4 @@
       -ms-animation: fadein 0.2s;
        -o-animation: fadein 0.2s; 
           animation: fadein 0.2s;
-}
-
-#navbar.scrolled {
-    background: rgb(68, 68, 68);
-    background: rgba(0, 0, 0, 0.78);
 }
