@@ -114,15 +114,34 @@ html, body {
   background-color: #292929;
   bottom: 0;
   text-align: center;
+  height: 6.5vw;
+  display: none;
+  opacity: 0;
+  cursor: pointer;
+  -webkit-animation: fadeout 0.5s; 
+     -moz-animation: fadeout 0.5s; 
+      -ms-animation: fadeout 0.5s;
+       -o-animation: fadeout 0.5s; 
+          animation: fadeout 0.5s;
 }
 
-.hideWhyButton {
-  visibility: hidden;
+.showWhyButton {
+  opacity: 1;
+  display: block;
+  -webkit-animation: fadein 0.5s; 
+     -moz-animation: fadein 0.5s; 
+      -ms-animation: fadein 0.5s;
+       -o-animation: fadein 0.5s; 
+          animation: fadein 0.5s;
 }
 
 #scrollImage {
-  width: 3vw;
-  margin: 1vw;
+  width: 2vw;
+  -webkit-animation: animateArrow 1s infinite; 
+     -moz-animation: animateArrow 1s infinite; 
+      -ms-animation: animateArrow 1s infinite;
+       -o-animation: animateArrow 1s infinite; 
+          animation: animateArrow 1s infinite;
 }
 
 @keyframes fadein {
@@ -148,4 +167,54 @@ html, body {
 @-o-keyframes fadein {
     from { opacity: 0; }
     to   { opacity: 1; }
+}
+
+@keyframes fadeout {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+}
+
+@-moz-keyframes fadeout {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+}
+
+@-webkit-keyframes fadeout {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+}
+
+@-ms-keyframes fadeout {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+}
+
+@-o-keyframes fadeout {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+}
+
+@keyframes animateArrow {
+    from { margin-top: 1.5vw; }
+    to   { margin-top: 2.5vw; }
+}
+
+@-moz-keyframes animateArrow {
+    from { margin-top: 1.5vw; }
+    to   { margin-top: 2.5vw; }
+}
+
+@-webkit-keyframes animateArrow {
+    from { margin-top: 1.5vw; }
+    to   { margin-top: 2.5vw; }
+}
+
+@-ms-keyframes animateArrow {
+    from { margin-top: 1.5vw; }
+    to   { margin-top: 2.5vw; }
+}
+
+@-o-keyframes animateArrow {
+    from { margin-top: 1.5vw; }
+    to   { margin-top: 2.5vw; }
 }

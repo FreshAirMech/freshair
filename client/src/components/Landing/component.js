@@ -9,6 +9,7 @@ export default class Landing extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      offsetHeight: 0
     };
   }
 
@@ -24,6 +25,10 @@ export default class Landing extends Component {
       document.getElementById('navbar-container').style["background-color"] = "rgba(255,255,255,0)";
       document.getElementsByClassName('navbar-collapse')[0].style["background-color"] = "rgba(255,255,255,0)";
     }
+
+    window.addEventListener('resize', e => {
+      this.setState({offsetHeight: document.getElementById('navbar-container').offsetHeight});
+    })
     
     window.addEventListener('scroll', this.changeOpacityOnScroll);
 
@@ -47,9 +52,10 @@ export default class Landing extends Component {
   }
 
   render() {
+    let { offsetHeight } = this.state;
     return (
       <div>
-        <Link activeClass="hideWhyButton" className="whyButton" to="whyDiv" spy={true} smooth={true} duration={500}>
+        <Link activeClass="showWhyButton" className="whyButton" to="whyDiv" offset={-130} spy={true} smooth={true} duration={500}>
           <img id="scrollImage" src={require('lib/images/arrows.png')} alt="SCROLL DOWN" />
         </Link>
         <Row>
