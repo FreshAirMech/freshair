@@ -15,7 +15,7 @@ export default class Landing extends Component {
   changeOpacityOnScroll(e) {
     let top = window.pageYOffset || document.documentElement.scrollTop;
     document.getElementById('navbar-container').style["background-color"] = "rgba(255,255,255," + top/200 + ")";
-    document.getElementsByClassName('navbar-collapse')[0].style["background-color"] = "rgba(255,255,255," + top/1000 + ")";
+    document.getElementsByClassName('navbar-collapse')[0].style["background-color"] = "rgba(255,255,255," + ((top/200 < 0.9) ? (top/1000) : 0.5) + ")";
   }
 
   componentDidMount() {
