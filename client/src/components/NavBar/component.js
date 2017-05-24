@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 import { LinkContainer, IndexLinkContainer } from 'react-router-bootstrap/lib';
 import { Link } from 'react-router';
+import $ from 'jquery';
 
 export default class NavBar extends Component {
 
   componentDidMount() {
-    document.getElementById('navbar-container').style.height = document.getElementById('navbar').offsetHeight + 'px';
-
+    document.getElementById('navbar-container').style.height = $('#navbar').height() + 20 + 'px';
     window.addEventListener('resize', e => {
-      document.getElementById('navbar-container').style.height = document.getElementById('navbar').offsetHeight + 'px';
+      document.getElementById('navbar-container').style.height = $('#navbar').height() + 20 + 'px';
     });
     
     this.props.requestSession();

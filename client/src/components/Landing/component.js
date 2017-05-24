@@ -37,11 +37,8 @@ export default class Landing extends Component {
     })
 
     this.initializeNavbarOpacity();
-    scroll.scrollToTop({duration: 300});
+    scroll.scrollToTop({duration: 1});
 
-    window.addEventListener('resize', e => {
-      this.setState({offsetHeight: document.getElementById('navbar-container').offsetHeight});
-    })
     window.addEventListener('scroll', this.changeOpacityOnScroll);
 
     // Change state variable 'animating' so that the user cannot spam click the arrow button
@@ -74,8 +71,6 @@ export default class Landing extends Component {
       smooth: true,
       duration: 500
     };
-
-    console.log(window.pageYOffset, whyDivOffset, servicesDivOffset, clientsDivOffset)
 
     if (window.pageYOffset + 75 * window.innerWidth / 900 < whyDivOffset) {
       scroller.scrollTo('why-div', options);
