@@ -72,8 +72,8 @@ export default class Landing extends Component {
       duration: 500
     };
 
-    let currentScrollLocation = window.pageYOffset + 75 * window.innerWidth / 900;
-
+    let currentScrollLocation = window.pageYOffset + window.innerWidth / 9;
+    console.log(currentScrollLocation, whyDivOffset, servicesDivOffset, clientsDivOffset)
     if (currentScrollLocation < whyDivOffset) {
       scroller.scrollTo('why-div', options);
     }

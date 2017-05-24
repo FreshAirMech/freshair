@@ -42,20 +42,20 @@
 	font-weight: bold;
 }
 
-#navbar a i {
+#navbar a .glyphicon-triangle-top {
 	top: 45px;
-  left: 42%;
+  left: calc(50% - 10px);
   position: absolute;
   display: none;
 	color: #5c5c5c;
 }
 
-#navbar a:hover i, #navbar a:focus i {
+#navbar a:hover .glyphicon-triangle-top, #navbar a:focus .glyphicon-triangle-top {
 	display: block;
 	top: 38px;
 }
 
-#navbar a:hover:not(:focus) i {
+#navbar a:hover:not(:focus) .glyphicon-triangle-top {
 	animation: moveup 0.25s;
 }
 

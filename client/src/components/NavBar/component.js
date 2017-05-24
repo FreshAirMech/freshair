@@ -69,7 +69,9 @@ export default class NavBar extends Component {
                     )
                   : (
                       <LinkContainer className="nav-li" to={{ pathname: '/login' }}>
-                        <NavItem eventKey={3}><i className="fa fa-user" aria-hidden="true" id="user-icon"></i>  Login/Sign Up</NavItem>
+                        <NavItem eventKey={3}><i className="fa fa-user" aria-hidden="true" id="user-icon"></i>  Login/Sign Up
+                          <i className="glyphicon glyphicon-triangle-top"/>
+                        </NavItem>
                       </LinkContainer>
                     )
                 }
