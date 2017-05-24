@@ -17,22 +17,7 @@ html, body {
   background-attachment: fixed;
   height: 52vw;
   background-position: center top;
-  -webkit-animation: fadein 0.5s; 
-     -moz-animation: fadein 0.5s; 
-      -ms-animation: fadein 0.5s;
-       -o-animation: fadein 0.5s; 
-          animation: fadein 0.5s;
-}
-
-#banner {
-  width: 100%;
-  float: left;
-  z-index: -1;
-  -webkit-animation: fadein 0.5s; 
-     -moz-animation: fadein 0.5s; 
-      -ms-animation: fadein 0.5s;
-       -o-animation: fadein 0.5s; 
-          animation: fadein 0.5s;
+  animation: fadein 0.5s;
 }
 
 .standard-div {
@@ -140,11 +125,7 @@ html, body {
   width: 2vw;
   max-width: 20px;
   min-width: 10px;
-  -webkit-animation: animateArrow 1s infinite; 
-     -moz-animation: animateArrow 1s infinite; 
-      -ms-animation: animateArrow 1s infinite;
-       -o-animation: animateArrow 1s infinite; 
-          animation: animateArrow 1s infinite;
+  animation: animateArrow 1s infinite;
 }
 
 @keyframes fadein {
@@ -152,47 +133,7 @@ html, body {
     to   { opacity: 1; }
 }
 
-@-moz-keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
-
-@-webkit-keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
-
-@-ms-keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
-
-@-o-keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
-
 @keyframes animateArrow {
-    from { margin-top: 0.7vw; }
-    to   { margin-top: 1.8vw; }
-}
-
-@-moz-keyframes animateArrow {
-    from { margin-top: 0.7vw; }
-    to   { margin-top: 1.8vw; }
-}
-
-@-webkit-keyframes animateArrow {
-    from { margin-top: 0.7vw; }
-    to   { margin-top: 1.8vw; }
-}
-
-@-ms-keyframes animateArrow {
-    from { margin-top: 0.7vw; }
-    to   { margin-top: 1.8vw; }
-}
-
-@-o-keyframes animateArrow {
     from { margin-top: 0.7vw; }
     to   { margin-top: 1.8vw; }
 }

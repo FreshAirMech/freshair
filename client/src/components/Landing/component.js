@@ -72,14 +72,16 @@ export default class Landing extends Component {
       duration: 500
     };
 
-    if (window.pageYOffset + 75 * window.innerWidth / 900 < whyDivOffset) {
+    let currentScrollLocation = window.pageYOffset + 75 * window.innerWidth / 900;
+
+    if (currentScrollLocation < whyDivOffset) {
       scroller.scrollTo('why-div', options);
     }
-    else if (window.pageYOffset + 75 * window.innerWidth / 900 < servicesDivOffset) {
+    else if (currentScrollLocation < servicesDivOffset) {
       scroller.scrollTo('services-div', options);
     }
     else {
-      if (window.pageYOffset + 75 * window.innerWidth / 900 < clientsDivOffset)
+      if (currentScrollLocation < clientsDivOffset)
         scroller.scrollTo('clients-div', options);
       let arrowButtonStyle = document.getElementsByClassName('arrowButton')[0].style;
       arrowButtonStyle.display = 'none';

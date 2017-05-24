@@ -9,9 +9,6 @@
   max-height: 93px;
 }
 
-.navbar-header {
-}
-
 #navbar {
 	background-color: transparent;
 	padding-top: 10px;
@@ -40,6 +37,28 @@
 	background-color: transparent;
 }
 
+#navbar a:hover {
+	color: #db1b00;
+	font-weight: bold;
+}
+
+#navbar a i {
+	top: 45px;
+  left: 42%;
+  position: absolute;
+  display: none;
+	color: #5c5c5c;
+}
+
+#navbar a:hover i, #navbar a:focus i {
+	display: block;
+	top: 38px;
+}
+
+#navbar a:hover:not(:focus) i {
+	animation: moveup 0.25s;
+}
+
 #navbar-img {
 	width: 40px;
 	height: 40px;
@@ -52,11 +71,7 @@
 }
 
 #navbar .dropdown-menu {
-	-webkit-animation: fadein 0.2s; 
-     -moz-animation: fadein 0.2s; 
-      -ms-animation: fadein 0.2s;
-       -o-animation: fadein 0.2s; 
-          animation: fadein 0.2s;
+	animation: fadein 0.2s;
 }
 
 #navbar .icon-bar {
@@ -69,4 +84,9 @@
 
 .navbar-toggle:active {
 	background-color: #333;
+}
+
+@keyframes moveup {
+	from { top: 45px; }
+	to { top: 38px; }
 }

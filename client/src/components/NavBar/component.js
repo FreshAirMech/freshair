@@ -33,10 +33,16 @@ export default class NavBar extends Component {
             <Navbar.Collapse>
               <Nav pullRight>
                 <IndexLinkContainer className="nav-li" to={{ pathname: '/service' }}>
-                  <NavItem eventKey={1}>Services</NavItem>
+                  <NavItem eventKey={1}>
+                    Services
+                    <i className="glyphicon glyphicon-triangle-top"/>
+                  </NavItem>
                 </IndexLinkContainer>
                 <LinkContainer className="nav-li" to={{ pathname: '/about' }}>
-                  <NavItem eventKey={2}>About/Contact</NavItem>
+                  <NavItem eventKey={2}>
+                    About/Contact
+                    <i className="glyphicon glyphicon-triangle-top"/>
+                  </NavItem>
                 </LinkContainer>
                 {
                   username 
@@ -47,6 +53,7 @@ export default class NavBar extends Component {
                         title={
                                 <span>
                                   {firstName || username} {photoURL && <img id="navbar-img" src={photoURL} />}
+                                  <i className="glyphicon glyphicon-triangle-top"/>
                                 </span>
                               } 
                         id="basic-nav-dropdown">
