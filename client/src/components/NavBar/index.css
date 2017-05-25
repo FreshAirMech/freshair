@@ -43,15 +43,21 @@
 #navbar a {
 	color: #222;
 	background-color: transparent;
+	overflow: hidden;
 }
 
 #navbar a:hover {
 	color: #db1b00;
 	font-weight: bold;
+	animation: blackToRed 0.5s;
+}
+
+#navbar a:not(:hover) {
+	animation: redToBlack 0.5s;
 }
 
 #navbar a .glyphicon-triangle-top {
-	top: 45px;
+	top: 50px;
   left: calc(50% - 10px);
   position: absolute;
   display: none;
@@ -61,7 +67,12 @@
 #navbar a:hover .glyphicon-triangle-top {
 	display: block;
 	top: 38px;
-	animation: moveup 0.25s;
+	animation: moveup 0.5s;
+}
+
+#navbar a:not(:hover) .glyphicon-triangle-top {
+	display: block;
+	animation: movedown 0.5s;
 }
 
 #navbar-img {
@@ -92,6 +103,21 @@
 }
 
 @keyframes moveup {
-	from { top: 45px; }
+	from { top: 50px; }
 	to { top: 38px; }
+}
+
+@keyframes movedown {
+	from { top: 38px; }
+	to { top: 50px; }
+}
+
+@keyframes blackToRed {
+	from { color: #222; }
+	to { color: #db1b00; }
+}
+
+@keyframes redToBlack {
+	from { color: #db1b00; }
+	to { color: #222; }
 }
