@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Col, Row } from 'react-bootstrap/lib';
 import Scroll from 'react-scroll';
+import $ from 'jquery';
 
 var { Link, Element, Events, scrollSpy, scroller } = Scroll;
 var scroll = Scroll.animateScroll;
@@ -29,13 +30,6 @@ export default class Landing extends Component {
   }
 
   componentDidMount() {
-    let bodyTop = document.body.getBoundingClientRect().top
-    this.setState({
-      whyDivOffset: document.getElementById('why').getBoundingClientRect().top - bodyTop,
-      servicesDivOffset: document.getElementById('services').getBoundingClientRect().top - bodyTop,
-      clientsDivOffset: document.getElementById('clients').getBoundingClientRect().top - bodyTop
-    })
-
     this.initializeNavbarOpacity();
     scroll.scrollToTop({duration: 1});
 
@@ -63,7 +57,7 @@ export default class Landing extends Component {
   }
 
   goToNextDiv() {
-    let { currentDiv, animating, whyDivOffset, servicesDivOffset, clientsDivOffset } = this.state;
+    let { currentDiv, animating } = this.state;
     if (animating) return;
     let options = {
       offset: -130, 
@@ -71,17 +65,16 @@ export default class Landing extends Component {
       smooth: true,
       duration: 500
     };
-
-    let currentScrollLocation = window.pageYOffset + window.innerWidth / 9;
-    console.log(currentScrollLocation, whyDivOffset, servicesDivOffset, clientsDivOffset)
-    if (currentScrollLocation < whyDivOffset) {
+    
+    let navbarHeight = $('#navbar-container').height();
+    if (document.getElementById('why').getBoundingClientRect().top - navbarHeight > 0) {
       scroller.scrollTo('why-div', options);
     }
-    else if (currentScrollLocation < servicesDivOffset) {
+    else if (document.getElementById('services').getBoundingClientRect().top - navbarHeight > 0) {
       scroller.scrollTo('services-div', options);
     }
     else {
-      if (currentScrollLocation < clientsDivOffset)
+      if (document.getElementById('clients').getBoundingClientRect().top - navbarHeight > 0)
         scroller.scrollTo('clients-div', options);
       let arrowButtonStyle = document.getElementsByClassName('arrowButton')[0].style;
       arrowButtonStyle.display = 'none';
