@@ -19,6 +19,14 @@
   border-color: transparent;
 }
 
+.dropdown:not(:hover) .dropdown-menu {
+	display: none;
+}
+
+.dropdown:hover .dropdown-menu {
+	display: block;
+}
+
 #navbar .collapse {
 	padding-top: 0.25vw;
 }
@@ -50,12 +58,9 @@
 	color: #5c5c5c;
 }
 
-#navbar a:hover .glyphicon-triangle-top, #navbar a:focus .glyphicon-triangle-top {
+#navbar a:hover .glyphicon-triangle-top {
 	display: block;
 	top: 38px;
-}
-
-#navbar a:hover:not(:focus) .glyphicon-triangle-top {
 	animation: moveup 0.25s;
 }
 
