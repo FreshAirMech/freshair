@@ -58,13 +58,22 @@ export default class NavBar extends Component {
                               } 
                         id="basic-nav-dropdown">
                         <LinkContainer to={{ pathname: '/account' }}>
-                          <MenuItem eventKey={3.1}>Account</MenuItem>
+                          <MenuItem eventKey={3.1}>
+                            <i className="glyphicon glyphicon-triangle-right"/>
+                            Account
+                          </MenuItem>
                         </LinkContainer>
                         <LinkContainer to={{ pathname: '/settings' }}>
-                          <MenuItem eventKey={3.2}>Settings</MenuItem>
+                          <MenuItem eventKey={3.2}>
+                            <i className="glyphicon glyphicon-triangle-right"/>
+                            Settings
+                          </MenuItem>
                         </LinkContainer>
                         <MenuItem divider />
-                        <MenuItem onClick={requestLogout} eventKey={3.3}>Logout</MenuItem>
+                        <MenuItem onClick={requestLogout} eventKey={3.3}>
+                          <i className="glyphicon glyphicon-triangle-right"/>
+                          Logout
+                        </MenuItem>
                       </NavDropdown>
                     )
                   : (

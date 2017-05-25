@@ -133,6 +133,11 @@ html, body {
     to   { opacity: 1; }
 }
 
+@keyframes fadeout {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+}
+
 @keyframes animateArrow {
     from { margin-top: 0.7vw; }
     to   { margin-top: 1.8vw; }
