@@ -3,12 +3,17 @@ html, body {
   margin: 0px;
   padding: 0px;
   overflow-x: hidden; 
-  font-family: "proxima-nova", sans-serif;
+  font-family: "OpenSans", sans-serif;
 }
 
 @font-face {
-  font-family: "proxima-nova";
-  src: url('../../lib/fonts/proxima-nova.woff') format("woff");
+  font-family: "Montserrat";
+  src: url('../../lib/fonts/Montserrat-Regular.otf');
+}
+
+@font-face {
+  font-family: "OpenSans";
+  src: url('../../lib/fonts/OpenSans-Regular.ttf') format('truetype');
 }
 
 #banner-div {
@@ -68,8 +73,11 @@ html, body {
 
 .standard-div hr {
   width: 25%;
-  border-top-color: #8c8c8c;
-  padding-bottom: 50px;
+  border: none;
+  height: 2px;
+  background-color: #eee;
+  margin: auto;
+  margin-bottom: 50px;
 }
 
 #services hr {
@@ -99,6 +107,7 @@ html, body {
 }
 
 .standard-div h1, .standard-div h2, .standard-div h3 {
+  font-family: "Montserrat", sans-serif;
   line-height: 1.1;
   font-weight: bold;
 }
