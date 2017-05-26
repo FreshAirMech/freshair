@@ -48,7 +48,7 @@
 }
 
 #navbar a:hover {
-	color: #db1b00;
+	color: #0688fe;
 	font-weight: bold;
 }
 
@@ -57,8 +57,12 @@
   left: calc(50% - 10px);
   position: absolute;
   display: none;
-	color: #5c5c5c;
 	transition: top 0.5s;
+}
+
+#navbar .glyphicon-triangle-top,
+#navbar .glyphicon-triangle-right {
+	color: #828282;
 }
 
 #navbar a:hover .glyphicon-triangle-top,
@@ -81,6 +85,7 @@
 #navbar .dropdown-menu a .glyphicon-triangle-right {
 	transition: opacity 0.5s;
 	opacity: 0;
+	font-size: 10px;
 }
 
 #navbar .dropdown-menu a:hover .glyphicon-triangle-right {

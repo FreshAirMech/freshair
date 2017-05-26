@@ -15,25 +15,30 @@ export default class Landing extends Component {
     this.goToNextDiv = this.goToNextDiv.bind(this);
   }
 
-  changeOpacityOnScroll(e) {
+  changeNavbarOnScroll(e) {
     let top = window.pageYOffset || document.documentElement.scrollTop;
-    document.getElementById('navbar-container').style["background-color"] = "rgba(255,255,255," + top/200 + ")";
+    // slowly change the opacity of the navbar based on scroll position
+    document.getElementById('navbar-container').style["background-color"] = "rgba(255,255,255," + (0.2 + top/200) + ")";
     document.getElementsByClassName('navbar-collapse')[0].style["background-color"] = "rgba(255,255,255," + ((top/200 < 0.9) ? (top/1000) : 0.5) + ")";
   }
 
   initializeNavbarOpacity() {
     let top = window.pageYOffset || document.documentElement.scrollTop;
     if (top === 0) {
-      document.getElementById('navbar-container').style["background-color"] = "rgba(255,255,255,0)";
+      document.getElementById('navbar-container').style["background-color"] = "rgba(255,255,255,0.2)";
       document.getElementsByClassName('navbar-collapse')[0].style["background-color"] = "rgba(255,255,255,0)";
     }
+  }
+
+  centerImages() {
+    document.getElementById
   }
 
   componentDidMount() {
     this.initializeNavbarOpacity();
     scroll.scrollToTop({duration: 1});
 
-    window.addEventListener('scroll', this.changeOpacityOnScroll);
+    window.addEventListener('scroll', this.changeNavbarOnScroll);
 
     // Change state variable 'animating' so that the user cannot spam click the arrow button
     let thisComponent = this;
@@ -44,6 +49,8 @@ export default class Landing extends Component {
       thisComponent.setState({animating: false})
     });
 
+    this.centerImages();
+
     scrollSpy.update();
   }
 
@@ -51,7 +58,7 @@ export default class Landing extends Component {
     // Reset opacity for other component views
     document.getElementById('navbar-container').style["background-color"] = "rgba(255,255,255,1)";
     document.getElementsByClassName('navbar-collapse')[0].style["background-color"] = "rgba(255,255,255,1)";
-    window.removeEventListener('scroll', this.changeOpacityOnScroll);
+    window.removeEventListener('scroll', this.changeNavbarOnScroll);
     Events.scrollEvent.remove('begin');
     Events.scrollEvent.remove('end');
   }
@@ -65,7 +72,7 @@ export default class Landing extends Component {
       smooth: true,
       duration: 500
     };
-    
+
     let navbarHeight = $('#navbar-container').height();
     if (document.getElementById('why').getBoundingClientRect().top - navbarHeight > 0) {
       scroller.scrollTo('why-div', options);
@@ -89,6 +96,10 @@ export default class Landing extends Component {
           <img id="scrollImage" src={require('lib/images/arrows.png')} alt="SCROLL DOWN" />
         </a>
         <Row id="banner-div">
+          <img id="landing-left" className="landing-triangles" src={require('lib/images/landing_left.png')} />
+          <img id="landing-right" className="landing-triangles" src={require('lib/images/landing_right.png')} />
+          <img id="landing1" className="landingImages" src={require('lib/images/landing1.png')} />
+
         </Row>
         <Row id="why" className="standard-div">
           <Element name="why-div" className="element">
@@ -97,16 +108,25 @@ export default class Landing extends Component {
               <hr></hr>
             </Row>
             <Col sm={4}>
-              <h2><i className="fa fa-check-square-o fa-lg" aria-hidden="true"></i>Reliability</h2>
-              <p>Once a deal is confirmed, customers can rest easy knowing that the job will be done correctly.</p>
+              <Col xs={2}><i className="fa fa-check-square-o fa-lg" aria-hidden="true"></i></Col>
+              <Col xs={10}>
+                <h2>Reliability</h2>
+                <p>Once a deal is confirmed, customers can rest easy knowing that the job will be done correctly.</p>
+              </Col>
             </Col>
             <Col sm={4}>
-              <h2><i className="fa fa-flash fa-lg" aria-hidden="true"></i>Efficiency</h2>
-              <p>Requests for installation and maintenance are fulfilled as quickly and efficiently as possible.</p>
+              <Col xs={2}><i className="fa fa-flash fa-lg" aria-hidden="true"></i></Col>
+              <Col xs={10}>
+                <h2>Efficiency</h2>
+                <p>Requests for installation and maintenance are fulfilled as quickly and efficiently as possible.</p>
+              </Col>
             </Col>
             <Col sm={4}>
-              <h2><i className="fa fa-user-o fa-lg" aria-hidden="true"></i>Serviceability</h2>
-              <p>We ensure caring and thoughtful customer service so that no issue is overlooked.</p>
+              <Col xs={2}><i className="fa fa-user-o fa-lg" aria-hidden="true"></i></Col>
+              <Col xs={10}>
+                <h2>Serviceability</h2>
+                <p>We ensure caring and thoughtful customer service so that no issue is overlooked.</p>
+              </Col>
             </Col>
           </Element>
         </Row>

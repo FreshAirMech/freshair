@@ -17,7 +17,8 @@ html, body {
   background-attachment: fixed;
   height: 52vw;
   background-position: center top;
-  animation: fadein 0.5s;
+  display: flex;
+  position: relative;
 }
 
 .standard-div {
@@ -93,6 +94,10 @@ html, body {
   margin-top: 20px;
 }
 
+#why h2 {
+  text-align: left;
+}
+
 .standard-div h1, .standard-div h2, .standard-div h3 {
   line-height: 1.1;
   font-weight: bold;
@@ -104,7 +109,12 @@ html, body {
 
 #why p {
   font-size: 1.4em;
-  padding-left: 30px;
+}
+
+#why .col-xs-2 {
+  font-size: 30px;
+  padding: 0;
+  margin-top: 20px;
 }
 
 .arrowButton {
@@ -128,17 +138,60 @@ html, body {
   animation: animateArrow 1s infinite;
 }
 
+.landingImages {
+  width: 50%;
+  margin: auto;
+  opacity: 0;
+  animation: fadein 1s;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+}
+
+.landing-triangles {
+  opacity: 0.6;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+}
+
+#landing-left {
+  animation: slideleft 1.5s;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in;
+}
+
+#landing-right {
+  animation: slideright 1.5s;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in;
+}
+
 @keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
 @keyframes fadeout {
-    from { opacity: 1; }
-    to   { opacity: 0; }
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+@keyframes slideleft {
+  from { left: 0; }
+  to { left: -100vw; }
+}
+
+@keyframes slideright {
+  from { left: 0; }
+  to { left: 100vw; }
 }
 
 @keyframes animateArrow {
-    from { margin-top: 0.7vw; }
-    to   { margin-top: 1.8vw; }
+  from { margin-top: 0.7vw; }
+  to   { margin-top: 1.8vw; }
 }
