@@ -19,8 +19,12 @@ export default class Landing extends Component {
     let top = window.pageYOffset || document.documentElement.scrollTop;
     // slowly change the opacity of the navbar based on scroll position
     if (document.getElementById('banner-div')) {
-      document.getElementById('navbar-container').style["background-color"] = "rgba(255,255,255," + (0.2 + top/200) + ")";
-      document.getElementsByClassName('navbar-collapse')[0].style["background-color"] = "rgba(255,255,255," + ((top/200 < 0.9) ? (top/1000) : 0.5) + ")";
+      let opacityValue = 0.2 + top/200;
+      opacityValue = opacityValue > 0.9 ? 0.9 : opacityValue;
+      document.getElementById('navbar-container').style["background-color"] = "rgba(255,255,255," + opacityValue + ")";
+      opacityValue = (top/200 < 0.9) ? (top/1000) : 0.5;
+      opacityValue = opacityValue > 0.9 ? 0.9 : opacityValue;
+      document.getElementsByClassName('navbar-collapse')[0].style["background-color"] = "rgba(255,255,255," + opacityValue + ")";
     }
     // if at the bottom of the page, hide arrow Button
     if (document.getElementsByClassName('arrowButton')[0]) {
@@ -65,8 +69,8 @@ export default class Landing extends Component {
 
   componentWillUnmount() {
     // Reset opacity for other component views
-    document.getElementById('navbar-container').style["background-color"] = "rgba(255,255,255,1)";
-    document.getElementsByClassName('navbar-collapse')[0].style["background-color"] = "rgba(255,255,255,1)";
+    document.getElementById('navbar-container').style["background-color"] = "rgba(255,255,255,0.5)";
+    document.getElementsByClassName('navbar-collapse')[0].style["background-color"] = "rgba(255,255,255,0.5)";
     window.removeEventListener('scroll', this.changeNavbarOnScroll);
     Events.scrollEvent.remove('begin');
     Events.scrollEvent.remove('end');
