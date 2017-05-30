@@ -139,25 +139,25 @@ export default class Landing extends Component {
           </Element>
         </Row>
         <Element id="picture1-element" name="services-div" className="element picture-div">>
-          <h1>Examples of Services</h1>
+          <h1>Comprehensive Services</h1>
         </Element>
         <Row id="services" className="standard-div">
           <Row>
-            <Col sm={4}>
+            <Col sm={4} id="service1">
               <div>
                 <h4>HVAC & Refrigeration</h4>
                 <p className="subtitle">INSTALLATION & MAINTENANCE</p>
                 <p className="description">...for personal homes, commercial buildings, and industrial businesses</p>
               </div>
             </Col>
-            <Col sm={4}>
+            <Col sm={4} id="service2">
               <div>
                 <h4>Design Considerations</h4>
                 <p className="subtitle">LOAD, NOISE & SPACE</p>
                 <p className="description">...avoid future problems through smart design</p>
               </div>
             </Col>
-            <Col sm={4}>
+            <Col sm={4} id="service3">
               <div>
                 <h4>Troubleshooting</h4>
                 <p className="subtitle">BEFORE AND AFTER</p>

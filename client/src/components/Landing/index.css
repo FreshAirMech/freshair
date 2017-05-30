@@ -106,14 +106,12 @@ html, body {
   height: 250px;
   display: flex;
   flex-direction: column;
+  color: #fff;
+  background-size: 100% auto;
 }
 
 #services .col-sm-4 div {
   margin: auto;
-}
-
-#services .col-sm-4:hover {
-  background-color: rgba(0,0,0,0.1);
 }
 
 #services .description {
@@ -133,6 +131,18 @@ html, body {
   animation-delay: 0.5s;
   animation-fill-mode: forwards;
   animation-timing-function: ease-out;
+}
+
+#service1 {
+  background-image: url("../../lib/images/service1.jpg");
+}
+
+#service2 {
+  background-image: url("../../lib/images/service2.jpg");
+}
+
+#service3 {
+  background-image: url("../../lib/images/service3.jpg");
 }
 
 #copyright {
