@@ -18,14 +18,16 @@ export default class Landing extends Component {
   changeBasedOnScrollPos(e) {
     let top = window.pageYOffset || document.documentElement.scrollTop;
     // slowly change the opacity of the navbar based on scroll position
-    document.getElementById('navbar-container').style["background-color"] = "rgba(255,255,255," + (0.2 + top/200) + ")";
-    document.getElementsByClassName('navbar-collapse')[0].style["background-color"] = "rgba(255,255,255," + ((top/200 < 0.9) ? (top/1000) : 0.5) + ")";
-    // if at the bottom of the page, hide arrow Button
-    if (document.body.offsetHeight - (window.pageYOffset + window.innerHeight) < 80) {
-      document.getElementsByClassName('arrowButton')[0].style["display"] = "none";
+    if (document.getElementById('banner-div')) {
+      document.getElementById('navbar-container').style["background-color"] = "rgba(255,255,255," + (0.2 + top/200) + ")";
+      document.getElementsByClassName('navbar-collapse')[0].style["background-color"] = "rgba(255,255,255," + ((top/200 < 0.9) ? (top/1000) : 0.5) + ")";
     }
-    else {
-      document.getElementsByClassName('arrowButton')[0].style["display"] = "block";
+    // if at the bottom of the page, hide arrow Button
+    if (document.getElementsByClassName('arrowButton')[0]) {
+      if (document.body.offsetHeight - (window.pageYOffset + window.innerHeight) < 80)
+        document.getElementsByClassName('arrowButton')[0].style["display"] = "none";
+      else
+        document.getElementsByClassName('arrowButton')[0].style["display"] = "block";
     }
   }
 
@@ -133,14 +135,11 @@ export default class Landing extends Component {
             </Col>
           </Element>
         </Row>
-        <Row className="picture-div" id="picture1-div">
+        <Row id="services" className="picture-div" id="picture1-div">
+          <h1>Examples of Services</h1>
         </Row>
-        <Row id="services" className="standard-div">
+        <Row className="standard-div">
           <Element name="services-div" className="element">
-            <Row>
-              <h1>Examples of Services</h1>
-              <hr></hr>
-            </Row>
             <Row>
               <ul>
                 <li>HVAC Installation and Maintenance for personal homes, commercial buildings, and industrial businesses</li>

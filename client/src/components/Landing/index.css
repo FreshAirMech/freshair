@@ -16,7 +16,7 @@ html, body {
   src: url('../../lib/fonts/OpenSans-Regular.ttf') format('truetype');
 }
 
-.picture-div {
+#banner-div, .picture-div {
   background-size: 100% auto;
   background-attachment: fixed;
   background-position: center top;
@@ -30,8 +30,13 @@ html, body {
   height: 52vw;
 }
 
+.picture-div {
+  opacity: 0.5;
+  background-position: center;
+}
+
 #picture1-div {
-  background-image: url("../../lib/images/landing.png");
+  background-image: url("../../lib/images/landing2.jpg");
 }
 
 .standard-div {
@@ -90,6 +95,7 @@ html, body {
 h1, h2 {
   margin-bottom: 10px;
   margin-top: 20px;
+  width: 100%;
 }
 
 h1, h2, h3 {
