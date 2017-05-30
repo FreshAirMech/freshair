@@ -68,7 +68,7 @@ export default class About extends Component {
             <h2>Contact Us</h2>
             <ul>
               <Row>
-                <Col sm={2}>
+                <Col sm={3}>
                   <li>
                     <p>Location:</p>
                   </li>
