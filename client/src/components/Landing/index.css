@@ -52,7 +52,7 @@ html, body {
 }
 
 .col-sm-4 {
-  padding: 4% 4%;
+  padding: 4%;
 }
 
 #clients table {
@@ -91,14 +91,48 @@ html, body {
   font-size: 14px;
   text-align: center;
   padding: 0;
+  display: flex;
+}
+
+#services .row {
+  width: 100%;
 }
 
 #services .row, #services .col-sm-4 {
   margin: 0;
 }
 
+#services .col-sm-4 {
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+}
+
+#services .col-sm-4 div {
+  margin: auto;
+}
+
 #services .col-sm-4:hover {
   background-color: rgba(0,0,0,0.1);
+}
+
+#services .description {
+  display: none;
+  opacity: 0;
+}
+
+#services .col-sm-4:hover h4 {
+  animation: slideup 0.25s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+}
+
+#services .col-sm-4:hover .description {
+  display: block;
+  animation: fadein 0.25s;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
 }
 
 #copyright {
@@ -129,7 +163,7 @@ h4 {
   text-align: center;
 }
 
-#why .description {
+.subtitle {
   color: #949494;
 }
 
@@ -224,4 +258,9 @@ h4 {
 @keyframes animateArrow {
   from { margin-top: 0.7vw; }
   to   { margin-top: 1.8vw; }
+}
+
+@keyframes slideup {
+  from { margin-top: 0; }
+  to { margin-top: -20px; }
 }

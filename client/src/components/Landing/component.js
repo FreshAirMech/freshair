@@ -121,19 +121,19 @@ export default class Landing extends Component {
             <Col sm={4}>
               <i id="icon1" className="fa fa-check-square-o fa-lg" aria-hidden="true" />
               <h4>No Uncertainties</h4>
-              <p className="description">KNOWN FOR RELIABILITY</p>
+              <p className="subtitle">KNOWN FOR RELIABILITY</p>
               <p>Once a deal is confirmed, customers can rest easy knowing that the job will be done correctly.</p>
             </Col>
             <Col sm={4}>
               <i className="fa fa-flash fa-lg" aria-hidden="true" />
               <h4>Proficiency with Efficiency</h4>
-              <p className="description">ESTIMATES ARE GIVEN</p>
+              <p className="subtitle">ESTIMATES ARE GIVEN</p>
               <p>Requests for installation and maintenance are fulfilled as quickly and efficiently as possible.</p>
             </Col>
             <Col sm={4}>
               <i className="fa fa-user-o fa-lg" aria-hidden="true" />
               <h4>Thoughtful Customer Service</h4>
-              <p className="description">BEYOND STANDARD OFFICE HOURS</p>
+              <p className="subtitle">BEYOND STANDARD OFFICE HOURS</p>
               <p>We ensure caring and thoughtful customer service so that no issue is overlooked.</p>
             </Col>
           </Element>
@@ -144,19 +144,25 @@ export default class Landing extends Component {
         <Row id="services" className="standard-div">
           <Row>
             <Col sm={4}>
-              <h4>HVAC & Refrigeration</h4>
-              <p>INSTALLATION & MAINTENANCE</p>
-              <p>...for personal homes, commercial buildings, and industrial businesses</p>
+              <div>
+                <h4>HVAC & Refrigeration</h4>
+                <p className="subtitle">INSTALLATION & MAINTENANCE</p>
+                <p className="description">...for personal homes, commercial buildings, and industrial businesses</p>
+              </div>
             </Col>
             <Col sm={4}>
-              <h4>Design Considerations</h4>
-              <p>LOAD, NOISE & SPACE</p>
-              <p>...avoid future problems through smart design</p>
+              <div>
+                <h4>Design Considerations</h4>
+                <p className="subtitle">LOAD, NOISE & SPACE</p>
+                <p className="description">...avoid future problems through smart design</p>
+              </div>
             </Col>
             <Col sm={4}>
-              <h4>Troubleshooting</h4>
-              <p>BEFORE AND AFTER</p>
-              <p>...troubleshooting for systems installed either by us or a different company</p>
+              <div>
+                <h4>Troubleshooting</h4>
+                <p className="subtitle">BEFORE AND AFTER</p>
+                <p className="description">...troubleshooting for systems installed either by us or a different company</p>
+              </div>
             </Col>
           </Row>
         </Row>
