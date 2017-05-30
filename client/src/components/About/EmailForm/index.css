@@ -1,12 +1,10 @@
-#emailForm-name.col-sm-4 {
+#emailForm-name.col-sm-4,
+#emailForm-email.col-sm-4 {
 	padding-left: 0;
 }
 
+#emailForm-phone.col-sm-4,
 #emailForm-email.col-sm-4 {
-	padding: 0;
-}
-
-#emailForm-phone.col-sm-4 {
 	padding-right: 0;
 }
 
