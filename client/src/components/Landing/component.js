@@ -75,21 +75,22 @@ export default class Landing extends Component {
   goToNextDiv() {
     let { currentDiv, animating } = this.state;
     if (animating) return;
+    let navbarHeight = $('#navbar-container').height();
     let options = {
-      offset: -130, 
+      offset: -navbarHeight, 
       spy: true,
       smooth: true,
       duration: 500
     };
 
-    let navbarHeight = $('#navbar-container').height();
     if (document.getElementById('why').getBoundingClientRect().top - navbarHeight > 0) {
       scroller.scrollTo('why-div', options);
     }
-    else if (document.getElementById('services').getBoundingClientRect().top - navbarHeight > 0) {
+    else if (document.getElementById('picture1-div').getBoundingClientRect().top - navbarHeight > 0) {
       scroller.scrollTo('services-div', options);
     }
     else {
+      console.log()
       if (document.getElementById('clients').getBoundingClientRect().top - navbarHeight > 0)
         scroller.scrollTo('clients-div', options);
       let arrowButtonStyle = document.getElementsByClassName('arrowButton')[0].style;
@@ -135,22 +136,20 @@ export default class Landing extends Component {
             </Col>
           </Element>
         </Row>
-        <Row id="services" className="picture-div" id="picture1-div">
+        <Element id="picture1-element" name="services-div" className="element picture-div">>
           <h1>Examples of Services</h1>
-        </Row>
-        <Row className="standard-div">
-          <Element name="services-div" className="element">
-            <Row>
-              <ul>
-                <li>HVAC Installation and Maintenance for personal homes, commercial buildings, and industrial businesses</li>
-                <li>Design Considerations that calculate load, noise and space to prevent any future problems </li>
-                <li>Troubleshooting for systems installed either by us or a different company</li>
-                <li></li>
-                <li></li>
-                <li></li>
-              </ul>
-            </Row>
-          </Element>
+        </Element>
+        <Row id="services" className="standard-div">
+          <Row>
+            <ul>
+              <li>HVAC Installation and Maintenance for personal homes, commercial buildings, and industrial businesses</li>
+              <li>Design Considerations that calculate load, noise and space to prevent any future problems </li>
+              <li>Troubleshooting for systems installed either by us or a different company</li>
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul>
+          </Row>
         </Row>
         <Row id="clients" className="standard-div">
           <Element name="clients-div" className="element">

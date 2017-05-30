@@ -31,11 +31,19 @@ html, body {
 }
 
 .picture-div {
-  opacity: 0.5;
   background-position: center;
+  color: #000;
 }
 
-#picture1-div {
+.picture-div h1 {
+  opacity: 0.7;
+  height: 38px;
+  margin: auto;
+  font-weight: 600;
+  text-align: center;
+}
+
+#picture1-element {
   background-image: url("../../lib/images/landing2.jpg");
 }
 
