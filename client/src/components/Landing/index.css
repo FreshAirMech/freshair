@@ -106,7 +106,8 @@ html, body {
   display: flex;
   flex-direction: column;
   color: #fff;
-  background-size: 100% auto;
+  background-size: cover;
+  background-position: center;
 }
 
 #services .col-sm-4 div {
