@@ -32,7 +32,7 @@ export default class About extends Component {
               <img src={require('lib/images/pic1.png')}></img>
               <div className="team-name">Kenny Rim</div>
               <div className="team-role">FOUNDER, CEO, BUSINESSMAN, ELECTRICAL & MECHANICAL ENGINEER</div>
-              <p className="team-description">Kenny founded Fresh Air in 1981 as a sole proprietorship. Using his Bachelor's degree
+              <p className="team-description">Kenny founded Fresh Air in 1989 as a sole proprietorship. Using his Bachelor's degree
                                               in Electrical Engineering from Korea's prestigious Kyonggi University as well as his
                                               work experience in Mechanical Engineering, he used the best practices in both to run
                                               our business single-handedly.</p>

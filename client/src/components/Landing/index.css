@@ -7,7 +7,7 @@ html, body {
 }
 
 @font-face {
-  font-family: "Montserrat";
+  font-family: "Montserrat-Regular";
   src: url('../../lib/fonts/Montserrat-Regular.otf');
 }
 
@@ -28,28 +28,10 @@ html, body {
 
 .standard-div {
   padding: 6% 10%;
-  color: #fff;
 }
 
 .col-sm-4 {
   padding: 0 4%;
-}
-
-#why {
-  background-color: #635f5b;
-}
-
-#why i {
-  margin-right: 10px;
-}
-
-#services {
-  background-color: #68abdd;
-}
-
-#clients {
-  color: #68abdd;
-  background-color: #fff;
 }
 
 #clients table {
@@ -85,45 +67,52 @@ html, body {
 }
 
 #services {
-  font-size: 1.4em;
+  font-size: 14px;
 }
 
 #copyright {
   color: #8c8c8c;
   background-color: #4d4d4d;
-  font-size: 1.4em;
+  font-size: 12px;
   padding-top: 3%;
   padding-bottom: 3%;
 }
 
-.standard-div h1, .standard-div h2 {
-  text-align: center;
+h1, h2 {
   margin-bottom: 10px;
   margin-top: 20px;
 }
 
-#why h2 {
-  text-align: left;
-}
-
-.standard-div h1, .standard-div h2, .standard-div h3 {
-  font-family: "Montserrat", sans-serif;
+h1, h2, h3 {
+  text-align: center;
+  font-family: "Montserrat-Regular", sans-serif;
   line-height: 1.1;
-  font-weight: bold;
 }
 
-.standard-div h1 {
-  font-size: 48px;
+h4 {
+  font-weight: 500;
+}
+
+#why {
+  text-align: center;
+}
+
+#why .description {
+  color: #949494;
 }
 
 #why p {
-  font-size: 1.4em;
+  font-size: 14px;
 }
 
-#why .col-xs-2 {
-  font-size: 30px;
-  padding: 0;
-  margin-top: 20px;
+#why i {
+  color: #0688fe;
+  font-size: 70px;
+  margin-bottom: 15px;
+}
+
+#icon1 {
+  margin-left: 10px;
 }
 
 .arrowButton {
@@ -135,7 +124,7 @@ html, body {
   text-align: center;
   height: 6.5vw;
   max-height: 50px;
-  opacity: 0.96;
+  opacity: 0.9;
   display: block;
   cursor: pointer;
 }

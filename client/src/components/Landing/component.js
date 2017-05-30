@@ -104,29 +104,26 @@ export default class Landing extends Component {
         <Row id="why" className="standard-div">
           <Element name="why-div" className="element">
             <Row>
-              <h1>Why FRESH AIRE</h1>
+              <h1>450+ Clients since 1989</h1>
               <hr></hr>
             </Row>
             <Col sm={4}>
-              <Col xs={2}><i className="fa fa-check-square-o fa-lg" aria-hidden="true"></i></Col>
-              <Col xs={10}>
-                <h2>Reliability</h2>
-                <p>Once a deal is confirmed, customers can rest easy knowing that the job will be done correctly.</p>
-              </Col>
+              <i id="icon1" className="fa fa-check-square-o fa-lg" aria-hidden="true" />
+              <h4>No Uncertainties</h4>
+              <p className="description">KNOWN FOR RELIABILITY</p>
+              <p>Once a deal is confirmed, customers can rest easy knowing that the job will be done correctly.</p>
             </Col>
             <Col sm={4}>
-              <Col xs={2}><i className="fa fa-flash fa-lg" aria-hidden="true"></i></Col>
-              <Col xs={10}>
-                <h2>Efficiency</h2>
-                <p>Requests for installation and maintenance are fulfilled as quickly and efficiently as possible.</p>
-              </Col>
+              <i className="fa fa-flash fa-lg" aria-hidden="true" />
+              <h4>Proficiency with Efficiency</h4>
+              <p className="description">ESTIMATES ARE GIVEN</p>
+              <p>Requests for installation and maintenance are fulfilled as quickly and efficiently as possible.</p>
             </Col>
             <Col sm={4}>
-              <Col xs={2}><i className="fa fa-user-o fa-lg" aria-hidden="true"></i></Col>
-              <Col xs={10}>
-                <h2>Serviceability</h2>
-                <p>We ensure caring and thoughtful customer service so that no issue is overlooked.</p>
-              </Col>
+              <i className="fa fa-user-o fa-lg" aria-hidden="true" />
+              <h4>Thoughtful Customer Service</h4>
+              <p className="description">BEYOND STANDARD OFFICE HOURS</p>
+              <p>We ensure caring and thoughtful customer service so that no issue is overlooked.</p>
             </Col>
           </Element>
         </Row>
