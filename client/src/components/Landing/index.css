@@ -16,14 +16,22 @@ html, body {
   src: url('../../lib/fonts/OpenSans-Regular.ttf') format('truetype');
 }
 
-#banner-div {
-  background-image: url("../../lib/images/landing.png");
+.picture-div {
   background-size: 100% auto;
   background-attachment: fixed;
-  height: 52vw;
   background-position: center top;
   display: flex;
   position: relative;
+  height: 15vw;
+}
+
+#banner-div {
+  background-image: url("../../lib/images/landing.png");
+  height: 52vw;
+}
+
+#picture1-div {
+  background-image: url("../../lib/images/landing.png");
 }
 
 .standard-div {
@@ -32,6 +40,7 @@ html, body {
 
 .col-sm-4 {
   padding: 0 4%;
+  margin-top: 40px;
 }
 
 #clients table {

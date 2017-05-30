@@ -15,11 +15,18 @@ export default class Landing extends Component {
     this.goToNextDiv = this.goToNextDiv.bind(this);
   }
 
-  changeNavbarOnScroll(e) {
+  changeBasedOnScrollPos(e) {
     let top = window.pageYOffset || document.documentElement.scrollTop;
     // slowly change the opacity of the navbar based on scroll position
     document.getElementById('navbar-container').style["background-color"] = "rgba(255,255,255," + (0.2 + top/200) + ")";
     document.getElementsByClassName('navbar-collapse')[0].style["background-color"] = "rgba(255,255,255," + ((top/200 < 0.9) ? (top/1000) : 0.5) + ")";
+    // if at the bottom of the page, hide arrow Button
+    if (document.body.offsetHeight - (window.pageYOffset + window.innerHeight) < 80) {
+      document.getElementsByClassName('arrowButton')[0].style["display"] = "none";
+    }
+    else {
+      document.getElementsByClassName('arrowButton')[0].style["display"] = "block";
+    }
   }
 
   initializeNavbarOpacity() {
@@ -38,7 +45,7 @@ export default class Landing extends Component {
     this.initializeNavbarOpacity();
     scroll.scrollToTop({duration: 1});
 
-    window.addEventListener('scroll', this.changeNavbarOnScroll);
+    window.addEventListener('scroll', this.changeBasedOnScrollPos);
 
     // Change state variable 'animating' so that the user cannot spam click the arrow button
     let thisComponent = this;
@@ -95,11 +102,10 @@ export default class Landing extends Component {
         <a onClick={this.goToNextDiv} className="arrowButton">
           <img id="scrollImage" src={require('lib/images/arrows.png')} alt="SCROLL DOWN" />
         </a>
-        <Row id="banner-div">
+        <Row className="picture-div" id="banner-div">
           <img id="landing-left" className="landing-triangles" src={require('lib/images/landing_left.png')} />
           <img id="landing-right" className="landing-triangles" src={require('lib/images/landing_right.png')} />
           <img id="landing1" className="landingImages" src={require('lib/images/landing1.png')} />
-
         </Row>
         <Row id="why" className="standard-div">
           <Element name="why-div" className="element">
@@ -126,6 +132,8 @@ export default class Landing extends Component {
               <p>We ensure caring and thoughtful customer service so that no issue is overlooked.</p>
             </Col>
           </Element>
+        </Row>
+        <Row className="picture-div" id="picture1-div">
         </Row>
         <Row id="services" className="standard-div">
           <Element name="services-div" className="element">
