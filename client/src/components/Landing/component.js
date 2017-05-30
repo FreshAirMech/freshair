@@ -3,7 +3,7 @@ import { Col, Row } from 'react-bootstrap/lib';
 import Scroll from 'react-scroll';
 import $ from 'jquery';
 
-var { Link, Element, Events, scrollSpy, scroller } = Scroll;
+var { Element, Events, scrollSpy, scroller } = Scroll;
 var scroll = Scroll.animateScroll;
 
 export default class Landing extends Component {
@@ -70,7 +70,7 @@ export default class Landing extends Component {
   componentWillUnmount() {
     // Reset opacity for other component views
     document.getElementById('navbar-container').style["background-color"] = "rgba(255,255,255,0.5)";
-    document.getElementsByClassName('navbar-collapse')[0].style["background-color"] = "rgba(255,255,255,0.5)";
+    document.getElementsByClassName('navbar-collapse')[0].style["background-color"] = "rgba(255,255,255,0)";
     window.removeEventListener('scroll', this.changeNavbarOnScroll);
     Events.scrollEvent.remove('begin');
     Events.scrollEvent.remove('end');
@@ -82,23 +82,21 @@ export default class Landing extends Component {
     let navbarHeight = $('#navbar-container').height();
     let options = {
       offset: -navbarHeight, 
-      spy: true,
       smooth: true,
       duration: 500
     };
 
-    if (document.getElementById('why').getBoundingClientRect().top - navbarHeight > 0) {
+    if (document.getElementById('why').getBoundingClientRect().top - navbarHeight > 1) {
       scroller.scrollTo('why-div', options);
     }
-    else if (document.getElementById('picture1-div').getBoundingClientRect().top - navbarHeight > 0) {
+    else if (document.getElementById('picture1-element').getBoundingClientRect().top - navbarHeight > 1) {
       scroller.scrollTo('services-div', options);
     }
+    else if (document.getElementById('clients').getBoundingClientRect().top - navbarHeight > 1) {
+      scroller.scrollTo('clients-div', options);
+    }
     else {
-      console.log()
-      if (document.getElementById('clients').getBoundingClientRect().top - navbarHeight > 0)
-        scroller.scrollTo('clients-div', options);
-      let arrowButtonStyle = document.getElementsByClassName('arrowButton')[0].style;
-      arrowButtonStyle.display = 'none';
+      scroll.scrollToBottom({duration: 500, smooth: true});
     }
   }
 
@@ -145,14 +143,21 @@ export default class Landing extends Component {
         </Element>
         <Row id="services" className="standard-div">
           <Row>
-            <ul>
-              <li>HVAC Installation and Maintenance for personal homes, commercial buildings, and industrial businesses</li>
-              <li>Design Considerations that calculate load, noise and space to prevent any future problems </li>
-              <li>Troubleshooting for systems installed either by us or a different company</li>
-              <li></li>
-              <li></li>
-              <li></li>
-            </ul>
+            <Col sm={4}>
+              <h4>HVAC & Refrigeration</h4>
+              <p>INSTALLATION & MAINTENANCE</p>
+              <p>...for personal homes, commercial buildings, and industrial businesses</p>
+            </Col>
+            <Col sm={4}>
+              <h4>Design Considerations</h4>
+              <p>LOAD, NOISE & SPACE</p>
+              <p>...avoid future problems through smart design</p>
+            </Col>
+            <Col sm={4}>
+              <h4>Troubleshooting</h4>
+              <p>BEFORE AND AFTER</p>
+              <p>...troubleshooting for systems installed either by us or a different company</p>
+            </Col>
           </Row>
         </Row>
         <Row id="clients" className="standard-div">

@@ -52,8 +52,7 @@ html, body {
 }
 
 .col-sm-4 {
-  padding: 0 4%;
-  margin-top: 40px;
+  padding: 4% 4%;
 }
 
 #clients table {
@@ -90,6 +89,16 @@ html, body {
 
 #services {
   font-size: 14px;
+  text-align: center;
+  padding: 0;
+}
+
+#services .row, #services .col-sm-4 {
+  margin: 0;
+}
+
+#services .col-sm-4:hover {
+  background-color: rgba(0,0,0,0.1);
 }
 
 #copyright {
