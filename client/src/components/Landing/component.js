@@ -50,6 +50,7 @@ export default class Landing extends Component {
       aptButton.style['height'] = '50px';
       aptButton.style['padding'] = '0 13px';
       aptButton.style['top'] = '90%';
+      aptButton.getElementsByTagName('p')[0].style['font-size'] = '13px';
       $('.schedule-apt').find('i').removeClass('fa-lg').addClass('fa-md');
     }
     else {
@@ -57,6 +58,7 @@ export default class Landing extends Component {
       aptButton.style['height'] = '70px';
       aptButton.style['padding'] = '0 19px';
       aptButton.style['top'] = '50%';
+      aptButton.getElementsByTagName('p')[0].style['font-size'] = '15px';
       $('.schedule-apt').find('i').removeClass('fa-md').addClass('fa-lg');
     }
   }

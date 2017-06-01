@@ -202,15 +202,13 @@ h4 {
 }
 
 .schedule-apt.showBtn {
-  animation: showAptBtn 0.5s;
-  animation-fill-mode: forwards;
-  animation-timing-function: ease-out;
+  right: 10px;
+  transition: right 0.5s;
 }
 
 .schedule-apt.hideBtn {
-  animation: hideAptBtn 0.5s;
-  animation-fill-mode: forwards;
-  animation-timing-function: ease-out;
+  right: -100px;
+  transition: right 0.5s;
 }
 
 .schedule-apt:focus {
@@ -223,15 +221,19 @@ h4 {
 }
 
 .schedule-apt.showBtnText > p {
-  animation: showAptText 0.5s;
+  animation: fadein 0.5s;
   animation-timing-function: ease-out;
   animation-fill-mode: forwards;
+  margin-right: 60px;
+  transition: margin-right 0.5s;
 }
 
 .schedule-apt.hideBtnText > p {
-  animation: hideAptText 0.5s;
+  animation: fadeout 0.5s;
   animation-timing-function: ease-out;
   animation-fill-mode: forwards;
+  margin-right: -100px;
+  transition: margin-right 0.5s;
 }
 
 .schedule-apt p {
@@ -339,26 +341,6 @@ h4 {
 @keyframes fadeout {
   from { opacity: 1; }
   to   { opacity: 0; }
-}
-
-@keyframes showAptBtn {
-  from { right: -100px; }
-  to { right: 10px; }
-}
-
-@keyframes hideAptBtn {
-  from { right: 10px; }
-  to { right: -100px; }
-}
-
-@keyframes showAptText {
-  from { margin-right: -60px; opacity: 0; }
-  to { margin-right: 60px; opacity: 1; }
-}
-
-@keyframes hideAptText {
-  from { margin-right: 60px; opacity: 1; }
-  to { margin-right: -60px; opacity: 0; }
 }
 
 @keyframes slideleft {
