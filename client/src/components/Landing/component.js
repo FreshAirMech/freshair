@@ -25,13 +25,14 @@ export default class Landing extends Component {
       opacityValue = top/2000;
       document.getElementsByClassName('navbar-collapse')[0].style["background-color"] = "rgba(255,255,255," + opacityValue + ")";
     }
-    // if landing picture is being shown, hide 'request appointment' button, and vice versa
-    if (document.getElementsByClassName('arrowButton')[0]) {
-      if (document.body.offsetHeight - (window.pageYOffset + window.innerHeight) < 80)
-        $('.schedule-apt').removeClass('show').addClass('hide');
-      else
-        $('.schedule-apt').removeClass('hide').addClass('show');
+    // if landing picture is being shown or at bottom of page, hide 'request appointment' button, and vice versa
+    if (document.body.offsetHeight - (window.pageYOffset + window.innerHeight) < 80 ||
+        window.pageYOffset < $('#banner-div').height() / 2) {
+      $('.schedule-apt').removeClass('showBtn').addClass('hideBtn');
+      $('.schedule-apt').removeClass('showBtnText').removeClass('hideBtnText');
     }
+    else
+      $('.schedule-apt').removeClass('hideBtn').addClass('showBtn');
 
     // if at the bottom of the page, display 'scroll to top' instead of the arrow button
     if (document.getElementsByClassName('arrowButton')[0]) {
@@ -39,6 +40,24 @@ export default class Landing extends Component {
         document.getElementsByClassName('arrowButton')[0].style["display"] = "none";
       else
         document.getElementsByClassName('arrowButton')[0].style["display"] = "block";
+    }
+  }
+
+  changeBasedOnResize() {
+    let aptButton = document.getElementsByClassName('schedule-apt')[0];
+    if (window.innerWidth < 400) {
+      aptButton.style['width'] = '50px';
+      aptButton.style['height'] = '50px';
+      aptButton.style['padding'] = '0 13px';
+      aptButton.style['top'] = '90%';
+      $('.schedule-apt').find('i').removeClass('fa-lg').addClass('fa-md');
+    }
+    else {
+      aptButton.style['width'] = '70px';
+      aptButton.style['height'] = '70px';
+      aptButton.style['padding'] = '0 19px';
+      aptButton.style['top'] = '50%';
+      $('.schedule-apt').find('i').removeClass('fa-md').addClass('fa-lg');
     }
   }
 
@@ -55,6 +74,10 @@ export default class Landing extends Component {
     scroll.scrollToTop({duration: 1});
 
     window.addEventListener('scroll', this.changeBasedOnScrollPos);
+    window.addEventListener('resize', this.changeBasedOnResize);
+
+    // if user is on mobile, move 'request apt' button to bottom of the page
+    this.changeBasedOnResize();
 
     // Change state variable 'animating' so that the user cannot spam click the arrow button
     let thisComponent = this;
@@ -65,14 +88,20 @@ export default class Landing extends Component {
       thisComponent.setState({animating: false})
     });
 
-    $('.schedule-apt').addClass('show');
+    if (document.body.offsetHeight - (window.pageYOffset + window.innerHeight) < 80 ||
+        window.pageYOffset < $('#banner-div').height() / 2) {
+      $('.schedule-apt').addClass('hideBtn');
+    }
+    else {
+      $('.schedule-apt').addClass('showBtn');
+    }
 
     $('.schedule-apt').hover(
       function () {
-        $(this).removeClass('out').addClass('over');
+        $(this).removeClass('hideBtnText').addClass('showBtnText');
       },
       function () {
-        $(this).removeClass('over').addClass('out');
+        $(this).removeClass('showBtnText').addClass('hideBtnText');
       }
     );
 
@@ -167,7 +196,7 @@ export default class Landing extends Component {
               <div>
                 <h4>HVAC & Refrigeration</h4>
                 <p className="subtitle">INSTALLATION & MAINTENANCE</p>
-                <p className="description">...for commercial buildings and industrial businesses</p>
+                <p className="description">...for supermarkets, commercial buildings and industrial businesses</p>
               </div>
             </Col>
             <Col sm={4} id="service2">

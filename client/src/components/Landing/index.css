@@ -20,9 +20,10 @@ html, body {
   background-size: 100% auto;
   background-attachment: fixed;
   background-position: center top;
+  background-size: cover;
   display: flex;
   position: relative;
-  height: 160px;
+  height: 500px;
 }
 
 #banner-div {
@@ -196,17 +197,18 @@ h4 {
   top: 50%;
   position: fixed;
   z-index: 3;
-  right: -100px;
+  color: #000;
+  transition: color 0.25s ease-in-out;
 }
 
-.schedule-apt.show {
-  animation: showAptBtn 1s;
+.schedule-apt.showBtn {
+  animation: showAptBtn 0.5s;
   animation-fill-mode: forwards;
   animation-timing-function: ease-out;
 }
 
-.schedule-apt.hide {
-  animation: hideAptBtn 1s;
+.schedule-apt.hideBtn {
+  animation: hideAptBtn 0.5s;
   animation-fill-mode: forwards;
   animation-timing-function: ease-out;
 }
@@ -220,13 +222,13 @@ h4 {
   transition: color 0.25s ease-in-out;
 }
 
-.schedule-apt.over > p {
+.schedule-apt.showBtnText > p {
   animation: showAptText 0.5s;
   animation-timing-function: ease-out;
   animation-fill-mode: forwards;
 }
 
-.schedule-apt.out > p {
+.schedule-apt.hideBtnText > p {
   animation: hideAptText 0.5s;
   animation-timing-function: ease-out;
   animation-fill-mode: forwards;
@@ -245,7 +247,7 @@ h4 {
   width: 70px;
   height: 70px;
   text-align: center;
-  padding: 10px 19px;
+  padding: 0 19px;
   font-size: 24px;
   line-height: 1.33;
   border-radius: 35px;
@@ -297,6 +299,7 @@ h4 {
 
 .landingImages {
   width: 50%;
+  min-width: 300px;
   margin: auto;
   opacity: 0;
   animation: fadein 1s;
