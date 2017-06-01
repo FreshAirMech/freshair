@@ -25,6 +25,14 @@ export default class Landing extends Component {
       opacityValue = top/2000;
       document.getElementsByClassName('navbar-collapse')[0].style["background-color"] = "rgba(255,255,255," + opacityValue + ")";
     }
+    // if landing picture is being shown, hide 'request appointment' button, and vice versa
+    if (document.getElementsByClassName('arrowButton')[0]) {
+      if (document.body.offsetHeight - (window.pageYOffset + window.innerHeight) < 80)
+        $('.schedule-apt').removeClass('show').addClass('hide');
+      else
+        $('.schedule-apt').removeClass('hide').addClass('show');
+    }
+
     // if at the bottom of the page, display 'scroll to top' instead of the arrow button
     if (document.getElementsByClassName('arrowButton')[0]) {
       if (document.body.offsetHeight - (window.pageYOffset + window.innerHeight) < 80)
@@ -56,6 +64,17 @@ export default class Landing extends Component {
     Events.scrollEvent.register('end', function(to, element) {
       thisComponent.setState({animating: false})
     });
+
+    $('.schedule-apt').addClass('show');
+
+    $('.schedule-apt').hover(
+      function () {
+        $(this).removeClass('out').addClass('over');
+      },
+      function () {
+        $(this).removeClass('over').addClass('out');
+      }
+    );
 
     scrollSpy.update();
   }
@@ -101,6 +120,10 @@ export default class Landing extends Component {
     let { offsetHeight } = this.state;
     return (
       <div>
+        <button type="button" className="btn btn-default btn-circle btn-xl schedule-apt">
+          <p>Request an Appointment</p>
+          <i className="fa fa-calendar fa-lg"></i>
+        </button>
         <a onClick={this.goToNextDiv} className="arrowButton">
           <img id="scrollImage" src={require('lib/images/arrows.png')} alt="SCROLL DOWN" />
         </a>
@@ -144,7 +167,7 @@ export default class Landing extends Component {
               <div>
                 <h4>HVAC & Refrigeration</h4>
                 <p className="subtitle">INSTALLATION & MAINTENANCE</p>
-                <p className="description">...for personal homes, commercial buildings, and industrial businesses</p>
+                <p className="description">...for commercial buildings and industrial businesses</p>
               </div>
             </Col>
             <Col sm={4} id="service2">
