@@ -45,6 +45,7 @@ export default class Landing extends Component {
 
   changeBasedOnResize() {
     let aptButton = document.getElementsByClassName('schedule-apt')[0];
+    if (!aptButton) return;
     if (window.innerWidth < 400) {
       aptButton.style['width'] = '50px';
       aptButton.style['height'] = '50px';
