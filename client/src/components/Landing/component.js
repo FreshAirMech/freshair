@@ -22,11 +22,10 @@ export default class Landing extends Component {
       let opacityValue = 0.2 + top/200;
       opacityValue = opacityValue > 0.9 ? 0.9 : opacityValue;
       document.getElementById('navbar-container').style["background-color"] = "rgba(255,255,255," + opacityValue + ")";
-      opacityValue = (top/200 < 0.9) ? (top/1000) : 0.5;
-      opacityValue = opacityValue > 0.9 ? 0.9 : opacityValue;
+      opacityValue = top/2000;
       document.getElementsByClassName('navbar-collapse')[0].style["background-color"] = "rgba(255,255,255," + opacityValue + ")";
     }
-    // if at the bottom of the page, hide arrow Button
+    // if at the bottom of the page, display 'scroll to top' instead of the arrow button
     if (document.getElementsByClassName('arrowButton')[0]) {
       if (document.body.offsetHeight - (window.pageYOffset + window.innerHeight) < 80)
         document.getElementsByClassName('arrowButton')[0].style["display"] = "none";
@@ -43,10 +42,6 @@ export default class Landing extends Component {
     }
   }
 
-  centerImages() {
-    document.getElementById
-  }
-
   componentDidMount() {
     this.initializeNavbarOpacity();
     scroll.scrollToTop({duration: 1});
@@ -61,8 +56,6 @@ export default class Landing extends Component {
     Events.scrollEvent.register('end', function(to, element) {
       thisComponent.setState({animating: false})
     });
-
-    this.centerImages();
 
     scrollSpy.update();
   }
@@ -98,6 +91,10 @@ export default class Landing extends Component {
     else {
       scroll.scrollToBottom({duration: 500, smooth: true});
     }
+  }
+
+  goToTop() {
+    scroll.scrollToTop({duration: 500, smooth: true});
   }
 
   render() {
@@ -208,6 +205,9 @@ export default class Landing extends Component {
             </Row>
           </Element>
         </Row>
+        <div id="scroll-top">
+          <a onClick={this.goToTop}>GO TO TOP</a>
+        </div>
         <Row id="copyright" className="standard-div">
           Copyright © 2017, Fresh Air Mechanical Co.
         </Row>

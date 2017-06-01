@@ -122,7 +122,7 @@ html, body {
 #services .col-sm-4:hover h4 {
   animation: slideup 0.25s;
   animation-fill-mode: forwards;
-  animation-timing-function: ease-out;
+  animation-timing-function: ease-in-out;
 }
 
 #services .col-sm-4:hover .description {
@@ -130,7 +130,7 @@ html, body {
   animation: fadein 0.25s;
   animation-delay: 0.5s;
   animation-fill-mode: forwards;
-  animation-timing-function: ease-out;
+  animation-timing-function: ease-in-out;
 }
 
 #service1 {
@@ -201,8 +201,12 @@ h4 {
   height: 6.5vw;
   max-height: 50px;
   opacity: 0.9;
-  display: block;
+  display: flex;
   cursor: pointer;
+}
+
+.arrowButton img {
+  margin: auto;
 }
 
 #scrollImage {
@@ -210,6 +214,25 @@ h4 {
   max-width: 20px;
   min-width: 10px;
   animation: animateArrow 1s infinite;
+}
+
+#scroll-top {
+  display: flex;
+  height: 50px;
+  background-color: #333;
+  color: #fff;
+  transition: color 0.5s ease-in-out;
+}
+
+#scroll-top a {
+  margin: auto;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#scroll-top a:hover {
+  color: #fff;
+  text-decoration: none;
 }
 
 .landingImages {
