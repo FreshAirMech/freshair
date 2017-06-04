@@ -68,35 +68,19 @@ export default class About extends Component {
             <h2>Contact Us</h2>
             <ul>
               <Row>
-                <Col sm={3}>
-                  <li>
-                    <p>Location:</p>
-                  </li>
-                </Col>
-                <Col sm={6}>
-                  <p>59-58 56th Ave</p>
-                  <p>Maspeth, NY 11378</p>
-                </Col>
+                <i className="fa fa-map-marker fa-lg"></i> Address
+                <p>59-58 56th Ave <br/>
+                Maspeth, NY 11378</p>
               </Row>
+              <p />
               <Row>
-                <Col sm={1}>
-                  <li>
-                    <p>Tel:</p>
-                  </li>
-                </Col>
-                <Col sm={6}>
-                  <p>(347) 612-4006</p>
-                </Col>
+                <i className="fa fa-phone fa-lg"></i> Phone
+                <p>(347) 612-4006</p>
               </Row>
+              <p />
               <Row>
-                <Col sm={1}>
-                  <li>
-                    <p>Fax:</p>
-                  </li>
-                </Col>
-                <Col sm={6}>
-                  <p>(718) 456-7090</p>
-                </Col>
+                <i className="fa fa-fax fa-lg"></i> Fax
+                <p>(718) 456-7090</p>
               </Row>
             </ul>
             <img src={require('lib/images/location.png')}></img>

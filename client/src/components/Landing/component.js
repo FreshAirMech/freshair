@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Col, Row } from 'react-bootstrap/lib';
 import Scroll from 'react-scroll';
 import $ from 'jquery';
+import { Link } from 'react-router';
 
 var { Element, Events, scrollSpy, scroller } = Scroll;
 var scroll = Scroll.animateScroll;
@@ -114,7 +115,7 @@ export default class Landing extends Component {
   componentWillUnmount() {
     // Reset opacity for other component views
     document.getElementById('navbar-container').style["background-color"] = "rgba(255,255,255,0.5)";
-    document.getElementsByClassName('navbar-collapse')[0].style["background-color"] = "rgba(255,255,255,0)";
+    document.getElementsByClassName('navbar-collapse')[0].style["background-color"] = "rgba(255,255,255,0.5)";
     window.removeEventListener('scroll', this.changeNavbarOnScroll);
     Events.scrollEvent.remove('begin');
     Events.scrollEvent.remove('end');
@@ -152,10 +153,12 @@ export default class Landing extends Component {
     let { offsetHeight } = this.state;
     return (
       <div>
-        <button type="button" className="btn btn-default btn-circle btn-xl schedule-apt">
-          <p>Request an Appointment</p>
-          <i className="fa fa-calendar fa-lg"></i>
-        </button>
+        <Link to={{ pathname: '/request' }}>
+          <button type="button" className="btn btn-default btn-circle btn-xl schedule-apt">
+            <p>Request an Appointment</p>
+            <i className="fa fa-calendar fa-lg"></i>
+          </button>
+        </Link>
         <a onClick={this.goToNextDiv} className="arrowButton">
           <img id="scrollImage" src={require('lib/images/arrows.png')} alt="SCROLL DOWN" />
         </a>

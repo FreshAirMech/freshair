@@ -55,7 +55,12 @@
 }
 
 #contact p {
-	margin: 0 0 5px;
+	margin: 0 0 5px 26px;
+}
+
+#contact i {
+	width: 24px;
+	text-align: center;
 }
 
 .team-name {

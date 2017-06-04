@@ -13,6 +13,7 @@ import Landing from './components/Landing';
 import AuthPage from './components/AuthPage';
 import Settings from './components/Settings';
 import About from './components/About';
+import Request from './components/Request';
 
 const history = syncHistoryWithStore(browserHistory, store);
 
@@ -25,6 +26,7 @@ ReactDOM.render(
         <Route path="/login" component={AuthPage}/>
         <Route path="/settings" component={Settings}/>
         <Route path="/about" component={About}/>
+        <Route path="/request" component={Request}/>
       </Route>
       <Route path="*" component={NavBar}>
         <IndexRoute component={Landing} />

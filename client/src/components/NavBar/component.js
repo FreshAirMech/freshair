@@ -32,12 +32,12 @@ export default class NavBar extends Component {
             </Navbar.Header>
             <Navbar.Collapse>
               <Nav pullRight>
-                <IndexLinkContainer className="nav-li" to={{ pathname: '/service' }}>
+                <LinkContainer className="nav-li" to={{ pathname: '/service' }}>
                   <NavItem eventKey={1}>
                     Services
                     <i className="glyphicon glyphicon-triangle-top"/>
                   </NavItem>
-                </IndexLinkContainer>
+                </LinkContainer>
                 <LinkContainer className="nav-li" to={{ pathname: '/about' }}>
                   <NavItem eventKey={2}>
                     About/Contact
