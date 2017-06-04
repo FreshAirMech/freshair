@@ -1,11 +1,11 @@
 #email-form-name.col-sm-4,
 #email-form-email.col-sm-4 {
-	padding-left: 0;
+	padding-left: 0 !important;
 }
 
 #email-form-phone.col-sm-4,
 #email-form-email.col-sm-4 {
-	padding-right: 0;
+	padding-right: 0 !important;
 }
 
 #email-form-message {

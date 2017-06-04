@@ -2,21 +2,25 @@
 	padding: 10%;
 }
 
+#request-form h1 {
+	margin-bottom: 50px;
+}
+
 #request-form-left,
 #request-form-middle,
 #request-form-right {
-	padding-top: 0;
-	padding-bottom: 0;
+	padding-top: 0 !important;
+	padding-bottom: 0 !important;
 }
 
 #request-form-left,
 #request-form-middle {
-	padding-left: 0;
+	padding-left: 0 !important;
 }
 
 #request-form-middle,
 #request-form-right {
-	padding-right: 0;
+	padding-right: 0 !important;
 }
 
 #request-form-message {

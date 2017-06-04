@@ -76,6 +76,21 @@ export default class Request extends Component {
     this.fillOutForm.bind(this)();
   }
 
+  componentDidMount() {
+    this.changeFormPadding();
+    window.addEventListener('resize', this.changeFormPadding);
+  }
+
+  changeFormPadding() {
+    let cols = document.getElementsByClassName('col-sm-4');
+    for (let i = 0; i < cols.length; i++) {
+      if (window.innerWidth < 768)
+        cols[i].style.padding = '0';
+      else
+        cols[i].style.padding = '4%';
+    }
+  }
+
   render() {
     let { name, email, phone, subject, message, sentEmail, address } = this.state;
     const { isFetching, error } = this.props;
