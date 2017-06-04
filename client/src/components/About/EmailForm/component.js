@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { Panel, Button, Form, FormGroup, ControlLabel, FormControl, HelpBlock } from 'react-bootstrap/lib';
+import { Col, Panel, Button, Form, FormGroup, ControlLabel, FormControl, HelpBlock } from 'react-bootstrap/lib';
 import Spinner from 'lib/Spinner';
 import { isPhoneNumber } from 'lib/functions/authentication';
-import { Col } from 'react-bootstrap/lib';
 
 export default class EmailForm extends Component {
 	constructor(props) {
@@ -82,7 +81,7 @@ export default class EmailForm extends Component {
 		const { submitEmailForm, handleChange, checkFormIsValid } = this;
 		return (
 			<Form onSubmit={submitEmailForm}>
-				<Col sm={4} id="emailForm-name">
+				<Col sm={4} id="email-form-name">
 				  <FormGroup>
 				    <ControlLabel>Name *</ControlLabel>
 				    <FormControl
@@ -93,7 +92,7 @@ export default class EmailForm extends Component {
 				    />
 				  </FormGroup>
 				</Col>
-				<Col sm={4} id="emailForm-email">
+				<Col sm={4} id="email-form-email">
 				  <FormGroup>
 				    <ControlLabel>Email *</ControlLabel>
 				    <FormControl
@@ -104,7 +103,7 @@ export default class EmailForm extends Component {
 				    />
 				  </FormGroup>
 				</Col>
-				<Col sm={4} id="emailForm-phone">
+				<Col sm={4} id="email-form-phone">
 				  <FormGroup>
 				    <ControlLabel>Phone</ControlLabel>
 				    <FormControl
@@ -124,7 +123,7 @@ export default class EmailForm extends Component {
 			      onChange={handleChange}
 			    />
 			  </FormGroup>
-			  <Col id="emailForm-message">
+			  <Col id="email-form-message">
 				  <FormGroup>
 				    <ControlLabel>Message *</ControlLabel>
 				    <FormControl
@@ -136,16 +135,16 @@ export default class EmailForm extends Component {
 				  </FormGroup>
 				</Col>
 			  <FormGroup validationState="error" className="auth-form-error">
-			    <Button id="emailForm-button" type="submit" disabled={ !checkFormIsValid() } bsStyle="success">
+			    <Button id="email-form-button" type="submit" disabled={ !checkFormIsValid() } bsStyle="success">
 			      { isFetching ? <Spinner /> : 'Send Email Message' }
 			    </Button>
 			    {
-			      (sentEmail && !isFetching && !error) && <ControlLabel className="emailForm-response auth-form-message-success">Sent!</ControlLabel>
+			      (sentEmail && !isFetching && !error) && <ControlLabel className="email-form-response auth-form-message-success">Sent!</ControlLabel>
 			    }
 			    {
-			      (!isFetching && error) && <ControlLabel className="auth-form-message-error emailForm-response">{ error.message }</ControlLabel>
+			      (!isFetching && error) && <ControlLabel className="auth-form-message-error email-form-response">{ error.message }</ControlLabel>
 			    }
-			  	<p id="emailForm-required">*Required fields</p>
+			  	<p id="email-form-required">*Required fields</p>
 			  </FormGroup>
 			</Form>
 		);

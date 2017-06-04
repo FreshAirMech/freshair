@@ -1,30 +1,30 @@
-#emailForm-name.col-sm-4,
-#emailForm-email.col-sm-4 {
+#email-form-name.col-sm-4,
+#email-form-email.col-sm-4 {
 	padding-left: 0;
 }
 
-#emailForm-phone.col-sm-4,
-#emailForm-email.col-sm-4 {
+#email-form-phone.col-sm-4,
+#email-form-email.col-sm-4 {
 	padding-right: 0;
 }
 
-#emailForm-message {
+#email-form-message {
 	height: 300px;
 }
 
-#emailForm-message .form-control {
+#email-form-message .form-control {
 	height: 265px;
 }
 
-#emailForm-button {
+#email-form-button {
 	float: right;
 }
 
-#emailForm-required {
+#email-form-required {
 	float: left;
 }
 
-.emailForm-response {
+.email-form-response {
 	float: right;
   margin-right: 10px;
   margin-top: 7px;

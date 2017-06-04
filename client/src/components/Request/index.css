@@ -1,0 +1,46 @@
+#request-form {
+	padding: 10%;
+}
+
+#request-form-left,
+#request-form-middle,
+#request-form-right {
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+#request-form-left,
+#request-form-middle {
+	padding-left: 0;
+}
+
+#request-form-middle,
+#request-form-right {
+	padding-right: 0;
+}
+
+#request-form-message {
+	height: 300px;
+}
+
+#request-form-message .form-control {
+	height: 265px;
+}
+
+#request-form-button {
+	float: right;
+}
+
+#request-form-required {
+	float: left;
+}
+
+.request-form-response {
+	float: right;
+  margin-right: 10px;
+  margin-top: 7px;
+}
+
+.request-form-error {
+	margin-top: 80px;
+}

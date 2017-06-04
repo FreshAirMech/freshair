@@ -31,14 +31,14 @@ export default class NavBar extends Component {
 
   changeBasedOnResize() {
     // on resizing window, don't display navbar's collapse menu if 'collapsed' class isn't added (if collapse isn't open)
-    if (document.getElementsByClassName('navbar-collapse')[0] && window.innerWidth < 990
-        && !document.getElementsByClassName('navbar-toggle collapsed')[0]) {
-      document.getElementsByClassName('navbar-collapse')[0].style['display'] = 'none';
-    }
+    // if (document.getElementsByClassName('navbar-collapse')[0] && window.innerWidth < 990
+    //     && !document.getElementsByClassName('navbar-toggle collapsed')[0]) {
+    //   document.getElementsByClassName('navbar-collapse')[0].style['display'] = 'none';
+    // }
   }
 
   displayCollapse() {
-    document.getElementsByClassName('navbar-collapse')[0].style['display'] = 'none' ? 'block' : 'none';
+    // document.getElementsByClassName('navbar-collapse')[0].style['display'] = 'none' ? 'block' : 'none';
   }
 
   render() {
