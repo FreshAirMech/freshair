@@ -23,8 +23,10 @@ export default class Landing extends Component {
       let opacityValue = 0.2 + top/200;
       opacityValue = opacityValue > 0.9 ? 0.9 : opacityValue;
       document.getElementById('navbar-container').style["background-color"] = "rgba(255,255,255," + opacityValue + ")";
-      opacityValue = top/2000;
-      document.getElementsByClassName('navbar-collapse')[0].style["background-color"] = "rgba(255,255,255," + opacityValue + ")";
+      if (document.getElementsByClassName('navbar-collapse collapse')[0] && window.innerWidth < 990)
+        document.getElementsByClassName('navbar-collapse collapse')[0].style["background-color"] = "rgba(255,255,255,0.8)";
+      else
+        document.getElementsByClassName('navbar-collapse')[0].style["background-color"] = "rgba(255,255,255,0)";
     }
     // if landing picture is being shown or at bottom of page, hide 'request appointment' button, and vice versa
     if (document.body.offsetHeight - (window.pageYOffset + window.innerHeight) < 80 ||
@@ -63,13 +65,16 @@ export default class Landing extends Component {
       aptButton.getElementsByTagName('p')[0].style['font-size'] = '15px';
       $('.schedule-apt').find('i').removeClass('fa-md').addClass('fa-lg');
     }
+    if (document.getElementsByClassName('navbar-collapse')[0] && window.innerWidth < 990)
+      document.getElementsByClassName('navbar-collapse')[0].style['background-color'] = 'rgba(255,255,255,0.8)';
+    else
+      document.getElementsByClassName('navbar-collapse')[0].style['background-color'] = 'rgba(255,255,255,0)';
   }
 
   initializeNavbarOpacity() {
     let top = window.pageYOffset || document.documentElement.scrollTop;
     if (top === 0) {
-      document.getElementById('navbar-container').style["background-color"] = "rgba(255,255,255,0.2)";
-      document.getElementsByClassName('navbar-collapse')[0].style["background-color"] = "rgba(255,255,255,0)";
+      document.getElementById('navbar-container').style['background-color'] = 'rgba(255,255,255,0.2)';
     }
   }
 
@@ -114,8 +119,8 @@ export default class Landing extends Component {
 
   componentWillUnmount() {
     // Reset opacity for other component views
-    document.getElementById('navbar-container').style["background-color"] = "rgba(255,255,255,0.5)";
-    document.getElementsByClassName('navbar-collapse')[0].style["background-color"] = "rgba(255,255,255,0.5)";
+    document.getElementById('navbar-container').style["background-color"] = "rgba(255,255,255,0.9)";
+    document.getElementsByClassName('navbar-collapse')[0].style["background-color"] = "rgba(255,255,255,0)";
     window.removeEventListener('scroll', this.changeNavbarOnScroll);
     Events.scrollEvent.remove('begin');
     Events.scrollEvent.remove('end');
