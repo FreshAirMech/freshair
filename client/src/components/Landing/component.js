@@ -168,6 +168,7 @@ export default class Landing extends Component {
           <img id="scrollImage" src={require('lib/images/arrows.png')} alt="SCROLL DOWN" />
         </a>
         <Row className="picture-div" id="banner-div">
+          <div id="banner-background"></div>
           <img id="landing-left" className="landing-triangles" src={require('lib/images/landing_left.png')} />
           <img id="landing-right" className="landing-triangles" src={require('lib/images/landing_right.png')} />
           <img id="landing1" className="landingImages" src={require('lib/images/landing1.png')} />
@@ -175,7 +176,7 @@ export default class Landing extends Component {
         <Row id="why" className="standard-div">
           <Element name="why-div" className="element">
             <Row>
-              <h1>450+ Clients since 1989</h1>
+              <h1>Serving New York since 1989</h1>
               <hr></hr>
             </Row>
             <Col sm={4}>
