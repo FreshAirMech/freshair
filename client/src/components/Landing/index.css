@@ -347,15 +347,6 @@ h4 {
   animation-timing-function: ease-in;
 }
 
-.partner {
-  display: flex;
-  height: 150px;
-}
-
-.slider-decorator-2 {
-  bottom: -50px !important;
-}
-
 @keyframes fadein {
   from { opacity: 0; }
   to   { opacity: 1; }

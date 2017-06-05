@@ -3,8 +3,8 @@ import { Col, Row } from 'react-bootstrap/lib';
 import Scroll from 'react-scroll';
 import $ from 'jquery';
 import { Link } from 'react-router';
+import PartnerSlider from 'lib/Slider';
 
-var Carousel = require('nuka-carousel');
 var { Element, Events, scrollSpy, scroller } = Scroll;
 var scroll = Scroll.animateScroll;
 
@@ -164,6 +164,13 @@ export default class Landing extends Component {
 
   render() {
     let { offsetHeight, numSlides } = this.state;
+    let settings = {
+      dots: true,
+      infinite: true,
+      speed: 500,
+      slidesToShow: numSlides,
+      slidesToScroll: numSlides
+    }
     return (
       <div>
         <Link to={{ pathname: '/request' }}>
@@ -242,43 +249,7 @@ export default class Landing extends Component {
               <hr></hr>
             </Row>
             <Row>
-              <Carousel framePadding="50px 0" initialSlideHeight={100}
-                        slidesToShow={numSlides} wrapAround={true}
-                        slidesToScroll={numSlides} slideWidth="250px"
-                        swiping={true} cellAlign="center"
-                        autoplay={true} autoplayInterval={4000}
-                        decorators={[
-                          {
-                            component: React.createClass({
-                              render() {
-                                console.log(this.props)
-                                return (
-                                  <span className='fa fa-chevron-circle-right fa-3x'
-                                    onClick={
-                                      this.props.currentSlide + this.props.slidesToScroll > this.props.slideCount ?
-                                      () => {
-                                        let nextSlide = this.props.currentSlide + this.props.slidesToScroll - this.props.slideCount;
-                                        while (this.props.currentSlide !== nextSlide)
-                                          this.props.nextSlide
-                                      } : this.props.nextSlide} />
-                                ) 
-                              }
-                            }),
-                            position: 'CenterRight',
-                            style: {
-                              right: '-3%',
-                              cursor: 'pointer'
-                            }
-                          }
-                        ]}>
-                <div className="partner"><img src={require('lib/images/abco.jpg')} /></div>
-                <div className="partner"><img src="http://hvacspider.com/media/k2/items/cache/36fdb1a35cd2f54f95cf2119fb5bc7ed_XL.jpg" /></div>
-                <div className="partner"><img src="http://mehvac.com/images/logo.png" /></div>
-                <div className="partner"><img src="http://static.wixstatic.com/media/edf714_a8177bc6df634641bae452cf3bc90e8f.jpg" /></div>
-                <div className="partner"><img src="http://gp-partsdirect.com/media/aitmanufacturers/1494_Tyler_Refrigeration.png" /></div>
-                <div className="partner"><img src="https://climatecontroltt.com/media/wysiwyg/York/yorklogo.jpg" /></div>
-                <div className="partner"><img src="https://i.ytimg.com/vi/pSjKU1XA0ps/maxresdefault.jpg" /></div>
-              </Carousel>
+              <PartnerSlider numSlides={numSlides} />
             </Row>
           </Element>
         </Row>

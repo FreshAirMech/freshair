@@ -1,0 +1,25 @@
+.slick-slider button {
+	position: absolute;
+  top: calc(50% - 25px);
+  z-index: 2;
+  background: transparent;
+  border: none;
+  outline: 0;
+}
+
+.slick-slider button:active {
+	color: #0688fe;
+}
+
+.fa-chevron-circle-left {
+	left: -4%;
+}
+
+.fa-chevron-circle-right {
+	right: -4%;
+}
+
+.partner {
+  display: flex !important;
+  height: 150px;
+}
