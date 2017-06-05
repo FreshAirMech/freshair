@@ -122,14 +122,6 @@ export default class Landing extends Component {
       }
     );
 
-    // Change carousel's 'prev' and 'next' buttons to arrow icons
-    // Need to use javascript because currently using a carousel library
-    document.getElementsByClassName('slider-decorator-0')[0].getElementsByTagName('button').value = 
-    '<span className="glyphicon glyphicon-chevron-left" />';
-    document.getElementsByClassName('slider-decorator-1')[0].getElementsByTagName('button').value = 
-    '<span className="glyphicon glyphicon-chevron-right" />';
-    this.forceUpdate();
-
     scrollSpy.update();
   }
 
@@ -250,11 +242,35 @@ export default class Landing extends Component {
               <hr></hr>
             </Row>
             <Row>
-              <Carousel autoplay={true} autoplayInterval={4000}
-                        framePadding="50px 0" initialSlideHeight={100}
+              <Carousel framePadding="50px 0" initialSlideHeight={100}
                         slidesToShow={numSlides} wrapAround={true}
                         slidesToScroll={numSlides} slideWidth="250px"
-                        swiping={true} cellAlign="center">
+                        swiping={true} cellAlign="center"
+                        autoplay={true} autoplayInterval={4000}
+                        decorators={[
+                          {
+                            component: React.createClass({
+                              render() {
+                                console.log(this.props)
+                                return (
+                                  <span className='fa fa-chevron-circle-right fa-3x'
+                                    onClick={
+                                      this.props.currentSlide + this.props.slidesToScroll > this.props.slideCount ?
+                                      () => {
+                                        let nextSlide = this.props.currentSlide + this.props.slidesToScroll - this.props.slideCount;
+                                        while (this.props.currentSlide !== nextSlide)
+                                          this.props.nextSlide
+                                      } : this.props.nextSlide} />
+                                ) 
+                              }
+                            }),
+                            position: 'CenterRight',
+                            style: {
+                              right: '-3%',
+                              cursor: 'pointer'
+                            }
+                          }
+                        ]}>
                 <div className="partner"><img src={require('lib/images/abco.jpg')} /></div>
                 <div className="partner"><img src="http://hvacspider.com/media/k2/items/cache/36fdb1a35cd2f54f95cf2119fb5bc7ed_XL.jpg" /></div>
                 <div className="partner"><img src="http://mehvac.com/images/logo.png" /></div>
