@@ -4,6 +4,7 @@ import Scroll from 'react-scroll';
 import $ from 'jquery';
 import { Link } from 'react-router';
 
+var Carousel = require('nuka-carousel');
 var { Element, Events, scrollSpy, scroller } = Scroll;
 var scroll = Scroll.animateScroll;
 
@@ -85,7 +86,7 @@ export default class Landing extends Component {
     window.addEventListener('scroll', this.changeBasedOnScrollPos);
     window.addEventListener('resize', this.changeBasedOnResize);
 
-    // if user is on mobile, move 'request apt' button to bottom of the page
+    // If user is on mobile, move 'request apt' button to bottom of the page
     this.changeBasedOnResize();
 
     // Change state variable 'animating' so that the user cannot spam click the arrow button
@@ -105,6 +106,7 @@ export default class Landing extends Component {
       $('.schedule-apt').addClass('showBtn');
     }
 
+    // Add and remove classes for the 'Request an Appointment' button depending on hover state
     $('.schedule-apt').hover(
       function () {
         $(this).removeClass('hideBtnText').addClass('showBtnText');
@@ -113,6 +115,14 @@ export default class Landing extends Component {
         $(this).removeClass('showBtnText').addClass('hideBtnText');
       }
     );
+
+    // Change carousel's 'prev' and 'next' buttons to arrow icons
+    // Need to use javascript because currently using a carousel library
+    document.getElementsByClassName('slider-decorator-0')[0].getElementsByTagName('button').value = 
+    '<span className="glyphicon glyphicon-chevron-left" />';
+    document.getElementsByClassName('slider-decorator-1')[0].getElementsByTagName('button').value = 
+    '<span className="glyphicon glyphicon-chevron-right" />';
+    this.forceUpdate();
 
     scrollSpy.update();
   }
@@ -230,42 +240,22 @@ export default class Landing extends Component {
         <Row id="clients" className="standard-div">
           <Element name="clients-div" className="element">
             <Row>
-              <h1>Some of Our Clients</h1>
+              <h1>Our Partners</h1>
               <hr></hr>
             </Row>
             <Row>
-              <table>
-                <tbody>
-                  <tr>
-                    <td>
-                      <img src="https://upload.wikimedia.org/wikipedia/en/thumb/0/06/Duane_Reade_Logo.svg/849px-Duane_Reade_Logo.svg.png" />
-                    </td>
-                    <td>
-                      <img src="https://keyfood.com/wp-content/uploads/2015/03/55-Fulton-Market-300x151.jpg" />
-                    </td>
-                    <td>
-                      <img src="https://res.cloudinary.com/grubhub/image/upload/w_400,h_300,f_auto,fl_lossy,q_80,c_fit/u7i8y6yoyawurbjoemlz" />
-                    </td>
-                    <td>
-                      <img src="http://www.parisbaguettefamily.com/wp-content/uploads/2017/01/Banner-Logo.png" />
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/37/Denny%27s_logo.svg/1280px-Denny%27s_logo.svg.png" />
-                    </td>
-                    <td>
-                      <img src="http://static1.squarespace.com/static/562945abe4b085cd47b1544a/t/58c082535016e17d84d2d9e3/1493142648920/?format=1000w" />
-                    </td>
-                    <td>
-                      <img src="https://pbs.twimg.com/profile_images/3410282975/e2f70ac63fdeb89952b8a367af4fb6f0_400x400.jpeg" />
-                    </td>
-                    <td>
-                      <img src="https://static.wixstatic.com/media/675c78_0bdb26979548483bb1d31c799f9f94a2.png_srz_382_130_85_22_0.50_1.20_0.00_png_srz" />
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+              <Carousel autoplay={true} autoplayInterval={4000}
+                        framePadding="50px 0" initialSlideHeight={100}
+                        slidesToShow={3} wrapAround={true}
+                        slidesToScroll="auto" slideWidth="250px">
+                <img src="https://pbs.twimg.com/profile_images/629038880142921728/uFLEH2d5.jpg" />
+                <img src="http://hvacspider.com/media/k2/items/cache/36fdb1a35cd2f54f95cf2119fb5bc7ed_XL.jpg" />
+                <img src="http://mehvac.com/images/logo.png" />
+                <img src="http://static.wixstatic.com/media/edf714_a8177bc6df634641bae452cf3bc90e8f.jpg" />
+                <img src="http://gp-partsdirect.com/media/aitmanufacturers/1494_Tyler_Refrigeration.png" />
+                <img src="https://climatecontroltt.com/media/wysiwyg/York/yorklogo.jpg" />
+                <img src="https://i.ytimg.com/vi/pSjKU1XA0ps/maxresdefault.jpg" />
+              </Carousel>
             </Row>
           </Element>
         </Row>

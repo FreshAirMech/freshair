@@ -23,12 +23,13 @@ html, body {
   background-size: cover;
   display: flex;
   position: relative;
-  height: 500px;
+  height: 300px;
 }
 
 #banner-div {
   height: 100vh;
   width: 100%;
+  margin: 0;
 }
 
 #banner-background {
@@ -213,12 +214,18 @@ h4 {
 
 .schedule-apt.showBtn {
   right: 10px;
+  visibility: visible;
   transition: right 0.5s;
 }
 
 .schedule-apt.hideBtn {
-  right: -100px;
-  transition: right 0.5s;
+  right: -150px;
+  visibility: hidden;
+  transition: right 0.5s, visibility 1s 1s;
+}
+
+.schedule-apt.hideBtn:after {
+  display: none;
 }
 
 .schedule-apt:hover {
