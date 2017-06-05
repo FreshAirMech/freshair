@@ -32,7 +32,6 @@ export default class PartnerSlider extends Component {
 
   render() {
     var settings = {
-    	dots: true,
       infinite: true,
       speed: 500,
       slidesToShow: this.state.numSlides,
@@ -45,7 +44,7 @@ export default class PartnerSlider extends Component {
     return (
       <Slider {...settings}>
         <div className="partner"><img src={require('lib/images/abco.jpg')} /></div>
-        <div className="partner"><img src="http://hvacspider.com/media/k2/items/cache/36fdb1a35cd2f54f95cf2119fb5bc7ed_XL.jpg" /></div>
+        <div className="partner"><img src="http://hvacdepotinc.com/images/product/sporlan.png" /></div>
         <div className="partner"><img src="http://mehvac.com/images/logo.png" /></div>
         <div className="partner"><img src="http://static.wixstatic.com/media/edf714_a8177bc6df634641bae452cf3bc90e8f.jpg" /></div>
         <div className="partner"><img src="http://gp-partsdirect.com/media/aitmanufacturers/1494_Tyler_Refrigeration.png" /></div>
