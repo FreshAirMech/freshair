@@ -12,9 +12,11 @@ export default class Landing extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      offsetHeight: 0
+      offsetHeight: 0,
+      numSlides: Math.floor(window.innerWidth / 260)
     };
     this.goToNextDiv = this.goToNextDiv.bind(this);
+    this.changeBasedOnResize = this.changeBasedOnResize.bind(this);
   }
 
   changeBasedOnScrollPos(e) {
@@ -70,6 +72,10 @@ export default class Landing extends Component {
       document.getElementsByClassName('navbar-collapse')[0].style['background-color'] = 'rgba(255,255,255,0.8)';
     else
       document.getElementsByClassName('navbar-collapse')[0].style['background-color'] = 'rgba(255,255,255,0)';
+    // change num of slides to display/slide based on window's inner width
+    this.setState({
+      numSlides: Math.floor(window.innerWidth / 260)
+    });
   }
 
   initializeNavbarOpacity() {
@@ -165,7 +171,7 @@ export default class Landing extends Component {
   }
 
   render() {
-    let { offsetHeight } = this.state;
+    let { offsetHeight, numSlides } = this.state;
     return (
       <div>
         <Link to={{ pathname: '/request' }}>
@@ -246,15 +252,16 @@ export default class Landing extends Component {
             <Row>
               <Carousel autoplay={true} autoplayInterval={4000}
                         framePadding="50px 0" initialSlideHeight={100}
-                        slidesToShow={3} wrapAround={true}
-                        slidesToScroll="auto" slideWidth="250px">
-                <img src="https://pbs.twimg.com/profile_images/629038880142921728/uFLEH2d5.jpg" />
-                <img src="http://hvacspider.com/media/k2/items/cache/36fdb1a35cd2f54f95cf2119fb5bc7ed_XL.jpg" />
-                <img src="http://mehvac.com/images/logo.png" />
-                <img src="http://static.wixstatic.com/media/edf714_a8177bc6df634641bae452cf3bc90e8f.jpg" />
-                <img src="http://gp-partsdirect.com/media/aitmanufacturers/1494_Tyler_Refrigeration.png" />
-                <img src="https://climatecontroltt.com/media/wysiwyg/York/yorklogo.jpg" />
-                <img src="https://i.ytimg.com/vi/pSjKU1XA0ps/maxresdefault.jpg" />
+                        slidesToShow={numSlides} wrapAround={true}
+                        slidesToScroll={numSlides} slideWidth="250px"
+                        swiping={true} cellAlign="center">
+                <div className="partner"><img src={require('lib/images/abco.jpg')} /></div>
+                <div className="partner"><img src="http://hvacspider.com/media/k2/items/cache/36fdb1a35cd2f54f95cf2119fb5bc7ed_XL.jpg" /></div>
+                <div className="partner"><img src="http://mehvac.com/images/logo.png" /></div>
+                <div className="partner"><img src="http://static.wixstatic.com/media/edf714_a8177bc6df634641bae452cf3bc90e8f.jpg" /></div>
+                <div className="partner"><img src="http://gp-partsdirect.com/media/aitmanufacturers/1494_Tyler_Refrigeration.png" /></div>
+                <div className="partner"><img src="https://climatecontroltt.com/media/wysiwyg/York/yorklogo.jpg" /></div>
+                <div className="partner"><img src="https://i.ytimg.com/vi/pSjKU1XA0ps/maxresdefault.jpg" /></div>
               </Carousel>
             </Row>
           </Element>
