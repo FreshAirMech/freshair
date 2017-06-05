@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Col, Row, Panel, Form, FormGroup, FormControl, ControlLabel, Button, HelpBlock } from 'react-bootstrap/lib';
 import Spinner from 'lib/Spinner';
 import { isPhoneNumber } from 'lib/functions/authentication';
+import Scroll from 'react-scroll';
+var scroll = Scroll.animateScroll;
 
 export default class Request extends Component {
   constructor(props) {
@@ -10,7 +12,6 @@ export default class Request extends Component {
       name: '',
       email: '',
       phone: '',
-      subject: '',
       message: '',
       sentEmail: false
     };
@@ -27,7 +28,7 @@ export default class Request extends Component {
   }
 
   submitRequestForm(e) {
-    const { name, email, phone, subject, message } = this.state;
+    const { name, email, phone, address, message } = this.state;
     const { requestSendEmail } = this.props;
 
     e.preventDefault();
@@ -41,15 +42,15 @@ export default class Request extends Component {
       name,
       email,
       phone,
-      subject,
+      address,
       message
     });
   }
 
   checkFormIsValid() {
-    const { name, email, phone, subject, message } = this.state;
+    const { name, email, phone, address, message } = this.state;
 
-    return (isPhoneNumber(phone) && phone || !phone) && name && email && subject && message;
+    return (isPhoneNumber(phone) && phone || !phone) && name && email && address && message;
   }
 
   fillOutForm() {
@@ -60,9 +61,8 @@ export default class Request extends Component {
         name: (this.props.firstName + ' ' + this.props.lastName) || '', 
         email: this.props.email,
         phone: this.props.phone,
-        subject: '',
-        message: '',
         address: '',
+        message: '',
         sentEmail: false
       });
     }
@@ -77,6 +77,7 @@ export default class Request extends Component {
   }
 
   componentDidMount() {
+    scroll.scrollToTop({duration: 1});
     this.changeFormPadding();
     window.addEventListener('resize', this.changeFormPadding);
   }
@@ -92,12 +93,13 @@ export default class Request extends Component {
   }
 
   render() {
-    let { name, email, phone, subject, message, sentEmail, address } = this.state;
+    let { name, email, phone, message, sentEmail, address } = this.state;
     const { isFetching, error } = this.props;
     const { submitRequestForm, handleChange, checkFormIsValid } = this;
     return (
       <Form onSubmit={submitRequestForm} id="request-form">
-        <h1>Request an Appointment</h1>
+        <h3>Request an Appointment</h3>
+        <p>Schedule an appointment with us here. We will contact you as soon as possible.</p>
         <Col sm={4} id="request-form-left">
           <FormGroup>
             <ControlLabel>Name *</ControlLabel>
@@ -106,6 +108,7 @@ export default class Request extends Component {
               type="text"
               value={ name }
               onChange={handleChange}
+              placeholder="e.g. John Doe"
             />
           </FormGroup>
         </Col>
@@ -117,6 +120,7 @@ export default class Request extends Component {
               type="email"
               value={ email }
               onChange={handleChange}
+              placeholder="e.g. johndoe123@gmail.com"
             />
           </FormGroup>
         </Col>
@@ -128,6 +132,7 @@ export default class Request extends Component {
               type="text"
               value={ phone }
               onChange={handleChange}
+              placeholder="e.g. (123) 456-7890"
             />
           </FormGroup>
         </Col>
@@ -138,41 +143,9 @@ export default class Request extends Component {
             type="text"
             value={ address }
             onChange={handleChange}
+            placeholder="Street Address"
           />
         </FormGroup>
-        <Col sm={4} id="request-form-left">
-          <FormGroup>
-            <ControlLabel>City *</ControlLabel>
-            <FormControl
-              name="name"
-              type="text"
-              value={ name }
-              onChange={handleChange}
-            />
-          </FormGroup>
-        </Col>
-        <Col sm={4} id="request-form-middle">
-          <FormGroup>
-            <ControlLabel>State *</ControlLabel>
-            <FormControl
-              name="email"
-              type="email"
-              value={ email }
-              onChange={handleChange}
-            />
-          </FormGroup>
-        </Col>
-        <Col sm={4} id="request-form-right">
-          <FormGroup>
-            <ControlLabel>Zip Code</ControlLabel>
-            <FormControl
-              name="phone"
-              type="text"
-              value={ phone }
-              onChange={handleChange}
-            />
-          </FormGroup>
-        </Col>
         <Col id="request-form-message">
           <FormGroup>
             <ControlLabel>Message *</ControlLabel>
@@ -181,6 +154,7 @@ export default class Request extends Component {
               componentClass="textarea"
               value={ message }
               onChange={handleChange}
+              placeholder="How can we help?"
             />
           </FormGroup>
         </Col>

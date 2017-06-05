@@ -31,9 +31,9 @@ router.get('/', function(req, res) {
 });
 
 router.post('/formInfo', function(req, res, next) {
-  if (!req.body.name || !req.body.email || !req.body.subject || !req.body.message) {
+  if (!req.body.name || !req.body.email || (!req.body.subject && !req.body.address) || !req.body.message) {
     const error = new Error('Fill out the required forms.');
-    error.status(400);
+    error.status = 400;
     next(error);
     return;
   }
@@ -41,7 +41,7 @@ router.post('/formInfo', function(req, res, next) {
   let mailOptions = {
     from: '"' + req.body.name + ' ' + req.body.email + '"', // sender address
     to: 'jonrim@umich.edu, rim.jonathan16@gmail.com', // list of receivers
-    subject: req.body.email + ': ' + req.body.subject, // Subject line
+    subject: req.body.email + ': ' + (req.body.subject || req.body.address), // Subject line
     text: req.body.message, // plain text body
     html: '' // html body
   };
