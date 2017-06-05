@@ -4,28 +4,39 @@ import './index.css';
 
 class PrevNavButton extends React.Component {
   render() {
-    return <button {...this.props} className='fa fa-chevron-circle-left fa-3x' />
+    return <button onClick={this.props.onClick} className='fa fa-chevron-circle-left fa-3x' />
   }
 }
 
 class NextNavButton extends React.Component {
   render() {
-    return <button {...this.props} className='fa fa-chevron-circle-right fa-3x' />
+    return <button onClick={this.props.onClick} className='fa fa-chevron-circle-right fa-3x' />
   }
 }
 
 export default class PartnerSlider extends Component {
 	constructor(props) {
 		super(props);
+    this.state = {
+    };
 	}
+
+  componentDidMount() {
+    let numSlides = Math.floor(window.innerWidth / 260);
+    this.setState({ numSlides });
+    window.addEventListener('resize', () => {
+      let numSlides = Math.floor(window.innerWidth / 260);
+      this.setState({ numSlides });
+    });
+  }
 
   render() {
     var settings = {
     	dots: true,
       infinite: true,
       speed: 500,
-      slidesToShow: this.props.numSlides,
-      slidesToScroll: this.props.numSlides,
+      slidesToShow: this.state.numSlides,
+      slidesToScroll: this.state.numSlides,
       autoplay: true,
       autoplaySpeed: 4000,
       prevArrow: <PrevNavButton/>,

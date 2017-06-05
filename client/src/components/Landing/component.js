@@ -12,8 +12,7 @@ export default class Landing extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      offsetHeight: 0,
-      numSlides: Math.floor(window.innerWidth / 260)
+      offsetHeight: 0
     };
     this.goToNextDiv = this.goToNextDiv.bind(this);
     this.changeBasedOnResize = this.changeBasedOnResize.bind(this);
@@ -72,10 +71,6 @@ export default class Landing extends Component {
       document.getElementsByClassName('navbar-collapse')[0].style['background-color'] = 'rgba(255,255,255,0.8)';
     else
       document.getElementsByClassName('navbar-collapse')[0].style['background-color'] = 'rgba(255,255,255,0)';
-    // change num of slides to display/slide based on window's inner width
-    this.setState({
-      numSlides: Math.floor(window.innerWidth / 260)
-    });
   }
 
   initializeNavbarOpacity() {
@@ -163,14 +158,7 @@ export default class Landing extends Component {
   }
 
   render() {
-    let { offsetHeight, numSlides } = this.state;
-    let settings = {
-      dots: true,
-      infinite: true,
-      speed: 500,
-      slidesToShow: numSlides,
-      slidesToScroll: numSlides
-    }
+    let { offsetHeight } = this.state;
     return (
       <div>
         <Link to={{ pathname: '/request' }}>
@@ -249,7 +237,7 @@ export default class Landing extends Component {
               <hr></hr>
             </Row>
             <Row>
-              <PartnerSlider numSlides={numSlides} />
+              <PartnerSlider />
             </Row>
           </Element>
         </Row>
