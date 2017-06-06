@@ -37,7 +37,7 @@ export default class PartnerSlider extends Component {
       slidesToShow: this.state.numSlides,
       slidesToScroll: this.state.numSlides,
       autoplay: true,
-      autoplaySpeed: 4000,
+      autoplaySpeed: 5000,
       prevArrow: <PrevNavButton/>,
       nextArrow: <NextNavButton/>
     };
@@ -50,6 +50,7 @@ export default class PartnerSlider extends Component {
         <div className="partner"><img src="http://gp-partsdirect.com/media/aitmanufacturers/1494_Tyler_Refrigeration.png" /></div>
         <div className="partner"><img src="https://climatecontroltt.com/media/wysiwyg/York/yorklogo.jpg" /></div>
         <div className="partner"><img src="https://i.ytimg.com/vi/pSjKU1XA0ps/maxresdefault.jpg" /></div>
+        <div className="partner"><img src="http://www.knuthrefrigeration.com/wp-content/uploads/2016/03/logo_NEW_kysor_warren.jpg" /></div>
       </Slider>
     );
   }
