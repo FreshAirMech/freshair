@@ -32,10 +32,10 @@
 #delete-photo {
 	margin-top: -25px;
   margin-bottom: 5px;
-	padding: 0 30%;
+  display: flex;
 }
 
 #delete-photo button {
-	width: 100%;
+	margin: auto;
 	min-width: 100px;
 }
