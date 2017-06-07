@@ -16,6 +16,57 @@ html, body {
   src: url('../../lib/fonts/OpenSans-Regular.ttf') format('truetype');
 }
 
+/* Button code from w3schools */
+
+button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    font-weight: bold !important;
+}
+
+.button-green {
+    background-color: white; 
+    color: #4CAF50; 
+    border: 2px solid #4CAF50;
+}
+
+.button-green:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.button-blue {
+    background-color: white; 
+    color: #008CBA; 
+    border: 2px solid #008CBA;
+}
+
+.button-blue:hover {
+    background-color: #008CBA;
+    color: white;
+}
+
+.button-red {
+    background-color: white; 
+    color: #f44336; 
+    border: 2px solid #f44336;
+}
+
+.button-red:hover {
+    background-color: #f44336;
+    color: white;
+}
+
 #banner-background, .picture-div {
   background-size: 100% auto;
   background-attachment: fixed;
@@ -66,20 +117,11 @@ html, body {
   padding: 4%;
 }
 
-#clients table {
+#overview-element {
   width: 100%;
 }
 
-#clients tr {
-  padding: 2%;
-}
-
-#clients td {
-  width: 25%;
-  height: 20%;
-}
-
-#clients img {
+#partners img {
   width: 75%;
   display: block;
   margin: auto;
@@ -94,26 +136,28 @@ html, body {
   margin-bottom: 50px;
 }
 
-#services hr {
+#overview hr {
   border-top-color: #fff;
 }
 
-#services {
+#overview, #services {
   font-size: 14px;
   text-align: center;
   padding: 0;
+  margin: 0;
   display: flex;
 }
 
-#services .row {
+#overview .row, #services .row {
   width: 100%;
 }
 
-#services .row, #services .col-sm-4 {
+#overview .row, #overview .col-sm-4,
+#services .row, #services .col-sm-6 {
   margin: 0;
 }
 
-#services .col-sm-4 {
+#overview .col-sm-4, #services .col-sm-6 {
   height: 250px;
   display: flex;
   flex-direction: column;
@@ -122,22 +166,23 @@ html, body {
   background-position: center;
 }
 
-#services .col-sm-4 div {
+#overview .col-sm-4 div,
+#services .col-sm-6 div {
   margin: auto;
 }
 
-#services .description {
+#overview .description {
   display: none;
   opacity: 0;
 }
 
-#services .col-sm-4:hover h4 {
+#overview .col-sm-4:hover h4 {
   animation: slideup 0.25s;
   animation-fill-mode: forwards;
   animation-timing-function: ease-in-out;
 }
 
-#services .col-sm-4:hover .description {
+#overview .col-sm-4:hover .description {
   display: block;
   animation: fadein 0.25s;
   animation-delay: 0.5s;
@@ -145,16 +190,54 @@ html, body {
   animation-timing-function: ease-in-out;
 }
 
+#overview1 {
+  background-image: url("../../lib/images/overview1.jpg");
+}
+
+#overview2 {
+  background-image: url("../../lib/images/overview2.jpg");
+}
+
+#overview3 {
+  background-image: url("../../lib/images/overview3.jpg");
+}
+
+#services .col-sm-6 {
+  height: 250px;
+  background-position: left;
+  background-size: 150% auto;
+}
+
+#services .col-sm-6 div {
+  height: 100px;
+  width: 250px;
+  display: flex;
+  background: radial-gradient(rgba(0,0,0,0.3) 20%, rgba(255,255,255,0) 70%);
+}
+
+#services .col-sm-6 h2 {
+  margin: auto;
+}
+
 #service1 {
-  background-image: url("../../lib/images/service1.jpg");
+  background-image: url("../../lib/images/delicase.jpg");
 }
 
 #service2 {
-  background-image: url("../../lib/images/service2.jpg");
+  background-image: url("../../lib/images/opencase.jpg");
 }
 
 #service3 {
-  background-image: url("../../lib/images/service3.jpg");
+  background-image: url("../../lib/images/heat.jpg");
+}
+
+#service4 {
+  background-image: url("../../lib/images/icemachine.jpg");
+}
+
+#service5 {
+  background-image: url("../../lib/images/rack.jpg");
+  background-position: center !important;
 }
 
 #copyright {

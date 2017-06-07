@@ -54,7 +54,7 @@ export default class LoginForm extends Component {
             </FormGroup>
 
             <FormGroup validationState="error" className="auth-form-error">
-              <Button type="submit" bsStyle="info">
+              <Button className="button-blue" type="submit" bsStyle="info">
                 { isFetching ? <Spinner /> : 'Login' }
               </Button>
               {

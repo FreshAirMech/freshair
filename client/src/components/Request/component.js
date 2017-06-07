@@ -159,7 +159,7 @@ export default class Request extends Component {
           </FormGroup>
         </Col>
         <FormGroup validationState="error" className="auth-form-error request-form-error">
-          <Button id="request-form-button" type="submit" disabled={ !checkFormIsValid() } bsStyle="success">
+          <Button className="button-green" id="request-form-button" type="submit" disabled={ !checkFormIsValid() } bsStyle="success">
             { isFetching ? <Spinner /> : 'Send Appointment Request' }
           </Button>
           {

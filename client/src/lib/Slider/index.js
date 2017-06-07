@@ -21,7 +21,7 @@ export default class PartnerSlider extends Component {
     };
 	}
 
-  componentDidMount() {
+  componentWillMount() {
     let numSlides = Math.floor(window.innerWidth / 260);
     this.setState({ numSlides });
     window.addEventListener('resize', () => {

@@ -150,7 +150,7 @@ export default class EmailForm extends Component {
 				  </FormGroup>
 				</Col>
 			  <FormGroup validationState="error" className="auth-form-error">
-			    <Button id="email-form-button" type="submit" disabled={ !checkFormIsValid() } bsStyle="success">
+			    <Button className="button-green" id="email-form-button" type="submit" disabled={ !checkFormIsValid() } bsStyle="success">
 			      { isFetching ? <Spinner /> : 'Send Email Message' }
 			    </Button>
 			    {

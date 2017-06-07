@@ -139,14 +139,14 @@ export default class Landing extends Component {
       duration: 500
     };
 
-    if (document.getElementById('why').getBoundingClientRect().top - navbarHeight > 1) {
-      scroller.scrollTo('why-div', options);
+    if (document.getElementById('overview').getBoundingClientRect().top - navbarHeight > 1) {
+      scroller.scrollTo('overview-div', options);
     }
     else if (document.getElementById('picture1-element').getBoundingClientRect().top - navbarHeight > 1) {
       scroller.scrollTo('services-div', options);
     }
-    else if (document.getElementById('clients').getBoundingClientRect().top - navbarHeight > 1) {
-      scroller.scrollTo('clients-div', options);
+    else if (document.getElementById('partners').getBoundingClientRect().top - navbarHeight > 1) {
+      scroller.scrollTo('partners-div', options);
     }
     else {
       scroll.scrollToBottom({duration: 500, smooth: true});
@@ -176,62 +176,96 @@ export default class Landing extends Component {
           <img id="landing-right" className="landing-triangles" src={require('lib/images/landing_right.png')} />
           <img id="landing1" className="landingImages" src={require('lib/images/landing1.png')} />
         </Row>
-        <Row id="why" className="standard-div">
-          <Element name="why-div" className="element">
+        <Row id="overview" className="standard-div">
+          <Element name="overview-div" className="element" id="overview-element">
             <Row>
-              <h1>Serving New York since 1989</h1>
-              <hr></hr>
+              <Col sm={4} id="overview1">
+                <div>
+                  <h4>HVAC & Refrigeration</h4>
+                  <p className="subtitle">INSTALLATION & MAINTENANCE</p>
+                  <p className="description">...for supermarkets, commercial buildings and industrial businesses</p>
+                </div>
+              </Col>
+              <Col sm={4} id="overview2">
+                <div>
+                  <h4>Design Considerations</h4>
+                  <p className="subtitle">LOAD, NOISE & SPACE</p>
+                  <p className="description">...avoiding future problems through smart design</p>
+                </div>
+              </Col>
+              <Col sm={4} id="overview3">
+                <div>
+                  <h4>Troubleshooting</h4>
+                  <p className="subtitle">BEFORE AND AFTER</p>
+                  <p className="description">...troubleshooting for systems installed either by us or a different company</p>
+                </div>
+              </Col>
             </Row>
-            <Col sm={4}>
-              <i id="icon1" className="fa fa-check-square-o fa-lg" aria-hidden="true" />
-              <h4>No Uncertainties</h4>
-              <p className="subtitle">KNOWN FOR RELIABILITY</p>
-              <p>Once a deal is confirmed, customers can rest easy knowing that the job will be done correctly.</p>
-            </Col>
-            <Col sm={4}>
-              <i className="fa fa-flash fa-lg" aria-hidden="true" />
-              <h4>Proficiency with Efficiency</h4>
-              <p className="subtitle">ESTIMATES ARE GIVEN</p>
-              <p>Requests for installation and maintenance are fulfilled as quickly and efficiently as possible.</p>
-            </Col>
-            <Col sm={4}>
-              <i className="fa fa-user-o fa-lg" aria-hidden="true" />
-              <h4>Thoughtful Customer Service</h4>
-              <p className="subtitle">BEYOND STANDARD OFFICE HOURS</p>
-              <p>We ensure caring and thoughtful customer service so that no issue is overlooked.</p>
-            </Col>
           </Element>
+        </Row>
+        <Row id="why" className="standard-div">
+          <Row>
+            <h1>Serving New York since 1989</h1>
+            <hr></hr>
+          </Row>
+          <Col sm={4}>
+            <i id="icon1" className="fa fa-check-square-o fa-lg" aria-hidden="true" />
+            <h4>No Uncertainties</h4>
+            <p className="subtitle">KNOWN FOR RELIABILITY</p>
+            <p>Once a deal is confirmed, customers can rest easy knowing that the job will be done correctly.</p>
+          </Col>
+          <Col sm={4}>
+            <i className="fa fa-flash fa-lg" aria-hidden="true" />
+            <h4>Proficiency with Efficiency</h4>
+            <p className="subtitle">ESTIMATES ARE GIVEN</p>
+            <p>Requests for installation and maintenance are fulfilled as quickly and efficiently as possible.</p>
+          </Col>
+          <Col sm={4}>
+            <i className="fa fa-user-o fa-lg" aria-hidden="true" />
+            <h4>Thoughtful Customer Service</h4>
+            <p className="subtitle">BEYOND STANDARD OFFICE HOURS</p>
+            <p>We ensure caring and thoughtful customer service so that no issue is overlooked.</p>
+          </Col>
         </Row>
         <Element id="picture1-element" name="services-div" className="element picture-div">>
           <h1>Comprehensive Services</h1>
         </Element>
         <Row id="services" className="standard-div">
           <Row>
-            <Col sm={4} id="service1">
+            <Col sm={6} id="service1">
               <div>
-                <h4>HVAC & Refrigeration</h4>
-                <p className="subtitle">INSTALLATION & MAINTENANCE</p>
-                <p className="description">...for supermarkets, commercial buildings and industrial businesses</p>
+                <h2>Deli Cases</h2>
               </div>
             </Col>
-            <Col sm={4} id="service2">
+            <Col sm={6} id="service2">
               <div>
-                <h4>Design Considerations</h4>
-                <p className="subtitle">LOAD, NOISE & SPACE</p>
-                <p className="description">...avoid future problems through smart design</p>
+                <h2>Open Cases</h2>
               </div>
             </Col>
-            <Col sm={4} id="service3">
+            <Col sm={6} id="service3">
               <div>
-                <h4>Troubleshooting</h4>
-                <p className="subtitle">BEFORE AND AFTER</p>
-                <p className="description">...troubleshooting for systems installed either by us or a different company</p>
+                <h2>Heating</h2>
+              </div>
+            </Col>
+            <Col sm={6} id="service4">
+              <div>
+                <h2>Freezers and Ice Machines</h2>
+              </div>
+            </Col>
+            <Col sm={6} id="service5">
+              <div>
+                <h2>Rack Systems</h2>
+              </div>
+            </Col>
+            <Col sm={6} id="service6">
+              <div>
+                <h2>Etc.</h2>
               </div>
             </Col>
           </Row>
         </Row>
-        <Row id="clients" className="standard-div">
-          <Element name="clients-div" className="element">
+        <Row id="partners" className="standard-div">
+          <Element name="partners-div" className="element">
             <Row>
               <h1>Our Partners</h1>
               <hr></hr>
