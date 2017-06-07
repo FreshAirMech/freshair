@@ -175,7 +175,7 @@ export default class SignUpForm extends Component {
             </FormGroup>
 
             <FormGroup validationState="error" className="auth-form-error">
-              <Button className="button-green" type="submit" disabled={ !this.checkFormIsValid() } bsStyle="success">
+              <Button className="button button-green" type="submit" disabled={ !this.checkFormIsValid() } bsStyle="success">
                 { isFetching ? <Spinner /> : 'Sign Up' }
               </Button>
               {

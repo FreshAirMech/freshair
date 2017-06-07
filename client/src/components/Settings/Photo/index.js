@@ -26,7 +26,7 @@ export default (props) => {
 		  	{
 		  		uploadedFileCloudinaryUrl &&
 			  	<div id="delete-photo">
-		      	<Button className="button-red" bsStyle="danger" onClick={deletePhoto}>
+		      	<Button className="button button-red" bsStyle="danger" onClick={deletePhoto}>
 		      		Delete Photo
 		    		</Button>
 		    	</div>

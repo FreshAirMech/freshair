@@ -23,7 +23,7 @@ export default (props) => {
         </FormGroup>
 
         <FormGroup validationState="error" className="auth-form-error">
-          <Button className="button-green" type="submit" disabled={ !isPhoneNumber(newPhone) } bsStyle="success">
+          <Button className="button button-green" type="submit" disabled={ !isPhoneNumber(newPhone) } bsStyle="success">
             { isFetchingPhone ? <Spinner /> : 'Confirm Phone Changes' }
           </Button>
           {

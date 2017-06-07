@@ -7,7 +7,7 @@
   outline: 0;
 }
 
-.slick-slider button:active {
+.slick-slider button:hover {
 	color: #0688fe;
 }
 

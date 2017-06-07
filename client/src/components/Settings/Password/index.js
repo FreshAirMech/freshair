@@ -58,7 +58,7 @@ export default (props) => {
 		    </FormGroup>
 
 		    <FormGroup validationState="error" className="auth-form-error">
-		      <Button className="button-green" type="submit" disabled={ !checkFormIsValid('password') } bsStyle="success">
+		      <Button className="button button-green" type="submit" disabled={ !checkFormIsValid('password') } bsStyle="success">
 		        { isFetchingPassword ? <Spinner /> : 'Confirm Password Changes' }
 		      </Button>
 		      {
