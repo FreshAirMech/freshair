@@ -204,7 +204,7 @@ html, body {
 
 #services .col-sm-6 {
   height: 250px;
-  background-position: left;
+  background-position: center;
   background-size: 150% auto;
 }
 
@@ -220,24 +220,25 @@ html, body {
 }
 
 #service1 {
-  background-image: url("../../lib/images/displaycase.jpg");
+  background-image: url("../../lib/images/hvac.png");
+  height: 500px !important;
 }
 
 #service2 {
-  background-image: url("../../lib/images/opencase.jpg");
+  background-image: url("../../lib/images/displaycase.jpg");
 }
 
 #service3 {
-  background-image: url("../../lib/images/heat.jpg");
+  background-image: url("../../lib/images/opencase.jpg");
 }
 
 #service4 {
-  background-image: url("../../lib/images/icemachine.jpg");
+  background-image: url("../../lib/images/rack.jpg");
+  height: 500px !important;
 }
 
 #service5 {
-  background-image: url("../../lib/images/rack.jpg");
-  background-position: center !important;
+  background-image: url("../../lib/images/icemachine.jpg");
 }
 
 #service6 {

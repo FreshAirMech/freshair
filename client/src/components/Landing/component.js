@@ -31,7 +31,7 @@ export default class Landing extends Component {
         document.getElementsByClassName('navbar-collapse')[0].style["background-color"] = "rgba(255,255,255,0)";
     }
     // if landing picture is being shown or at bottom of page, hide 'request appointment' button, and vice versa
-    if (document.body.offsetHeight - (window.pageYOffset + window.innerHeight) < 80 ||
+    if (document.body.offsetHeight - (window.pageYOffset + window.innerHeight) < 120 ||
         window.pageYOffset < $('#banner-div').height() / 2) {
       $('.schedule-apt').removeClass('showBtn').addClass('hideBtn');
       $('.schedule-apt').removeClass('showBtnText').removeClass('hideBtnText');
@@ -234,27 +234,27 @@ export default class Landing extends Component {
           <Row>
             <Col sm={6} id="service1">
               <div>
-                <h2>Display Cases</h2>
+                <h2>Heating, Ventilation & Air Conditioning</h2>
               </div>
             </Col>
             <Col sm={6} id="service2">
               <div>
-                <h2>Open Cases</h2>
+                <h2>Display Cases</h2>
               </div>
             </Col>
             <Col sm={6} id="service3">
               <div>
-                <h2>Heating</h2>
+                <h2>Open Cases</h2>
               </div>
             </Col>
             <Col sm={6} id="service4">
               <div>
-                <h2>Freezers and Ice Machines</h2>
+                <h2>Rack Systems</h2>
               </div>
             </Col>
             <Col sm={6} id="service5">
               <div>
-                <h2>Rack Systems</h2>
+                <h2>Freezers and Ice Machines</h2>
               </div>
             </Col>
             <Col sm={6} id="service6">
