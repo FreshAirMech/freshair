@@ -91,9 +91,6 @@ export default class About extends Component {
           </Col>
           <SetGoogleMap />
         </Row>
-        <Row id="copyright" className="standard-div">
-          Copyright © 2017, Fresh Air Mechanical Co.
-        </Row>
       </div>  
     );
   }

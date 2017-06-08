@@ -13,7 +13,7 @@
 }
 
 #about .team {
-	margin: 5vw -5px;
+	margin: 10px -5px;
 	border-width: 1px;
 	border-color: #f0f0f0;
 	background-color: rgba(0,0,0,0.01);
@@ -41,6 +41,7 @@
 }
 
 #about h2 {
+	margin-top: 30px;
 	color: #000;
 }
 

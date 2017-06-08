@@ -234,7 +234,7 @@ export default class Landing extends Component {
           <Row>
             <Col sm={6} id="service1">
               <div>
-                <h2>Deli Cases</h2>
+                <h2>Display Cases</h2>
               </div>
             </Col>
             <Col sm={6} id="service2">
@@ -259,7 +259,7 @@ export default class Landing extends Component {
             </Col>
             <Col sm={6} id="service6">
               <div>
-                <h2>Etc.</h2>
+                <h2>E2 Refrigeration Control</h2>
               </div>
             </Col>
           </Row>
@@ -278,9 +278,6 @@ export default class Landing extends Component {
         <div id="scroll-top">
           <a onClick={this.goToTop}>GO TO TOP</a>
         </div>
-        <Row id="copyright" className="standard-div">
-          Copyright © 2017, Fresh Air Mechanical Co.
-        </Row>
       </div>  
     );
   }

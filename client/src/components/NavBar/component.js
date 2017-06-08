@@ -3,6 +3,7 @@ import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 import { LinkContainer, IndexLinkContainer } from 'react-router-bootstrap/lib';
 import { Link } from 'react-router';
 import $ from 'jquery';
+import Footer from '../Footer';
 
 export default class NavBar extends Component {
 
@@ -65,7 +66,7 @@ export default class NavBar extends Component {
                 </LinkContainer>
                 <LinkContainer className="nav-li" to={{ pathname: '/request' }}>
                   <NavItem eventKey={2}>
-                    Request Appointment
+                    Request Appt.
                     <i className="glyphicon glyphicon-triangle-top"/>
                   </NavItem>
                 </LinkContainer>
@@ -122,6 +123,7 @@ export default class NavBar extends Component {
         {
           this.props.children
         }
+        <Footer />
       </div>
     );
   }

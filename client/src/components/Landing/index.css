@@ -95,7 +95,7 @@ html, body {
 
 .picture-div {
   background-position: center;
-  color: #000;
+  color: #fff;
 }
 
 .picture-div h1 {
@@ -220,7 +220,7 @@ html, body {
 }
 
 #service1 {
-  background-image: url("../../lib/images/delicase.jpg");
+  background-image: url("../../lib/images/displaycase.jpg");
 }
 
 #service2 {
@@ -240,12 +240,10 @@ html, body {
   background-position: center !important;
 }
 
-#copyright {
-  color: #8c8c8c;
-  background-color: #4d4d4d;
-  font-size: 12px;
-  padding-top: 3%;
-  padding-bottom: 3%;
+#service6 {
+  background-image: url("../../lib/images/e2.jpg");
+  background-size: 120% !important;
+  background-position: 50% 70% !important;
 }
 
 h1, h2 {
