@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 import { LinkContainer, IndexLinkContainer } from 'react-router-bootstrap/lib';
-import { Link } from 'react-router';
+import { Link, browserHistory } from 'react-router';
 import $ from 'jquery';
 import Footer from '../Footer';
+import Scroll from 'react-scroll';
+var { scroller } = Scroll;
+
 
 export default class NavBar extends Component {
 
@@ -42,6 +45,24 @@ export default class NavBar extends Component {
     // document.getElementsByClassName('navbar-collapse')[0].style['display'] = 'none' ? 'block' : 'none';
   }
 
+  goToServices() {
+    let navbarHeight = $('#navbar-container').height();
+    let options = {
+      offset: -navbarHeight, 
+      smooth: true,
+      duration: 500
+    };
+    // if currently on main landing page, immediately go to services-div
+    if (this.props.location.pathname === '/')
+      scroller.scrollTo('services-div', options);
+    // otherwise wait for landing page to mount
+    else {
+      window.setTimeout(() => {
+        scroller.scrollTo('services-div', options);
+      }, 200);
+    }
+  }
+
   render() {
     const { firstName, username, photoURL, requestLogout } = this.props;
     return (
@@ -58,8 +79,8 @@ export default class NavBar extends Component {
             </Navbar.Header>
             <Navbar.Collapse onClick={this.displayCollapse}>
               <Nav pullRight>
-                <LinkContainer className="nav-li" to={{ pathname: '/service' }}>
-                  <NavItem eventKey={1}>
+                <LinkContainer className="nav-li" to={{ pathname: '/' }}>
+                  <NavItem eventKey={1} onClick={this.goToServices.bind(this)}>
                     Services
                     <i className="glyphicon glyphicon-triangle-top"/>
                   </NavItem>

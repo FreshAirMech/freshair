@@ -105,7 +105,7 @@ html, body {
   text-align: center;
 }
 
-#picture1-element {
+#services-element {
   background-image: url("../../lib/images/landing2.jpg");
 }
 
@@ -222,7 +222,7 @@ html, body {
 #service1 {
   background-image: url("../../lib/images/hvac.jpg");
   height: 500px !important;
-  background-position: 60% 60% !important;
+  background-position: 60% 80% !important;
   background-size: 230% auto !important;
 }
 
