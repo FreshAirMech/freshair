@@ -142,7 +142,7 @@ export default class Landing extends Component {
     if (document.getElementById('overview').getBoundingClientRect().top - navbarHeight > 1) {
       scroller.scrollTo('overview-div', options);
     }
-    else if (document.getElementById('picture1-element').getBoundingClientRect().top - navbarHeight > 1) {
+    else if (document.getElementById('services-element').getBoundingClientRect().top - navbarHeight > 1) {
       scroller.scrollTo('services-div', options);
     }
     else if (document.getElementById('partners').getBoundingClientRect().top - navbarHeight > 1) {

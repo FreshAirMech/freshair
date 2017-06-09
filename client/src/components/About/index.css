@@ -8,11 +8,11 @@
 	margin-bottom: -10px;
 }
 
-#about .team::before {
+#about .team-member::before {
 	opacity: 0.5;
 }
 
-#about .team {
+#about .team-member {
 	margin: 10px -5px;
 	border-width: 1px;
 	border-color: #f0f0f0;
@@ -23,8 +23,9 @@
 	overflow: hidden;
 }
 
-#about .team .row {
+#about .team-member .row {
 	padding: 20px;
+	display: table;
 }
 
 .img-col {

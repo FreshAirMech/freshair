@@ -144,7 +144,7 @@ export default class NavBar extends Component {
         {
           this.props.children
         }
-        <Footer />
+        <Footer goToServices={this.goToServices.bind(this)} />
       </div>
     );
   }

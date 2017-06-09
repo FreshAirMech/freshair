@@ -8,6 +8,7 @@ export default (props) => {
 		<Row id="copyright" className="standard-div">
 		  <h4>
 		    <Link to={{ pathname: '/' }}>HOME</Link>
+		    <Link to={{ pathname: '/' }} onClick={props.goToServices}>SERVICES</Link>
 		    <Link to={{ pathname: '/request' }}>REQUEST APPT.</Link>
 		    <Link to={{ pathname: '/about' }}>ABOUT/CONTACT</Link>
 		  </h4>
