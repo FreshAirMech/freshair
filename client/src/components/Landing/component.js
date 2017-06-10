@@ -25,7 +25,7 @@ export default class Landing extends Component {
       let opacityValue = 0.2 + top/200;
       opacityValue = opacityValue > 0.9 ? 0.9 : opacityValue;
       document.getElementById('navbar-container').style["background-color"] = "rgba(255,255,255," + opacityValue + ")";
-      if (document.getElementsByClassName('navbar-collapse collapse')[0] && window.innerWidth < 990)
+      if (document.getElementsByClassName('navbar-collapse collapse')[0] && window.innerWidth < 768)
         document.getElementsByClassName('navbar-collapse collapse')[0].style["background-color"] = "rgba(255,255,255,0.8)";
       else
         document.getElementsByClassName('navbar-collapse')[0].style["background-color"] = "rgba(255,255,255,0)";
@@ -67,7 +67,7 @@ export default class Landing extends Component {
       aptButton.getElementsByTagName('p')[0].style['font-size'] = '15px';
       $('.schedule-apt').find('i').removeClass('fa-md').addClass('fa-lg');
     }
-    if (document.getElementsByClassName('navbar-collapse')[0] && window.innerWidth < 990)
+    if (document.getElementsByClassName('navbar-collapse')[0] && window.innerWidth < 768)
       document.getElementsByClassName('navbar-collapse')[0].style['background-color'] = 'rgba(255,255,255,0.8)';
     else
       document.getElementsByClassName('navbar-collapse')[0].style['background-color'] = 'rgba(255,255,255,0)';

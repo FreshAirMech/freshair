@@ -34,15 +34,8 @@ export default class NavBar extends Component {
   }
 
   changeBasedOnResize() {
-    // on resizing window, don't display navbar's collapse menu if 'collapsed' class isn't added (if collapse isn't open)
-    // if (document.getElementsByClassName('navbar-collapse')[0] && window.innerWidth < 990
-    //     && !document.getElementsByClassName('navbar-toggle collapsed')[0]) {
-    //   document.getElementsByClassName('navbar-collapse')[0].style['display'] = 'none';
-    // }
-  }
-
-  displayCollapse() {
-    // document.getElementsByClassName('navbar-collapse')[0].style['display'] = 'none' ? 'block' : 'none';
+    if($(window).width() < 990)
+      $('#navbar-logo').attr("src", $('#navbar-logo').attr('src').replace('lib/images/logo.png', 'lib/images/logo_small.png'));
   }
 
   goToServices() {
@@ -77,7 +70,7 @@ export default class NavBar extends Component {
               </Navbar.Brand>
               <Navbar.Toggle/>
             </Navbar.Header>
-            <Navbar.Collapse onClick={this.displayCollapse}>
+            <Navbar.Collapse>
               <Nav pullRight>
                 <LinkContainer className="nav-li" to={{ pathname: '/' }}>
                   <NavItem eventKey={1} onClick={this.goToServices.bind(this)}>
