@@ -335,12 +335,18 @@ h4 {
 }
 
 .schedule-apt p {
-  opacity: 0;
+  background-color: rgba(255,255,255,0.8);
+  padding: 10px;
+  border-radius: 7px;
   float: right;
   font-size: 15px;
   margin-bottom: 0px;
   margin-top: 6px;
   font-weight: bold;
+}
+
+.schedule-apt i {
+  margin-top: 10px;
 }
 
 .btn-circle {

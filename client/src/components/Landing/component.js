@@ -34,7 +34,7 @@ export default class Landing extends Component {
     if (document.body.offsetHeight - (window.pageYOffset + window.innerHeight) < 120 ||
         window.pageYOffset < $('#banner-div').height() / 2) {
       $('.schedule-apt').removeClass('showBtn').addClass('hideBtn');
-      $('.schedule-apt').removeClass('showBtnText').removeClass('hideBtnText');
+      $('.schedule-apt').removeClass('showBtnText').addClass('hideBtnText');
     }
     else
       $('.schedule-apt').removeClass('hideBtn').addClass('showBtn');
@@ -101,11 +101,12 @@ export default class Landing extends Component {
 
     if (document.body.offsetHeight - (window.pageYOffset + window.innerHeight) < 80 ||
         window.pageYOffset < $('#banner-div').height() / 2) {
-      $('.schedule-apt').addClass('hideBtn');
+      $('.schedule-apt').addClass('hideBtn').addClass('hideBtnText');
     }
     else {
-      $('.schedule-apt').addClass('showBtn');
+      $('.schedule-apt').addClass('showBtn').addClass('hideBtnText');
     }
+
 
     // Add and remove classes for the 'Request an Appointment' button depending on hover state
     $('.schedule-apt').hover(
