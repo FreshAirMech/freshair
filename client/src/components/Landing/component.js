@@ -228,7 +228,7 @@ export default class Landing extends Component {
             <p>We ensure caring and thoughtful customer service so that no issue is overlooked.</p>
           </Col>
         </Row>
-        <Element id="services-element" name="services-div" className="element picture-div">>
+        <Element id="services-element" name="services-div" className="element picture-div">
           <h1>Comprehensive Services</h1>
         </Element>
         <Row id="services" className="standard-div">

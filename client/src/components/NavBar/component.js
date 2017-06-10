@@ -15,27 +15,8 @@ export default class NavBar extends Component {
     window.addEventListener('resize', e => {
       document.getElementById('navbar-container').style.height = $('#navbar').height() + 20 + 'px';
     });
-    $('.nav-li.dropdown').addClass('open');
-    $('.navbar-collapse.collapse.in').hover(
-      function () {
-        console.log('hovering')
-        $(this).addClass('open');
-      },
-      function () {
-        console.log('exit hovering')
-        $(this).removeClass('open');
-      }
-    );
-
-    this.changeBasedOnResize();
-    window.addEventListener('resize', this.changeBasedOnResize);
 
     this.props.requestSession();
-  }
-
-  changeBasedOnResize() {
-    if($(window).width() < 990)
-      $('#navbar-logo').attr("src", $('#navbar-logo').attr('src').replace('lib/images/logo.png', 'lib/images/logo_small.png'));
   }
 
   goToServices() {

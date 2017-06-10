@@ -22,8 +22,7 @@ let transporter = nodemailer.createTransport({
     }
 });
 
-// router.get('/', Auth.assertAdmin, function (req, res) {
-router.get('/', function(req, res) {
+router.get('/', Auth.assertAdmin, function (req, res) {
   User.all()
   .then(users => {
     res.json(users);

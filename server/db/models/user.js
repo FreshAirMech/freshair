@@ -50,6 +50,11 @@ module.exports = function (db) {
         photoURL: {
             type: Sequelize.STRING
         },
+        isAdmin: {
+            type: Sequelize.BOOLEAN,
+            defaultValue: false,
+            allowNull: false
+        },
         salt: {
             type: Sequelize.STRING
         },

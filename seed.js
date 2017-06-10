@@ -40,7 +40,8 @@ const seedUsers = function () {
             email: 'm@m.com',
             phone: '7188885555',
             firstName: 'Jonathan',
-            lastName: 'Rim'
+            lastName: 'Rim',
+            isAdmin: true
         },
     ];
 
