@@ -24,6 +24,10 @@ export default class LoginForm extends Component {
     this.props.requestLogin(this.state);
   }
 
+  componentDidMount() {
+    document.getElementById("login-username").focus();
+  }
+
   render() {
     const { username, password } = this.state;
     const { isFetching, error } = this.props;
@@ -36,6 +40,7 @@ export default class LoginForm extends Component {
             <FormGroup>
               <ControlLabel>Username</ControlLabel>
               <FormControl
+                id="login-username"
                 name="username"
                 type="text"
                 value={ username }
