@@ -8,12 +8,20 @@
 	margin-bottom: -10px;
 }
 
+
+
+@media only screen and (min-width : 990px) {
+  #team {
+    display: flex;
+  }
+}
+
 #about .team-member::before {
 	opacity: 0.5;
 }
 
 #about .team-member {
-	margin: 10px -5px;
+	margin: 10px 5px;
 	border-width: 1px;
 	border-color: #f0f0f0;
 	background-color: rgba(0,0,0,0.01);

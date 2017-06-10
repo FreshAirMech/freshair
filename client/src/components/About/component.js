@@ -3,6 +3,8 @@ import { Col, Row } from 'react-bootstrap/lib';
 import SetGoogleMap from 'lib/Map';
 import EmailForm from './EmailForm';
 import Scroll from 'react-scroll';
+import $ from 'jquery';
+
 var scroll = Scroll.animateScroll;
 
 export default class About extends Component {
@@ -14,6 +16,18 @@ export default class About extends Component {
 
   componentDidMount() {
     scroll.scrollToTop({duration: 1});
+    // let members = $('#team .col-md-4');
+    // let greatestHeight = 0;
+    // window.setTimeout(() => {
+    //   for (let i = 0; i < members.length; i++) {
+    //     let currentHeight = members[i].offsetHeight;
+    //     greatestHeight = currentHeight > greatestHeight ? currentHeight : greatestHeight;
+    //   }
+    //   members = document.getElementsByClassName('team-member');
+    //   for (let i = 0; i < members.length; i++) {
+    //     members[i].style.height = greatestHeight + 'px';
+    //   }
+    // }, 300)
   }
 
   render() {
@@ -28,8 +42,7 @@ export default class About extends Component {
             <h2>Our Team</h2>
           </Row>
           <Row id="team">
-            <Col md={4}>
-              <div className="team-member">
+            <Col md={4} className="team-member">
                 <img src={require('lib/images/pic1.png')}></img>
                 <div className="team-name">Kenny Rim</div>
                 <div className="team-role">FOUNDER, CEO, BUSINESSMAN, ELECTRICAL & MECHANICAL ENGINEER</div>
@@ -37,10 +50,8 @@ export default class About extends Component {
                                                 in Electrical Engineering from Korea's prestigious Kyonggi University as well as his
                                                 work experience in Mechanical Engineering, he used the best practices in both to run
                                                 our business single-handedly.</p>
-              </div>
             </Col>
-            <Col md={4}>
-              <div className="team-member">
+            <Col md={4} className="team-member">
                 <img src={require('lib/images/pic2.png')}></img>
                 <div className="team-name">Jonathan Rim</div>
                 <div className="team-role">SOFTWARE ENGINEER</div>
@@ -49,10 +60,8 @@ export default class About extends Component {
                                                 York City's Fullstack Academy, a software engineering academy that is rapidly rising in
                                                 prestige. He graduated from the University of Michigan with a Computer Engineering degree
                                                 in 2015.</p>
-              </div>
             </Col>
-            <Col md={4}>
-              <div className="team-member">
+            <Col md={4} className="team-member">
                 <img src={require('lib/images/pic1.png')}></img>
                 <div className="team-name">Other Staff</div>
                 <div className="team-role">TECHNICIAN TEAM</div>
@@ -61,7 +70,6 @@ export default class About extends Component {
                 <div className="team-role">BUSINESS TEAM</div>
                 <p className="team-description">Our team of 2 in business are responsible for management and interaction 
                                                 between our company and our clients.</p>
-              </div>
             </Col>
           </Row>
         </Row>

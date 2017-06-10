@@ -7,6 +7,10 @@
   padding-bottom: 3%;
 }
 
+#copyright h4 {
+  margin-bottom: 20px;
+}
+
 #copyright a {
   color: #fff;
   background-color: transparent;
