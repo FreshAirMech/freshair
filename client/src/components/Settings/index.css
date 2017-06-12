@@ -5,6 +5,7 @@
 
 .settings-row {
 	padding: 2% 10%;
+	display: flex;
 }
 
 .settings h1 {
@@ -15,6 +16,20 @@
 .settings h3 {
 	text-align: center;
 	margin-bottom: 30px;
+}
+
+.settings .panel {
+	height: 100%;
+}
+
+.settings .col-sm-6 {
+	height: 400px;
+}
+
+.settings .button-green {
+	position: absolute;
+	bottom: 10px;
+	right: 30px;
 }
 
 .settings {
