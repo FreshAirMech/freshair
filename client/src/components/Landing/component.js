@@ -4,6 +4,7 @@ import Scroll from 'react-scroll';
 import $ from 'jquery';
 import { Link } from 'react-router';
 import PartnerSlider from 'lib/Slider';
+import services from 'lib/objects/services';
 
 var { Element, Events, scrollSpy, scroller } = Scroll;
 var scroll = Scroll.animateScroll;
@@ -25,26 +26,31 @@ export default class Landing extends Component {
       let opacityValue = 0.2 + top/200;
       opacityValue = opacityValue > 0.9 ? 0.9 : opacityValue;
       document.getElementById('navbar-container').style["background-color"] = "rgba(255,255,255," + opacityValue + ")";
-      if (document.getElementsByClassName('navbar-collapse collapse')[0] && window.innerWidth < 768)
+      if (document.getElementsByClassName('navbar-collapse collapse')[0] && window.innerWidth < 768) {
         document.getElementsByClassName('navbar-collapse collapse')[0].style["background-color"] = "rgba(255,255,255,0.8)";
-      else
+      }
+      else {
         document.getElementsByClassName('navbar-collapse')[0].style["background-color"] = "rgba(255,255,255,0)";
+      }
     }
     // if landing picture is being shown or at bottom of page, hide 'request appointment' button, and vice versa
     if (document.body.offsetHeight - (window.pageYOffset + window.innerHeight) < 120 ||
         window.pageYOffset < $('#banner-div').height() / 2) {
-      $('.schedule-apt').removeClass('showBtn').addClass('hideBtn');
-      $('.schedule-apt').removeClass('showBtnText').addClass('hideBtnText');
+      $('.schedule-apt').addClass('hideBtn').removeClass('showBtn');
+      $('.schedule-apt').addClass('hideBtnText').removeClass('showBtnText');
     }
-    else
+    else {
       $('.schedule-apt').removeClass('hideBtn').addClass('showBtn');
+    }
 
     // if at the bottom of the page, display 'scroll to top' instead of the arrow button
     if (document.getElementsByClassName('arrowButton')[0]) {
-      if (document.body.offsetHeight - (window.pageYOffset + window.innerHeight) < 80)
+      if (document.body.offsetHeight - (window.pageYOffset + window.innerHeight) < 80) {
         document.getElementsByClassName('arrowButton')[0].style["display"] = "none";
-      else
+      }
+      else {
         document.getElementsByClassName('arrowButton')[0].style["display"] = "block";
+      }
     }
   }
 
@@ -67,10 +73,12 @@ export default class Landing extends Component {
       aptButton.getElementsByTagName('p')[0].style['font-size'] = '15px';
       $('.schedule-apt').find('i').removeClass('fa-md').addClass('fa-lg');
     }
-    if (document.getElementsByClassName('navbar-collapse')[0] && window.innerWidth < 768)
+    if (document.getElementsByClassName('navbar-collapse')[0] && window.innerWidth < 768) {
       document.getElementsByClassName('navbar-collapse')[0].style['background-color'] = 'rgba(255,255,255,0.8)';
-    else
+    }
+    else {
       document.getElementsByClassName('navbar-collapse')[0].style['background-color'] = 'rgba(255,255,255,0)';
+    }
   }
 
   initializeNavbarOpacity() {
@@ -258,36 +266,19 @@ export default class Landing extends Component {
         </Element>
         <Row id="services" className="standard-div">
           <Row>
-            <Col sm={6} id="service1">
-              <div>
-                <h2>Heating, Ventilation & Air Conditioning</h2>
-              </div>
-            </Col>
-            <Col sm={6} id="service2">
-              <div>
-                <h2>Display Cases</h2>
-              </div>
-            </Col>
-            <Col sm={6} id="service3">
-              <div>
-                <h2>Open Cases</h2>
-              </div>
-            </Col>
-            <Col sm={6} id="service4">
-              <div>
-                <h2>Rack Systems</h2>
-              </div>
-            </Col>
-            <Col sm={6} id="service5">
-              <div>
-                <h2>Freezers and Ice Machines</h2>
-              </div>
-            </Col>
-            <Col sm={6} id="service6">
-              <div>
-                <h2>E2 Refrigeration Control</h2>
-              </div>
-            </Col>
+            {
+              Object.keys(services).map((key, index) => {
+                let service = services[key]
+                let id = "service" + (parseInt(index) + 1);
+                return (
+                  <Col sm={6} id={id}>
+                    <div>
+                      <h2>{service}</h2>
+                    </div>
+                  </Col>
+                );
+              })
+            }
           </Row>
         </Row>
         <Row id="partners" className="standard-div">

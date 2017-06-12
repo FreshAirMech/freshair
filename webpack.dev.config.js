@@ -17,7 +17,7 @@ module.exports = {
     path: __dirname + '/public'
   },
   resolve: {
-    extensions: ['', '.js', 'jsx', 'json'],
+    extensions: ['', '.js', '.jsx', '.json'],
     alias: {
       lib: path.resolve(__dirname, 'client/src/lib'),
       actions: path.resolve(__dirname, 'client/src/actions'),
@@ -34,6 +34,10 @@ module.exports = {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         loader: 'babel-loader'
+      },
+      {
+        test: /\.json$/,
+        loader: "json-loader"
       },
       {
         test: /\.css$/,
