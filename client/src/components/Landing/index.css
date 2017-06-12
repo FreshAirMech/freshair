@@ -223,7 +223,7 @@ html, body {
 #services .col-sm-6 h2 {
   margin: auto;
   height: 100px;
-  width: 250px;
+  width: 350px;
   display: flex;
   background: radial-gradient(rgba(0,0,0,0.6) 60%, rgba(255,255,255,0) 70%);
   justify-content: center;
@@ -247,11 +247,12 @@ html, body {
 
 #service4 {
   background-image: url("../../lib/images/rack.jpg");
-  height: 500px !important;
 }
 
 #service5 {
   background-image: url("../../lib/images/icemachine.jpg");
+  float: right;
+  height: 500px !important;
 }
 
 #service6 {
@@ -259,6 +260,8 @@ html, body {
   background-size: 130% !important;
   background-position: 60% 35% !important;
 }
+
+
 
 h1, h2 {
   margin-bottom: 10px;
@@ -486,10 +489,10 @@ h4 {
 
 @keyframes dimBackground {
   0% { background-color: rgba(0,0,0,0); }
-  100% { background-color: rgba(0,0,0,0.5); }
+  100% { background-color: rgba(0,0,0,0.25); }
 }
 
 @keyframes brightenBackground {
-  0% { background-color: rgba(0,0,0,0.5); }
+  0% { background-color: rgba(0,0,0,0.25); }
   100% { background-color: rgba(0,0,0,0); }
 }

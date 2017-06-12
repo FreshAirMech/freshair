@@ -5,18 +5,19 @@ import { Link, browserHistory } from 'react-router';
 import $ from 'jquery';
 import Footer from '../Footer';
 import Scroll from 'react-scroll';
+
 var { scroller } = Scroll;
 
 
 export default class NavBar extends Component {
 
   componentDidMount() {
+    this.props.requestSession();
+
     document.getElementById('navbar-container').style.height = $('#navbar').height() + 20 + 'px';
     window.addEventListener('resize', e => {
       document.getElementById('navbar-container').style.height = $('#navbar').height() + 20 + 'px';
     });
-
-    this.props.requestSession();
   }
 
   goToServices() {
