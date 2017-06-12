@@ -56,6 +56,7 @@
 #navbar-logo {
 	position: absolute;
 	margin-left: 15px;
+	margin-top: -5px;
 	max-width: 250px;
 	width: 27vw;
 	min-width: 180px;

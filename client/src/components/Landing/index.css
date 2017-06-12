@@ -16,8 +16,6 @@ html, body {
   src: url('../../lib/fonts/OpenSans-Regular.ttf') format('truetype');
 }
 
-/* Button code from w3schools */
-
 .button {
     background-color: #4CAF50;
     border: none;
@@ -159,15 +157,13 @@ html, body {
 
 #overview .col-sm-4, #services .col-sm-6 {
   height: 250px;
-  display: flex;
-  flex-direction: column;
   color: #fff;
   background-size: cover;
   background-position: center;
 }
 
 #overview .col-sm-4 div,
-#services .col-sm-6 div {
+#services .col-sm-6 {
   margin: auto;
 }
 
@@ -203,20 +199,35 @@ html, body {
 }
 
 #services .col-sm-6 {
+  padding: 0;
   height: 250px;
   background-position: center;
   background-size: 150% auto;
 }
 
 #services .col-sm-6 div {
-  height: 100px;
-  width: 250px;
   display: flex;
-  background: radial-gradient(rgba(0,0,0,0.3) 20%, rgba(255,255,255,0) 70%);
+  height: 100%;
+}
+
+.makeDim {
+  animation: dimBackground 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.makeBright {
+  animation: brightenBackground 0.5s;
+  animation-fill-mode: forwards;
 }
 
 #services .col-sm-6 h2 {
   margin: auto;
+  height: 100px;
+  width: 250px;
+  display: flex;
+  background: radial-gradient(rgba(0,0,0,0.6) 60%, rgba(255,255,255,0) 70%);
+  justify-content: center;
+  align-items: center;
 }
 
 #service1 {
@@ -245,8 +256,8 @@ html, body {
 
 #service6 {
   background-image: url("../../lib/images/e2.jpg");
-  background-size: 120% !important;
-  background-position: 50% 70% !important;
+  background-size: 130% !important;
+  background-position: 60% 35% !important;
 }
 
 h1, h2 {
@@ -449,13 +460,13 @@ h4 {
 }
 
 @keyframes slideleft {
-  from { left: 0; }
-  to { left: -100vw; }
+  from { transform: translateX(0) }
+  to { transform: translateX(-100%); }
 }
 
 @keyframes slideright {
-  from { left: 0; }
-  to { left: 100vw; }
+  from { transform: translateX(0) }
+  to { transform: translateX(100%); }
 }
 
 @keyframes animateArrow {
@@ -471,4 +482,14 @@ h4 {
 @keyframes changeBrightness {
   from { filter: brightness(100%); }
   to { filter: brightness(70%); }
+}
+
+@keyframes dimBackground {
+  0% { background-color: rgba(0,0,0,0); }
+  100% { background-color: rgba(0,0,0,0.5); }
+}
+
+@keyframes brightenBackground {
+  0% { background-color: rgba(0,0,0,0.5); }
+  100% { background-color: rgba(0,0,0,0); }
 }

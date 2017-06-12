@@ -52,18 +52,18 @@ export default class Landing extends Component {
     let aptButton = document.getElementsByClassName('schedule-apt')[0];
     if (!aptButton) return;
     if (window.innerWidth < 400) {
-      aptButton.style['width'] = '50px';
-      aptButton.style['height'] = '50px';
-      aptButton.style['padding'] = '0 13px';
-      aptButton.style['top'] = '90%';
+      aptButton.style.width = '50px';
+      aptButton.style.height = '50px';
+      aptButton.style.padding = '0 13px';
+      aptButton.style.top = '90%';
       aptButton.getElementsByTagName('p')[0].style['font-size'] = '13px';
       $('.schedule-apt').find('i').removeClass('fa-lg').addClass('fa-md');
     }
     else {
-      aptButton.style['width'] = '70px';
-      aptButton.style['height'] = '70px';
-      aptButton.style['padding'] = '0 19px';
-      aptButton.style['top'] = '50%';
+      aptButton.style.width = '70px';
+      aptButton.style.height = '70px';
+      aptButton.style.padding = '0 19px';
+      aptButton.style.top = '50%';
       aptButton.getElementsByTagName('p')[0].style['font-size'] = '15px';
       $('.schedule-apt').find('i').removeClass('fa-md').addClass('fa-lg');
     }
@@ -99,6 +99,8 @@ export default class Landing extends Component {
       thisComponent.setState({animating: false})
     });
 
+    // Add and remove classes for the 'Request an Appointment' button depending on scroll position
+    // Hide the button at the top (b/c it shows the banner) and at the bottom (b/c it conflicts with the carousel's buttons)
     if (document.body.offsetHeight - (window.pageYOffset + window.innerHeight) < 80 ||
         window.pageYOffset < $('#banner-div').height() / 2) {
       $('.schedule-apt').addClass('hideBtn').addClass('hideBtnText');
@@ -107,14 +109,37 @@ export default class Landing extends Component {
       $('.schedule-apt').addClass('showBtn').addClass('hideBtnText');
     }
 
-
-    // Add and remove classes for the 'Request an Appointment' button depending on hover state
+    // Add and remove classes for the 'Request an Appointment' button's text depending on hover state
     $('.schedule-apt').hover(
       function () {
         $(this).removeClass('hideBtnText').addClass('showBtnText');
       },
       function () {
         $(this).removeClass('showBtnText').addClass('hideBtnText');
+      }
+    );
+
+    // When hovering over a service, make all other services dim
+    $('#services .col-sm-6').hover(
+      function() {
+        $(this).siblings('.col-sm-6').children('div').addClass('makeDim').removeClass('makeBright');
+        if ($(this).children('div').hasClass('makeDim')) {
+          $(this).children('div').addClass('makeBright').removeClass('makeDim');
+        }
+      },
+      function() {
+        $(this).children('div').removeClass('makeBright');
+      }
+    );
+
+    $('#services .row').hover(
+      function() {
+      },
+      function() {
+        if ($(this).children('.col-sm-6').children('div').hasClass('makeDim')) {
+          $(this).children('.col-sm-6').children('div').addClass('makeBright');
+        }
+        $(this).children('.col-sm-6').children('div').removeClass('makeDim');
       }
     );
 
