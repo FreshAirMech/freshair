@@ -15,6 +15,8 @@ import Settings from './components/Settings';
 import About from './components/About';
 import Request from './components/Request';
 
+import './index.css';
+
 const history = syncHistoryWithStore(browserHistory, store);
 
 
