@@ -1,0 +1,71 @@
+.schedule-apt {
+  float: right;
+  top: 50%;
+  position: fixed;
+  z-index: 3;
+  color: #000;
+  transition: color 0.25s ease-in-out;
+}
+
+.schedule-apt.showBtn {
+  right: 10px;
+  visibility: visible;
+  transition: right 0.5s;
+}
+
+.schedule-apt.hideBtn {
+  right: -150px;
+  visibility: hidden;
+  transition: right 0.5s, visibility 1s 1s;
+}
+
+.schedule-apt.hideBtn:after {
+  display: none;
+}
+
+.schedule-apt:hover {
+  color: #0688fe;
+  transition: color 0.25s ease-in-out;
+}
+
+.schedule-apt.showBtnText > p {
+  animation: fadein 0.5s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+  margin-right: 60px;
+  transition: margin-right 0.5s;
+}
+
+.schedule-apt.hideBtnText > p {
+  animation: fadeout 0.5s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+  margin-right: -100px;
+  transition: margin-right 0.5s;
+}
+
+.schedule-apt p {
+  background-color: rgba(255,255,255,0.8);
+  padding: 10px;
+  border-radius: 7px;
+  float: right;
+  font-size: 15px;
+  margin-bottom: 0px;
+  margin-top: 6px;
+  font-weight: bold;
+}
+
+.schedule-apt i {
+  margin-top: 10px;
+}
+
+.btn-circle {
+  width: 70px;
+  height: 70px;
+  text-align: center;
+  padding: 0 19px;
+  font-size: 24px;
+  line-height: 1.33;
+  border-radius: 35px;
+  outline: 0 !important;
+}

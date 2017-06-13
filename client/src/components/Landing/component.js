@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Col, Row } from 'react-bootstrap/lib';
 import Scroll from 'react-scroll';
 import $ from 'jquery';
-import { Link } from 'react-router';
 import PartnerSlider from 'lib/Slider';
+import ApptBtn from 'lib/ApptBtn';
 import overviews from 'lib/objects/overviews';
 import why from 'lib/objects/why';
 import services from 'lib/objects/services';
@@ -207,12 +207,7 @@ export default class Landing extends Component {
     let { offsetHeight } = this.state;
     return (
       <div>
-        <Link to={{ pathname: '/request' }}>
-          <button type="button" className="btn btn-default btn-circle btn-xl schedule-apt">
-            <p>Request an Appointment</p>
-            <i className="fa fa-calendar fa-lg"></i>
-          </button>
-        </Link>
+        <ApptBtn />
         <a onClick={this.goToNextDiv} className="arrowButton">
           <img id="scrollImage" src={require('lib/images/arrows.png')} alt="SCROLL DOWN" />
         </a>
@@ -230,7 +225,7 @@ export default class Landing extends Component {
                   let overview = overviews[key];
                   let id = "overview" + (index + 1);
                   return (
-                    <Col sm={4} id={id}>
+                    <Col sm={4} id={id} key={id}>
                       <div>
                         <h4>{overview.title}</h4>
                         <p className="subtitle">{overview.subtitle}</p>
@@ -254,7 +249,7 @@ export default class Landing extends Component {
               let id = "icon" + (index + 1);
               let className = "fa fa-lg " + reason.icon;
               return (
-                <Col sm={4}>
+                <Col sm={4} key={id}>
                   <i id={id} className={className} aria-hidden="true" />
                   <h4>{reason.title}</h4>
                   <p className="subtitle">{reason.subtitle}</p>
@@ -274,7 +269,7 @@ export default class Landing extends Component {
                 let service = services[key]
                 let id = "service" + (index + 1);
                 return (
-                  <Col sm={6} id={id}>
+                  <Col sm={6} id={id} key={id}>
                     <div>
                       <h2>{service}</h2>
                     </div>

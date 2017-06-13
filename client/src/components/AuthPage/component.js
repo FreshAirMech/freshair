@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import LoginForm from './LoginForm';
 import SignUpForm from './SignUpForm';
 import { Col } from 'react-bootstrap/lib';

@@ -36,8 +36,9 @@ export default class About extends Component {
             {
               Object.keys(team).map((key, index) => {
                 let member = team[key];
+                let id = "member" + (index + 1);
                 return (
-                  <Col md={4} className="team-member">
+                  <Col md={4} className="team-member" key={id}>
                       <img src={require('lib/images/pic' + (index + 1) + '.png')}></img>
                       <div className="team-name">{member.name}</div>
                       <div className="team-role">{member.role}</div>
