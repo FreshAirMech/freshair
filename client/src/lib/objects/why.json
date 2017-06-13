@@ -1,0 +1,20 @@
+{
+	"0": {
+		"title": "No Uncertainties",
+		"subtitle": "KNOWN FOR RELIABILITY",
+		"icon": "fa-check-square-o",
+		"description": "Once a deal is confirmed, customers can rest easy knowing that the job will be done correctly."
+	},
+	"1": {
+		"title": "Proficiency with Efficiency",
+		"subtitle": "ESTIMATES ARE GIVEN",
+		"icon": "fa-flash",
+		"description": "Requests for installation and maintenance are fulfilled as quickly and efficiently as possible."
+	},
+	"2": {
+		"title": "Thoughtful Customer Service",
+		"subtitle": "BEYOND STANDARD OFFICE HOURS",
+		"icon": "fa-user-o",
+		"description": "We ensure caring and thoughtful customer service so that no issue is overlooked."
+	}
+}

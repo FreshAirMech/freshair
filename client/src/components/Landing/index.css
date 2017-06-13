@@ -155,6 +155,10 @@ html, body {
   margin: 0;
 }
 
+#overview .col-sm-4 {
+  display: flex;
+}
+
 #overview .col-sm-4, #services .col-sm-6 {
   height: 250px;
   color: #fff;

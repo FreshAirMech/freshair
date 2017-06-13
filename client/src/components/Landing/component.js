@@ -4,6 +4,8 @@ import Scroll from 'react-scroll';
 import $ from 'jquery';
 import { Link } from 'react-router';
 import PartnerSlider from 'lib/Slider';
+import overviews from 'lib/objects/overviews';
+import why from 'lib/objects/why';
 import services from 'lib/objects/services';
 
 var { Element, Events, scrollSpy, scroller } = Scroll;
@@ -213,27 +215,21 @@ export default class Landing extends Component {
         <Row id="overview" className="standard-div">
           <Element name="overview-div" className="element" id="overview-element">
             <Row>
-              <Col sm={4} id="overview1">
-                <div>
-                  <h4>HVAC & Refrigeration</h4>
-                  <p className="subtitle">INSTALLATION & MAINTENANCE</p>
-                  <p className="description">...for supermarkets, commercial buildings and industrial businesses</p>
-                </div>
-              </Col>
-              <Col sm={4} id="overview2">
-                <div>
-                  <h4>Design Considerations</h4>
-                  <p className="subtitle">LOAD, NOISE & SPACE</p>
-                  <p className="description">...avoiding future problems through smart design</p>
-                </div>
-              </Col>
-              <Col sm={4} id="overview3">
-                <div>
-                  <h4>Troubleshooting</h4>
-                  <p className="subtitle">BEFORE AND AFTER</p>
-                  <p className="description">...troubleshooting for systems installed either by us or a different company</p>
-                </div>
-              </Col>
+              {
+                Object.keys(overviews).map((key, index) => {
+                  let overview = overviews[key];
+                  let id = "overview" + (index + 1);
+                  return (
+                    <Col sm={4} id={id}>
+                      <div>
+                        <h4>{overview.title}</h4>
+                        <p className="subtitle">{overview.subtitle}</p>
+                        <p className="description">{overview.description}</p>
+                      </div>
+                    </Col>
+                  );
+                })
+              }
             </Row>
           </Element>
         </Row>
@@ -242,24 +238,21 @@ export default class Landing extends Component {
             <h1>Serving New York since 1989</h1>
             <hr></hr>
           </Row>
-          <Col sm={4}>
-            <i id="icon1" className="fa fa-check-square-o fa-lg" aria-hidden="true" />
-            <h4>No Uncertainties</h4>
-            <p className="subtitle">KNOWN FOR RELIABILITY</p>
-            <p>Once a deal is confirmed, customers can rest easy knowing that the job will be done correctly.</p>
-          </Col>
-          <Col sm={4}>
-            <i className="fa fa-flash fa-lg" aria-hidden="true" />
-            <h4>Proficiency with Efficiency</h4>
-            <p className="subtitle">ESTIMATES ARE GIVEN</p>
-            <p>Requests for installation and maintenance are fulfilled as quickly and efficiently as possible.</p>
-          </Col>
-          <Col sm={4}>
-            <i className="fa fa-user-o fa-lg" aria-hidden="true" />
-            <h4>Thoughtful Customer Service</h4>
-            <p className="subtitle">BEYOND STANDARD OFFICE HOURS</p>
-            <p>We ensure caring and thoughtful customer service so that no issue is overlooked.</p>
-          </Col>
+          {
+            Object.keys(why).map((key, index) => {
+              let reason = why[key];
+              let id = "icon" + (index + 1);
+              let className = "fa fa-lg " + reason.icon;
+              return (
+                <Col sm={4}>
+                  <i id={id} className={className} aria-hidden="true" />
+                  <h4>{reason.title}</h4>
+                  <p className="subtitle">{reason.subtitle}</p>
+                  <p>{reason.description}</p>
+                </Col>
+              );
+            })
+          }
         </Row>
         <Element id="services-element" name="services-div" className="element picture-div">
           <h1>Comprehensive Services</h1>
@@ -269,7 +262,7 @@ export default class Landing extends Component {
             {
               Object.keys(services).map((key, index) => {
                 let service = services[key]
-                let id = "service" + (parseInt(index) + 1);
+                let id = "service" + (index + 1);
                 return (
                   <Col sm={6} id={id}>
                     <div>
