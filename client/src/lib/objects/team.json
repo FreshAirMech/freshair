@@ -1,0 +1,19 @@
+{
+	"0": {
+		"name": "Kenny Rim",
+		"role": "FOUNDER, CEO, BUSINESSMAN, ELECTRICAL & MECHANICAL ENGINEER",
+		"description": "Kenny founded Fresh Air in 1989 as a sole proprietorship. Using his Bachelor's degree in Electrical Engineering from Korea's prestigious Kyonggi University as well as his work experience in Mechanical Engineering, he used the best practices in both to run our business single-handedly."
+	},
+	"1": {
+		"name": "Jonathan Rim",
+		"role": "SOFTWARE ENGINEER",
+		"description": "Jonathan built our website and ensures that everything runs smoothly on both the front-end and back-end. He handles everything web related for our company. He graduated from New York City's Fullstack Academy, a software engineering academy that is rapidly rising in prestige. He graduated from the University of Michigan with a Computer Engineering degree in 2015."
+	},
+	"2": {
+		"name": "Other Staff",
+		"role": "TECHNICIAN TEAM",
+		"description": "Our team of 8 technicians is sent out to different sites of our clients, where the most urgent need is given priority in our queue.",
+		"role2": "BUSINESS TEAM",
+		"description2": "Our team of 2 in business is responsible for management and interaction between our company and our clients."
+	}
+}

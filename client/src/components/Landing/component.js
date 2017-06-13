@@ -56,6 +56,7 @@ export default class Landing extends Component {
     }
   }
 
+  // Function that runs when the window changes size
   changeBasedOnResize() {
     let aptButton = document.getElementsByClassName('schedule-apt')[0];
     if (!aptButton) return;
@@ -75,9 +76,13 @@ export default class Landing extends Component {
       aptButton.getElementsByTagName('p')[0].style['font-size'] = '15px';
       $('.schedule-apt').find('i').removeClass('fa-md').addClass('fa-lg');
     }
+    // Make the navbar's collapse menu have a decently high opacity so that the user can still
+    // see the navbar (on lower resolutions)
     if (document.getElementsByClassName('navbar-collapse')[0] && window.innerWidth < 768) {
       document.getElementsByClassName('navbar-collapse')[0].style['background-color'] = 'rgba(255,255,255,0.8)';
     }
+    // On higher resolutions, make the navbar's collapse section have 0 opacity so that it matches
+    // the container's/parent's opacity
     else {
       document.getElementsByClassName('navbar-collapse')[0].style['background-color'] = 'rgba(255,255,255,0)';
     }
@@ -142,6 +147,7 @@ export default class Landing extends Component {
       }
     );
 
+    // After hovering over the 'services' section and leaving, make all services bright again
     $('#services .row').hover(
       function() {
       },
@@ -157,7 +163,8 @@ export default class Landing extends Component {
   }
 
   componentWillUnmount() {
-    // Reset opacity for other component views
+    // Reset the navbar's opacity for other component views, since the landing page
+    // is the only view that makes the navbar opacity change
     document.getElementById('navbar-container').style["background-color"] = "rgba(255,255,255,0.9)";
     document.getElementsByClassName('navbar-collapse')[0].style["background-color"] = "rgba(255,255,255,0)";
     window.removeEventListener('scroll', this.changeNavbarOnScroll);
@@ -165,9 +172,12 @@ export default class Landing extends Component {
     Events.scrollEvent.remove('end');
   }
 
+  // Function runs when the arrow button at the bottom of the page is clicked
+  //    Go to the next section based on the browser's current scroll position
   goToNextDiv() {
     let { currentDiv, animating } = this.state;
     if (animating) return;
+    // Calculate navbar's height using jQuery because there is no 'height' property in styles
     let navbarHeight = $('#navbar-container').height();
     let options = {
       offset: -navbarHeight, 

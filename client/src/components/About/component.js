@@ -4,6 +4,7 @@ import SetGoogleMap from 'lib/Map';
 import EmailForm from './EmailForm';
 import Scroll from 'react-scroll';
 import $ from 'jquery';
+import team from 'lib/objects/team';
 
 var scroll = Scroll.animateScroll;
 
@@ -15,19 +16,9 @@ export default class About extends Component {
   }
 
   componentDidMount() {
+    // React 'saves' the current scroll position from the previous view, which is not what we want
+    // Scroll back to the very top
     scroll.scrollToTop({duration: 1});
-    // let members = $('#team .col-md-4');
-    // let greatestHeight = 0;
-    // window.setTimeout(() => {
-    //   for (let i = 0; i < members.length; i++) {
-    //     let currentHeight = members[i].offsetHeight;
-    //     greatestHeight = currentHeight > greatestHeight ? currentHeight : greatestHeight;
-    //   }
-    //   members = document.getElementsByClassName('team-member');
-    //   for (let i = 0; i < members.length; i++) {
-    //     members[i].style.height = greatestHeight + 'px';
-    //   }
-    // }, 300)
   }
 
   render() {
@@ -42,35 +33,30 @@ export default class About extends Component {
             <h2>Our Team</h2>
           </Row>
           <Row id="team">
-            <Col md={4} className="team-member">
-                <img src={require('lib/images/pic1.png')}></img>
-                <div className="team-name">Kenny Rim</div>
-                <div className="team-role">FOUNDER, CEO, BUSINESSMAN, ELECTRICAL & MECHANICAL ENGINEER</div>
-                <p className="team-description">Kenny founded Fresh Air in 1989 as a sole proprietorship. Using his Bachelor's degree
-                                                in Electrical Engineering from Korea's prestigious Kyonggi University as well as his
-                                                work experience in Mechanical Engineering, he used the best practices in both to run
-                                                our business single-handedly.</p>
-            </Col>
-            <Col md={4} className="team-member">
-                <img src={require('lib/images/pic2.png')}></img>
-                <div className="team-name">Jonathan Rim</div>
-                <div className="team-role">SOFTWARE ENGINEER</div>
-                <p className="team-description">Jonathan built our website and ensures that everything runs smoothly on both the front-end
-                                                and back-end. He handles everything web related for our company. He graduated from New
-                                                York City's Fullstack Academy, a software engineering academy that is rapidly rising in
-                                                prestige. He graduated from the University of Michigan with a Computer Engineering degree
-                                                in 2015.</p>
-            </Col>
-            <Col md={4} className="team-member">
-                <img src={require('lib/images/pic1.png')}></img>
-                <div className="team-name">Other Staff</div>
-                <div className="team-role">TECHNICIAN TEAM</div>
-                <p className="team-description">Our team of 8 technicians are sent out to different sites of our clients, 
-                                                where the most urgent need is given priority in our queue.</p>
-                <div className="team-role">BUSINESS TEAM</div>
-                <p className="team-description">Our team of 2 in business are responsible for management and interaction 
-                                                between our company and our clients.</p>
-            </Col>
+            {
+              Object.keys(team).map((key, index) => {
+                let member = team[key];
+                return (
+                  <Col md={4} className="team-member">
+                      <img src={require('lib/images/pic' + (index + 1) + '.png')}></img>
+                      <div className="team-name">{member.name}</div>
+                      <div className="team-role">{member.role}</div>
+                      <p className="team-description">{member.description}</p>
+                      {
+                        // For the very last 'team member' (Other staff),
+                        // also include an extra role for the business team.
+                        (member.role2 && member.description2) && 
+                        (
+                          <div>
+                            <div className="team-role">{member.role2}</div>
+                            <p className="team-description">{member.description2}</p>
+                          </div>
+                        )
+                      }
+                  </Col>
+                );
+              })
+            }
           </Row>
         </Row>
         <Row id="contact" className="standard-div">
