@@ -17,11 +17,12 @@ module.exports = {
     path: __dirname + '/public'
   },
   resolve: {
-    extensions: ['', '.js', '.jsx', '.json'],
+    extensions: ['', '.js', '.jsx', '.json', '.scss'],
     alias: {
       lib: path.resolve(__dirname, 'client/src/lib'),
       actions: path.resolve(__dirname, 'client/src/actions'),
-      constants: path.resolve(__dirname, 'client/src/constants')
+      constants: path.resolve(__dirname, 'client/src/constants'),
+      styles: path.resolve(__dirname, 'client/src/lib/styles')
     },
     root: [
       path.resolve(__dirname)
@@ -37,11 +38,19 @@ module.exports = {
       },
       {
         test: /\.json$/,
-        loader: "json-loader"
+        loader: 'json-loader'
       },
       {
         test: /\.css$/,
         loader: 'style!css'
+      },
+      {
+        test: /\.scss$/,
+        loaders: [
+          'style-loader',
+          'css-loader',
+          'sass-loader'
+        ]
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/i,

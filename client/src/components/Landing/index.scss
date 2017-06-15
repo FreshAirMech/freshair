@@ -1,20 +1,25 @@
-#banner-background, .picture-div {
-  background-size: 100% auto;
+%pictures {
   background-attachment: fixed;
-  background-position: center top;
+  background-position: center;
   background-size: cover;
   display: flex;
   position: relative;
   height: 300px;
 }
 
-#banner-div {
-  height: 100vh;
-  width: 100%;
-  margin: 0;
+.picture-div {
+  @extend %pictures;
+  color: #fff;
+  h1 {
+    opacity: 0.7;
+    margin: auto;
+    font-weight: 600;
+    text-align: center;
+  }
 }
 
 #banner-background {
+  @extend %pictures;
   background-image: url("../../lib/images/landing.jpg");
   width: inherit;
   height: inherit;
@@ -24,16 +29,10 @@
   animation-fill-mode: forwards;
 }
 
-.picture-div {
-  background-position: center;
-  color: #fff;
-}
-
-.picture-div h1 {
-  opacity: 0.7;
-  margin: auto;
-  font-weight: 600;
-  text-align: center;
+#banner-div {
+  height: 100vh;
+  width: 100%;
+  margin: 0;
 }
 
 #services-element {
@@ -44,17 +43,15 @@
   width: 100%;
 }
 
-#partners img {
-  width: 75%;
-  display: block;
-  margin: auto;
+#partners {
+  img {
+    width: 75%;
+    display: block;
+    margin: auto;
+  }
 }
 
-#overview hr {
-  border-top-color: #fff;
-}
-
-#overview, #services {
+%overview-services {
   font-size: 14px;
   text-align: center;
   padding: 0;
@@ -62,48 +59,77 @@
   display: flex;
 }
 
-#overview .row, #services .row {
-  width: 100%;
-}
-
-#overview .row, #overview .col-sm-4,
-#services .row, #services .col-sm-6 {
-  margin: 0;
-}
-
-#overview .col-sm-4 {
-  display: flex;
-}
-
-#overview .col-sm-4, #services .col-sm-6 {
+%col-styles {
   height: 250px;
   color: #fff;
   background-size: cover;
   background-position: center;
 }
 
-#overview .col-sm-4 div,
-#services .col-sm-6 {
-  margin: auto;
+#services {
+  @extend %overview-services;
+  .row {
+    width: 100%;
+    margin: 0;
+  }
+  .col-sm-6 {
+    @extend %col-styles;
+    margin: auto;
+    padding: 0;
+    height: 250px;
+    background-position: center;
+    background-size: 150% auto;
+    div {
+      display: flex;
+      height: 100%;
+    }
+    h2 {
+      margin: auto;
+      height: 100px;
+      width: 350px;
+      display: flex;
+      background: radial-gradient(rgba(0,0,0,0.6) 60%, rgba(255,255,255,0) 70%);
+      justify-content: center;
+      align-items: center;
+    }
+  }
 }
 
-#overview .description {
-  display: none;
-  opacity: 0;
-}
-
-#overview .col-sm-4:hover h4 {
-  animation: slideup 0.25s;
-  animation-fill-mode: forwards;
-  animation-timing-function: ease-in-out;
-}
-
-#overview .col-sm-4:hover .description {
-  display: block;
-  animation: fadein 0.25s;
-  animation-delay: 0.5s;
-  animation-fill-mode: forwards;
-  animation-timing-function: ease-in-out;
+#overview {
+  @extend %overview-services;
+  .row {
+    width: 100%;
+    margin: 0;
+  }
+  .col-sm-4 {
+    @extend %col-styles;
+    display: flex;
+    margin: 0;
+    div {
+      margin: auto;
+    }
+    &:hover {
+      h4 {
+        animation: slideup 0.25s;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-in-out;
+      }
+      .description {
+        display: block;
+        animation: fadein 0.25s;
+        animation-delay: 0.5s;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-in-out;
+      }
+    }
+  }
+  .description {
+    display: none;
+    opacity: 0;
+  }
+  hr {
+    border-top-color: #fff;
+  }
 }
 
 #overview1 {
@@ -118,18 +144,6 @@
   background-image: url("../../lib/images/overview3.jpg");
 }
 
-#services .col-sm-6 {
-  padding: 0;
-  height: 250px;
-  background-position: center;
-  background-size: 150% auto;
-}
-
-#services .col-sm-6 div {
-  display: flex;
-  height: 100%;
-}
-
 .makeDim {
   animation: dimBackground 0.5s;
   animation-fill-mode: forwards;
@@ -138,16 +152,6 @@
 .makeBright {
   animation: brightenBackground 0.5s;
   animation-fill-mode: forwards;
-}
-
-#services .col-sm-6 h2 {
-  margin: auto;
-  height: 100px;
-  width: 350px;
-  display: flex;
-  background: radial-gradient(rgba(0,0,0,0.6) 60%, rgba(255,255,255,0) 70%);
-  justify-content: center;
-  align-items: center;
 }
 
 #service1 {
@@ -184,20 +188,18 @@
 
 #why {
   text-align: center;
+  p {
+    font-size: 14px;
+  }
+  i {
+    color: #0688fe;
+    font-size: 70px;
+    margin-bottom: 15px;
+  }
 }
 
 .subtitle {
   color: #949494;
-}
-
-#why p {
-  font-size: 14px;
-}
-
-#why i {
-  color: #0688fe;
-  font-size: 70px;
-  margin-bottom: 15px;
 }
 
 #icon1 {
@@ -216,10 +218,9 @@
   opacity: 0.9;
   display: flex;
   cursor: pointer;
-}
-
-.arrowButton img {
-  margin: auto;
+  img {
+    margin: auto;
+  }
 }
 
 #scrollImage {
@@ -235,17 +236,15 @@
   background-color: #333;
   color: #fff;
   transition: color 0.5s ease-in-out;
-}
-
-#scroll-top a {
-  margin: auto;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-#scroll-top a:hover {
-  color: #fff;
-  text-decoration: none;
+  a {
+    margin: auto;
+    font-weight: bold;
+    cursor: pointer;
+    &:hover {
+      color: #fff;
+      text-decoration: none;
+    }
+  }
 }
 
 .landingImages {
@@ -282,37 +281,37 @@
   animation-timing-function: ease-in;
 }
 
-@keyframes slideleft {
+@include keyframes(slideleft) {
   from { transform: translateX(0) }
   to { transform: translateX(-100%); }
 }
 
-@keyframes slideright {
+@include keyframes(slideright) {
   from { transform: translateX(0) }
   to { transform: translateX(100%); }
 }
 
-@keyframes slideup {
+@include keyframes(slideup) {
   from { margin-top: 0; }
   to { margin-top: -20px; }
 }
 
-@keyframes animateArrow {
+@include keyframes(animateArrow) {
   from { margin-top: 0.7vw; }
   to   { margin-top: 1.8vw; }
 }
 
-@keyframes changeBrightness {
+@include keyframes(changeBrightness) {
   from { filter: brightness(100%); }
   to { filter: brightness(70%); }
 }
 
-@keyframes dimBackground {
+@include keyframes(dimBackground) {
   0% { background-color: rgba(0,0,0,0); }
   100% { background-color: rgba(0,0,0,0.25); }
 }
 
-@keyframes brightenBackground {
+@include keyframes(brightenBackground) {
   0% { background-color: rgba(0,0,0,0.25); }
   100% { background-color: rgba(0,0,0,0); }
 }
