@@ -8,12 +8,12 @@ html, body {
 
 @font-face {
   font-family: "Montserrat-Regular";
-  src: url('../fonts/Montserrat-Regular.otf');
+  src: url('./lib/fonts/Montserrat-Regular.otf');
 }
 
 @font-face {
   font-family: "OpenSans";
-  src: url('../fonts/OpenSans-Regular.ttf') format('truetype');
+  src: url('./lib/fonts/OpenSans-Regular.ttf') format('truetype');
 }
 
 %text-format {
@@ -42,6 +42,10 @@ h3 {
 
 h4 {
   font-weight: 500;
+}
+
+textarea {
+  resize: none;
 }
 
 .button {
@@ -105,50 +109,6 @@ h4 {
 .col-sm-4 {
   padding: 4%;
 }
-
-@mixin keyframes($animationName) {
-  @-webkit-keyframes #{$animationName} {
-    @content;
-  }
-  @-moz-keyframes #{$animationName} {
-    @content;
-  }
-  @-o-keyframes #{$animationName} {
-    @content;
-  }
-  @keyframes #{$animationName} {
-    @content;
-  }
-}
-
-@mixin animate($name, $duration, $iteration, $direction, $delay, $fillMode) {
-  -webkit-animation-duration: $duration;
-     -moz-animation-duration: $duration;
-       -o-animation-duration: $duration;
-          animation-duration: $duration;
-  -webkit-animation-iteration-count: $iteration;
-     -moz-animation-iteration-count: $iteration;
-       -o-animation-iteration-count: $iteration;
-          animation-iteration-count: $iteration;
-  -webkit-animation-name: $name;
-     -moz-animation-name: $name;
-       -o-animation-name: $name;
-          animation-name: $name;
-  -webkit-animation-direction: $direction;
-     -moz-animation-direction: $direction;
-       -o-animation-direction: $direction;
-          animation-direction: $direction;
-  -webkit-animation-delay: $delay;
-     -moz-animation-delay: $delay;
-       -o-animation-delay: $delay;
-          animation-delay: $delay;
-  -webkit-animation-fill-mode: $fillMode;
-     -moz-animation-fill-mode: $fillMode;
-       -o-animation-fill-mode: $fillMode;
-          animation-fill-mode: $fillMode;
-}
-
-@import '../../components/Landing/index';
 
 @include keyframes(fadein) {
   from { opacity: 0; }

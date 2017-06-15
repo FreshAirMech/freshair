@@ -20,7 +20,7 @@
 
 #banner-background {
   @extend %pictures;
-  background-image: url("../../lib/images/landing.jpg");
+  background-image: url("lib/images/landing.jpg");
   width: inherit;
   height: inherit;
   position: absolute;
@@ -36,7 +36,7 @@
 }
 
 #services-element {
-  background-image: url("../../lib/images/landing2.jpg");
+  background-image: url("lib/images/landing2.jpg");
 }
 
 #overview-element {
@@ -133,15 +133,15 @@
 }
 
 #overview1 {
-  background-image: url("../../lib/images/overview1.jpg");
+  background-image: url("lib/images/overview1.jpg");
 }
 
 #overview2 {
-  background-image: url("../../lib/images/overview2.jpg");
+  background-image: url("lib/images/overview2.jpg");
 }
 
 #overview3 {
-  background-image: url("../../lib/images/overview3.jpg");
+  background-image: url("lib/images/overview3.jpg");
 }
 
 .makeDim {
@@ -155,33 +155,33 @@
 }
 
 #service1 {
-  background-image: url("../../lib/images/hvac.jpg");
+  background-image: url("lib/images/hvac.jpg");
   height: 500px !important;
   background-position: 60% 80% !important;
   background-size: 1600px auto !important;
 }
 
 #service2 {
-  background-image: url("../../lib/images/displaycase.jpg");
+  background-image: url("lib/images/displaycase.jpg");
 }
 
 #service3 {
-  background-image: url("../../lib/images/opencase.jpg");
+  background-image: url("lib/images/opencase.jpg");
 }
 
 #service4 {
-  background-image: url("../../lib/images/rack.jpg");
+  background-image: url("lib/images/rack.jpg");
 }
 
 #service5 {
-  background-image: url("../../lib/images/icemachine.jpg");
+  background-image: url("lib/images/icemachine.jpg");
   float: right;
   height: 500px !important;
   background-size: auto 110% !important;
 }
 
 #service6 {
-  background-image: url("../../lib/images/e2.jpg");
+  background-image: url("lib/images/e2.jpg");
   background-size: 130% !important;
   background-position: 60% 35% !important;
 }

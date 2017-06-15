@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import component from './component';
-import './index.css';
+import './index.scss';
 
 function mapStateToProps(state) {
   return {};

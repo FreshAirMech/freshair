@@ -8,14 +8,14 @@ import { Router, browserHistory, Route, IndexRoute } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import store from './store/configureStore';
 
+import './index.scss';
+
 import NavBar from './components/NavBar';
 import Landing from './components/Landing';
 import AuthPage from './components/AuthPage';
 import Settings from './components/Settings';
 import About from './components/About';
 import Request from './components/Request';
-
-import 'styles/index.scss';
 
 const history = syncHistoryWithStore(browserHistory, store);
 
