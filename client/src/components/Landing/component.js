@@ -168,6 +168,7 @@ export default class Landing extends Component {
     document.getElementById('navbar-container').style["background-color"] = "rgba(255,255,255,0.9)";
     document.getElementsByClassName('navbar-collapse')[0].style["background-color"] = "rgba(255,255,255,0)";
     window.removeEventListener('scroll', this.changeNavbarOnScroll);
+    window.removeEventListener('resize', this.changeBasedOnResize);
     Events.scrollEvent.remove('begin');
     Events.scrollEvent.remove('end');
   }

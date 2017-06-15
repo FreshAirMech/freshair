@@ -19,15 +19,21 @@ export default class PartnerSlider extends Component {
 		super(props);
     this.state = {
     };
+    this.changeNumSlides = this.changeNumSlides.bind(this);
 	}
 
-  componentWillMount() {
+  changeNumSlides() {
     let numSlides = Math.floor(window.innerWidth / 260);
     this.setState({ numSlides });
-    window.addEventListener('resize', () => {
-      let numSlides = Math.floor(window.innerWidth / 260);
-      this.setState({ numSlides });
-    });
+  }
+
+  componentWillMount() {
+    this.changeNumSlides();
+    window.addEventListener('resize', this.changeNumSlides);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.changeNumSlides);
   }
 
   render() {
