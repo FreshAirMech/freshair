@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
 import component from './component';
 import { requestSendEmail } from 'actions/user';
-import './index.scss';
 
 const mapStateToProps = (state) => {
   return {
