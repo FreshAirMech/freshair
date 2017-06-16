@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Slider from 'react-slick';
-import './index.css';
+import './index.scss';
 
 class PrevNavButton extends React.Component {
   render() {
