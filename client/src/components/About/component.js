@@ -80,13 +80,12 @@ export default class About extends Component {
                 <p>(718) 456-7090</p>
               </Row>
             </ul>
-            <img src={require('lib/images/location.png')}></img>
+            <SetGoogleMap />
           </Col>
           <Col sm={6} className="email-col">
             <h2>Send us an Email</h2>
             <EmailForm />
           </Col>
-          <SetGoogleMap />
         </Row>
       </div>  
     );

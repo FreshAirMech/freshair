@@ -263,7 +263,7 @@ export default class Settings extends Component {
           </Col>
         </Row>
         <Row className="settings-row">
-          <Col sm={6}>
+          <Col sm={6} id="phone-col">
             <PhoneSettings
               submitPhoneForm={this.submitPhoneForm}
               handleChange={this.handleChange}
