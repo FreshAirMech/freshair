@@ -166,7 +166,12 @@ export default class Landing extends Component {
     // Reset the navbar's opacity for other component views, since the landing page
     // is the only view that makes the navbar opacity change
     document.getElementById('navbar-container').style["background-color"] = "rgba(255,255,255,0.9)";
-    document.getElementsByClassName('navbar-collapse')[0].style["background-color"] = "rgba(255,255,255,0)";
+    if (window.innerWidth >= 768) {
+      document.getElementsByClassName('navbar-collapse')[0].style["background-color"] = "rgba(255,255,255,0)";
+    }
+    else {
+      document.getElementsByClassName('navbar-collapse')[0].style["background-color"] = "rgba(255,255,255,0.9)";
+    }
     window.removeEventListener('scroll', this.changeNavbarOnScroll);
     window.removeEventListener('resize', this.changeBasedOnResize);
     Events.scrollEvent.remove('begin');
