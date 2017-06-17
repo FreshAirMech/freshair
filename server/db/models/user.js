@@ -72,7 +72,7 @@ module.exports = function (db) {
                 return crypto.randomBytes(16).toString('base64');
             },
             encryptPassword: function (plainText, salt) {
-                const hash = crypto.createHash('sha1');
+                const hash = crypto.createHash('sha256');
                 hash.update(plainText);
                 hash.update(salt);
                 return hash.digest('hex');
