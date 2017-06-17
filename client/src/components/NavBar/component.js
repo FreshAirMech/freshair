@@ -85,7 +85,7 @@ export default class NavBar extends Component {
                                 </span>
                               } 
                         id="basic-nav-dropdown">
-                        <LinkContainer to={{ pathname: '/account' }}>
+                        <LinkContainer to={{ pathname: '/account' }} disabled>
                           <MenuItem eventKey={4.1}>
                             <i className="glyphicon glyphicon-triangle-right"/>
                             Account
