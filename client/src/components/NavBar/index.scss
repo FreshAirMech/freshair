@@ -4,6 +4,7 @@
 	position: fixed;
 	background-color: rgba(255,255,255,0.9);
   max-height: 93px;
+  transition: color 0.3s ease-in-out;
 }
 
 #navbar {
@@ -20,11 +21,18 @@
   	padding-top: 0.25vw;
   }
   a {
-  	color: #222;
   	background-color: transparent;
   	overflow: hidden;
-  	transition: color 0.5s ease-in-out;
+  	color: #222;
+  	.navbar-text {
+  		display: inline-block;
+  		color: #222;
+  		transition: color 0.25s ease-in-out;
+  	}
   	&:hover {
+  		.navbar-text {
+				color: #0688fe !important;
+  		}
 			color: #0688fe;
 			font-weight: bold;
 			.glyphicon-triangle-top {
@@ -86,6 +94,12 @@
 	}
 }
 
+.dropdown-toggle {
+	div {
+		display: inline;
+	}
+}
+
 #navbar-logo {
 	position: absolute;
 	margin-left: 15px;
@@ -99,7 +113,7 @@
 	width: 40px;
 	height: 40px;
 	border-radius: 20px;
-	margin: -8px 0;
+	margin: -8px 0px -8px 5px;
 }
 
 .nav-li {
@@ -113,9 +127,21 @@
 	}
 }
 
+.navbar-text {
+	margin: 0 !important;
+}
+
 @media (max-width: 768px) {
 	.navbar-collapse {
 		background-color: rgba(255,255,255,0.9);
+	}
+	#navbar {
+		font-size: 15px;
+		a {
+			.navbar-text {
+  			color: #222 !important;
+  		}
+		}
 	}
 }
 

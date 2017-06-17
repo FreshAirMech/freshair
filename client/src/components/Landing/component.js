@@ -19,6 +19,8 @@ export default class Landing extends Component {
     };
     this.goToNextDiv = this.goToNextDiv.bind(this);
     this.changeBasedOnResize = this.changeBasedOnResize.bind(this);
+    this.changeBasedOnScrollPos = this.changeBasedOnScrollPos.bind(this);
+    this.listeningNavBarFontColors = this.listeningNavBarFontColors.bind(this);
   }
 
   changeBasedOnScrollPos(e) {
@@ -76,16 +78,6 @@ export default class Landing extends Component {
       aptButton.getElementsByTagName('p')[0].style['font-size'] = '15px';
       $('.schedule-apt').find('i').removeClass('fa-md').addClass('fa-lg');
     }
-    // Make the navbar's collapse menu have a decently high opacity so that the user can still
-    // see the navbar (on lower resolutions)
-    if (document.getElementsByClassName('navbar-collapse')[0] && window.innerWidth < 768) {
-      document.getElementsByClassName('navbar-collapse')[0].style['background-color'] = 'rgba(255,255,255,0.8)';
-    }
-    // On higher resolutions, make the navbar's collapse section have 0 opacity so that it matches
-    // the container's/parent's opacity
-    else {
-      document.getElementsByClassName('navbar-collapse')[0].style['background-color'] = 'rgba(255,255,255,0)';
-    }
   }
 
   initializeNavbarOpacity() {
@@ -95,11 +87,43 @@ export default class Landing extends Component {
     }
   }
 
+  changeNavBarFontColors(unmounting) {
+    // Invert font color based on scroll position.
+    // At the top, white.
+    // Otherwise, black.
+    let top = window.pageYOffset || document.documentElement.scrollTop;
+    let links = document.getElementsByClassName('navbar-text');
+    for (let i = 0; i < links.length; i++) {
+      let link = links[i];
+      if (unmounting || top >= 29) {
+        link.style["color"] = "black";
+      }
+      else {
+        link.style["color"] = "white";
+      }
+    }
+  }
+
+  // This function is purely to remove the event listener
+  // when the landing page unmounts, so that other pages won't 
+  // let the navbar's font color change based on scroll position.
+  listeningNavBarFontColors() {
+    this.changeNavBarFontColors(false);
+  }
+
   componentDidMount() {
     this.initializeNavbarOpacity();
     scroll.scrollToTop({duration: 1});
+    // Set a timeout before updating colors so that the font can change
+    // after the session logs in the user. Without the timeout,
+    // the text for the user's first name/username would remain black.
+    // If there is no session, then the font becomes white normally.
+    window.setTimeout(() => {
+      this.changeNavBarFontColors(false);
+    }, 200);
 
     window.addEventListener('scroll', this.changeBasedOnScrollPos);
+    window.addEventListener('scroll', this.listeningNavBarFontColors);
     window.addEventListener('resize', this.changeBasedOnResize);
 
     // If user is on mobile, move 'request apt' button to bottom of the page
@@ -165,6 +189,7 @@ export default class Landing extends Component {
   componentWillUnmount() {
     // Reset the navbar's opacity for other component views, since the landing page
     // is the only view that makes the navbar opacity change
+    this.changeNavBarFontColors(true);
     document.getElementById('navbar-container').style["background-color"] = "rgba(255,255,255,0.9)";
     if (window.innerWidth >= 768) {
       document.getElementsByClassName('navbar-collapse')[0].style["background-color"] = "rgba(255,255,255,0)";
@@ -172,6 +197,7 @@ export default class Landing extends Component {
     else {
       document.getElementsByClassName('navbar-collapse')[0].style["background-color"] = "rgba(255,255,255,0.9)";
     }
+    window.removeEventListener('scroll', this.listeningNavBarFontColors);
     window.removeEventListener('scroll', this.changeNavbarOnScroll);
     window.removeEventListener('resize', this.changeBasedOnResize);
     Events.scrollEvent.remove('begin');

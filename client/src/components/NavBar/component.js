@@ -17,6 +17,16 @@ export default class NavBar extends Component {
     document.getElementById('navbar-container').style.height = $('#navbar').height() + 20 + 'px';
     window.addEventListener('resize', e => {
       document.getElementById('navbar-container').style.height = $('#navbar').height() + 20 + 'px';
+      // Make the navbar's collapse menu have a decently high opacity so that the user can still
+      // see the navbar (on lower resolutions)
+      if (window.innerWidth < 768) {
+        document.getElementsByClassName('navbar-collapse')[0].style['background-color'] = 'rgba(255,255,255,0.8)';
+      }
+      // On higher resolutions, make the navbar's collapse section have 0 opacity so that it matches
+      // the container's/parent's opacity
+      else {
+        document.getElementsByClassName('navbar-collapse')[0].style['background-color'] = 'rgba(255,255,255,0)';
+      }
     });
   }
 
@@ -56,19 +66,19 @@ export default class NavBar extends Component {
               <Nav pullRight>
                 <LinkContainer className="nav-li" to={{ pathname: '/' }}>
                   <NavItem eventKey={1} onClick={this.goToServices.bind(this)}>
-                    Services
+                    <p className="navbar-text">Services</p>
                     <i className="glyphicon glyphicon-triangle-top"/>
                   </NavItem>
                 </LinkContainer>
                 <LinkContainer className="nav-li" to={{ pathname: '/request' }}>
                   <NavItem eventKey={2}>
-                    Request Appt.
+                    <p className="navbar-text">Request Appt.</p>
                     <i className="glyphicon glyphicon-triangle-top"/>
                   </NavItem>
                 </LinkContainer>
                 <LinkContainer className="nav-li" to={{ pathname: '/about' }}>
                   <NavItem eventKey={3}>
-                    About/Contact
+                    <p className="navbar-text">About/Contact</p>
                     <i className="glyphicon glyphicon-triangle-top"/>
                   </NavItem>
                 </LinkContainer>
@@ -79,10 +89,13 @@ export default class NavBar extends Component {
                         className="nav-li open"
                         eventKey={4}
                         title={
-                                <span>
-                                  {firstName || username} {photoURL && <img id="navbar-img" src={photoURL} />}
+                                <div>
+                                  <p className="navbar-text">
+                                    {firstName || username}
+                                  </p>
+                                  {photoURL && <img id="navbar-img" src={photoURL} />}
                                   <i className="glyphicon glyphicon-triangle-top"/>
-                                </span>
+                                </div>
                               } 
                         id="basic-nav-dropdown">
                         <LinkContainer to={{ pathname: '/account' }} disabled>
@@ -106,7 +119,10 @@ export default class NavBar extends Component {
                     )
                   : (
                       <LinkContainer className="nav-li" to={{ pathname: '/login' }}>
-                        <NavItem eventKey={4}><i className="fa fa-user" aria-hidden="true" id="user-icon"></i>  Login/Sign Up
+                        <NavItem eventKey={4}>
+                          <p className="navbar-text">
+                            <i className="fa fa-user" aria-hidden="true" id="user-icon"></i> Login/Sign Up
+                          </p>
                           <i className="glyphicon glyphicon-triangle-top"/>
                         </NavItem>
                       </LinkContainer>
