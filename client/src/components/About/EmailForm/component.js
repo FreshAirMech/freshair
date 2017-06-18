@@ -83,12 +83,12 @@ export default class EmailForm extends Component {
 
   changeFormPadding() {
     let cols = document.getElementsByClassName('col-sm-4');
-    for (let i = 0; i < cols.length; i++) {
+    Array.from(cols).forEach(col => {
       if (window.innerWidth < 768)
-        cols[i].style.padding = '0';
+        col.style.padding = '0';
       else
-        cols[i].style.padding = '4%';
-    }
+        col.style.padding = '4%';
+    });
   }
 
 	render() {

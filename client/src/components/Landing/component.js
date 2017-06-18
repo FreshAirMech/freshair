@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Col, Row } from 'react-bootstrap/lib';
 import Scroll from 'react-scroll';
-import $ from 'jquery';
 import PartnerSlider from 'lib/Slider';
 import ApptBtn from 'lib/ApptBtn';
 import overviews from 'lib/objects/overviews';
@@ -41,7 +40,7 @@ export default class Landing extends Component {
     if (!aptButton) return;
     // if landing picture is being shown or at bottom of page, hide 'request appointment' button, and vice versa
     if (document.body.offsetHeight - (window.pageYOffset + window.innerHeight) < 120 ||
-        window.pageYOffset < $('#banner-div').height() / 2) {
+        window.pageYOffset < document.getElementById('navbar-container').offsetHeight / 2) {
       aptButton.classList.add('hideBtn');
       aptButton.classList.remove('showBtn');
       aptButton.classList.add('hideBtnText');
@@ -101,15 +100,14 @@ export default class Landing extends Component {
     // Otherwise, black.
     let top = window.pageYOffset || document.documentElement.scrollTop;
     let links = document.getElementsByClassName('navbar-text');
-    for (let i = 0; i < links.length; i++) {
-      let link = links[i];
+    Array.from(links).forEach(link => {
       if (unmounting || top >= 29) {
         link.style["color"] = "black";
       }
       else {
         link.style["color"] = "white";
       }
-    }
+    });
   }
 
   // This function is purely to remove the event listener
@@ -128,7 +126,7 @@ export default class Landing extends Component {
     // If there is no session, then the font becomes white normally.
     window.setTimeout(() => {
       this.changeNavBarFontColors(false);
-    }, 200);
+    }, 400);
 
     window.addEventListener('scroll', this.changeBasedOnScrollPos);
     window.addEventListener('scroll', this.listeningNavBarFontColors);
@@ -154,7 +152,7 @@ export default class Landing extends Component {
     // Add and remove classes for the 'Request an Appointment' button depending on scroll position
     // Hide the button at the top (b/c it shows the banner) and at the bottom (b/c it conflicts with the carousel's buttons)
     if (document.body.offsetHeight - (window.pageYOffset + window.innerHeight) < 80 ||
-        window.pageYOffset < $('#banner-div').height() / 2) {
+        window.pageYOffset < document.getElementById('navbar-container').offsetHeight / 2) {
       aptButton.classList.add('hideBtn');
       aptButton.classList.add('hideBtnText');
     }
@@ -174,29 +172,41 @@ export default class Landing extends Component {
     });
 
     // When hovering over a service, make all other services dim
-    $('#services .col-sm-6').hover(
-      function() {
-        $(this).siblings('.col-sm-6').children('div').addClass('makeDim').removeClass('makeBright');
-        if ($(this).children('div').hasClass('makeDim')) {
-          $(this).children('div').addClass('makeBright').removeClass('makeDim');
+    let serviceCols = document.getElementById('services').getElementsByClassName('col-sm-6');
+    Array.from(serviceCols).forEach(hoveredCol => {
+      hoveredCol.addEventListener('mouseover', () => {
+        let myClasses = hoveredCol.getElementsByTagName('div')[0].classList;
+        // Check if the classList contains makeDim first so that the makeBright
+        // animation doesn't run when you first hover over a service
+        if (myClasses.contains('makeDim')) {
+          myClasses.add('makeBright');
         }
-      },
-      function() {
-        $(this).children('div').removeClass('makeBright');
-      }
-    );
+        myClasses.remove('makeDim');
+        Array.from(serviceCols).forEach(sibling => {
+          if (hoveredCol === sibling) return;
+          let siblingClasses = sibling.getElementsByTagName('div')[0].classList;
+          siblingClasses.add('makeDim');
+          siblingClasses.remove('makeBright');
+        });
+      });
+      hoveredCol.addEventListener('mouseout', () => {
+        hoveredCol.getElementsByTagName('div')[0].classList.remove('makeBright');
+      });
+    });
 
     // After hovering over the 'services' section and leaving, make all services bright again
-    $('#services .row').hover(
-      function() {
-      },
-      function() {
-        if ($(this).children('.col-sm-6').children('div').hasClass('makeDim')) {
-          $(this).children('.col-sm-6').children('div').addClass('makeBright');
+    let serviceRow = document.getElementById('services').getElementsByClassName('row')[0];
+    serviceRow.addEventListener('mouseout', () => {
+      let cols = serviceRow.getElementsByClassName('col-sm-6');
+      Array.from(cols).forEach(col => {
+        let colClasses = col.getElementsByTagName('div')[0].classList;
+        if (colClasses.contains('makeDim')) {
+          colClasses.add('makeBright');
         }
-        $(this).children('.col-sm-6').children('div').removeClass('makeDim');
-      }
-    );
+        colClasses.remove('makeDim');
+      });
+    });
+
 
     scrollSpy.update();
   }
@@ -224,8 +234,7 @@ export default class Landing extends Component {
   goToNextDiv() {
     let { currentDiv, animating } = this.state;
     if (animating) return;
-    // Calculate navbar's height using jQuery because there is no 'height' property in styles
-    let navbarHeight = $('#navbar-container').height();
+    let navbarHeight = document.getElementById('navbar-container').offsetHeight;
     let options = {
       offset: -navbarHeight, 
       smooth: true,

@@ -27,7 +27,6 @@
     "express-session": "^1.15.2",
     "google-map-react": "^0.24.0",
     "google-maps-react": "^1.0.19",
-    "jquery": "^3.2.1",
     "morgan": "^1.7.0",
     "nodemailer": "^4.0.1",
     "nuka-carousel": "^2.0.4",
