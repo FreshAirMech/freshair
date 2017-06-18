@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 import { LinkContainer, IndexLinkContainer } from 'react-router-bootstrap/lib';
 import { Link, browserHistory } from 'react-router';
-import $ from 'jquery';
 import Footer from '../Footer';
 import Scroll from 'react-scroll';
 
@@ -13,9 +12,8 @@ export default class NavBar extends Component {
 
   componentDidMount() {
     this.props.requestSession();
-    document.getElementById('navbar-container').style.height = $('#navbar').height() + 20 + 'px';
     window.addEventListener('resize', e => {
-      document.getElementById('navbar-container').style.height = $('#navbar').height() + 20 + 'px';
+      document.getElementById('navbar-container').style.height = document.getElementById('navbar-container').offsetHeight + 20 + 'px';
       // Make the navbar's collapse menu have a decently high opacity so that the user can still
       // see the navbar (on lower resolutions)
       if (window.innerWidth < 768) {

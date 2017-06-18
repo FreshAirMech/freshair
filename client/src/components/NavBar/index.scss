@@ -5,6 +5,7 @@
 	background-color: rgba(255,255,255,0.9);
   max-height: 93px;
   transition: color 0.3s ease-in-out;
+  height: 93px;
 }
 
 #navbar {
@@ -135,6 +136,9 @@
 	.navbar-collapse {
 		background-color: rgba(255,255,255,0.9);
 	}
+	#navbar-container {
+		height: 73px !important;
+	}
 	#navbar {
 		font-size: 15px;
 		a {
@@ -147,7 +151,7 @@
 
 @media (min-width: 768px) {
 	.container {
-	   width: 95vw;
+	  width: 95vw;
 	}
 	.navbar-right {
 		font-size: 14px;

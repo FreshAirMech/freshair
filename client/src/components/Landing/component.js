@@ -52,7 +52,7 @@ export default class Landing extends Component {
       aptButton.classList.add('showBtn');
     }
 
-    // if at the bottom of the page, display 'scroll to top' instead of the arrow button
+    // if at the bottom of the page, hide the arrow button
     let arrowButton = document.getElementsByClassName('arrowButton')[0];
     if (arrowButton) {
       if (document.body.offsetHeight - (window.pageYOffset + window.innerHeight) < 80) {
@@ -147,6 +147,10 @@ export default class Landing extends Component {
     });
 
     let aptButton = document.getElementsByClassName('schedule-apt')[0];
+
+    // This is a repeat from a part of changeBasedOnScrollPos, need to repeat to remove
+    // buggy behavior where button displays its text at the wrong position, even when not hovered, when the component
+    // mounts (on refresh of the page).
     // Add and remove classes for the 'Request an Appointment' button depending on scroll position
     // Hide the button at the top (b/c it shows the banner) and at the bottom (b/c it conflicts with the carousel's buttons)
     if (document.body.offsetHeight - (window.pageYOffset + window.innerHeight) < 80 ||
