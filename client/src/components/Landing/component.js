@@ -38,6 +38,7 @@ export default class Landing extends Component {
       }
     }
     let aptButton = document.getElementsByClassName('schedule-apt')[0];
+    if (!aptButton) return;
     // if landing picture is being shown or at bottom of page, hide 'request appointment' button, and vice versa
     if (document.body.offsetHeight - (window.pageYOffset + window.innerHeight) < 120 ||
         window.pageYOffset < $('#banner-div').height() / 2) {
@@ -52,12 +53,13 @@ export default class Landing extends Component {
     }
 
     // if at the bottom of the page, display 'scroll to top' instead of the arrow button
-    if (document.getElementsByClassName('arrowButton')[0]) {
+    let arrowButton = document.getElementsByClassName('arrowButton')[0];
+    if (arrowButton) {
       if (document.body.offsetHeight - (window.pageYOffset + window.innerHeight) < 80) {
-        document.getElementsByClassName('arrowButton')[0].style["display"] = "none";
+        arrowButton.style["display"] = "none";
       }
       else {
-        document.getElementsByClassName('arrowButton')[0].style["display"] = "block";
+        arrowButton.style["display"] = "block";
       }
     }
   }
@@ -158,7 +160,6 @@ export default class Landing extends Component {
     }
 
     // Add and remove classes for the 'Request an Appointment' button's text depending on hover state
-
     aptButton.addEventListener('mouseover', () => {
       aptButton.classList.remove('hideBtnText');
       aptButton.classList.add('showBtnText');

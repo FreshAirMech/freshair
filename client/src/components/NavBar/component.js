@@ -13,7 +13,6 @@ export default class NavBar extends Component {
 
   componentDidMount() {
     this.props.requestSession();
-
     document.getElementById('navbar-container').style.height = $('#navbar').height() + 20 + 'px';
     window.addEventListener('resize', e => {
       document.getElementById('navbar-container').style.height = $('#navbar').height() + 20 + 'px';
@@ -31,7 +30,7 @@ export default class NavBar extends Component {
   }
 
   goToServices() {
-    let navbarHeight = $('#navbar-container').height();
+    let navbarHeight = document.getElementById('navbar-container').offsetHeight;
     let options = {
       offset: -navbarHeight, 
       smooth: true,
