@@ -27,7 +27,7 @@ export const isPhoneNumber = number => {
     return false;
   }
   // Remove the extra characters and test to see if the digits are numbers
-  number = number.slice(1,3) + number.slice(6,8) + number.slice(10,13);
+  number = number.slice(1,4) + number.slice(6,9) + number.slice(10,14);
   for (let i = 0; i < number.length; i++) {
     let digit = number.toString()[i];
     let diff = digit - '0';

@@ -3,6 +3,7 @@ import { Panel, Button, Form, FormGroup, ControlLabel, FormControl, HelpBlock } 
 import Spinner from 'lib/Spinner';
 import { isPasswordValid, isPhoneNumber } from 'lib/functions/authentication';
 import { Col } from 'react-bootstrap/lib';
+import MaskedInput from 'react-maskedinput';
 
 export default class SignUpForm extends Component {
   constructor(props) {
@@ -164,11 +165,12 @@ export default class SignUpForm extends Component {
             </FormGroup>
 
             <FormGroup validationState={ this.isPhoneNumberValidationState() }>
-              <ControlLabel>Phone Number (10 digits, no formatting)</ControlLabel>
-              <FormControl
+              <ControlLabel>Phone Number</ControlLabel>
+              <MaskedInput
+                className="form-control"
+                mask="(111) 111-1111"
+                placeholder="(123) 456-7890"
                 name="phone"
-                type="text"
-                maxLength={10}
                 value={ phone }
                 onChange={this.handleChange}
               />
