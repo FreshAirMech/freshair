@@ -37,14 +37,18 @@ export default class Landing extends Component {
         document.getElementsByClassName('navbar-collapse')[0].style["background-color"] = "rgba(255,255,255,0)";
       }
     }
+    let aptButton = document.getElementsByClassName('schedule-apt')[0];
     // if landing picture is being shown or at bottom of page, hide 'request appointment' button, and vice versa
     if (document.body.offsetHeight - (window.pageYOffset + window.innerHeight) < 120 ||
         window.pageYOffset < $('#banner-div').height() / 2) {
-      $('.schedule-apt').addClass('hideBtn').removeClass('showBtn');
-      $('.schedule-apt').addClass('hideBtnText').removeClass('showBtnText');
+      aptButton.classList.add('hideBtn');
+      aptButton.classList.remove('showBtn');
+      aptButton.classList.add('hideBtnText');
+      aptButton.classList.remove('showBtnText');
     }
     else {
-      $('.schedule-apt').removeClass('hideBtn').addClass('showBtn');
+      aptButton.classList.remove('hideBtn');
+      aptButton.classList.add('showBtn');
     }
 
     // if at the bottom of the page, display 'scroll to top' instead of the arrow button
@@ -68,7 +72,8 @@ export default class Landing extends Component {
       aptButton.style.padding = '0 13px';
       aptButton.style.top = '90%';
       aptButton.getElementsByTagName('p')[0].style['font-size'] = '13px';
-      $('.schedule-apt').find('i').removeClass('fa-lg').addClass('fa-md');
+      aptButton.getElementsByTagName('i')[0].classList.remove('fa-lg');
+      aptButton.getElementsByTagName('i')[0].classList.add('fa-md');
     }
     else {
       aptButton.style.width = '70px';
@@ -76,7 +81,8 @@ export default class Landing extends Component {
       aptButton.style.padding = '0 19px';
       aptButton.style.top = '50%';
       aptButton.getElementsByTagName('p')[0].style['font-size'] = '15px';
-      $('.schedule-apt').find('i').removeClass('fa-md').addClass('fa-lg');
+      aptButton.getElementsByTagName('i')[0].classList.remove('fa-md');
+      aptButton.getElementsByTagName('i')[0].classList.add('fa-lg');
     }
   }
 
@@ -138,25 +144,29 @@ export default class Landing extends Component {
       thisComponent.setState({animating: false})
     });
 
+    let aptButton = document.getElementsByClassName('schedule-apt')[0];
     // Add and remove classes for the 'Request an Appointment' button depending on scroll position
     // Hide the button at the top (b/c it shows the banner) and at the bottom (b/c it conflicts with the carousel's buttons)
     if (document.body.offsetHeight - (window.pageYOffset + window.innerHeight) < 80 ||
         window.pageYOffset < $('#banner-div').height() / 2) {
-      $('.schedule-apt').addClass('hideBtn').addClass('hideBtnText');
+      aptButton.classList.add('hideBtn');
+      aptButton.classList.add('hideBtnText');
     }
     else {
-      $('.schedule-apt').addClass('showBtn').addClass('hideBtnText');
+      aptButton.classList.add('showBtn');
+      aptButton.classList.add('hideBtnText');
     }
 
     // Add and remove classes for the 'Request an Appointment' button's text depending on hover state
-    $('.schedule-apt').hover(
-      function () {
-        $(this).removeClass('hideBtnText').addClass('showBtnText');
-      },
-      function () {
-        $(this).removeClass('showBtnText').addClass('hideBtnText');
-      }
-    );
+
+    aptButton.addEventListener('mouseover', () => {
+      aptButton.classList.remove('hideBtnText');
+      aptButton.classList.add('showBtnText');
+    });
+    aptButton.addEventListener('mouseout', () => {
+      aptButton.classList.remove('showBtnText');
+      aptButton.classList.add('hideBtnText');
+    });
 
     // When hovering over a service, make all other services dim
     $('#services .col-sm-6').hover(
@@ -323,7 +333,7 @@ export default class Landing extends Component {
           </Element>
         </Row>
         <div id="scroll-top">
-          <a onClick={this.goToTop}>GO TO TOP</a>
+          <a onClick={this.goToTop}><p>GO TO TOP</p><p>^</p></a>
         </div>
       </div>  
     );

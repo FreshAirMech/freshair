@@ -3,7 +3,6 @@ import { Col, Row } from 'react-bootstrap/lib';
 import SetGoogleMap from 'lib/Map';
 import EmailForm from './EmailForm';
 import Scroll from 'react-scroll';
-import $ from 'jquery';
 import team from 'lib/objects/team';
 
 var scroll = Scroll.animateScroll;

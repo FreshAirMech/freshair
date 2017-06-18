@@ -28,7 +28,6 @@
     "google-map-react": "^0.24.0",
     "google-maps-react": "^1.0.19",
     "jquery": "^3.2.1",
-    "jquery-match-height": "^0.7.2",
     "morgan": "^1.7.0",
     "nodemailer": "^4.0.1",
     "nuka-carousel": "^2.0.4",
