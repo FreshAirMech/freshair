@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Col, Panel, Button, Form, FormGroup, ControlLabel, FormControl, HelpBlock } from 'react-bootstrap/lib';
 import Spinner from 'lib/Spinner';
 import { isPhoneNumber } from 'lib/functions/authentication';
+import MaskedInput from 'react-maskedinput';
 
 export default class EmailForm extends Component {
 	constructor(props) {
@@ -121,12 +122,14 @@ export default class EmailForm extends Component {
 				<Col sm={4} id="email-form-phone">
 				  <FormGroup>
 				    <ControlLabel>Phone</ControlLabel>
-				    <FormControl
-				      name="phone"
-				      type="text"
-				      value={ phone }
-				      onChange={handleChange}
-				    />
+				    <MaskedInput
+	            className="form-control"
+	            mask="(111) 111-1111"
+	            placeholder="(123) 456-7890"
+	            name="phone"
+	            value={ phone }
+	            onChange={handleChange}
+	          />
 				  </FormGroup>
 				</Col>
 			  <FormGroup>

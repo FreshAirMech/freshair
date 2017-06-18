@@ -9,6 +9,9 @@
 		text-align: center;
 		color: #808080;
 		margin-bottom: 50px;
+		&:first-of-type {
+			margin: 0;
+		}
 	}
 }
 

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Col, Row, Panel, Form, FormGroup, FormControl, ControlLabel, Button, HelpBlock } from 'react-bootstrap/lib';
 import Spinner from 'lib/Spinner';
 import { isPhoneNumber } from 'lib/functions/authentication';
+import MaskedInput from 'react-maskedinput';
 import Scroll from 'react-scroll';
 var scroll = Scroll.animateScroll;
 
@@ -99,7 +100,8 @@ export default class Request extends Component {
     return (
       <Form onSubmit={submitRequestForm} id="request-form">
         <h3>Request an Appointment</h3>
-        <p>Schedule an appointment with us here. We will contact you as soon as possible.</p>
+        <p>Schedule an appointment with us here. Details and conversations will be continued through an email chain.</p>
+        <p>We will contact you as soon as possible.</p>
         <Col sm={4} id="request-form-left">
           <FormGroup>
             <ControlLabel>Name *</ControlLabel>
@@ -127,12 +129,13 @@ export default class Request extends Component {
         <Col sm={4} id="request-form-right">
           <FormGroup>
             <ControlLabel>Phone</ControlLabel>
-            <FormControl
+            <MaskedInput
+              className="form-control"
+              mask="(111) 111-1111"
+              placeholder="(123) 456-7890"
               name="phone"
-              type="text"
               value={ phone }
               onChange={handleChange}
-              placeholder="e.g. (123) 456-7890"
             />
           </FormGroup>
         </Col>

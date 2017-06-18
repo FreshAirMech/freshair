@@ -64,7 +64,7 @@ export default class Settings extends Component {
         savedEmail: false
       });
     }
-    if (e.target.name === 'newPhone' && !this.state.phoneFormDirty) {
+    if (e.target.name === 'newPhone') {
       this.setState({
         phoneFormDirty: true,
         savedPhone: false

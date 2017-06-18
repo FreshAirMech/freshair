@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Col, Row, Panel, Form, FormGroup, FormControl, ControlLabel, Button, HelpBlock } from 'react-bootstrap/lib';
 import Spinner from 'lib/Spinner';
 import { isPhoneNumber } from 'lib/functions/authentication';
+import MaskedInput from 'react-maskedinput';
 
 export default (props) => {
   let { submitPhoneForm, handleChange, newPhone, phone,
@@ -12,11 +13,12 @@ export default (props) => {
 
       <Form onSubmit={submitPhoneForm}>
         <FormGroup>
-          <ControlLabel>Phone Number (10 digits, no formatting)</ControlLabel>
-          <FormControl
+          <ControlLabel>Phone Number</ControlLabel>
+          <MaskedInput
+            className="form-control"
+            mask="(111) 111-1111"
+            placeholder="(123) 456-7890"
             name="newPhone"
-            type="text"
-            maxLength={10}
             value={ phoneFormDirty ? newPhone : (phone || '') }
             onChange={handleChange}
           />

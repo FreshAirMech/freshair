@@ -42,10 +42,7 @@ module.exports = function (db) {
             }
         },
         phone: {
-            type: Sequelize.STRING,
-            validate: {
-                isNumeric: true
-            }
+            type: Sequelize.STRING
         },
         photoURL: {
             type: Sequelize.STRING
