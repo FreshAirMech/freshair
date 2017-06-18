@@ -282,6 +282,17 @@
   animation-timing-function: ease-in;
 }
 
+@media (max-width: 768px) {
+  #services {
+    .col-sm-6 {
+      height: 250px !important;
+    }
+  }
+  #service5 {
+    float: none;
+  }
+}
+
 @include keyframes(slideleft) {
   from { transform: translateX(0) }
   to { transform: translateX(-100%); }
