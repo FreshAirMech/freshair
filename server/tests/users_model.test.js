@@ -1,3 +1,5 @@
+'use strict';
+
 var expect = require('chai').expect;
 var db = require('../db/_db');
 var User = require('../db/models/user')(db);

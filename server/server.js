@@ -20,9 +20,11 @@ app.use(session({
     maxAge: 1000 * 60 * 60 * 24 * 7
   }
 }));
-
 app.use((req, res, next) => {
-  console.log(req.session);
+  console.log(process.env.NODE_ENV)
+  if (process.env.NODE_ENV !== 'test') {
+    console.log(req.session);
+  }
   next();
 });
 
@@ -51,3 +53,5 @@ app.use((err, req, res, next) => {
 app.listen(port, () => {
   console.log('Listening on port ' + port);
 });
+
+module.exports = app;
