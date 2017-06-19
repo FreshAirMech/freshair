@@ -211,6 +211,12 @@ export default class Landing extends Component {
     scrollSpy.update();
   }
 
+  componentDidUpdate() {
+    // This is so that when the user logs out while on the landing page with the scroll position
+    // at the very top, make the 'Login/Sign Up' button appear white as well
+    this.changeNavBarFontColors(false);
+  }
+
   componentWillUnmount() {
     // Reset the navbar's opacity for other component views, since the landing page
     // is the only view that makes the navbar opacity change
