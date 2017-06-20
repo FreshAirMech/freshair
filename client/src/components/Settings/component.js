@@ -12,13 +12,6 @@ import EmailSettings from './Email';
 import Scroll from 'react-scroll';
 var scroll = Scroll.animateScroll;
 
-if (!CLOUDINARY_UPLOAD_URL) {
-  CLOUDINARY_UPLOAD_URL = process.env.CLOUDINARY_UPLOAD_URL;
-}
-if (!CLOUDINARY_UPLOAD_PRESET) {
-  CLOUDINARY_UPLOAD_PRESET = process.env.CLOUDINARY_UPLOAD_PRESET;
-}
-
 export default class Settings extends Component {
   constructor(props) {
     super(props);

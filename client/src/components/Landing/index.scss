@@ -108,14 +108,17 @@
     div {
       margin: auto;
     }
+    h4 {
+      margin-top: 60px;
+      transition: margin-top 0.4s;
+      transition-timing-function: ease-in-out;
+    }
     &:hover {
       h4 {
-        animation: slideup 0.25s;
-        animation-fill-mode: forwards;
-        animation-timing-function: ease-in-out;
+        margin-top: -30px;
       }
       .description {
-        display: block;
+        visibility: visible;
         animation: fadein 0.25s;
         animation-delay: 0.5s;
         animation-fill-mode: forwards;
@@ -124,7 +127,8 @@
     }
   }
   .description {
-    display: none;
+    visibility: hidden;
+    transition: visibility 0.4s;
     opacity: 0;
   }
   hr {
