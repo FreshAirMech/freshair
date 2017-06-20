@@ -49,7 +49,11 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loader: 'style!css!sass'
+        loaders: [
+          'style-loader',
+          'css-loader',
+          'sass?includePaths[]='+ path.resolve(__dirname, 'node_modules')
+        ]
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
