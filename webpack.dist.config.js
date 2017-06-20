@@ -29,6 +29,9 @@ module.exports = {
     ]
   },
   devtool: 'source-map',
+  node: {
+    fs: "empty"
+  },
   module: {
     loaders: [
       {
