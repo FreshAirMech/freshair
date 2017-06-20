@@ -52,7 +52,7 @@ module.exports = {
         loaders: [
           'style-loader',
           'css-loader',
-          'sass?includePaths[]='+ path.resolve(__dirname, 'node_modules')
+          'sass-loader'
         ]
       },
       {
