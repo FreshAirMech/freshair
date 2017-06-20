@@ -21,8 +21,7 @@ app.use(session({
   }
 }));
 app.use((req, res, next) => {
-  console.log(process.env.NODE_ENV)
-  if (process.env.NODE_ENV !== 'test') {
+  if (req.session.user) {
     console.log(req.session);
   }
   next();

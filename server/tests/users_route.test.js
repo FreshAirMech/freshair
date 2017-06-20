@@ -19,7 +19,7 @@ describe('Users Route:', () => {
 		it('responds with a server error because of authentication (not admin)', () => {
 			return agent
 				.get('/users')
-        .expect(500)
+        .expect(500);
 		});
   });
 });
