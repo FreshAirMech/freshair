@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { Col, Row, Panel, Form, FormGroup, FormControl, ControlLabel, Button, HelpBlock } from 'react-bootstrap/lib';
 import Spinner from 'lib/Spinner';
 import { isPasswordValid, isPhoneNumber } from 'lib/functions/authentication';
-import { CLOUDINARY_UPLOAD_PRESET, CLOUDINARY_UPLOAD_URL } from 'secrets';
 import request from 'superagent';
 import PhotoSettings from './Photo';
 import PasswordSettings from './Password';
 import PhoneSettings from './Phone';
 import EmailSettings from './Email';
+import { CLOUDINARY_UPLOAD_PRESET, CLOUDINARY_UPLOAD_URL } from 'secretsProd';
 
 import Scroll from 'react-scroll';
 var scroll = Scroll.animateScroll;

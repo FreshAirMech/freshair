@@ -4,7 +4,7 @@ var db = require('../db');
 var User = db.model('user');
 var Auth = require('../configure/auth-middleware');
 var cloudinary = require('cloudinary');
-var secrets = require('../../secrets');
+var secrets = require('../../secretsProd');
 cloudinary.config({ 
   cloud_name: secrets.CLOUDINARY_CLOUD_NAME, 
   api_key: secrets.CLOUDINARY_API_KEY, 

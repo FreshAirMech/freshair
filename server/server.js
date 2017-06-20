@@ -1,11 +1,13 @@
+// Load environment variables as quickly as possible for production
+require('dotenv').config();
+
 const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
 const bodyParser = require('body-parser');
 const session = require('express-session');
-const secrets = require('../secrets');
+const secrets = require('../secretsProd');
 const env = process.env.NODE_ENV;
-
 const app = express();
 const db = require('./db');
 const port = process.env.PORT || 3000;

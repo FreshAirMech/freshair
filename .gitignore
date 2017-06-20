@@ -7,3 +7,4 @@ public/bundle.js.map
 public/*.png
 public/fonts
 .DS_Store
+.env
