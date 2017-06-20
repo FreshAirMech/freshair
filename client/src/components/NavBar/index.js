@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import component from './component';
 import { requestLogout, requestSession } from 'actions/auth';
+import './index.scss';
 
 const mapStateToProps = (state) => {
   return {

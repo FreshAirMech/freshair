@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Col, Row, Panel, Form, FormGroup, FormControl, ControlLabel, Button, HelpBlock } from 'react-bootstrap/lib';
 import Dropzone from 'react-dropzone';
+import './index.scss';
 
 export default (props) => {
 	const { onImageDrop, uploadedFileCloudinaryUrl, uploadedFile, deletePhoto } = props;

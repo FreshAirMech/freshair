@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Row } from 'react-bootstrap/lib';
 import { Link } from 'react-router';
+import './index.scss';
 
 export default (props) => {
 	return (
