@@ -1,11 +1,16 @@
 FROM node:4-onbuild
 MAINTAINER Jonathan Rim
 
-# Install dependencies
+# Create app directory
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+
+
+COPY package.json /usr/src/app/
 RUN npm install
 
-# Expose the app port
+COPY . /usr/src/app 
+
 EXPOSE 3000
 
-# Start the app
-CMD npm start
+CMD [ "npm", "start" ]
