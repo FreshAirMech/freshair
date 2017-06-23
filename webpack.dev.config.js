@@ -17,16 +17,14 @@ module.exports = {
     path: __dirname + '/public'
   },
   resolve: {
-    extensions: ['', '.js', '.jsx', '.json', '.scss'],
+    extensions: ['.js', '.jsx', '.json', '.scss'],
     alias: {
       lib: path.resolve(__dirname, 'client/src/lib'),
       actions: path.resolve(__dirname, 'client/src/actions'),
       constants: path.resolve(__dirname, 'client/src/constants'),
       styles: path.resolve(__dirname, 'client/src/lib/styles')
     },
-    root: [
-      path.resolve(__dirname)
-    ]
+    modules: [__dirname, 'node_modules']
   },
   devtool: 'source-map',
   node: {

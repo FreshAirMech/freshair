@@ -1,6 +1,5 @@
 'use strict';
 const crypto = require('crypto');
-const _ = require('lodash');
 const Sequelize = require('sequelize');
 
 module.exports = function (db) {
@@ -57,9 +56,6 @@ module.exports = function (db) {
         },
     }, {
         instanceMethods: {
-            sanitize: function () {
-                return _.omit(this.toJSON(), ['password', 'salt']);
-            },
             correctPassword: function (candidatePassword) {
                 return this.Model.encryptPassword(candidatePassword, this.salt) === this.password;
             }
