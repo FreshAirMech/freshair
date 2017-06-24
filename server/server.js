@@ -5,7 +5,7 @@ const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
 const bodyParser = require('body-parser');
-const session = require('express-session');
+const cookieSession = require('cookie-session')
 const secrets = require('../secretsProd');
 const env = process.env.NODE_ENV;
 const app = express();
@@ -15,13 +15,9 @@ const pg = require('pg');
 
 app.use(morgan('dev'));
 
-app.use(session({
+app.use(cookieSession({
   secret: secrets.SESSION_SECRET,
-  resave: false,
-  saveUninitialized: false,
-  cookie: {
-    maxAge: 1000 * 60 * 60 * 24 * 7
-  }
+  maxAge: 1000 * 60 * 60 * 24 * 7
 }));
 app.use((req, res, next) => {
   if (req.session.user) {
