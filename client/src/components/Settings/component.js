@@ -7,7 +7,7 @@ import PhotoSettings from './Photo';
 import PasswordSettings from './Password';
 import PhoneSettings from './Phone';
 import EmailSettings from './Email';
-import { CLOUDINARY_UPLOAD_PRESET, CLOUDINARY_UPLOAD_URL } from 'secretsProd';
+import { CLOUDINARY_UPLOAD_PRESET, CLOUDINARY_UPLOAD_URL } from '../../../../secretsProd';
 
 import Scroll from 'react-scroll';
 var scroll = Scroll.animateScroll;

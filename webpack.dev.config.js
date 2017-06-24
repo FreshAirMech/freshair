@@ -11,7 +11,7 @@ var query = {
 };
 
 module.exports = {
-  entry: './client/src/index.js',
+  entry: './client/src/index',
   output: {
     filename: 'bundle.js',
     path: __dirname + '/public'
