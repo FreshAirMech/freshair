@@ -24,7 +24,7 @@ module.exports = {
       constants: path.join(__dirname, 'client/src/constants'),
       styles: path.join(__dirname, 'client/src/lib/styles')
     },
-    modules: [__dirname, 'node_modules']
+    aliasFields: ['browser']
   },
   devtool: 'source-map',
   node: {
