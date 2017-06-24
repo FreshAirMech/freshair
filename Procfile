@@ -1,2 +1,1 @@
-web: npm run webpack-watch
-server: npm run server-start
+web: npm run prod-start
