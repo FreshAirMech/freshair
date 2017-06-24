@@ -19,10 +19,10 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx', '.json', '.scss'],
     alias: {
-      lib: path.resolve(__dirname, 'client/src/lib'),
-      actions: path.resolve(__dirname, 'client/src/actions'),
-      constants: path.resolve(__dirname, 'client/src/constants'),
-      styles: path.resolve(__dirname, 'client/src/lib/styles')
+      lib: path.join(__dirname, 'client/src/lib'),
+      actions: path.join(__dirname, 'client/src/actions'),
+      constants: path.join(__dirname, 'client/src/constants'),
+      styles: path.join(__dirname, 'client/src/lib/styles')
     },
     modules: [__dirname, 'node_modules']
   },
