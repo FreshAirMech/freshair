@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Panel, Button, Form, FormGroup, ControlLabel, FormControl, HelpBlock, Col } from 'react-bootstrap/lib';
 import Spinner from 'lib/Spinner';
-
+import { isPasswordValid, isPhoneNumber } from 'lib/functions/authentication';
+import MaskedInput from 'react-maskedinput';
 
 export default class SignUpForm extends Component {
   constructor(props) {
