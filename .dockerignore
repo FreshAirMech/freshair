@@ -2,8 +2,5 @@
 .gitignore
 .editorconfig
 node_modules
-public
 *.log
 *.md
-*.png
-*.jpg

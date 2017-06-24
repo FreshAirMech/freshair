@@ -1,4 +1,4 @@
-FROM node:4-onbuild
+FROM node:8-onbuild
 MAINTAINER Jonathan Rim
 
 # Create app directory
@@ -13,4 +13,4 @@ COPY . /usr/src/app
 
 EXPOSE 3000
 
-CMD [ "npm", "start" ]
+CMD npm run server-start
