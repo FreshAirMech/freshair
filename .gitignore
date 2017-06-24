@@ -5,6 +5,7 @@ secrets.js
 public/bundle.js
 public/bundle.js.map
 public/*.png
+public/*.jpg
 public/fonts
 .DS_Store
 .env
