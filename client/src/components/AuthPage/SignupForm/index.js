@@ -6,7 +6,7 @@ function mapStateToProps(state) {
   return {
     isFetching: state.auth.signUp.isFetching,
     error: state.auth.signUp.error
-  }
+  };
 }
 
 function mapDispatchToProps(dispatch) {

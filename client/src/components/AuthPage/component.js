@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import SignUpForm from './SignUpForm';
 import LoginForm from './LoginForm';
+import SignUpForm from './SignUpForm';
 import { Col } from 'react-bootstrap/lib';
 import Scroll from 'react-scroll';
 var scroll = Scroll.animateScroll;
