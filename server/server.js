@@ -11,6 +11,7 @@ const env = process.env.NODE_ENV;
 const app = express();
 const db = require('./db');
 const port = process.env.PORT || 3000;
+const pg = require('pg');
 
 app.use(morgan('dev'));
 
@@ -48,6 +49,18 @@ app.use((err, req, res, next) => {
   .json({
     errorStatus: err.status || 500,
     message: err.message || 'Internal Server Error'
+  });
+});
+
+app.get('/db', function (request, response) {
+  pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+    client.query('SELECT * FROM users', function(err, result) {
+      done();
+      if (err)
+       { console.error(err); response.send("Error " + err); }
+      else
+       { response.render('pages/db', {results: result.rows} ); }
+    });
   });
 });
 

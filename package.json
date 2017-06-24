@@ -6,6 +6,7 @@
   "scripts": {
     "webpack-watch": "webpack --display-error-details -w --config ./webpack.dev.config.js",
     "server-start": "nodemon --watch server -e js,html ./server/server.js",
+    "prod-start": "node server/server.js",
     "dev-start": "concurrently -k \"npm run server-start\" \"npm run webpack-watch\"",
     "test": "nodemon --exec mocha --reporter spec --timeout 300 server/tests/*.test.js || true",
     "start": "concurrently -k \"npm run server-start\" \"npm run webpack-watch\""
