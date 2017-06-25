@@ -32,9 +32,7 @@ app.use(bodyParser.json());
 
 app.use('/', require('./routes'));
 
-app.get('/*', (req, res, next) => {
-  res.sendFile(path.resolve(__dirname, '../public'));
-});
+app.use('/public', express.static(path.resolve(__dirname, '../public')));
 
 app.use((err, req, res, next) => {
   console.error(err);
