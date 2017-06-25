@@ -50,13 +50,13 @@ export default class PartnerSlider extends Component {
     return (
       <Slider {...settings}>
         <div className="partner"><img src={require('lib/images/abco.jpg')} /></div>
-        <div className="partner"><img src="http://hvacdepotinc.com/images/product/sporlan.png" /></div>
-        <div className="partner"><img src="http://mehvac.com/images/logo.png" /></div>
-        <div className="partner"><img src="http://static.wixstatic.com/media/edf714_a8177bc6df634641bae452cf3bc90e8f.jpg" /></div>
-        <div className="partner"><img src="http://gp-partsdirect.com/media/aitmanufacturers/1494_Tyler_Refrigeration.png" /></div>
+        <div className="partner"><img src="https://hvacdepotinc.com/images/product/sporlan.png" /></div>
+        <div className="partner"><img src="https://mehvac.com/images/logo.png" /></div>
+        <div className="partner"><img src="https://static.wixstatic.com/media/edf714_a8177bc6df634641bae452cf3bc90e8f.jpg" /></div>
+        <div className="partner"><img src="https://gp-partsdirect.com/media/aitmanufacturers/1494_Tyler_Refrigeration.png" /></div>
         <div className="partner"><img src="https://climatecontroltt.com/media/wysiwyg/York/yorklogo.jpg" /></div>
         <div className="partner"><img src="https://i.ytimg.com/vi/pSjKU1XA0ps/maxresdefault.jpg" /></div>
-        <div className="partner"><img src="http://www.knuthrefrigeration.com/wp-content/uploads/2016/03/logo_NEW_kysor_warren.jpg" /></div>
+        <div className="partner"><img src="https://www.knuthrefrigeration.com/wp-content/uploads/2016/03/logo_NEW_kysor_warren.jpg" /></div>
       </Slider>
     );
   }

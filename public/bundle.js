@@ -78421,22 +78421,22 @@ let PartnerSlider = class PartnerSlider extends _react.Component {
       _react2.default.createElement(
         'div',
         { className: 'partner' },
-        _react2.default.createElement('img', { src: 'http://hvacdepotinc.com/images/product/sporlan.png' })
+        _react2.default.createElement('img', { src: 'https://hvacdepotinc.com/images/product/sporlan.png' })
       ),
       _react2.default.createElement(
         'div',
         { className: 'partner' },
-        _react2.default.createElement('img', { src: 'http://mehvac.com/images/logo.png' })
+        _react2.default.createElement('img', { src: 'https://mehvac.com/images/logo.png' })
       ),
       _react2.default.createElement(
         'div',
         { className: 'partner' },
-        _react2.default.createElement('img', { src: 'http://static.wixstatic.com/media/edf714_a8177bc6df634641bae452cf3bc90e8f.jpg' })
+        _react2.default.createElement('img', { src: 'https://static.wixstatic.com/media/edf714_a8177bc6df634641bae452cf3bc90e8f.jpg' })
       ),
       _react2.default.createElement(
         'div',
         { className: 'partner' },
-        _react2.default.createElement('img', { src: 'http://gp-partsdirect.com/media/aitmanufacturers/1494_Tyler_Refrigeration.png' })
+        _react2.default.createElement('img', { src: 'https://gp-partsdirect.com/media/aitmanufacturers/1494_Tyler_Refrigeration.png' })
       ),
       _react2.default.createElement(
         'div',
@@ -78451,7 +78451,7 @@ let PartnerSlider = class PartnerSlider extends _react.Component {
       _react2.default.createElement(
         'div',
         { className: 'partner' },
-        _react2.default.createElement('img', { src: 'http://www.knuthrefrigeration.com/wp-content/uploads/2016/03/logo_NEW_kysor_warren.jpg' })
+        _react2.default.createElement('img', { src: 'https://www.knuthrefrigeration.com/wp-content/uploads/2016/03/logo_NEW_kysor_warren.jpg' })
       )
     );
   }
