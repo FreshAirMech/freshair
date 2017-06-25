@@ -32,7 +32,7 @@ app.use(bodyParser.json());
 
 app.use('/', require('./routes'));
 
-app.get('/*', (req, res, next) => {
+app.get('*', (req, res, next) => {
   res.sendFile(path.resolve(__dirname, '../public/index.html'));
 });
 
