@@ -27,11 +27,18 @@ app.use((req, res, next) => {
 });
 
 app.use(express.static(__dirname + '/../public/'));
-app.use(express.static(__dirname+ '/../public/bundle.js'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.use('/', require('./routes'));
+
+app.get('/bundle.js', (req, res, next) => {
+  res.sendFile(path.resolve(__dirname, '../public/bundle.js'));
+});
+
+app.get('/*', (req, res, next) => {
+  res.sendFile(path.resolve(__dirname, '../public/index.html'));
+});
 
 app.use((err, req, res, next) => {
   console.error(err);
