@@ -50,7 +50,7 @@ export default class PartnerSlider extends Component {
     return (
       <Slider {...settings}>
         <div className="partner"><img src={require('lib/images/abco.jpg')} /></div>
-        <div className="partner"><img src="https://hvacdepotinc.com/images/product/sporlan.png" /></div>
+        <div className="partner"><img src="https://www.edissonelectric.com/wp-content/uploads/2015/09/Sporlan-2.png" /></div>
         <div className="partner"><img src="https://mehvac.com/images/logo.png" /></div>
         <div className="partner"><img src="https://static.wixstatic.com/media/edf714_a8177bc6df634641bae452cf3bc90e8f.jpg" /></div>
         <div className="partner"><img src="https://gp-partsdirect.com/media/aitmanufacturers/1494_Tyler_Refrigeration.png" /></div>

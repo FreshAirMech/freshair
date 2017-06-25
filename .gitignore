@@ -1,7 +1,5 @@
 node_modules
 npm-debug.log
 secrets.js
-public/bundle.js.map
-public/fonts
 .DS_Store
 .env

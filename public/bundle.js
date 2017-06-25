@@ -78421,7 +78421,7 @@ let PartnerSlider = class PartnerSlider extends _react.Component {
       _react2.default.createElement(
         'div',
         { className: 'partner' },
-        _react2.default.createElement('img', { src: 'https://hvacdepotinc.com/images/product/sporlan.png' })
+        _react2.default.createElement('img', { src: 'https://www.edissonelectric.com/wp-content/uploads/2015/09/Sporlan-2.png' })
       ),
       _react2.default.createElement(
         'div',
