@@ -56688,7 +56688,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 const sagaMiddleware = (0, _reduxSaga2.default)();
 
-exports.default = (0, _redux.createStore)(_reducers2.default, (0, _redux.applyMiddleware)(sagaMiddleware, _reduxThunk2.default, (0, _reactRouterRedux.routerMiddleware)(_reactRouter.browserHistory), (0, _reduxLogger2.default)()));
+exports.default = (0, _redux.createStore)(_reducers2.default, (0, _redux.applyMiddleware)(sagaMiddleware, _reduxThunk2.default, (0, _reactRouterRedux.routerMiddleware)(_reactRouter.browserHistory)
+// createLogger()
+));
 
 
 sagaMiddleware.run(_sagas2.default);

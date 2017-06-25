@@ -16,7 +16,7 @@ export default createStore(
     sagaMiddleware,
     thunkMiddleware,
     routerMiddleware(browserHistory), 
-    createLogger()
+    // createLogger()
   )
 );
 
