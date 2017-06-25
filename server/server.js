@@ -32,8 +32,6 @@ app.use(bodyParser.json());
 
 app.use('/', require('./routes'));
 
-app.use('/public', express.static(path.resolve(__dirname, '../public')));
-
 app.use((err, req, res, next) => {
   console.error(err);
   console.error(err.stack);
