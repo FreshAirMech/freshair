@@ -353,7 +353,7 @@ export default class Landing extends Component {
           </Element>
         </Row>
         <div id="scroll-top">
-          <a onClick={this.goToTop}><p>GO TO TOP</p><p>^</p></a>
+          <a onClick={this.goToTop}><p>GO TO TOP</p></a>
         </div>
       </div>  
     );

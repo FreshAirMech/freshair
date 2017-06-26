@@ -78333,11 +78333,6 @@ let Landing = class Landing extends _react.Component {
             'p',
             null,
             'GO TO TOP'
-          ),
-          _react2.default.createElement(
-            'p',
-            null,
-            '^'
           )
         )
       )
