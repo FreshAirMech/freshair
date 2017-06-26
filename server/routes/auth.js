@@ -68,14 +68,18 @@ router.post('/signup', (req, res, next) => {
       error.status = 400;
       throw error;
     }
-    return User.create({
-      username: req.body.username,
-      password: req.body.password,
-      firstName: req.body.firstName,
-      lastName: req.body.lastName,
-      email: req.body.email,
-      phone: req.body.phone
-    });
+
+    return User.findAll(users => {
+      return User.create({
+        id: users.length,
+        username: req.body.username,
+        password: req.body.password,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        phone: req.body.phone
+      });
+    })
   })
   .then(user => {
     req.session.user = {
