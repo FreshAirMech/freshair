@@ -69,7 +69,8 @@ router.post('/signup', (req, res, next) => {
       throw error;
     }
 
-    return User.findAll(users => {
+    return User.findAll()
+    .then(users => {
       return User.create({
         id: users.length,
         username: req.body.username,
@@ -79,7 +80,7 @@ router.post('/signup', (req, res, next) => {
         email: req.body.email,
         phone: req.body.phone
       });
-    })
+    });
   })
   .then(user => {
     req.session.user = {
