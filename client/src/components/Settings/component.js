@@ -7,10 +7,11 @@ import PhotoSettings from './Photo';
 import PasswordSettings from './Password';
 import PhoneSettings from './Phone';
 import EmailSettings from './Email';
-import { CLOUDINARY_UPLOAD_PRESET, CLOUDINARY_UPLOAD_URL } from '../../../../secretsProd';
-
 import Scroll from 'react-scroll';
 var scroll = Scroll.animateScroll;
+
+var CLOUDINARY_UPLOAD_PRESET = 'hstdvlir';
+var CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/fresh-aire-mechanical-co/upload';
 
 export default class Settings extends Component {
   constructor(props) {

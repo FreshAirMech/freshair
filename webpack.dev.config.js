@@ -1,4 +1,5 @@
 var path = require('path');
+var webpack = require('webpack');
 const BowerResolvePlugin = require("bower-resolve-webpack-plugin");
 
 var query = {
@@ -10,6 +11,13 @@ var query = {
     interlaced: false
   }
 };
+// Load environment variables to create a plugin that stores all the variables
+// in a global variable called 'process.env'
+require('dotenv').config();
+var environVars = require('./secretsProd');
+for (var key in environVars) {
+  environVars[key] = JSON.stringify(environVars[key]);
+}
 
 module.exports = {
   entry: './client/src/index',
@@ -19,12 +27,13 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.jsx', '.json', '.scss'],
-    plugins: [new BowerResolvePlugin()],
+    plugins: [new BowerResolvePlugin(), new webpack.ProvidePlugin(environVars)],
     alias: {
       lib: path.resolve(__dirname, 'client/src/lib'),
       actions: path.resolve(__dirname, 'client/src/actions'),
       constants: path.resolve(__dirname, 'client/src/constants'),
-      styles: path.resolve(__dirname, 'client/src/lib/styles')
+      styles: path.resolve(__dirname, 'client/src/lib/styles'),
+      root: __dirname
     },
     aliasFields: ['browser']
   },

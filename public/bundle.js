@@ -81561,8 +81561,6 @@ var _Email = __webpack_require__(1081);
 
 var _Email2 = _interopRequireDefault(_Email);
 
-var _secretsProd = __webpack_require__(1082);
-
 var _reactScroll = __webpack_require__(121);
 
 var _reactScroll2 = _interopRequireDefault(_reactScroll);
@@ -81570,6 +81568,9 @@ var _reactScroll2 = _interopRequireDefault(_reactScroll);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var scroll = _reactScroll2.default.animateScroll;
+
+var CLOUDINARY_UPLOAD_PRESET = 'hstdvlir';
+var CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/fresh-aire-mechanical-co/upload';
 
 let Settings = class Settings extends _react.Component {
   constructor(props) {
@@ -81644,7 +81645,7 @@ let Settings = class Settings extends _react.Component {
   }
 
   handleImageUpload(file) {
-    let upload = _superagent2.default.post(_secretsProd.CLOUDINARY_UPLOAD_URL).field('upload_preset', _secretsProd.CLOUDINARY_UPLOAD_PRESET).field('file', file);
+    let upload = _superagent2.default.post(CLOUDINARY_UPLOAD_URL).field('upload_preset', CLOUDINARY_UPLOAD_PRESET).field('file', file);
     const { requestChangeInfo, username } = this.props;
     upload.end((err, response) => {
       if (err) {
@@ -85157,27 +85158,7 @@ exports.default = props => {
 };
 
 /***/ }),
-/* 1082 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {
-
-module.exports = {
-	"DEV_API": process.env.DEV_API,
-	"SESSION_SECRET": process.env.SESSION_SECRET,
-	"CLOUDINARY_API_KEY": process.env.CLOUDINARY_API_KEY,
-	"CLOUDINARY_API_SECRET": process.env.CLOUDINARY_API_SECRET,
-	"CLOUDINARY_ENV": process.env.CLOUDINARY_ENV,
-	"CLOUDINARY_UPLOAD_PRESET": process.env.CLOUDINARY_UPLOAD_PRESET,
-	"CLOUDINARY_UPLOAD_URL": process.env.CLOUDINARY_UPLOAD_URL,
-	"CLOUDINARY_CLOUD_NAME": process.env.CLOUDINARY_CLOUD_NAME,
-	"TRANSPORTER_USER": process.env.TRANSPORTER_USER,
-	"TRANSPORTER_PASS": process.env.TRANSPORTER_PASS
-};
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
-
-/***/ }),
+/* 1082 */,
 /* 1083 */
 /***/ (function(module, exports, __webpack_require__) {
 
