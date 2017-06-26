@@ -38,7 +38,7 @@
     "nuka-carousel": "^2.0.4",
     "pg": "^6.1.4",
     "request": "^2.79.0",
-    "sequelize": "^4.2.0",
+    "sequelize": "^3.30.2",
     "slick-carousel": "^1.6.0",
     "superagent": "^3.5.2"
   },
