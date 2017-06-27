@@ -78433,11 +78433,6 @@ let PartnerSlider = class PartnerSlider extends _react.Component {
       _react2.default.createElement(
         'div',
         { className: 'partner' },
-        _react2.default.createElement('img', { src: 'https://gp-partsdirect.com/media/aitmanufacturers/1494_Tyler_Refrigeration.png' })
-      ),
-      _react2.default.createElement(
-        'div',
-        { className: 'partner' },
         _react2.default.createElement('img', { src: 'https://climatecontroltt.com/media/wysiwyg/York/yorklogo.jpg' })
       ),
       _react2.default.createElement(
