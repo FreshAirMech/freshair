@@ -25,8 +25,8 @@ const seedUsers = function () {
         {
             username: 'testing',
             password: 'password',
-            firstName: '2',
-            lastName: 'B'
+            firstName: 'First',
+            lastName: 'Last'
         },
         {
             username: 'obama',

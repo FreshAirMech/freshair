@@ -40,10 +40,9 @@ export default class PartnerSlider extends Component {
     var settings = {
       infinite: true,
       speed: 500,
-      slidesToShow: this.state.numSlides,
       slidesToScroll: this.state.numSlides,
       autoplay: true,
-      autoplaySpeed: 5000,
+      autoplaySpeed: 10000,
       prevArrow: <PrevNavButton/>,
       nextArrow: <NextNavButton/>
     };
