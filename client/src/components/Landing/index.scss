@@ -118,6 +118,8 @@
         margin-top: -30px;
       }
       .description {
+        display: inline-block;
+        max-width: 80%;
         visibility: visible;
         animation: fadein 0.25s;
         animation-delay: 0.5s;
