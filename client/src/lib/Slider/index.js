@@ -32,6 +32,19 @@ export default class PartnerSlider extends Component {
     window.addEventListener('resize', this.changeNumSlides);
   }
 
+  componentDidMount() {
+    Array.from(document.getElementsByClassName('partner')).forEach(partner => {
+      var i = partner.children[0];
+      var i2 = new Image();
+      i2.onload = function() {
+        let width = partner.children[0].getBoundingClientRect().width;
+        let ratio = i2.width / width;
+        partner.children[0].style.height = i2.height / ratio + 'px';
+      };
+      i2.src = i.src;
+    })
+  }
+
   componentWillUnmount() {
     window.removeEventListener('resize', this.changeNumSlides);
   }
@@ -41,6 +54,7 @@ export default class PartnerSlider extends Component {
       infinite: true,
       speed: 500,
       slidesToScroll: this.state.numSlides,
+      slidesToShow: this.state.numSlides,
       autoplay: true,
       autoplaySpeed: 10000,
       prevArrow: <PrevNavButton/>,

@@ -28,12 +28,12 @@ export default class Landing extends Component {
     if (document.getElementById('banner-div')) {
       let opacityValue = 0.2 + top/200;
       opacityValue = opacityValue > 0.9 ? 0.9 : opacityValue;
-      document.getElementById('navbar-container').style["background-color"] = "rgba(255,255,255," + opacityValue + ")";
+      document.getElementById('navbar-container').style['background-color'] = "rgba(255,255,255," + opacityValue + ")";
       if (document.getElementsByClassName('navbar-collapse collapse')[0] && window.innerWidth < 768) {
-        document.getElementsByClassName('navbar-collapse collapse')[0].style["background-color"] = "rgba(255,255,255,0.8)";
+        document.getElementsByClassName('navbar-collapse collapse')[0].style['background-color'] = "rgba(255,255,255,0.8)";
       }
       else {
-        document.getElementsByClassName('navbar-collapse')[0].style["background-color"] = "rgba(255,255,255,0)";
+        document.getElementsByClassName('navbar-collapse')[0].style['background-color'] = "rgba(255,255,255,0)";
       }
     }
     let aptButton = document.getElementsByClassName('schedule-apt')[0];
@@ -221,12 +221,12 @@ export default class Landing extends Component {
     // Reset the navbar's opacity for other component views, since the landing page
     // is the only view that makes the navbar opacity change
     this.changeNavBarFontColors(true);
-    document.getElementById('navbar-container').style["background-color"] = "rgba(255,255,255,0.9)";
+    document.getElementById('navbar-container').style['background-color'] = "rgba(255,255,255,0.9)";
     if (window.innerWidth >= 768) {
-      document.getElementsByClassName('navbar-collapse')[0].style["background-color"] = "rgba(255,255,255,0)";
+      document.getElementsByClassName('navbar-collapse')[0].style['background-color'] = "rgba(255,255,255,0)";
     }
     else {
-      document.getElementsByClassName('navbar-collapse')[0].style["background-color"] = "rgba(255,255,255,0.9)";
+      document.getElementsByClassName('navbar-collapse')[0].style['background-color'] = "rgba(255,255,255,0.9)";
     }
     window.removeEventListener('scroll', this.listeningNavBarFontColors);
     window.removeEventListener('scroll', this.changeNavbarOnScroll);
@@ -277,7 +277,7 @@ export default class Landing extends Component {
           <div id="banner-background"></div>
           <img id="landing-left" className="landing-triangles" src={require('lib/images/landing_left.png')} />
           <img id="landing-right" className="landing-triangles" src={require('lib/images/landing_right.png')} />
-          <img id="landing1" className="landingImages" src={require('lib/images/landing1.png')} />
+          <img id="landing1" className="landing-images" src={require('lib/images/landing1.png')} />
         </Row>
         <Row id="overview" className="standard-div">
           <Element name="overview-div" className="element" id="overview-element">
@@ -288,7 +288,7 @@ export default class Landing extends Component {
                   let id = "overview" + (index + 1);
                   return (
                     <Col sm={4} id={id} key={id}>
-                      <div>
+                      <div className='overview-text'>
                         <h4>{overview.title}</h4>
                         <p className="subtitle">{overview.subtitle}</p>
                         <p className="description">{overview.description}</p>
@@ -353,7 +353,7 @@ export default class Landing extends Component {
           </Element>
         </Row>
         <div id="scroll-top">
-          <a onClick={this.goToTop}><p>GO TO TOP</p></a>
+          <a onClick={this.goToTop}>GO TO TOP</a>
         </div>
       </div>  
     );

@@ -27,6 +27,7 @@
   animation: changeBrightness 0.5s;
   animation-delay: 1s;
   animation-fill-mode: forwards;
+  -ms-interpolation-mode: bicubic;
 }
 
 #banner-div {
@@ -37,17 +38,16 @@
 
 #services-element {
   background-image: url("lib/images/landing2.jpg");
+
+  h1 {
+    height: 40px;
+  }
 }
 
 #overview-element {
   width: 100%;
-}
-
-#partners {
-  img {
-    width: 75%;
-    display: block;
-    margin: auto;
+  .overview-text {
+    height: 95px;
   }
 }
 
@@ -242,6 +242,7 @@
   color: #fff;
   transition: color 0.5s ease-in-out;
   a {
+    height: 31px;
     margin: auto;
     font-weight: bold;
     cursor: pointer;
@@ -257,7 +258,8 @@
   }
 }
 
-.landingImages {
+.landing-images {
+  height: 30vw;
   width: 50%;
   min-width: 300px;
   margin: auto;
@@ -266,6 +268,7 @@
   animation: fadein 0.1s;
   animation-delay: 1.5s;
   animation-fill-mode: forwards;
+  -ms-interpolation-mode: bicubic;
 }
 
 .landing-triangles {

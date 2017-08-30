@@ -6363,7 +6363,7 @@ var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = () => {
+exports.default = function () {
   return _react2.default.createElement(
     "div",
     null,
@@ -6984,21 +6984,21 @@ module.exports = PooledClass;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-const LOGIN_REQUEST = exports.LOGIN_REQUEST = 'LOGIN_REQUEST';
-const LOGIN_SUCCESS = exports.LOGIN_SUCCESS = 'LOGIN_SUCCESS';
-const LOGIN_FAILED = exports.LOGIN_FAILED = 'LOGIN_FAILED';
+var LOGIN_REQUEST = exports.LOGIN_REQUEST = 'LOGIN_REQUEST';
+var LOGIN_SUCCESS = exports.LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+var LOGIN_FAILED = exports.LOGIN_FAILED = 'LOGIN_FAILED';
 
-const SIGN_UP_REQUEST = exports.SIGN_UP_REQUEST = 'SIGN_UP_REQUEST';
-const SIGN_UP_SUCCESS = exports.SIGN_UP_SUCCESS = 'SIGN_UP_SUCCESS';
-const SIGN_UP_FAILED = exports.SIGN_UP_FAILED = 'SIGN_UP_FAILED';
+var SIGN_UP_REQUEST = exports.SIGN_UP_REQUEST = 'SIGN_UP_REQUEST';
+var SIGN_UP_SUCCESS = exports.SIGN_UP_SUCCESS = 'SIGN_UP_SUCCESS';
+var SIGN_UP_FAILED = exports.SIGN_UP_FAILED = 'SIGN_UP_FAILED';
 
-const SESSION_REQUEST = exports.SESSION_REQUEST = 'SESSION_REQUEST';
-const SESSION_SUCCESS = exports.SESSION_SUCCESS = 'SESSION_SUCCESS';
-const SESSION_FAILED = exports.SESSION_FAILED = 'SESSION_FAILED';
+var SESSION_REQUEST = exports.SESSION_REQUEST = 'SESSION_REQUEST';
+var SESSION_SUCCESS = exports.SESSION_SUCCESS = 'SESSION_SUCCESS';
+var SESSION_FAILED = exports.SESSION_FAILED = 'SESSION_FAILED';
 
-const LOGOUT_REQUEST = exports.LOGOUT_REQUEST = 'LOGOUT_REQUEST';
-const LOGOUT_SUCCESS = exports.LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
-const LOGOUT_FAILED = exports.LOGOUT_FAILED = 'LOGIN_FAILED';
+var LOGOUT_REQUEST = exports.LOGOUT_REQUEST = 'LOGOUT_REQUEST';
+var LOGOUT_SUCCESS = exports.LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
+var LOGOUT_FAILED = exports.LOGOUT_FAILED = 'LOGIN_FAILED';
 
 /***/ }),
 /* 98 */
@@ -10031,15 +10031,15 @@ module.exports = exports['default'];
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-const isPasswordValid = exports.isPasswordValid = pass => {
+var isPasswordValid = exports.isPasswordValid = function isPasswordValid(pass) {
   if (pass.length < 7 || pass.length > 14) {
     return false;
   }
 
-  let capitalLetterExists = false;
-  let numberExists = false;
+  var capitalLetterExists = false;
+  var numberExists = false;
 
-  for (let i = 0; i < pass.length; i++) {
+  for (var i = 0; i < pass.length; i++) {
     if (pass[i] === pass[i].toUpperCase() && pass[i] !== pass[i].toLowerCase()) {
       capitalLetterExists = true;
     }
@@ -10053,7 +10053,7 @@ const isPasswordValid = exports.isPasswordValid = pass => {
   return true;
 };
 
-const isPhoneNumber = exports.isPhoneNumber = number => {
+var isPhoneNumber = exports.isPhoneNumber = function isPhoneNumber(number) {
   // Check if number's length is 10 digits + the 4 extra characters '() -'
   // e.g. (123) 456-7890 is 14 chars long
   if (!number || number.length !== 10 + 4) {
@@ -10061,9 +10061,9 @@ const isPhoneNumber = exports.isPhoneNumber = number => {
   }
   // Remove the extra characters and test to see if the digits are numbers
   number = number.slice(1, 4) + number.slice(6, 9) + number.slice(10, 14);
-  for (let i = 0; i < number.length; i++) {
-    let digit = number.toString()[i];
-    let diff = digit - '0';
+  for (var i = 0; i < number.length; i++) {
+    var digit = number.toString()[i];
+    var diff = digit - '0';
     if (isNaN(diff) || diff > 9 || diff < 0) {
       return false;
     }
@@ -11845,21 +11845,45 @@ var Consts = _interopRequireWildcard(_auth);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-const requestLogin = exports.requestLogin = loginInfo => ({ type: Consts.LOGIN_REQUEST, loginInfo });
-const loginSuccess = exports.loginSuccess = result => ({ type: Consts.LOGIN_SUCCESS, result });
-const loginFailed = exports.loginFailed = error => ({ type: Consts.LOGIN_FAILED, error });
+var requestLogin = exports.requestLogin = function requestLogin(loginInfo) {
+  return { type: Consts.LOGIN_REQUEST, loginInfo: loginInfo };
+};
+var loginSuccess = exports.loginSuccess = function loginSuccess(result) {
+  return { type: Consts.LOGIN_SUCCESS, result: result };
+};
+var loginFailed = exports.loginFailed = function loginFailed(error) {
+  return { type: Consts.LOGIN_FAILED, error: error };
+};
 
-const requestSignUp = exports.requestSignUp = signUpInfo => ({ type: Consts.SIGN_UP_REQUEST, signUpInfo });
-const signUpSuccess = exports.signUpSuccess = result => ({ type: Consts.SIGN_UP_SUCCESS, result });
-const signUpFailed = exports.signUpFailed = error => ({ type: Consts.SIGN_UP_FAILED, error });
+var requestSignUp = exports.requestSignUp = function requestSignUp(signUpInfo) {
+  return { type: Consts.SIGN_UP_REQUEST, signUpInfo: signUpInfo };
+};
+var signUpSuccess = exports.signUpSuccess = function signUpSuccess(result) {
+  return { type: Consts.SIGN_UP_SUCCESS, result: result };
+};
+var signUpFailed = exports.signUpFailed = function signUpFailed(error) {
+  return { type: Consts.SIGN_UP_FAILED, error: error };
+};
 
-const requestSession = exports.requestSession = () => ({ type: Consts.SESSION_REQUEST });
-const sessionSuccess = exports.sessionSuccess = result => ({ type: Consts.SESSION_SUCCESS, result });
-const sessionFailed = exports.sessionFailed = error => ({ type: Consts.SESSION_FAILED, error });
+var requestSession = exports.requestSession = function requestSession() {
+  return { type: Consts.SESSION_REQUEST };
+};
+var sessionSuccess = exports.sessionSuccess = function sessionSuccess(result) {
+  return { type: Consts.SESSION_SUCCESS, result: result };
+};
+var sessionFailed = exports.sessionFailed = function sessionFailed(error) {
+  return { type: Consts.SESSION_FAILED, error: error };
+};
 
-const requestLogout = exports.requestLogout = () => ({ type: Consts.LOGOUT_REQUEST });
-const logoutSuccess = exports.logoutSuccess = () => ({ type: Consts.LOGOUT_SUCCESS });
-const logoutFailed = exports.logoutFailed = error => ({ type: Consts.LOGOUT_FAILED, error });
+var requestLogout = exports.requestLogout = function requestLogout() {
+  return { type: Consts.LOGOUT_REQUEST };
+};
+var logoutSuccess = exports.logoutSuccess = function logoutSuccess() {
+  return { type: Consts.LOGOUT_SUCCESS };
+};
+var logoutFailed = exports.logoutFailed = function logoutFailed(error) {
+  return { type: Consts.LOGOUT_FAILED, error: error };
+};
 
 /***/ }),
 /* 168 */
@@ -11879,13 +11903,25 @@ var Consts = _interopRequireWildcard(_user);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-const requestChangeInfo = exports.requestChangeInfo = userInfo => ({ type: Consts.CHANGEINFO_REQUEST, userInfo });
-const changeInfoSuccess = exports.changeInfoSuccess = result => ({ type: Consts.CHANGEINFO_SUCCESS, result });
-const changeInfoFailed = exports.changeInfoFailed = error => ({ type: Consts.CHANGEINFO_FAILED, error });
+var requestChangeInfo = exports.requestChangeInfo = function requestChangeInfo(userInfo) {
+  return { type: Consts.CHANGEINFO_REQUEST, userInfo: userInfo };
+};
+var changeInfoSuccess = exports.changeInfoSuccess = function changeInfoSuccess(result) {
+  return { type: Consts.CHANGEINFO_SUCCESS, result: result };
+};
+var changeInfoFailed = exports.changeInfoFailed = function changeInfoFailed(error) {
+  return { type: Consts.CHANGEINFO_FAILED, error: error };
+};
 
-const requestSendEmail = exports.requestSendEmail = formInfo => ({ type: Consts.SENDEMAIL_REQUEST, formInfo });
-const sendEmailSuccess = exports.sendEmailSuccess = result => ({ type: Consts.SENDEMAIL_SUCCESS, result });
-const sendEmailFailed = exports.sendEmailFailed = error => ({ type: Consts.SENDEMAIL_FAILED, error });
+var requestSendEmail = exports.requestSendEmail = function requestSendEmail(formInfo) {
+  return { type: Consts.SENDEMAIL_REQUEST, formInfo: formInfo };
+};
+var sendEmailSuccess = exports.sendEmailSuccess = function sendEmailSuccess(result) {
+  return { type: Consts.SENDEMAIL_SUCCESS, result: result };
+};
+var sendEmailFailed = exports.sendEmailFailed = function sendEmailFailed(error) {
+  return { type: Consts.SENDEMAIL_FAILED, error: error };
+};
 
 /***/ }),
 /* 169 */
@@ -17728,13 +17764,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-const CHANGEINFO_REQUEST = exports.CHANGEINFO_REQUEST = 'CHANGEINFO_REQUEST';
-const CHANGEINFO_SUCCESS = exports.CHANGEINFO_SUCCESS = 'CHANGEINFO_SUCCESS';
-const CHANGEINFO_FAILED = exports.CHANGEINFO_FAILED = 'CHANGEINFO_FAILED';
+var CHANGEINFO_REQUEST = exports.CHANGEINFO_REQUEST = 'CHANGEINFO_REQUEST';
+var CHANGEINFO_SUCCESS = exports.CHANGEINFO_SUCCESS = 'CHANGEINFO_SUCCESS';
+var CHANGEINFO_FAILED = exports.CHANGEINFO_FAILED = 'CHANGEINFO_FAILED';
 
-const SENDEMAIL_REQUEST = exports.SENDEMAIL_REQUEST = 'SENDEMAIL_REQUEST';
-const SENDEMAIL_SUCCESS = exports.SENDEMAIL_SUCCESS = 'SENDEMAIL_SUCCESS';
-const SENDEMAIL_FAILED = exports.SENDEMAIL_FAILED = 'SENDEMAIL_FAILED';
+var SENDEMAIL_REQUEST = exports.SENDEMAIL_REQUEST = 'SENDEMAIL_REQUEST';
+var SENDEMAIL_SUCCESS = exports.SENDEMAIL_SUCCESS = 'SENDEMAIL_SUCCESS';
+var SENDEMAIL_FAILED = exports.SENDEMAIL_FAILED = 'SENDEMAIL_FAILED';
 
 /***/ }),
 /* 241 */
@@ -28731,14 +28767,14 @@ var throttle = /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_3__utils__["n" /* deprecat
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-const checkStatus = exports.checkStatus = data => {
+var checkStatus = exports.checkStatus = function checkStatus(data) {
   if (data.errorStatus) {
     throw new Error(data.message);
   }
   return data;
 };
 
-const baseFetchOptions = exports.baseFetchOptions = {
+var baseFetchOptions = exports.baseFetchOptions = {
   credentials: 'same-origin'
 };
 
@@ -36912,17 +36948,17 @@ var _Settings = __webpack_require__(1066);
 
 var _Settings2 = _interopRequireDefault(_Settings);
 
-var _About = __webpack_require__(1085);
+var _About = __webpack_require__(1084);
 
 var _About2 = _interopRequireDefault(_About);
 
-var _Request = __webpack_require__(1119);
+var _Request = __webpack_require__(1118);
 
 var _Request2 = _interopRequireDefault(_Request);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-const history = (0, _reactRouterRedux.syncHistoryWithStore)(_reactRouter.browserHistory, _configureStore2.default);
+var history = (0, _reactRouterRedux.syncHistoryWithStore)(_reactRouter.browserHistory, _configureStore2.default);
 
 _reactDom2.default.render(_react2.default.createElement(
   _reactRedux.Provider,
@@ -56686,7 +56722,7 @@ var _sagas2 = _interopRequireDefault(_sagas);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-const sagaMiddleware = (0, _reduxSaga2.default)();
+var sagaMiddleware = (0, _reduxSaga2.default)();
 
 exports.default = (0, _redux.createStore)(_reducers2.default, (0, _redux.applyMiddleware)(sagaMiddleware, _reduxThunk2.default, (0, _reactRouterRedux.routerMiddleware)(_reactRouter.browserHistory)
 // createLogger()
@@ -57913,12 +57949,15 @@ var Consts = _interopRequireWildcard(_auth);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-const initialState = {
+var initialState = {
   isFetching: false,
   error: null
 };
 
-exports.default = (state = initialState, action) => {
+exports.default = function () {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+  var action = arguments[1];
+
   switch (action.type) {
     case Consts.LOGIN_REQUEST:
       return _extends({}, state, {
@@ -57959,12 +57998,15 @@ var Consts = _interopRequireWildcard(_auth);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-const initialState = {
+var initialState = {
   isFetching: false,
   error: null
 };
 
-exports.default = (state = initialState, action) => {
+exports.default = function () {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+  var action = arguments[1];
+
   switch (action.type) {
     case Consts.SIGN_UP_REQUEST:
       return _extends({}, state, {
@@ -58005,12 +58047,15 @@ var Consts = _interopRequireWildcard(_auth);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-const initialState = {
+var initialState = {
   isFetching: false,
   error: null
 };
 
-exports.default = (state = initialState, action) => {
+exports.default = function () {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+  var action = arguments[1];
+
   switch (action.type) {
     case Consts.SESSION_REQUEST:
       return _extends({}, state, {
@@ -58078,9 +58123,12 @@ var ConstsUser = _interopRequireWildcard(_user);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-const initialState = {};
+var initialState = {};
 
-exports.default = (state = initialState, action) => {
+exports.default = function () {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+  var action = arguments[1];
+
   switch (action.type) {
     case ConstsAuth.LOGIN_SUCCESS:
     case ConstsAuth.SIGN_UP_SUCCESS:
@@ -58095,7 +58143,7 @@ exports.default = (state = initialState, action) => {
         photoURL: action.result.photoURL
       });
     case ConstsUser.CHANGEINFO_REQUEST:
-      let returnObjRequest = _extends({}, state);
+      var returnObjRequest = _extends({}, state);
       if (action.userInfo.newPassword) {
         returnObjRequest['isFetchingPassword'] = true;
         returnObjRequest['errorPassword'] = null;
@@ -58108,7 +58156,7 @@ exports.default = (state = initialState, action) => {
       }
       return returnObjRequest;
     case ConstsUser.CHANGEINFO_SUCCESS:
-      let returnObjSuccess = _extends({}, state);
+      var returnObjSuccess = _extends({}, state);
       if (action.result.newEmail) {
         returnObjSuccess['email'] = action.result.newEmail;
         returnObjSuccess['isFetchingEmail'] = false;
@@ -58125,7 +58173,7 @@ exports.default = (state = initialState, action) => {
       }
       return returnObjSuccess;
     case ConstsUser.CHANGEINFO_FAILED:
-      let returnObjFailed = _extends({}, state);
+      var returnObjFailed = _extends({}, state);
       if (action.error.message.search(/email/i) > 0) {
         returnObjFailed['isFetchingEmail'] = false;
         returnObjFailed['errorEmail'] = action.error;
@@ -58182,8 +58230,22 @@ var _user2 = _interopRequireDefault(_user);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function* mainSaga() {
-  yield [(0, _auth2.default)(), (0, _user2.default)()];
+var _marked = [mainSaga].map(regeneratorRuntime.mark);
+
+function mainSaga() {
+  return regeneratorRuntime.wrap(function mainSaga$(_context) {
+    while (1) {
+      switch (_context.prev = _context.next) {
+        case 0:
+          _context.next = 2;
+          return [(0, _auth2.default)(), (0, _user2.default)()];
+
+        case 2:
+        case 'end':
+          return _context.stop();
+      }
+    }
+  }, _marked[0], this);
 }
 
 /***/ }),
@@ -58218,50 +58280,182 @@ var _router = __webpack_require__(795);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function* requestLogin(action) {
-  try {
-    const result = yield (0, _effects.call)(Api.requestLogin, action.loginInfo);
-    yield (0, _effects.put)(Actions.loginSuccess(result));
-    yield (0, _effects.put)((0, _router.locationChange)('/'));
-  } catch (error) {
-    yield (0, _effects.call)(_reduxSaga.delay, 2500);
-    yield (0, _effects.put)(Actions.loginFailed(error));
-  }
+var _marked = [requestLogin, requestSignUp, requestSession, requestLogout, watchAuth].map(regeneratorRuntime.mark);
+
+function requestLogin(action) {
+  var _result;
+
+  return regeneratorRuntime.wrap(function requestLogin$(_context) {
+    while (1) {
+      switch (_context.prev = _context.next) {
+        case 0:
+          _context.prev = 0;
+          _context.next = 3;
+          return (0, _effects.call)(Api.requestLogin, action.loginInfo);
+
+        case 3:
+          _result = _context.sent;
+          _context.next = 6;
+          return (0, _effects.put)(Actions.loginSuccess(_result));
+
+        case 6:
+          _context.next = 8;
+          return (0, _effects.put)((0, _router.locationChange)('/'));
+
+        case 8:
+          _context.next = 16;
+          break;
+
+        case 10:
+          _context.prev = 10;
+          _context.t0 = _context['catch'](0);
+          _context.next = 14;
+          return (0, _effects.call)(_reduxSaga.delay, 2500);
+
+        case 14:
+          _context.next = 16;
+          return (0, _effects.put)(Actions.loginFailed(_context.t0));
+
+        case 16:
+        case 'end':
+          return _context.stop();
+      }
+    }
+  }, _marked[0], this, [[0, 10]]);
 }
 
-function* requestSignUp(action) {
-  try {
-    const result = yield (0, _effects.call)(Api.requestSignUp, action.signUpInfo);
-    yield (0, _effects.put)(Actions.signUpSuccess(result));
-    yield (0, _effects.put)((0, _router.locationChange)('/'));
-  } catch (error) {
-    yield (0, _effects.call)(_reduxSaga.delay, 2500);
-    yield (0, _effects.put)(Actions.signUpFailed(error));
-  }
+function requestSignUp(action) {
+  var _result2;
+
+  return regeneratorRuntime.wrap(function requestSignUp$(_context2) {
+    while (1) {
+      switch (_context2.prev = _context2.next) {
+        case 0:
+          _context2.prev = 0;
+          _context2.next = 3;
+          return (0, _effects.call)(Api.requestSignUp, action.signUpInfo);
+
+        case 3:
+          _result2 = _context2.sent;
+          _context2.next = 6;
+          return (0, _effects.put)(Actions.signUpSuccess(_result2));
+
+        case 6:
+          _context2.next = 8;
+          return (0, _effects.put)((0, _router.locationChange)('/'));
+
+        case 8:
+          _context2.next = 16;
+          break;
+
+        case 10:
+          _context2.prev = 10;
+          _context2.t0 = _context2['catch'](0);
+          _context2.next = 14;
+          return (0, _effects.call)(_reduxSaga.delay, 2500);
+
+        case 14:
+          _context2.next = 16;
+          return (0, _effects.put)(Actions.signUpFailed(_context2.t0));
+
+        case 16:
+        case 'end':
+          return _context2.stop();
+      }
+    }
+  }, _marked[1], this, [[0, 10]]);
 }
 
-function* requestSession(action) {
-  try {
-    const result = yield (0, _effects.call)(Api.requestSession);
-    yield (0, _effects.put)(Actions.sessionSuccess(result));
-  } catch (error) {
-    yield (0, _effects.put)(Actions.sessionFailed(error));
-    yield (0, _effects.put)((0, _router.locationChange)('/'));
-  }
+function requestSession(action) {
+  var _result3;
+
+  return regeneratorRuntime.wrap(function requestSession$(_context3) {
+    while (1) {
+      switch (_context3.prev = _context3.next) {
+        case 0:
+          _context3.prev = 0;
+          _context3.next = 3;
+          return (0, _effects.call)(Api.requestSession);
+
+        case 3:
+          _result3 = _context3.sent;
+          _context3.next = 6;
+          return (0, _effects.put)(Actions.sessionSuccess(_result3));
+
+        case 6:
+          _context3.next = 14;
+          break;
+
+        case 8:
+          _context3.prev = 8;
+          _context3.t0 = _context3['catch'](0);
+          _context3.next = 12;
+          return (0, _effects.put)(Actions.sessionFailed(_context3.t0));
+
+        case 12:
+          _context3.next = 14;
+          return (0, _effects.put)((0, _router.locationChange)('/'));
+
+        case 14:
+        case 'end':
+          return _context3.stop();
+      }
+    }
+  }, _marked[2], this, [[0, 8]]);
 }
 
-function* requestLogout(action) {
-  try {
-    const result = yield (0, _effects.call)(Api.requestLogout);
-    yield (0, _effects.put)(Actions.logoutSuccess(result));
-    yield (0, _effects.put)((0, _router.locationChange)('/'));
-  } catch (error) {
-    yield (0, _effects.put)(Actions.logoutFailed(result));
-  }
+function requestLogout(action) {
+  var _result4;
+
+  return regeneratorRuntime.wrap(function requestLogout$(_context4) {
+    while (1) {
+      switch (_context4.prev = _context4.next) {
+        case 0:
+          _context4.prev = 0;
+          _context4.next = 3;
+          return (0, _effects.call)(Api.requestLogout);
+
+        case 3:
+          _result4 = _context4.sent;
+          _context4.next = 6;
+          return (0, _effects.put)(Actions.logoutSuccess(_result4));
+
+        case 6:
+          _context4.next = 8;
+          return (0, _effects.put)((0, _router.locationChange)('/'));
+
+        case 8:
+          _context4.next = 14;
+          break;
+
+        case 10:
+          _context4.prev = 10;
+          _context4.t0 = _context4['catch'](0);
+          _context4.next = 14;
+          return (0, _effects.put)(Actions.logoutFailed(result));
+
+        case 14:
+        case 'end':
+          return _context4.stop();
+      }
+    }
+  }, _marked[3], this, [[0, 10]]);
 }
 
-function* watchAuth() {
-  yield [(0, _reduxSaga.takeLatest)(Consts.LOGIN_REQUEST, requestLogin), (0, _reduxSaga.takeLatest)(Consts.SIGN_UP_REQUEST, requestSignUp), (0, _reduxSaga.takeLatest)(Consts.SESSION_REQUEST, requestSession), (0, _reduxSaga.takeLatest)(Consts.LOGOUT_REQUEST, requestLogout)];
+function watchAuth() {
+  return regeneratorRuntime.wrap(function watchAuth$(_context5) {
+    while (1) {
+      switch (_context5.prev = _context5.next) {
+        case 0:
+          _context5.next = 2;
+          return [(0, _reduxSaga.takeLatest)(Consts.LOGIN_REQUEST, requestLogin), (0, _reduxSaga.takeLatest)(Consts.SIGN_UP_REQUEST, requestSignUp), (0, _reduxSaga.takeLatest)(Consts.SESSION_REQUEST, requestSession), (0, _reduxSaga.takeLatest)(Consts.LOGOUT_REQUEST, requestLogout)];
+
+        case 2:
+        case 'end':
+          return _context5.stop();
+      }
+    }
+  }, _marked[4], this);
 }
 
 /***/ }),
@@ -58281,32 +58475,40 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _utils = __webpack_require__(365);
 
-const requestLogin = exports.requestLogin = loginInfo => {
+var requestLogin = exports.requestLogin = function requestLogin(loginInfo) {
   return fetch('/auth/login', _extends({}, _utils.baseFetchOptions, {
     headers: {
       'Content-Type': 'application/json'
     },
     method: 'POST',
     body: JSON.stringify(loginInfo)
-  })).then(res => res.json()).then(_utils.checkStatus);
+  })).then(function (res) {
+    return res.json();
+  }).then(_utils.checkStatus);
 };
 
-const requestSignUp = exports.requestSignUp = signUpInfo => {
+var requestSignUp = exports.requestSignUp = function requestSignUp(signUpInfo) {
   return fetch('/auth/signup', _extends({}, _utils.baseFetchOptions, {
     headers: {
       'Content-Type': 'application/json'
     },
     method: 'POST',
     body: JSON.stringify(signUpInfo)
-  })).then(res => res.json()).then(_utils.checkStatus);
+  })).then(function (res) {
+    return res.json();
+  }).then(_utils.checkStatus);
 };
 
-const requestSession = exports.requestSession = () => {
-  return fetch('/auth/session', _utils.baseFetchOptions).then(res => res.json()).then(_utils.checkStatus);
+var requestSession = exports.requestSession = function requestSession() {
+  return fetch('/auth/session', _utils.baseFetchOptions).then(function (res) {
+    return res.json();
+  }).then(_utils.checkStatus);
 };
 
-const requestLogout = exports.requestLogout = () => {
-  return fetch('/auth/logout', _utils.baseFetchOptions).then(res => res.json()).then(_utils.checkStatus);
+var requestLogout = exports.requestLogout = function requestLogout() {
+  return fetch('/auth/logout', _utils.baseFetchOptions).then(function (res) {
+    return res.json();
+  }).then(_utils.checkStatus);
 };
 
 /***/ }),
@@ -58323,8 +58525,8 @@ exports.locationChange = undefined;
 
 var _reactRouterRedux = __webpack_require__(165);
 
-const locationChange = exports.locationChange = path => {
-  return dispatch => {
+var locationChange = exports.locationChange = function locationChange(path) {
+  return function (dispatch) {
     dispatch((0, _reactRouterRedux.push)(path));
   };
 };
@@ -58359,26 +58561,88 @@ var Consts = _interopRequireWildcard(_user3);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function* requestChangeInfo(action) {
-  try {
-    const result = yield (0, _effects.call)(Api.requestChangeInfo, action.userInfo);
-    yield (0, _effects.put)(Actions.changeInfoSuccess(result));
-  } catch (error) {
-    yield (0, _effects.put)(Actions.changeInfoFailed(error));
-  }
+var _marked = [requestChangeInfo, requestSendEmail, watchUser].map(regeneratorRuntime.mark);
+
+function requestChangeInfo(action) {
+  var result;
+  return regeneratorRuntime.wrap(function requestChangeInfo$(_context) {
+    while (1) {
+      switch (_context.prev = _context.next) {
+        case 0:
+          _context.prev = 0;
+          _context.next = 3;
+          return (0, _effects.call)(Api.requestChangeInfo, action.userInfo);
+
+        case 3:
+          result = _context.sent;
+          _context.next = 6;
+          return (0, _effects.put)(Actions.changeInfoSuccess(result));
+
+        case 6:
+          _context.next = 12;
+          break;
+
+        case 8:
+          _context.prev = 8;
+          _context.t0 = _context['catch'](0);
+          _context.next = 12;
+          return (0, _effects.put)(Actions.changeInfoFailed(_context.t0));
+
+        case 12:
+        case 'end':
+          return _context.stop();
+      }
+    }
+  }, _marked[0], this, [[0, 8]]);
 }
 
-function* requestSendEmail(action) {
-  try {
-    const result = yield (0, _effects.call)(Api.requestSendEmail, action.formInfo);
-    yield (0, _effects.put)(Actions.sendEmailSuccess(result));
-  } catch (error) {
-    yield (0, _effects.put)(Actions.sendEmailFailed(error));
-  }
+function requestSendEmail(action) {
+  var result;
+  return regeneratorRuntime.wrap(function requestSendEmail$(_context2) {
+    while (1) {
+      switch (_context2.prev = _context2.next) {
+        case 0:
+          _context2.prev = 0;
+          _context2.next = 3;
+          return (0, _effects.call)(Api.requestSendEmail, action.formInfo);
+
+        case 3:
+          result = _context2.sent;
+          _context2.next = 6;
+          return (0, _effects.put)(Actions.sendEmailSuccess(result));
+
+        case 6:
+          _context2.next = 12;
+          break;
+
+        case 8:
+          _context2.prev = 8;
+          _context2.t0 = _context2['catch'](0);
+          _context2.next = 12;
+          return (0, _effects.put)(Actions.sendEmailFailed(_context2.t0));
+
+        case 12:
+        case 'end':
+          return _context2.stop();
+      }
+    }
+  }, _marked[1], this, [[0, 8]]);
 }
 
-function* watchUser() {
-  yield [(0, _reduxSaga.takeLatest)(Consts.CHANGEINFO_REQUEST, requestChangeInfo), (0, _reduxSaga.takeLatest)(Consts.SENDEMAIL_REQUEST, requestSendEmail)];
+function watchUser() {
+  return regeneratorRuntime.wrap(function watchUser$(_context3) {
+    while (1) {
+      switch (_context3.prev = _context3.next) {
+        case 0:
+          _context3.next = 2;
+          return [(0, _reduxSaga.takeLatest)(Consts.CHANGEINFO_REQUEST, requestChangeInfo), (0, _reduxSaga.takeLatest)(Consts.SENDEMAIL_REQUEST, requestSendEmail)];
+
+        case 2:
+        case 'end':
+          return _context3.stop();
+      }
+    }
+  }, _marked[2], this);
 }
 
 /***/ }),
@@ -58398,24 +58662,28 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _utils = __webpack_require__(365);
 
-const requestChangeInfo = exports.requestChangeInfo = userInfo => {
+var requestChangeInfo = exports.requestChangeInfo = function requestChangeInfo(userInfo) {
   return fetch('/users/changeInfo', _extends({}, _utils.baseFetchOptions, {
     headers: {
       'Content-Type': 'application/json'
     },
     method: 'PUT',
     body: JSON.stringify(userInfo)
-  })).then(res => res.json()).then(_utils.checkStatus);
+  })).then(function (res) {
+    return res.json();
+  }).then(_utils.checkStatus);
 };
 
-const requestSendEmail = exports.requestSendEmail = formInfo => {
+var requestSendEmail = exports.requestSendEmail = function requestSendEmail(formInfo) {
   return fetch('/users/formInfo', _extends({}, _utils.baseFetchOptions, {
     headers: {
       'Content-Type': 'application/json'
     },
     method: 'POST',
     body: JSON.stringify(formInfo)
-  })).then(res => res.json()).then(_utils.checkStatus);
+  })).then(function (res) {
+    return res.json();
+  }).then(_utils.checkStatus);
 };
 
 /***/ }),
@@ -58458,7 +58726,7 @@ exports = module.exports = __webpack_require__(50)(undefined);
 
 
 // module
-exports.push([module.i, "html, body {\n  width: 100%;\n  margin: 0px;\n  padding: 0px;\n  overflow-x: hidden;\n  font-family: \"OpenSans\", sans-serif; }\n\n@font-face {\n  font-family: \"Montserrat-Regular\";\n  src: url(" + __webpack_require__(800) + "); }\n\n@font-face {\n  font-family: \"OpenSans\";\n  src: url(" + __webpack_require__(801) + ") format(\"truetype\"); }\n\nh1, h2, h3 {\n  text-align: center;\n  font-family: \"Montserrat-Regular\", sans-serif;\n  line-height: 1.1; }\n\nh1, h2 {\n  margin-bottom: 10px;\n  margin-top: 20px;\n  width: 100%;\n  font-weight: 600; }\n\nh4 {\n  font-weight: 500; }\n\ntextarea {\n  resize: none; }\n\n.button {\n  background-color: #4CAF50;\n  border: none;\n  color: white;\n  padding: 16px 32px;\n  text-align: center;\n  text-decoration: none;\n  display: inline-block;\n  font-size: 16px;\n  margin: 4px 2px;\n  -webkit-transition-duration: 0.4s;\n  transition-duration: 0.4s;\n  cursor: pointer;\n  font-weight: bold !important; }\n\n.button-green {\n  background-color: white;\n  color: #4CAF50;\n  border: 2px solid #4CAF50; }\n  .button-green:hover {\n    background-color: #4CAF50;\n    color: white; }\n\n.button-blue {\n  background-color: white;\n  color: #008CBA;\n  border: 2px solid #008CBA; }\n  .button-blue:hover {\n    background-color: #008CBA;\n    color: white; }\n\n.button-red {\n  background-color: white;\n  color: #f44336;\n  border: 2px solid #f44336; }\n  .button-red:hover {\n    background-color: #f44336;\n    color: white; }\n\n.standard-div {\n  padding: 6% 10%; }\n  .standard-div hr {\n    width: 25%;\n    border: none;\n    height: 2px;\n    background-color: #eee;\n    margin: auto;\n    margin-bottom: 50px; }\n\n.col-sm-4 {\n  padding: 4%; }\n\n@-webkit-keyframes fadein {\n  from {\n    opacity: 0; }\n  to {\n    opacity: 1; } }\n\n@-moz-keyframes fadein {\n  from {\n    opacity: 0; }\n  to {\n    opacity: 1; } }\n\n@-o-keyframes fadein {\n  from {\n    opacity: 0; }\n  to {\n    opacity: 1; } }\n\n@keyframes fadein {\n  from {\n    opacity: 0; }\n  to {\n    opacity: 1; } }\n\n@-webkit-keyframes fadeout {\n  from {\n    opacity: 1; }\n  to {\n    opacity: 0; } }\n\n@-moz-keyframes fadeout {\n  from {\n    opacity: 1; }\n  to {\n    opacity: 0; } }\n\n@-o-keyframes fadeout {\n  from {\n    opacity: 1; }\n  to {\n    opacity: 0; } }\n\n@keyframes fadeout {\n  from {\n    opacity: 1; }\n  to {\n    opacity: 0; } }\n\n.picture-div, #banner-background {\n  background-attachment: fixed;\n  background-position: center;\n  background-size: cover;\n  display: flex;\n  position: relative;\n  height: 300px; }\n\n.picture-div {\n  color: #fff; }\n  .picture-div h1, .picture-div h2 {\n    opacity: 0.7;\n    margin: auto;\n    font-weight: 600;\n    text-align: center; }\n\n#banner-background {\n  background-image: url(" + __webpack_require__(802) + ");\n  width: inherit;\n  height: inherit;\n  position: absolute;\n  animation: changeBrightness 0.5s;\n  animation-delay: 1s;\n  animation-fill-mode: forwards; }\n\n#banner-div {\n  height: 100vh;\n  width: 100%;\n  margin: 0; }\n\n#services-element {\n  background-image: url(" + __webpack_require__(803) + "); }\n\n#overview-element {\n  width: 100%; }\n\n#partners img {\n  width: 75%;\n  display: block;\n  margin: auto; }\n\n#services, #overview {\n  font-size: 14px;\n  text-align: center;\n  padding: 0;\n  margin: 0;\n  display: flex; }\n\n#services .col-sm-6, #overview .col-sm-4 {\n  height: 250px;\n  color: #fff;\n  background-size: cover;\n  background-position: center; }\n\n#services .row {\n  width: 100%;\n  margin: 0; }\n\n#services .col-sm-6 {\n  margin: auto;\n  padding: 0;\n  height: 250px;\n  background-position: center;\n  background-size: 150% auto; }\n  #services .col-sm-6 div {\n    display: flex;\n    height: 100%; }\n  #services .col-sm-6 h2 {\n    margin: auto;\n    height: 100px;\n    width: 350px;\n    display: flex;\n    background: radial-gradient(rgba(0, 0, 0, 0.6) 60%, rgba(255, 255, 255, 0) 70%);\n    justify-content: center;\n    align-items: center; }\n\n#overview .row {\n  width: 100%;\n  margin: 0; }\n\n#overview .col-sm-4 {\n  display: flex;\n  margin: 0; }\n  #overview .col-sm-4 div {\n    margin: auto; }\n  #overview .col-sm-4 h4 {\n    margin-top: 30px;\n    transition: margin-top 0.4s;\n    transition-timing-function: ease-in-out; }\n  #overview .col-sm-4:hover h4 {\n    margin-top: -30px; }\n  #overview .col-sm-4:hover .description {\n    visibility: visible;\n    animation: fadein 0.25s;\n    animation-delay: 0.5s;\n    animation-fill-mode: forwards;\n    animation-timing-function: ease-in-out; }\n\n#overview .description {\n  visibility: hidden;\n  transition: visibility 0.4s;\n  opacity: 0; }\n\n#overview hr {\n  border-top-color: #fff; }\n\n#overview1 {\n  background-image: url(" + __webpack_require__(804) + "); }\n\n#overview2 {\n  background-image: url(" + __webpack_require__(805) + "); }\n\n#overview3 {\n  background-image: url(" + __webpack_require__(806) + "); }\n\n.makeDim {\n  animation: dimBackground 0.5s;\n  animation-fill-mode: forwards; }\n\n.makeBright {\n  animation: brightenBackground 0.5s;\n  animation-fill-mode: forwards; }\n\n#service1 {\n  background-image: url(" + __webpack_require__(807) + ");\n  height: 500px !important;\n  background-position: 60% 80% !important;\n  background-size: 1600px auto !important; }\n\n#service2 {\n  background-image: url(" + __webpack_require__(808) + "); }\n\n#service3 {\n  background-image: url(" + __webpack_require__(809) + "); }\n\n#service4 {\n  background-image: url(" + __webpack_require__(810) + "); }\n\n#service5 {\n  background-image: url(" + __webpack_require__(811) + ");\n  float: right;\n  height: 500px !important;\n  background-size: auto 110% !important; }\n\n#service6 {\n  background-image: url(" + __webpack_require__(812) + ");\n  background-size: 130% !important;\n  background-position: 60% 35% !important; }\n\n#why {\n  text-align: center; }\n  #why p {\n    font-size: 14px; }\n  #why i {\n    color: #0688fe;\n    font-size: 70px;\n    margin-bottom: 15px; }\n\n.subtitle {\n  color: #949494; }\n\n#icon1 {\n  margin-left: 10px; }\n\n.arrowButton {\n  position: fixed;\n  width: 100%;\n  z-index: 1;\n  background-color: #292929;\n  bottom: 0;\n  text-align: center;\n  height: 6.5vw;\n  min-height: 30px;\n  max-height: 50px;\n  opacity: 0.9;\n  display: flex;\n  cursor: pointer; }\n  .arrowButton img {\n    margin: auto; }\n\n#scrollImage {\n  width: 2vw;\n  max-width: 20px;\n  min-width: 10px;\n  animation: animateArrow 1s infinite; }\n\n#scroll-top {\n  display: flex;\n  height: 50px;\n  background-color: #333;\n  color: #fff;\n  transition: color 0.5s ease-in-out; }\n  #scroll-top a {\n    margin: auto;\n    font-weight: bold;\n    cursor: pointer;\n    padding: 5px; }\n    #scroll-top a:hover {\n      color: #fff;\n      text-decoration: none; }\n    #scroll-top a p {\n      margin: 0;\n      text-align: center; }\n\n.landingImages {\n  width: 50%;\n  min-width: 300px;\n  margin: auto;\n  z-index: 0;\n  opacity: 0;\n  animation: fadein 0.1s;\n  animation-delay: 1.5s;\n  animation-fill-mode: forwards; }\n\n.landing-triangles {\n  opacity: 0.6;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  position: absolute; }\n\n#landing-left {\n  animation: slideleft 1s;\n  animation-delay: 0.5s;\n  animation-fill-mode: forwards;\n  animation-timing-function: ease-in; }\n\n#landing-right {\n  animation: slideright 1s;\n  animation-delay: 0.5s;\n  animation-fill-mode: forwards;\n  animation-timing-function: ease-in; }\n\n@media (max-width: 768px) {\n  #services .col-sm-6 {\n    height: 250px !important; }\n  #service5 {\n    float: none; } }\n\n@-webkit-keyframes slideleft {\n  from {\n    transform: translateX(0); }\n  to {\n    transform: translateX(-100%); } }\n\n@-moz-keyframes slideleft {\n  from {\n    transform: translateX(0); }\n  to {\n    transform: translateX(-100%); } }\n\n@-o-keyframes slideleft {\n  from {\n    transform: translateX(0); }\n  to {\n    transform: translateX(-100%); } }\n\n@keyframes slideleft {\n  from {\n    transform: translateX(0); }\n  to {\n    transform: translateX(-100%); } }\n\n@-webkit-keyframes slideright {\n  from {\n    transform: translateX(0); }\n  to {\n    transform: translateX(100%); } }\n\n@-moz-keyframes slideright {\n  from {\n    transform: translateX(0); }\n  to {\n    transform: translateX(100%); } }\n\n@-o-keyframes slideright {\n  from {\n    transform: translateX(0); }\n  to {\n    transform: translateX(100%); } }\n\n@keyframes slideright {\n  from {\n    transform: translateX(0); }\n  to {\n    transform: translateX(100%); } }\n\n@-webkit-keyframes slideup {\n  from {\n    margin-top: 0; }\n  to {\n    margin-top: -20px; } }\n\n@-moz-keyframes slideup {\n  from {\n    margin-top: 0; }\n  to {\n    margin-top: -20px; } }\n\n@-o-keyframes slideup {\n  from {\n    margin-top: 0; }\n  to {\n    margin-top: -20px; } }\n\n@keyframes slideup {\n  from {\n    margin-top: 0; }\n  to {\n    margin-top: -20px; } }\n\n@-webkit-keyframes animateArrow {\n  from {\n    margin-top: 0.7vw; }\n  to {\n    margin-top: 1.8vw; } }\n\n@-moz-keyframes animateArrow {\n  from {\n    margin-top: 0.7vw; }\n  to {\n    margin-top: 1.8vw; } }\n\n@-o-keyframes animateArrow {\n  from {\n    margin-top: 0.7vw; }\n  to {\n    margin-top: 1.8vw; } }\n\n@keyframes animateArrow {\n  from {\n    margin-top: 0.7vw; }\n  to {\n    margin-top: 1.8vw; } }\n\n@-webkit-keyframes changeBrightness {\n  from {\n    filter: brightness(100%); }\n  to {\n    filter: brightness(70%); } }\n\n@-moz-keyframes changeBrightness {\n  from {\n    filter: brightness(100%); }\n  to {\n    filter: brightness(70%); } }\n\n@-o-keyframes changeBrightness {\n  from {\n    filter: brightness(100%); }\n  to {\n    filter: brightness(70%); } }\n\n@keyframes changeBrightness {\n  from {\n    filter: brightness(100%); }\n  to {\n    filter: brightness(70%); } }\n\n@-webkit-keyframes dimBackground {\n  0% {\n    background-color: transparent; }\n  100% {\n    background-color: rgba(0, 0, 0, 0.25); } }\n\n@-moz-keyframes dimBackground {\n  0% {\n    background-color: transparent; }\n  100% {\n    background-color: rgba(0, 0, 0, 0.25); } }\n\n@-o-keyframes dimBackground {\n  0% {\n    background-color: transparent; }\n  100% {\n    background-color: rgba(0, 0, 0, 0.25); } }\n\n@keyframes dimBackground {\n  0% {\n    background-color: transparent; }\n  100% {\n    background-color: rgba(0, 0, 0, 0.25); } }\n\n@-webkit-keyframes brightenBackground {\n  0% {\n    background-color: rgba(0, 0, 0, 0.25); }\n  100% {\n    background-color: transparent; } }\n\n@-moz-keyframes brightenBackground {\n  0% {\n    background-color: rgba(0, 0, 0, 0.25); }\n  100% {\n    background-color: transparent; } }\n\n@-o-keyframes brightenBackground {\n  0% {\n    background-color: rgba(0, 0, 0, 0.25); }\n  100% {\n    background-color: transparent; } }\n\n@keyframes brightenBackground {\n  0% {\n    background-color: rgba(0, 0, 0, 0.25); }\n  100% {\n    background-color: transparent; } }\n", ""]);
+exports.push([module.i, "html, body {\n  width: 100%;\n  margin: 0px;\n  padding: 0px;\n  overflow-x: hidden;\n  font-family: \"OpenSans\", sans-serif; }\n\n@font-face {\n  font-family: \"Montserrat-Regular\";\n  src: url(" + __webpack_require__(800) + "); }\n\n@font-face {\n  font-family: \"OpenSans\";\n  src: url(" + __webpack_require__(801) + ") format(\"truetype\"); }\n\nh1, h2, h3 {\n  text-align: center;\n  font-family: \"Montserrat-Regular\", sans-serif;\n  line-height: 1.1; }\n\nh1, h2 {\n  margin-bottom: 10px;\n  margin-top: 20px;\n  width: 100%;\n  font-weight: 600; }\n\nh4 {\n  font-weight: 500; }\n\ntextarea {\n  resize: none; }\n\n.button {\n  background-color: #4CAF50;\n  border: none;\n  color: white;\n  padding: 16px 32px;\n  text-align: center;\n  text-decoration: none;\n  display: inline-block;\n  font-size: 16px;\n  margin: 4px 2px;\n  -webkit-transition-duration: 0.4s;\n  transition-duration: 0.4s;\n  cursor: pointer;\n  font-weight: bold !important; }\n\n.button-green {\n  background-color: white;\n  color: #4CAF50;\n  border: 2px solid #4CAF50; }\n  .button-green:hover {\n    background-color: #4CAF50;\n    color: white; }\n\n.button-blue {\n  background-color: white;\n  color: #008CBA;\n  border: 2px solid #008CBA; }\n  .button-blue:hover {\n    background-color: #008CBA;\n    color: white; }\n\n.button-red {\n  background-color: white;\n  color: #f44336;\n  border: 2px solid #f44336; }\n  .button-red:hover {\n    background-color: #f44336;\n    color: white; }\n\n.standard-div {\n  padding: 6% 10%; }\n  .standard-div hr {\n    width: 25%;\n    border: none;\n    height: 2px;\n    background-color: #eee;\n    margin: auto;\n    margin-bottom: 50px; }\n\n.col-sm-4 {\n  padding: 4%; }\n\n@-webkit-keyframes fadein {\n  from {\n    opacity: 0; }\n  to {\n    opacity: 1; } }\n\n@-moz-keyframes fadein {\n  from {\n    opacity: 0; }\n  to {\n    opacity: 1; } }\n\n@-o-keyframes fadein {\n  from {\n    opacity: 0; }\n  to {\n    opacity: 1; } }\n\n@keyframes fadein {\n  from {\n    opacity: 0; }\n  to {\n    opacity: 1; } }\n\n@-webkit-keyframes fadeout {\n  from {\n    opacity: 1; }\n  to {\n    opacity: 0; } }\n\n@-moz-keyframes fadeout {\n  from {\n    opacity: 1; }\n  to {\n    opacity: 0; } }\n\n@-o-keyframes fadeout {\n  from {\n    opacity: 1; }\n  to {\n    opacity: 0; } }\n\n@keyframes fadeout {\n  from {\n    opacity: 1; }\n  to {\n    opacity: 0; } }\n\n.picture-div, #banner-background {\n  background-attachment: fixed;\n  background-position: center;\n  background-size: cover;\n  display: flex;\n  position: relative;\n  height: 300px; }\n\n.picture-div {\n  color: #fff; }\n  .picture-div h1, .picture-div h2 {\n    opacity: 0.7;\n    margin: auto;\n    font-weight: 600;\n    text-align: center; }\n\n#banner-background {\n  background-image: url(" + __webpack_require__(802) + ");\n  width: inherit;\n  height: inherit;\n  position: absolute;\n  animation: changeBrightness 0.5s;\n  animation-delay: 1s;\n  animation-fill-mode: forwards;\n  -ms-interpolation-mode: bicubic; }\n\n#banner-div {\n  height: 100vh;\n  width: 100%;\n  margin: 0; }\n\n#services-element {\n  background-image: url(" + __webpack_require__(803) + "); }\n  #services-element h1, #services-element h2 {\n    height: 40px; }\n\n#overview-element {\n  width: 100%; }\n  #overview-element .overview-text {\n    height: 95px; }\n\n#services, #overview {\n  font-size: 14px;\n  text-align: center;\n  padding: 0;\n  margin: 0;\n  display: flex; }\n\n#services .col-sm-6, #overview .col-sm-4 {\n  height: 250px;\n  color: #fff;\n  background-size: cover;\n  background-position: center; }\n\n#services .row {\n  width: 100%;\n  margin: 0; }\n\n#services .col-sm-6 {\n  margin: auto;\n  padding: 0;\n  height: 250px;\n  background-position: center;\n  background-size: 150% auto; }\n  #services .col-sm-6 div {\n    display: flex;\n    height: 100%; }\n  #services .col-sm-6 h2 {\n    margin: auto;\n    height: 100px;\n    width: 350px;\n    display: flex;\n    background: radial-gradient(rgba(0, 0, 0, 0.6) 60%, rgba(255, 255, 255, 0) 70%);\n    justify-content: center;\n    align-items: center; }\n\n#overview .row {\n  width: 100%;\n  margin: 0; }\n\n#overview .col-sm-4 {\n  display: flex;\n  margin: 0; }\n  #overview .col-sm-4 div {\n    margin: auto; }\n  #overview .col-sm-4 h4 {\n    margin-top: 30px;\n    transition: margin-top 0.4s;\n    transition-timing-function: ease-in-out; }\n  #overview .col-sm-4:hover h4 {\n    margin-top: -30px; }\n  #overview .col-sm-4:hover .description {\n    visibility: visible;\n    animation: fadein 0.25s;\n    animation-delay: 0.5s;\n    animation-fill-mode: forwards;\n    animation-timing-function: ease-in-out; }\n\n#overview .description {\n  visibility: hidden;\n  transition: visibility 0.4s;\n  opacity: 0; }\n\n#overview hr {\n  border-top-color: #fff; }\n\n#overview1 {\n  background-image: url(" + __webpack_require__(804) + "); }\n\n#overview2 {\n  background-image: url(" + __webpack_require__(805) + "); }\n\n#overview3 {\n  background-image: url(" + __webpack_require__(806) + "); }\n\n.makeDim {\n  animation: dimBackground 0.5s;\n  animation-fill-mode: forwards; }\n\n.makeBright {\n  animation: brightenBackground 0.5s;\n  animation-fill-mode: forwards; }\n\n#service1 {\n  background-image: url(" + __webpack_require__(807) + ");\n  height: 500px !important;\n  background-position: 60% 80% !important;\n  background-size: 1600px auto !important; }\n\n#service2 {\n  background-image: url(" + __webpack_require__(808) + "); }\n\n#service3 {\n  background-image: url(" + __webpack_require__(809) + "); }\n\n#service4 {\n  background-image: url(" + __webpack_require__(810) + "); }\n\n#service5 {\n  background-image: url(" + __webpack_require__(811) + ");\n  float: right;\n  height: 500px !important;\n  background-size: auto 110% !important; }\n\n#service6 {\n  background-image: url(" + __webpack_require__(812) + ");\n  background-size: 130% !important;\n  background-position: 60% 35% !important; }\n\n#why {\n  text-align: center; }\n  #why p {\n    font-size: 14px; }\n  #why i {\n    color: #0688fe;\n    font-size: 70px;\n    margin-bottom: 15px; }\n\n.subtitle {\n  color: #949494; }\n\n#icon1 {\n  margin-left: 10px; }\n\n.arrowButton {\n  position: fixed;\n  width: 100%;\n  z-index: 1;\n  background-color: #292929;\n  bottom: 0;\n  text-align: center;\n  height: 6.5vw;\n  min-height: 30px;\n  max-height: 50px;\n  opacity: 0.9;\n  display: flex;\n  cursor: pointer; }\n  .arrowButton img {\n    margin: auto; }\n\n#scrollImage {\n  width: 2vw;\n  max-width: 20px;\n  min-width: 10px;\n  animation: animateArrow 1s infinite; }\n\n#scroll-top {\n  display: flex;\n  height: 50px;\n  background-color: #333;\n  color: #fff;\n  transition: color 0.5s ease-in-out; }\n  #scroll-top a {\n    height: 31px;\n    margin: auto;\n    font-weight: bold;\n    cursor: pointer;\n    padding: 5px; }\n    #scroll-top a:hover {\n      color: #fff;\n      text-decoration: none; }\n    #scroll-top a p {\n      margin: 0;\n      text-align: center; }\n\n.landing-images {\n  height: 30vw;\n  width: 50%;\n  min-width: 300px;\n  margin: auto;\n  z-index: 0;\n  opacity: 0;\n  animation: fadein 0.1s;\n  animation-delay: 1.5s;\n  animation-fill-mode: forwards;\n  -ms-interpolation-mode: bicubic; }\n\n.landing-triangles {\n  opacity: 0.6;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  position: absolute; }\n\n#landing-left {\n  animation: slideleft 1s;\n  animation-delay: 0.5s;\n  animation-fill-mode: forwards;\n  animation-timing-function: ease-in; }\n\n#landing-right {\n  animation: slideright 1s;\n  animation-delay: 0.5s;\n  animation-fill-mode: forwards;\n  animation-timing-function: ease-in; }\n\n@media (max-width: 768px) {\n  #services .col-sm-6 {\n    height: 250px !important; }\n  #service5 {\n    float: none; } }\n\n@-webkit-keyframes slideleft {\n  from {\n    transform: translateX(0); }\n  to {\n    transform: translateX(-100%); } }\n\n@-moz-keyframes slideleft {\n  from {\n    transform: translateX(0); }\n  to {\n    transform: translateX(-100%); } }\n\n@-o-keyframes slideleft {\n  from {\n    transform: translateX(0); }\n  to {\n    transform: translateX(-100%); } }\n\n@keyframes slideleft {\n  from {\n    transform: translateX(0); }\n  to {\n    transform: translateX(-100%); } }\n\n@-webkit-keyframes slideright {\n  from {\n    transform: translateX(0); }\n  to {\n    transform: translateX(100%); } }\n\n@-moz-keyframes slideright {\n  from {\n    transform: translateX(0); }\n  to {\n    transform: translateX(100%); } }\n\n@-o-keyframes slideright {\n  from {\n    transform: translateX(0); }\n  to {\n    transform: translateX(100%); } }\n\n@keyframes slideright {\n  from {\n    transform: translateX(0); }\n  to {\n    transform: translateX(100%); } }\n\n@-webkit-keyframes slideup {\n  from {\n    margin-top: 0; }\n  to {\n    margin-top: -20px; } }\n\n@-moz-keyframes slideup {\n  from {\n    margin-top: 0; }\n  to {\n    margin-top: -20px; } }\n\n@-o-keyframes slideup {\n  from {\n    margin-top: 0; }\n  to {\n    margin-top: -20px; } }\n\n@keyframes slideup {\n  from {\n    margin-top: 0; }\n  to {\n    margin-top: -20px; } }\n\n@-webkit-keyframes animateArrow {\n  from {\n    margin-top: 0.7vw; }\n  to {\n    margin-top: 1.8vw; } }\n\n@-moz-keyframes animateArrow {\n  from {\n    margin-top: 0.7vw; }\n  to {\n    margin-top: 1.8vw; } }\n\n@-o-keyframes animateArrow {\n  from {\n    margin-top: 0.7vw; }\n  to {\n    margin-top: 1.8vw; } }\n\n@keyframes animateArrow {\n  from {\n    margin-top: 0.7vw; }\n  to {\n    margin-top: 1.8vw; } }\n\n@-webkit-keyframes changeBrightness {\n  from {\n    filter: brightness(100%); }\n  to {\n    filter: brightness(70%); } }\n\n@-moz-keyframes changeBrightness {\n  from {\n    filter: brightness(100%); }\n  to {\n    filter: brightness(70%); } }\n\n@-o-keyframes changeBrightness {\n  from {\n    filter: brightness(100%); }\n  to {\n    filter: brightness(70%); } }\n\n@keyframes changeBrightness {\n  from {\n    filter: brightness(100%); }\n  to {\n    filter: brightness(70%); } }\n\n@-webkit-keyframes dimBackground {\n  0% {\n    background-color: transparent; }\n  100% {\n    background-color: rgba(0, 0, 0, 0.25); } }\n\n@-moz-keyframes dimBackground {\n  0% {\n    background-color: transparent; }\n  100% {\n    background-color: rgba(0, 0, 0, 0.25); } }\n\n@-o-keyframes dimBackground {\n  0% {\n    background-color: transparent; }\n  100% {\n    background-color: rgba(0, 0, 0, 0.25); } }\n\n@keyframes dimBackground {\n  0% {\n    background-color: transparent; }\n  100% {\n    background-color: rgba(0, 0, 0, 0.25); } }\n\n@-webkit-keyframes brightenBackground {\n  0% {\n    background-color: rgba(0, 0, 0, 0.25); }\n  100% {\n    background-color: transparent; } }\n\n@-moz-keyframes brightenBackground {\n  0% {\n    background-color: rgba(0, 0, 0, 0.25); }\n  100% {\n    background-color: transparent; } }\n\n@-o-keyframes brightenBackground {\n  0% {\n    background-color: rgba(0, 0, 0, 0.25); }\n  100% {\n    background-color: transparent; } }\n\n@keyframes brightenBackground {\n  0% {\n    background-color: rgba(0, 0, 0, 0.25); }\n  100% {\n    background-color: transparent; } }\n", ""]);
 
 // exports
 
@@ -58659,7 +58927,7 @@ __webpack_require__(1023);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-const mapStateToProps = state => {
+var mapStateToProps = function mapStateToProps(state) {
   return {
     firstName: state.user.profile.firstName,
     username: state.user.profile.username,
@@ -58667,10 +58935,14 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = dispatch => {
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
-    requestLogout: () => dispatch((0, _auth.requestLogout)()),
-    requestSession: () => dispatch((0, _auth.requestSession)())
+    requestLogout: function requestLogout() {
+      return dispatch((0, _auth.requestLogout)());
+    },
+    requestSession: function requestSession() {
+      return dispatch((0, _auth.requestSession)());
+    }
   };
 };
 
@@ -58687,6 +58959,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = __webpack_require__(0);
 
@@ -58708,185 +58982,211 @@ var _reactScroll2 = _interopRequireDefault(_reactScroll);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var { scroller } = _reactScroll2.default;
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-let NavBar = class NavBar extends _react.Component {
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-  componentDidMount() {
-    this.props.requestSession();
-    window.addEventListener('resize', e => {
-      document.getElementById('navbar-container').style.height = document.getElementById('navbar-container').offsetHeight + 20 + 'px';
-      // Make the navbar's collapse menu have a decently high opacity so that the user can still
-      // see the navbar (on lower resolutions)
-      if (window.innerWidth < 768) {
-        document.getElementsByClassName('navbar-collapse')[0].style['background-color'] = 'rgba(255,255,255,0.8)';
-      }
-      // On higher resolutions, make the navbar's collapse section have 0 opacity so that it matches
-      // the container's/parent's opacity
-      else {
-          document.getElementsByClassName('navbar-collapse')[0].style['background-color'] = 'rgba(255,255,255,0)';
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var scroller = _reactScroll2.default.scroller;
+
+var NavBar = function (_Component) {
+  _inherits(NavBar, _Component);
+
+  function NavBar() {
+    _classCallCheck(this, NavBar);
+
+    return _possibleConstructorReturn(this, (NavBar.__proto__ || Object.getPrototypeOf(NavBar)).apply(this, arguments));
+  }
+
+  _createClass(NavBar, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      this.props.requestSession();
+      window.addEventListener('resize', function (e) {
+        document.getElementById('navbar-container').style.height = document.getElementById('navbar-container').offsetHeight + 20 + 'px';
+        // Make the navbar's collapse menu have a decently high opacity so that the user can still
+        // see the navbar (on lower resolutions)
+        if (window.innerWidth < 768) {
+          document.getElementsByClassName('navbar-collapse')[0].style['background-color'] = 'rgba(255,255,255,0.8)';
         }
-    });
-  }
+        // On higher resolutions, make the navbar's collapse section have 0 opacity so that it matches
+        // the container's/parent's opacity
+        else {
+            document.getElementsByClassName('navbar-collapse')[0].style['background-color'] = 'rgba(255,255,255,0)';
+          }
+      });
+    }
+  }, {
+    key: 'goToServices',
+    value: function goToServices() {
+      var navbarHeight = document.getElementById('navbar-container').offsetHeight;
+      var options = {
+        offset: -navbarHeight,
+        smooth: true,
+        duration: 500
+      };
+      // if currently on main landing page, immediately go to services-div
+      if (this.props.location.pathname === '/') scroller.scrollTo('services-div', options);
+      // otherwise wait for landing page to mount
+      else {
+          window.setTimeout(function () {
+            scroller.scrollTo('services-div', options);
+          }, 200);
+        }
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          firstName = _props.firstName,
+          username = _props.username,
+          photoURL = _props.photoURL,
+          requestLogout = _props.requestLogout;
 
-  goToServices() {
-    let navbarHeight = document.getElementById('navbar-container').offsetHeight;
-    let options = {
-      offset: -navbarHeight,
-      smooth: true,
-      duration: 500
-    };
-    // if currently on main landing page, immediately go to services-div
-    if (this.props.location.pathname === '/') scroller.scrollTo('services-div', options);
-    // otherwise wait for landing page to mount
-    else {
-        window.setTimeout(() => {
-          scroller.scrollTo('services-div', options);
-        }, 200);
-      }
-  }
-
-  render() {
-    const { firstName, username, photoURL, requestLogout } = this.props;
-    return _react2.default.createElement(
-      'div',
-      null,
-      _react2.default.createElement(
+      return _react2.default.createElement(
         'div',
-        { id: 'navbar-container' },
+        null,
         _react2.default.createElement(
-          _reactBootstrap.Navbar,
-          { inverse: true, collapseOnSelect: true, id: 'navbar', fixedTop: true },
+          'div',
+          { id: 'navbar-container' },
           _react2.default.createElement(
-            _reactBootstrap.Navbar.Header,
-            null,
+            _reactBootstrap.Navbar,
+            { inverse: true, collapseOnSelect: true, id: 'navbar', fixedTop: true },
             _react2.default.createElement(
-              _reactBootstrap.Navbar.Brand,
+              _reactBootstrap.Navbar.Header,
               null,
               _react2.default.createElement(
-                _reactRouter.Link,
-                { to: { pathname: '/' } },
-                _react2.default.createElement('img', { id: 'navbar-logo', src: __webpack_require__(1022), alt: 'Fresh Aire' })
-              )
+                _reactBootstrap.Navbar.Brand,
+                null,
+                _react2.default.createElement(
+                  _reactRouter.Link,
+                  { to: { pathname: '/' } },
+                  _react2.default.createElement('img', { id: 'navbar-logo', src: __webpack_require__(1022), alt: 'Fresh Aire' })
+                )
+              ),
+              _react2.default.createElement(_reactBootstrap.Navbar.Toggle, null)
             ),
-            _react2.default.createElement(_reactBootstrap.Navbar.Toggle, null)
-          ),
-          _react2.default.createElement(
-            _reactBootstrap.Navbar.Collapse,
-            null,
             _react2.default.createElement(
-              _reactBootstrap.Nav,
-              { pullRight: true },
+              _reactBootstrap.Navbar.Collapse,
+              null,
               _react2.default.createElement(
-                _lib.LinkContainer,
-                { className: 'nav-li', to: { pathname: '/' } },
+                _reactBootstrap.Nav,
+                { pullRight: true },
                 _react2.default.createElement(
-                  _reactBootstrap.NavItem,
-                  { eventKey: 1, onClick: this.goToServices.bind(this) },
+                  _lib.LinkContainer,
+                  { className: 'nav-li', to: { pathname: '/' } },
                   _react2.default.createElement(
-                    'p',
-                    { className: 'navbar-text' },
-                    'Services'
-                  ),
-                  _react2.default.createElement('i', { className: 'glyphicon glyphicon-triangle-top' })
-                )
-              ),
-              _react2.default.createElement(
-                _lib.LinkContainer,
-                { className: 'nav-li', to: { pathname: '/request' } },
-                _react2.default.createElement(
-                  _reactBootstrap.NavItem,
-                  { eventKey: 2 },
-                  _react2.default.createElement(
-                    'p',
-                    { className: 'navbar-text' },
-                    'Request Appt.'
-                  ),
-                  _react2.default.createElement('i', { className: 'glyphicon glyphicon-triangle-top' })
-                )
-              ),
-              _react2.default.createElement(
-                _lib.LinkContainer,
-                { className: 'nav-li', to: { pathname: '/about' } },
-                _react2.default.createElement(
-                  _reactBootstrap.NavItem,
-                  { eventKey: 3 },
-                  _react2.default.createElement(
-                    'p',
-                    { className: 'navbar-text' },
-                    'About/Contact'
-                  ),
-                  _react2.default.createElement('i', { className: 'glyphicon glyphicon-triangle-top' })
-                )
-              ),
-              username ? _react2.default.createElement(
-                _reactBootstrap.NavDropdown,
-                {
-                  className: 'nav-li open',
-                  eventKey: 4,
-                  title: _react2.default.createElement(
-                    'div',
-                    null,
+                    _reactBootstrap.NavItem,
+                    { eventKey: 1, onClick: this.goToServices.bind(this) },
                     _react2.default.createElement(
                       'p',
                       { className: 'navbar-text' },
-                      firstName || username
+                      'Services'
                     ),
-                    photoURL && _react2.default.createElement('img', { id: 'navbar-img', src: photoURL }),
                     _react2.default.createElement('i', { className: 'glyphicon glyphicon-triangle-top' })
-                  ),
-                  id: 'basic-nav-dropdown' },
-                _react2.default.createElement(
-                  _lib.LinkContainer,
-                  { to: { pathname: '/account' }, disabled: true },
-                  _react2.default.createElement(
-                    _reactBootstrap.MenuItem,
-                    { eventKey: 4.1 },
-                    _react2.default.createElement('i', { className: 'glyphicon glyphicon-triangle-right' }),
-                    'Account'
                   )
                 ),
                 _react2.default.createElement(
                   _lib.LinkContainer,
-                  { to: { pathname: '/settings' } },
+                  { className: 'nav-li', to: { pathname: '/request' } },
                   _react2.default.createElement(
-                    _reactBootstrap.MenuItem,
-                    { eventKey: 4.2 },
-                    _react2.default.createElement('i', { className: 'glyphicon glyphicon-triangle-right' }),
-                    'Settings'
+                    _reactBootstrap.NavItem,
+                    { eventKey: 2 },
+                    _react2.default.createElement(
+                      'p',
+                      { className: 'navbar-text' },
+                      'Request Appt.'
+                    ),
+                    _react2.default.createElement('i', { className: 'glyphicon glyphicon-triangle-top' })
                   )
                 ),
-                _react2.default.createElement(_reactBootstrap.MenuItem, { divider: true }),
                 _react2.default.createElement(
-                  _reactBootstrap.MenuItem,
-                  { onClick: requestLogout, eventKey: 4.3 },
-                  _react2.default.createElement('i', { className: 'glyphicon glyphicon-triangle-right' }),
-                  'Logout'
-                )
-              ) : _react2.default.createElement(
-                _lib.LinkContainer,
-                { className: 'nav-li', to: { pathname: '/login' } },
-                _react2.default.createElement(
-                  _reactBootstrap.NavItem,
-                  { eventKey: 4 },
+                  _lib.LinkContainer,
+                  { className: 'nav-li', to: { pathname: '/about' } },
                   _react2.default.createElement(
-                    'p',
-                    { className: 'navbar-text' },
-                    _react2.default.createElement('i', { className: 'fa fa-user', 'aria-hidden': 'true', id: 'user-icon' }),
-                    ' Login/Sign Up'
+                    _reactBootstrap.NavItem,
+                    { eventKey: 3 },
+                    _react2.default.createElement(
+                      'p',
+                      { className: 'navbar-text' },
+                      'About/Contact'
+                    ),
+                    _react2.default.createElement('i', { className: 'glyphicon glyphicon-triangle-top' })
+                  )
+                ),
+                username ? _react2.default.createElement(
+                  _reactBootstrap.NavDropdown,
+                  {
+                    className: 'nav-li open',
+                    eventKey: 4,
+                    title: _react2.default.createElement(
+                      'div',
+                      null,
+                      _react2.default.createElement(
+                        'p',
+                        { className: 'navbar-text' },
+                        firstName || username
+                      ),
+                      photoURL && _react2.default.createElement('img', { id: 'navbar-img', src: photoURL }),
+                      _react2.default.createElement('i', { className: 'glyphicon glyphicon-triangle-top' })
+                    ),
+                    id: 'basic-nav-dropdown' },
+                  _react2.default.createElement(
+                    _lib.LinkContainer,
+                    { to: { pathname: '/account' }, disabled: true },
+                    _react2.default.createElement(
+                      _reactBootstrap.MenuItem,
+                      { eventKey: 4.1 },
+                      _react2.default.createElement('i', { className: 'glyphicon glyphicon-triangle-right' }),
+                      'Account'
+                    )
                   ),
-                  _react2.default.createElement('i', { className: 'glyphicon glyphicon-triangle-top' })
+                  _react2.default.createElement(
+                    _lib.LinkContainer,
+                    { to: { pathname: '/settings' } },
+                    _react2.default.createElement(
+                      _reactBootstrap.MenuItem,
+                      { eventKey: 4.2 },
+                      _react2.default.createElement('i', { className: 'glyphicon glyphicon-triangle-right' }),
+                      'Settings'
+                    )
+                  ),
+                  _react2.default.createElement(_reactBootstrap.MenuItem, { divider: true }),
+                  _react2.default.createElement(
+                    _reactBootstrap.MenuItem,
+                    { onClick: requestLogout, eventKey: 4.3 },
+                    _react2.default.createElement('i', { className: 'glyphicon glyphicon-triangle-right' }),
+                    'Logout'
+                  )
+                ) : _react2.default.createElement(
+                  _lib.LinkContainer,
+                  { className: 'nav-li', to: { pathname: '/login' } },
+                  _react2.default.createElement(
+                    _reactBootstrap.NavItem,
+                    { eventKey: 4 },
+                    _react2.default.createElement(
+                      'p',
+                      { className: 'navbar-text' },
+                      _react2.default.createElement('i', { className: 'fa fa-user', 'aria-hidden': 'true', id: 'user-icon' }),
+                      ' Login/Sign Up'
+                    ),
+                    _react2.default.createElement('i', { className: 'glyphicon glyphicon-triangle-top' })
+                  )
                 )
               )
             )
           )
-        )
-      ),
-      this.props.children,
-      _react2.default.createElement(_Footer2.default, { goToServices: this.goToServices.bind(this) })
-    );
-  }
-};
+        ),
+        this.props.children,
+        _react2.default.createElement(_Footer2.default, { goToServices: this.goToServices.bind(this) })
+      );
+    }
+  }]);
+
+  return NavBar;
+}(_react.Component);
+
 exports.default = NavBar;
 
 /***/ }),
@@ -69124,7 +69424,7 @@ __webpack_require__(1015);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = props => {
+exports.default = function (props) {
 	return _react2.default.createElement(
 		_lib.Row,
 		{ id: 'copyright', className: 'standard-div' },
@@ -77870,11 +78170,11 @@ var _component2 = _interopRequireDefault(_component);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-const mapStateToProps = state => {
+var mapStateToProps = function mapStateToProps(state) {
   return {};
 };
 
-const mapDispatchToProps = dispatch => {
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {};
 };
 
@@ -77891,6 +78191,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = __webpack_require__(0);
 
@@ -77924,421 +78226,461 @@ var _services2 = _interopRequireDefault(_services);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var { Element, Events, scrollSpy, scroller } = _reactScroll2.default;
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Element = _reactScroll2.default.Element,
+    Events = _reactScroll2.default.Events,
+    scrollSpy = _reactScroll2.default.scrollSpy,
+    scroller = _reactScroll2.default.scroller;
+
 var scroll = _reactScroll2.default.animateScroll;
 
-let Landing = class Landing extends _react.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+var Landing = function (_Component) {
+  _inherits(Landing, _Component);
+
+  function Landing(props) {
+    _classCallCheck(this, Landing);
+
+    var _this = _possibleConstructorReturn(this, (Landing.__proto__ || Object.getPrototypeOf(Landing)).call(this, props));
+
+    _this.state = {
       offsetHeight: 0
     };
-    this.goToNextDiv = this.goToNextDiv.bind(this);
-    this.changeBasedOnResize = this.changeBasedOnResize.bind(this);
-    this.changeBasedOnScrollPos = this.changeBasedOnScrollPos.bind(this);
-    this.listeningNavBarFontColors = this.listeningNavBarFontColors.bind(this);
+    _this.goToNextDiv = _this.goToNextDiv.bind(_this);
+    _this.changeBasedOnResize = _this.changeBasedOnResize.bind(_this);
+    _this.changeBasedOnScrollPos = _this.changeBasedOnScrollPos.bind(_this);
+    _this.listeningNavBarFontColors = _this.listeningNavBarFontColors.bind(_this);
+    return _this;
   }
 
-  changeBasedOnScrollPos(e) {
-    let top = window.pageYOffset || document.documentElement.scrollTop;
-    // slowly change the opacity of the navbar based on scroll position
-    if (document.getElementById('banner-div')) {
-      let opacityValue = 0.2 + top / 200;
-      opacityValue = opacityValue > 0.9 ? 0.9 : opacityValue;
-      document.getElementById('navbar-container').style["background-color"] = "rgba(255,255,255," + opacityValue + ")";
-      if (document.getElementsByClassName('navbar-collapse collapse')[0] && window.innerWidth < 768) {
-        document.getElementsByClassName('navbar-collapse collapse')[0].style["background-color"] = "rgba(255,255,255,0.8)";
-      } else {
-        document.getElementsByClassName('navbar-collapse')[0].style["background-color"] = "rgba(255,255,255,0)";
-      }
-    }
-    let aptButton = document.getElementsByClassName('schedule-apt')[0];
-    if (!aptButton) return;
-    // if landing picture is being shown or at bottom of page, hide 'request appointment' button, and vice versa
-    if (document.body.offsetHeight - (window.pageYOffset + window.innerHeight) < 120 || window.pageYOffset < document.getElementById('navbar-container').offsetHeight / 2) {
-      aptButton.classList.add('hideBtn');
-      aptButton.classList.remove('showBtn');
-      aptButton.classList.add('hideBtnText');
-      aptButton.classList.remove('showBtnText');
-    } else {
-      aptButton.classList.remove('hideBtn');
-      aptButton.classList.add('showBtn');
-    }
-
-    // if at the bottom of the page, hide the arrow button
-    let arrowButton = document.getElementsByClassName('arrowButton')[0];
-    if (arrowButton) {
-      if (document.body.offsetHeight - (window.pageYOffset + window.innerHeight) < 80) {
-        arrowButton.style["display"] = "none";
-      } else {
-        arrowButton.style["display"] = "block";
-      }
-    }
-  }
-
-  // Function that runs when the window changes size
-  changeBasedOnResize() {
-    let aptButton = document.getElementsByClassName('schedule-apt')[0];
-    if (!aptButton) return;
-    if (window.innerWidth < 400) {
-      aptButton.style.width = '50px';
-      aptButton.style.height = '50px';
-      aptButton.style.padding = '0 13px';
-      aptButton.style.top = '90%';
-      aptButton.getElementsByTagName('p')[0].style['font-size'] = '13px';
-      aptButton.getElementsByTagName('i')[0].classList.remove('fa-lg');
-      aptButton.getElementsByTagName('i')[0].classList.add('fa-md');
-    } else {
-      aptButton.style.width = '70px';
-      aptButton.style.height = '70px';
-      aptButton.style.padding = '0 19px';
-      aptButton.style.top = '50%';
-      aptButton.getElementsByTagName('p')[0].style['font-size'] = '15px';
-      aptButton.getElementsByTagName('i')[0].classList.remove('fa-md');
-      aptButton.getElementsByTagName('i')[0].classList.add('fa-lg');
-    }
-  }
-
-  initializeNavbarOpacity() {
-    let top = window.pageYOffset || document.documentElement.scrollTop;
-    if (top === 0) {
-      document.getElementById('navbar-container').style['background-color'] = 'rgba(255,255,255,0.2)';
-    }
-  }
-
-  changeNavBarFontColors(unmounting) {
-    // Invert font color based on scroll position.
-    // At the top, white.
-    // Otherwise, black.
-    let top = window.pageYOffset || document.documentElement.scrollTop;
-    let links = document.getElementsByClassName('navbar-text');
-    Array.from(links).forEach(link => {
-      if (unmounting || top >= 29) {
-        link.style["color"] = "black";
-      } else {
-        link.style["color"] = "white";
-      }
-    });
-  }
-
-  // This function is purely to remove the event listener
-  // when the landing page unmounts, so that other pages won't 
-  // let the navbar's font color change based on scroll position.
-  listeningNavBarFontColors() {
-    this.changeNavBarFontColors(false);
-  }
-
-  componentDidMount() {
-    this.initializeNavbarOpacity();
-    scroll.scrollToTop({ duration: 1 });
-    // Set a timeout before updating colors so that the font can change
-    // after the session logs in the user. Without the timeout,
-    // the text for the user's first name/username would remain black.
-    // If there is no session, then the font becomes white normally.
-    window.setTimeout(() => {
-      this.changeNavBarFontColors(false);
-    }, 400);
-
-    window.addEventListener('scroll', this.changeBasedOnScrollPos);
-    window.addEventListener('scroll', this.listeningNavBarFontColors);
-    window.addEventListener('resize', this.changeBasedOnResize);
-
-    // If user is on mobile, move 'request apt' button to bottom of the page
-    this.changeBasedOnResize();
-
-    // Change state variable 'animating' so that the user cannot spam click the arrow button
-    let thisComponent = this;
-    Events.scrollEvent.register('begin', function (to, element) {
-      thisComponent.setState({ animating: true });
-    });
-    Events.scrollEvent.register('end', function (to, element) {
-      thisComponent.setState({ animating: false });
-    });
-
-    let aptButton = document.getElementsByClassName('schedule-apt')[0];
-
-    // This is a repeat from a part of changeBasedOnScrollPos, need to repeat to remove
-    // buggy behavior where button displays its text at the wrong position, even when not hovered, when the component
-    // mounts (on refresh of the page).
-    // Add and remove classes for the 'Request an Appointment' button depending on scroll position
-    // Hide the button at the top (b/c it shows the banner) and at the bottom (b/c it conflicts with the carousel's buttons)
-    if (document.body.offsetHeight - (window.pageYOffset + window.innerHeight) < 80 || window.pageYOffset < document.getElementById('navbar-container').offsetHeight / 2) {
-      aptButton.classList.add('hideBtn');
-      aptButton.classList.add('hideBtnText');
-    } else {
-      aptButton.classList.add('showBtn');
-      aptButton.classList.add('hideBtnText');
-    }
-
-    // Add and remove classes for the 'Request an Appointment' button's text depending on hover state
-    aptButton.addEventListener('mouseover', () => {
-      aptButton.classList.remove('hideBtnText');
-      aptButton.classList.add('showBtnText');
-    });
-    aptButton.addEventListener('mouseout', () => {
-      aptButton.classList.remove('showBtnText');
-      aptButton.classList.add('hideBtnText');
-    });
-
-    // When hovering over a service, make all other services dim
-    let serviceCols = document.getElementById('services').getElementsByClassName('col-sm-6');
-    Array.from(serviceCols).forEach(hoveredCol => {
-      hoveredCol.addEventListener('mouseover', () => {
-        let myClasses = hoveredCol.getElementsByTagName('div')[0].classList;
-        // Check if the classList contains makeDim first so that the makeBright
-        // animation doesn't run when you first hover over a service
-        if (myClasses.contains('makeDim')) {
-          myClasses.add('makeBright');
+  _createClass(Landing, [{
+    key: 'changeBasedOnScrollPos',
+    value: function changeBasedOnScrollPos(e) {
+      var top = window.pageYOffset || document.documentElement.scrollTop;
+      // slowly change the opacity of the navbar based on scroll position
+      if (document.getElementById('banner-div')) {
+        var opacityValue = 0.2 + top / 200;
+        opacityValue = opacityValue > 0.9 ? 0.9 : opacityValue;
+        document.getElementById('navbar-container').style['background-color'] = "rgba(255,255,255," + opacityValue + ")";
+        if (document.getElementsByClassName('navbar-collapse collapse')[0] && window.innerWidth < 768) {
+          document.getElementsByClassName('navbar-collapse collapse')[0].style['background-color'] = "rgba(255,255,255,0.8)";
+        } else {
+          document.getElementsByClassName('navbar-collapse')[0].style['background-color'] = "rgba(255,255,255,0)";
         }
-        myClasses.remove('makeDim');
-        Array.from(serviceCols).forEach(sibling => {
-          if (hoveredCol === sibling) return;
-          let siblingClasses = sibling.getElementsByTagName('div')[0].classList;
-          siblingClasses.add('makeDim');
-          siblingClasses.remove('makeBright');
+      }
+      var aptButton = document.getElementsByClassName('schedule-apt')[0];
+      if (!aptButton) return;
+      // if landing picture is being shown or at bottom of page, hide 'request appointment' button, and vice versa
+      if (document.body.offsetHeight - (window.pageYOffset + window.innerHeight) < 120 || window.pageYOffset < document.getElementById('navbar-container').offsetHeight / 2) {
+        aptButton.classList.add('hideBtn');
+        aptButton.classList.remove('showBtn');
+        aptButton.classList.add('hideBtnText');
+        aptButton.classList.remove('showBtnText');
+      } else {
+        aptButton.classList.remove('hideBtn');
+        aptButton.classList.add('showBtn');
+      }
+
+      // if at the bottom of the page, hide the arrow button
+      var arrowButton = document.getElementsByClassName('arrowButton')[0];
+      if (arrowButton) {
+        if (document.body.offsetHeight - (window.pageYOffset + window.innerHeight) < 80) {
+          arrowButton.style["display"] = "none";
+        } else {
+          arrowButton.style["display"] = "block";
+        }
+      }
+    }
+
+    // Function that runs when the window changes size
+
+  }, {
+    key: 'changeBasedOnResize',
+    value: function changeBasedOnResize() {
+      var aptButton = document.getElementsByClassName('schedule-apt')[0];
+      if (!aptButton) return;
+      if (window.innerWidth < 400) {
+        aptButton.style.width = '50px';
+        aptButton.style.height = '50px';
+        aptButton.style.padding = '0 13px';
+        aptButton.style.top = '90%';
+        aptButton.getElementsByTagName('p')[0].style['font-size'] = '13px';
+        aptButton.getElementsByTagName('i')[0].classList.remove('fa-lg');
+        aptButton.getElementsByTagName('i')[0].classList.add('fa-md');
+      } else {
+        aptButton.style.width = '70px';
+        aptButton.style.height = '70px';
+        aptButton.style.padding = '0 19px';
+        aptButton.style.top = '50%';
+        aptButton.getElementsByTagName('p')[0].style['font-size'] = '15px';
+        aptButton.getElementsByTagName('i')[0].classList.remove('fa-md');
+        aptButton.getElementsByTagName('i')[0].classList.add('fa-lg');
+      }
+    }
+  }, {
+    key: 'initializeNavbarOpacity',
+    value: function initializeNavbarOpacity() {
+      var top = window.pageYOffset || document.documentElement.scrollTop;
+      if (top === 0) {
+        document.getElementById('navbar-container').style['background-color'] = 'rgba(255,255,255,0.2)';
+      }
+    }
+  }, {
+    key: 'changeNavBarFontColors',
+    value: function changeNavBarFontColors(unmounting) {
+      // Invert font color based on scroll position.
+      // At the top, white.
+      // Otherwise, black.
+      var top = window.pageYOffset || document.documentElement.scrollTop;
+      var links = document.getElementsByClassName('navbar-text');
+      Array.from(links).forEach(function (link) {
+        if (unmounting || top >= 29) {
+          link.style["color"] = "black";
+        } else {
+          link.style["color"] = "white";
+        }
+      });
+    }
+
+    // This function is purely to remove the event listener
+    // when the landing page unmounts, so that other pages won't 
+    // let the navbar's font color change based on scroll position.
+
+  }, {
+    key: 'listeningNavBarFontColors',
+    value: function listeningNavBarFontColors() {
+      this.changeNavBarFontColors(false);
+    }
+  }, {
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      this.initializeNavbarOpacity();
+      scroll.scrollToTop({ duration: 1 });
+      // Set a timeout before updating colors so that the font can change
+      // after the session logs in the user. Without the timeout,
+      // the text for the user's first name/username would remain black.
+      // If there is no session, then the font becomes white normally.
+      window.setTimeout(function () {
+        _this2.changeNavBarFontColors(false);
+      }, 400);
+
+      window.addEventListener('scroll', this.changeBasedOnScrollPos);
+      window.addEventListener('scroll', this.listeningNavBarFontColors);
+      window.addEventListener('resize', this.changeBasedOnResize);
+
+      // If user is on mobile, move 'request apt' button to bottom of the page
+      this.changeBasedOnResize();
+
+      // Change state variable 'animating' so that the user cannot spam click the arrow button
+      var thisComponent = this;
+      Events.scrollEvent.register('begin', function (to, element) {
+        thisComponent.setState({ animating: true });
+      });
+      Events.scrollEvent.register('end', function (to, element) {
+        thisComponent.setState({ animating: false });
+      });
+
+      var aptButton = document.getElementsByClassName('schedule-apt')[0];
+
+      // This is a repeat from a part of changeBasedOnScrollPos, need to repeat to remove
+      // buggy behavior where button displays its text at the wrong position, even when not hovered, when the component
+      // mounts (on refresh of the page).
+      // Add and remove classes for the 'Request an Appointment' button depending on scroll position
+      // Hide the button at the top (b/c it shows the banner) and at the bottom (b/c it conflicts with the carousel's buttons)
+      if (document.body.offsetHeight - (window.pageYOffset + window.innerHeight) < 80 || window.pageYOffset < document.getElementById('navbar-container').offsetHeight / 2) {
+        aptButton.classList.add('hideBtn');
+        aptButton.classList.add('hideBtnText');
+      } else {
+        aptButton.classList.add('showBtn');
+        aptButton.classList.add('hideBtnText');
+      }
+
+      // Add and remove classes for the 'Request an Appointment' button's text depending on hover state
+      aptButton.addEventListener('mouseover', function () {
+        aptButton.classList.remove('hideBtnText');
+        aptButton.classList.add('showBtnText');
+      });
+      aptButton.addEventListener('mouseout', function () {
+        aptButton.classList.remove('showBtnText');
+        aptButton.classList.add('hideBtnText');
+      });
+
+      // When hovering over a service, make all other services dim
+      var serviceCols = document.getElementById('services').getElementsByClassName('col-sm-6');
+      Array.from(serviceCols).forEach(function (hoveredCol) {
+        hoveredCol.addEventListener('mouseover', function () {
+          var myClasses = hoveredCol.getElementsByTagName('div')[0].classList;
+          // Check if the classList contains makeDim first so that the makeBright
+          // animation doesn't run when you first hover over a service
+          if (myClasses.contains('makeDim')) {
+            myClasses.add('makeBright');
+          }
+          myClasses.remove('makeDim');
+          Array.from(serviceCols).forEach(function (sibling) {
+            if (hoveredCol === sibling) return;
+            var siblingClasses = sibling.getElementsByTagName('div')[0].classList;
+            siblingClasses.add('makeDim');
+            siblingClasses.remove('makeBright');
+          });
+        });
+        hoveredCol.addEventListener('mouseout', function () {
+          hoveredCol.getElementsByTagName('div')[0].classList.remove('makeBright');
         });
       });
-      hoveredCol.addEventListener('mouseout', () => {
-        hoveredCol.getElementsByTagName('div')[0].classList.remove('makeBright');
+
+      // After hovering over the 'services' section and leaving, make all services bright again
+      var serviceRow = document.getElementById('services').getElementsByClassName('row')[0];
+      serviceRow.addEventListener('mouseout', function () {
+        var cols = serviceRow.getElementsByClassName('col-sm-6');
+        Array.from(cols).forEach(function (col) {
+          var colClasses = col.getElementsByTagName('div')[0].classList;
+          if (colClasses.contains('makeDim')) {
+            colClasses.add('makeBright');
+          }
+          colClasses.remove('makeDim');
+        });
       });
-    });
 
-    // After hovering over the 'services' section and leaving, make all services bright again
-    let serviceRow = document.getElementById('services').getElementsByClassName('row')[0];
-    serviceRow.addEventListener('mouseout', () => {
-      let cols = serviceRow.getElementsByClassName('col-sm-6');
-      Array.from(cols).forEach(col => {
-        let colClasses = col.getElementsByTagName('div')[0].classList;
-        if (colClasses.contains('makeDim')) {
-          colClasses.add('makeBright');
-        }
-        colClasses.remove('makeDim');
-      });
-    });
-
-    scrollSpy.update();
-  }
-
-  componentDidUpdate() {
-    // This is so that when the user logs out while on the landing page with the scroll position
-    // at the very top, make the 'Login/Sign Up' button appear white as well
-    this.changeNavBarFontColors(false);
-  }
-
-  componentWillUnmount() {
-    // Reset the navbar's opacity for other component views, since the landing page
-    // is the only view that makes the navbar opacity change
-    this.changeNavBarFontColors(true);
-    document.getElementById('navbar-container').style["background-color"] = "rgba(255,255,255,0.9)";
-    if (window.innerWidth >= 768) {
-      document.getElementsByClassName('navbar-collapse')[0].style["background-color"] = "rgba(255,255,255,0)";
-    } else {
-      document.getElementsByClassName('navbar-collapse')[0].style["background-color"] = "rgba(255,255,255,0.9)";
+      scrollSpy.update();
     }
-    window.removeEventListener('scroll', this.listeningNavBarFontColors);
-    window.removeEventListener('scroll', this.changeNavbarOnScroll);
-    window.removeEventListener('resize', this.changeBasedOnResize);
-    Events.scrollEvent.remove('begin');
-    Events.scrollEvent.remove('end');
-  }
-
-  // Function runs when the arrow button at the bottom of the page is clicked
-  //    Go to the next section based on the browser's current scroll position
-  goToNextDiv() {
-    let { currentDiv, animating } = this.state;
-    if (animating) return;
-    let navbarHeight = document.getElementById('navbar-container').offsetHeight;
-    let options = {
-      offset: -navbarHeight,
-      smooth: true,
-      duration: 500
-    };
-
-    if (document.getElementById('overview').getBoundingClientRect().top - navbarHeight > 1) {
-      scroller.scrollTo('overview-div', options);
-    } else if (document.getElementById('services-element').getBoundingClientRect().top - navbarHeight > 1) {
-      scroller.scrollTo('services-div', options);
-    } else if (document.getElementById('partners').getBoundingClientRect().top - navbarHeight > 1) {
-      scroller.scrollTo('partners-div', options);
-    } else {
-      scroll.scrollToBottom({ duration: 500, smooth: true });
+  }, {
+    key: 'componentDidUpdate',
+    value: function componentDidUpdate() {
+      // This is so that when the user logs out while on the landing page with the scroll position
+      // at the very top, make the 'Login/Sign Up' button appear white as well
+      this.changeNavBarFontColors(false);
     }
-  }
+  }, {
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      // Reset the navbar's opacity for other component views, since the landing page
+      // is the only view that makes the navbar opacity change
+      this.changeNavBarFontColors(true);
+      document.getElementById('navbar-container').style['background-color'] = "rgba(255,255,255,0.9)";
+      if (window.innerWidth >= 768) {
+        document.getElementsByClassName('navbar-collapse')[0].style['background-color'] = "rgba(255,255,255,0)";
+      } else {
+        document.getElementsByClassName('navbar-collapse')[0].style['background-color'] = "rgba(255,255,255,0.9)";
+      }
+      window.removeEventListener('scroll', this.listeningNavBarFontColors);
+      window.removeEventListener('scroll', this.changeNavbarOnScroll);
+      window.removeEventListener('resize', this.changeBasedOnResize);
+      Events.scrollEvent.remove('begin');
+      Events.scrollEvent.remove('end');
+    }
 
-  goToTop() {
-    scroll.scrollToTop({ duration: 500, smooth: true });
-  }
+    // Function runs when the arrow button at the bottom of the page is clicked
+    //    Go to the next section based on the browser's current scroll position
 
-  render() {
-    let { offsetHeight } = this.state;
-    return _react2.default.createElement(
-      'div',
-      null,
-      _react2.default.createElement(_ApptBtn2.default, null),
-      _react2.default.createElement(
-        'a',
-        { onClick: this.goToNextDiv, className: 'arrowButton' },
-        _react2.default.createElement('img', { id: 'scrollImage', src: __webpack_require__(1053), alt: 'SCROLL DOWN' })
-      ),
-      _react2.default.createElement(
-        _lib.Row,
-        { className: 'picture-div', id: 'banner-div' },
-        _react2.default.createElement('div', { id: 'banner-background' }),
-        _react2.default.createElement('img', { id: 'landing-left', className: 'landing-triangles', src: __webpack_require__(1054) }),
-        _react2.default.createElement('img', { id: 'landing-right', className: 'landing-triangles', src: __webpack_require__(1055) }),
-        _react2.default.createElement('img', { id: 'landing1', className: 'landingImages', src: __webpack_require__(1056) })
-      ),
-      _react2.default.createElement(
-        _lib.Row,
-        { id: 'overview', className: 'standard-div' },
+  }, {
+    key: 'goToNextDiv',
+    value: function goToNextDiv() {
+      var _state = this.state,
+          currentDiv = _state.currentDiv,
+          animating = _state.animating;
+
+      if (animating) return;
+      var navbarHeight = document.getElementById('navbar-container').offsetHeight;
+      var options = {
+        offset: -navbarHeight,
+        smooth: true,
+        duration: 500
+      };
+
+      if (document.getElementById('overview').getBoundingClientRect().top - navbarHeight > 1) {
+        scroller.scrollTo('overview-div', options);
+      } else if (document.getElementById('services-element').getBoundingClientRect().top - navbarHeight > 1) {
+        scroller.scrollTo('services-div', options);
+      } else if (document.getElementById('partners').getBoundingClientRect().top - navbarHeight > 1) {
+        scroller.scrollTo('partners-div', options);
+      } else {
+        scroll.scrollToBottom({ duration: 500, smooth: true });
+      }
+    }
+  }, {
+    key: 'goToTop',
+    value: function goToTop() {
+      scroll.scrollToTop({ duration: 500, smooth: true });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var offsetHeight = this.state.offsetHeight;
+
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(_ApptBtn2.default, null),
         _react2.default.createElement(
-          Element,
-          { name: 'overview-div', className: 'element', id: 'overview-element' },
-          _react2.default.createElement(
-            _lib.Row,
-            null,
-            Object.keys(_overviews2.default).map((key, index) => {
-              let overview = _overviews2.default[key];
-              let id = "overview" + (index + 1);
-              return _react2.default.createElement(
-                _lib.Col,
-                { sm: 4, id: id, key: id },
-                _react2.default.createElement(
-                  'div',
-                  null,
-                  _react2.default.createElement(
-                    'h4',
-                    null,
-                    overview.title
-                  ),
-                  _react2.default.createElement(
-                    'p',
-                    { className: 'subtitle' },
-                    overview.subtitle
-                  ),
-                  _react2.default.createElement(
-                    'p',
-                    { className: 'description' },
-                    overview.description
-                  )
-                )
-              );
-            })
-          )
-        )
-      ),
-      _react2.default.createElement(
-        _lib.Row,
-        { id: 'why', className: 'standard-div' },
-        _react2.default.createElement(
-          _lib.Row,
-          null,
-          _react2.default.createElement(
-            'h1',
-            null,
-            'Serving New York since 1989'
-          ),
-          _react2.default.createElement('hr', null)
+          'a',
+          { onClick: this.goToNextDiv, className: 'arrowButton' },
+          _react2.default.createElement('img', { id: 'scrollImage', src: __webpack_require__(1053), alt: 'SCROLL DOWN' })
         ),
-        Object.keys(_why2.default).map((key, index) => {
-          let reason = _why2.default[key];
-          let id = "icon" + (index + 1);
-          let className = "fa fa-lg " + reason.icon;
-          return _react2.default.createElement(
-            _lib.Col,
-            { sm: 4, key: id },
-            _react2.default.createElement('i', { id: id, className: className, 'aria-hidden': 'true' }),
-            _react2.default.createElement(
-              'h4',
-              null,
-              reason.title
-            ),
-            _react2.default.createElement(
-              'p',
-              { className: 'subtitle' },
-              reason.subtitle
-            ),
-            _react2.default.createElement(
-              'p',
-              null,
-              reason.description
-            )
-          );
-        })
-      ),
-      _react2.default.createElement(
-        Element,
-        { id: 'services-element', name: 'services-div', className: 'element picture-div' },
-        _react2.default.createElement(
-          'h1',
-          null,
-          'Comprehensive Services'
-        )
-      ),
-      _react2.default.createElement(
-        _lib.Row,
-        { id: 'services', className: 'standard-div' },
         _react2.default.createElement(
           _lib.Row,
-          null,
-          Object.keys(_services2.default).map((key, index) => {
-            let service = _services2.default[key];
-            let id = "service" + (index + 1);
-            return _react2.default.createElement(
-              _lib.Col,
-              { sm: 6, id: id, key: id },
-              _react2.default.createElement(
-                'div',
-                null,
-                _react2.default.createElement(
-                  'h2',
-                  null,
-                  service
-                )
-              )
-            );
-          })
-        )
-      ),
-      _react2.default.createElement(
-        _lib.Row,
-        { id: 'partners', className: 'standard-div' },
+          { className: 'picture-div', id: 'banner-div' },
+          _react2.default.createElement('div', { id: 'banner-background' }),
+          _react2.default.createElement('img', { id: 'landing-left', className: 'landing-triangles', src: __webpack_require__(1054) }),
+          _react2.default.createElement('img', { id: 'landing-right', className: 'landing-triangles', src: __webpack_require__(1055) }),
+          _react2.default.createElement('img', { id: 'landing1', className: 'landing-images', src: __webpack_require__(1056) })
+        ),
         _react2.default.createElement(
-          Element,
-          { name: 'partners-div', className: 'element' },
+          _lib.Row,
+          { id: 'overview', className: 'standard-div' },
+          _react2.default.createElement(
+            Element,
+            { name: 'overview-div', className: 'element', id: 'overview-element' },
+            _react2.default.createElement(
+              _lib.Row,
+              null,
+              Object.keys(_overviews2.default).map(function (key, index) {
+                var overview = _overviews2.default[key];
+                var id = "overview" + (index + 1);
+                return _react2.default.createElement(
+                  _lib.Col,
+                  { sm: 4, id: id, key: id },
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'overview-text' },
+                    _react2.default.createElement(
+                      'h4',
+                      null,
+                      overview.title
+                    ),
+                    _react2.default.createElement(
+                      'p',
+                      { className: 'subtitle' },
+                      overview.subtitle
+                    ),
+                    _react2.default.createElement(
+                      'p',
+                      { className: 'description' },
+                      overview.description
+                    )
+                  )
+                );
+              })
+            )
+          )
+        ),
+        _react2.default.createElement(
+          _lib.Row,
+          { id: 'why', className: 'standard-div' },
           _react2.default.createElement(
             _lib.Row,
             null,
             _react2.default.createElement(
               'h1',
               null,
-              'Our Partners'
+              'Serving New York since 1989'
             ),
             _react2.default.createElement('hr', null)
           ),
+          Object.keys(_why2.default).map(function (key, index) {
+            var reason = _why2.default[key];
+            var id = "icon" + (index + 1);
+            var className = "fa fa-lg " + reason.icon;
+            return _react2.default.createElement(
+              _lib.Col,
+              { sm: 4, key: id },
+              _react2.default.createElement('i', { id: id, className: className, 'aria-hidden': 'true' }),
+              _react2.default.createElement(
+                'h4',
+                null,
+                reason.title
+              ),
+              _react2.default.createElement(
+                'p',
+                { className: 'subtitle' },
+                reason.subtitle
+              ),
+              _react2.default.createElement(
+                'p',
+                null,
+                reason.description
+              )
+            );
+          })
+        ),
+        _react2.default.createElement(
+          Element,
+          { id: 'services-element', name: 'services-div', className: 'element picture-div' },
+          _react2.default.createElement(
+            'h1',
+            null,
+            'Comprehensive Services'
+          )
+        ),
+        _react2.default.createElement(
+          _lib.Row,
+          { id: 'services', className: 'standard-div' },
           _react2.default.createElement(
             _lib.Row,
             null,
-            _react2.default.createElement(_Slider2.default, null)
+            Object.keys(_services2.default).map(function (key, index) {
+              var service = _services2.default[key];
+              var id = "service" + (index + 1);
+              return _react2.default.createElement(
+                _lib.Col,
+                { sm: 6, id: id, key: id },
+                _react2.default.createElement(
+                  'div',
+                  null,
+                  _react2.default.createElement(
+                    'h2',
+                    null,
+                    service
+                  )
+                )
+              );
+            })
           )
-        )
-      ),
-      _react2.default.createElement(
-        'div',
-        { id: 'scroll-top' },
+        ),
         _react2.default.createElement(
-          'a',
-          { onClick: this.goToTop },
+          _lib.Row,
+          { id: 'partners', className: 'standard-div' },
           _react2.default.createElement(
-            'p',
-            null,
+            Element,
+            { name: 'partners-div', className: 'element' },
+            _react2.default.createElement(
+              _lib.Row,
+              null,
+              _react2.default.createElement(
+                'h1',
+                null,
+                'Our Partners'
+              ),
+              _react2.default.createElement('hr', null)
+            ),
+            _react2.default.createElement(
+              _lib.Row,
+              null,
+              _react2.default.createElement(_Slider2.default, null)
+            )
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { id: 'scroll-top' },
+          _react2.default.createElement(
+            'a',
+            { onClick: this.goToTop },
             'GO TO TOP'
           )
         )
-      )
-    );
-  }
-};
+      );
+    }
+  }]);
+
+  return Landing;
+}(_react.Component);
+
 exports.default = Landing;
 
 /***/ }),
@@ -78353,6 +78695,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = undefined;
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
@@ -78365,89 +78709,152 @@ __webpack_require__(1044);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-let PrevNavButton = class PrevNavButton extends _react2.default.Component {
-  render() {
-    return _react2.default.createElement('button', { onClick: this.props.onClick, className: 'fa fa-chevron-circle-left fa-3x' });
-  }
-};
-let NextNavButton = class NextNavButton extends _react2.default.Component {
-  render() {
-    return _react2.default.createElement('button', { onClick: this.props.onClick, className: 'fa fa-chevron-circle-right fa-3x' });
-  }
-};
-let PartnerSlider = class PartnerSlider extends _react.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-    this.changeNumSlides = this.changeNumSlides.bind(this);
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var PrevNavButton = function (_React$Component) {
+  _inherits(PrevNavButton, _React$Component);
+
+  function PrevNavButton() {
+    _classCallCheck(this, PrevNavButton);
+
+    return _possibleConstructorReturn(this, (PrevNavButton.__proto__ || Object.getPrototypeOf(PrevNavButton)).apply(this, arguments));
   }
 
-  changeNumSlides() {
-    let numSlides = Math.floor(window.innerWidth / 260);
-    this.setState({ numSlides });
+  _createClass(PrevNavButton, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement('button', { onClick: this.props.onClick, className: 'fa fa-chevron-circle-left fa-3x' });
+    }
+  }]);
+
+  return PrevNavButton;
+}(_react2.default.Component);
+
+var NextNavButton = function (_React$Component2) {
+  _inherits(NextNavButton, _React$Component2);
+
+  function NextNavButton() {
+    _classCallCheck(this, NextNavButton);
+
+    return _possibleConstructorReturn(this, (NextNavButton.__proto__ || Object.getPrototypeOf(NextNavButton)).apply(this, arguments));
   }
 
-  componentWillMount() {
-    this.changeNumSlides();
-    window.addEventListener('resize', this.changeNumSlides);
+  _createClass(NextNavButton, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement('button', { onClick: this.props.onClick, className: 'fa fa-chevron-circle-right fa-3x' });
+    }
+  }]);
+
+  return NextNavButton;
+}(_react2.default.Component);
+
+var PartnerSlider = function (_Component) {
+  _inherits(PartnerSlider, _Component);
+
+  function PartnerSlider(props) {
+    _classCallCheck(this, PartnerSlider);
+
+    var _this3 = _possibleConstructorReturn(this, (PartnerSlider.__proto__ || Object.getPrototypeOf(PartnerSlider)).call(this, props));
+
+    _this3.state = {};
+    _this3.changeNumSlides = _this3.changeNumSlides.bind(_this3);
+    return _this3;
   }
 
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.changeNumSlides);
-  }
+  _createClass(PartnerSlider, [{
+    key: 'changeNumSlides',
+    value: function changeNumSlides() {
+      var numSlides = Math.floor(window.innerWidth / 260);
+      this.setState({ numSlides: numSlides });
+    }
+  }, {
+    key: 'componentWillMount',
+    value: function componentWillMount() {
+      this.changeNumSlides();
+      window.addEventListener('resize', this.changeNumSlides);
+    }
+  }, {
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      Array.from(document.getElementsByClassName('partner')).forEach(function (partner) {
+        var i = partner.children[0];
+        var i2 = new Image();
+        i2.onload = function () {
+          var width = partner.children[0].getBoundingClientRect().width;
+          var ratio = i2.width / width;
+          partner.children[0].style.height = i2.height / ratio + 'px';
+        };
+        i2.src = i.src;
+      });
+    }
+  }, {
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      window.removeEventListener('resize', this.changeNumSlides);
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var settings = {
+        infinite: true,
+        speed: 500,
+        slidesToScroll: this.state.numSlides,
+        slidesToShow: this.state.numSlides,
+        autoplay: true,
+        autoplaySpeed: 10000,
+        prevArrow: _react2.default.createElement(PrevNavButton, null),
+        nextArrow: _react2.default.createElement(NextNavButton, null)
+      };
+      return _react2.default.createElement(
+        _reactSlick2.default,
+        settings,
+        _react2.default.createElement(
+          'div',
+          { className: 'partner' },
+          _react2.default.createElement('img', { src: __webpack_require__(1046) })
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'partner' },
+          _react2.default.createElement('img', { src: 'https://www.edissonelectric.com/wp-content/uploads/2015/09/Sporlan-2.png' })
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'partner' },
+          _react2.default.createElement('img', { src: 'https://mehvac.com/images/logo.png' })
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'partner' },
+          _react2.default.createElement('img', { src: 'https://static.wixstatic.com/media/edf714_a8177bc6df634641bae452cf3bc90e8f.jpg' })
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'partner' },
+          _react2.default.createElement('img', { src: 'https://climatecontroltt.com/media/wysiwyg/York/yorklogo.jpg' })
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'partner' },
+          _react2.default.createElement('img', { src: 'https://i.ytimg.com/vi/pSjKU1XA0ps/maxresdefault.jpg' })
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'partner' },
+          _react2.default.createElement('img', { src: 'https://www.knuthrefrigeration.com/wp-content/uploads/2016/03/logo_NEW_kysor_warren.jpg' })
+        )
+      );
+    }
+  }]);
 
-  render() {
-    var settings = {
-      infinite: true,
-      speed: 500,
-      slidesToShow: this.state.numSlides,
-      slidesToScroll: this.state.numSlides,
-      autoplay: true,
-      autoplaySpeed: 5000,
-      prevArrow: _react2.default.createElement(PrevNavButton, null),
-      nextArrow: _react2.default.createElement(NextNavButton, null)
-    };
-    return _react2.default.createElement(
-      _reactSlick2.default,
-      settings,
-      _react2.default.createElement(
-        'div',
-        { className: 'partner' },
-        _react2.default.createElement('img', { src: __webpack_require__(1046) })
-      ),
-      _react2.default.createElement(
-        'div',
-        { className: 'partner' },
-        _react2.default.createElement('img', { src: 'https://www.edissonelectric.com/wp-content/uploads/2015/09/Sporlan-2.png' })
-      ),
-      _react2.default.createElement(
-        'div',
-        { className: 'partner' },
-        _react2.default.createElement('img', { src: 'https://mehvac.com/images/logo.png' })
-      ),
-      _react2.default.createElement(
-        'div',
-        { className: 'partner' },
-        _react2.default.createElement('img', { src: 'https://static.wixstatic.com/media/edf714_a8177bc6df634641bae452cf3bc90e8f.jpg' })
-      ),
-      _react2.default.createElement(
-        'div',
-        { className: 'partner' },
-        _react2.default.createElement('img', { src: 'https://climatecontroltt.com/media/wysiwyg/York/yorklogo.jpg' })
-      ),
-      _react2.default.createElement(
-        'div',
-        { className: 'partner' },
-        _react2.default.createElement('img', { src: 'https://i.ytimg.com/vi/pSjKU1XA0ps/maxresdefault.jpg' })
-      ),
-      _react2.default.createElement(
-        'div',
-        { className: 'partner' },
-        _react2.default.createElement('img', { src: 'https://www.knuthrefrigeration.com/wp-content/uploads/2016/03/logo_NEW_kysor_warren.jpg' })
-      )
-    );
-  }
-};
+  return PartnerSlider;
+}(_react.Component);
+
 exports.default = PartnerSlider;
 
 /***/ }),
@@ -80162,7 +80569,7 @@ exports = module.exports = __webpack_require__(50)(undefined);
 
 
 // module
-exports.push([module.i, ".slick-slider button {\n  position: absolute;\n  top: calc(50% - 25px);\n  z-index: 2;\n  background: transparent;\n  border: none;\n  outline: 0; }\n  .slick-slider button:hover {\n    color: #0688fe; }\n\n.fa-chevron-circle-left {\n  left: -4%; }\n\n.fa-chevron-circle-right {\n  right: -4%; }\n\n.partner {\n  display: flex !important;\n  height: 250px; }\n", ""]);
+exports.push([module.i, ".slick-slider button {\n  position: absolute;\n  top: calc(50% - 25px);\n  z-index: 2;\n  background: transparent;\n  border: none;\n  outline: 0; }\n  .slick-slider button:hover {\n    color: #0688fe; }\n\n.fa-chevron-circle-left {\n  left: -4%; }\n\n.fa-chevron-circle-right {\n  right: -4%; }\n\n.partner {\n  display: flex !important;\n  height: 250px; }\n  .partner img {\n    width: 75%;\n    display: block;\n    margin: auto;\n    -ms-interpolation-mode: bicubic; }\n", ""]);
 
 // exports
 
@@ -80194,7 +80601,7 @@ __webpack_require__(1048);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = () => {
+exports.default = function () {
   return _react2.default.createElement(
     _reactRouter.Link,
     { to: { pathname: '/request' } },
@@ -80383,6 +80790,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = undefined;
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
@@ -80403,32 +80812,53 @@ var _reactScroll2 = _interopRequireDefault(_reactScroll);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 var scroll = _reactScroll2.default.animateScroll;
 
-let AuthPage = class AuthPage extends _react.Component {
-  componentDidMount() {
-    // React 'saves' the current scroll position from the previous view, which is not what we want
-    // Scroll back to the very top
-    scroll.scrollToTop({ duration: 1 });
+var AuthPage = function (_Component) {
+  _inherits(AuthPage, _Component);
+
+  function AuthPage() {
+    _classCallCheck(this, AuthPage);
+
+    return _possibleConstructorReturn(this, (AuthPage.__proto__ || Object.getPrototypeOf(AuthPage)).apply(this, arguments));
   }
 
-  render() {
-    return _react2.default.createElement(
-      'div',
-      { className: 'container', id: 'auth-container' },
-      _react2.default.createElement(
-        _lib.Col,
-        { xs: 12, sm: 6 },
-        _react2.default.createElement(_LoginForm2.default, null)
-      ),
-      _react2.default.createElement(
-        _lib.Col,
-        { xs: 12, sm: 6 },
-        _react2.default.createElement(_SignUpForm2.default, null)
-      )
-    );
-  }
-};
+  _createClass(AuthPage, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      // React 'saves' the current scroll position from the previous view, which is not what we want
+      // Scroll back to the very top
+      scroll.scrollToTop({ duration: 1 });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { className: 'container', id: 'auth-container' },
+        _react2.default.createElement(
+          _lib.Col,
+          { xs: 12, sm: 6 },
+          _react2.default.createElement(_LoginForm2.default, null)
+        ),
+        _react2.default.createElement(
+          _lib.Col,
+          { xs: 12, sm: 6 },
+          _react2.default.createElement(_SignUpForm2.default, null)
+        )
+      );
+    }
+  }]);
+
+  return AuthPage;
+}(_react.Component);
+
 exports.default = AuthPage;
 
 /***/ }),
@@ -80461,7 +80891,9 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    requestLogin: loginInfo => dispatch((0, _auth.requestLogin)(loginInfo))
+    requestLogin: function requestLogin(loginInfo) {
+      return dispatch((0, _auth.requestLogin)(loginInfo));
+    }
   };
 }
 
@@ -80479,6 +80911,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = undefined;
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
@@ -80491,100 +80925,126 @@ var _Spinner2 = _interopRequireDefault(_Spinner);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-let LoginForm = class LoginForm extends _react.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var LoginForm = function (_Component) {
+  _inherits(LoginForm, _Component);
+
+  function LoginForm(props) {
+    _classCallCheck(this, LoginForm);
+
+    var _this = _possibleConstructorReturn(this, (LoginForm.__proto__ || Object.getPrototypeOf(LoginForm)).call(this, props));
+
+    _this.state = {
       username: '',
       password: ''
     };
-    this.handleChange = this.handleChange.bind(this);
-    this.submitLoginForm = this.submitLoginForm.bind(this);
+    _this.handleChange = _this.handleChange.bind(_this);
+    _this.submitLoginForm = _this.submitLoginForm.bind(_this);
+    return _this;
   }
 
-  handleChange(e) {
-    this.setState({
-      [e.target.name]: e.target.value
-    });
-  }
+  _createClass(LoginForm, [{
+    key: 'handleChange',
+    value: function handleChange(e) {
+      this.setState(_defineProperty({}, e.target.name, e.target.value));
+    }
+  }, {
+    key: 'submitLoginForm',
+    value: function submitLoginForm(e) {
+      e.preventDefault();
+      this.props.requestLogin(this.state);
+    }
+  }, {
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      document.getElementById("login-username").focus();
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _state = this.state,
+          username = _state.username,
+          password = _state.password;
+      var _props = this.props,
+          isFetching = _props.isFetching,
+          error = _props.error;
 
-  submitLoginForm(e) {
-    e.preventDefault();
-    this.props.requestLogin(this.state);
-  }
 
-  componentDidMount() {
-    document.getElementById("login-username").focus();
-  }
-
-  render() {
-    const { username, password } = this.state;
-    const { isFetching, error } = this.props;
-
-    return _react2.default.createElement(
-      'div',
-      { className: 'loginPanel' },
-      _react2.default.createElement(
-        _lib.Panel,
-        null,
+      return _react2.default.createElement(
+        'div',
+        { className: 'loginPanel' },
         _react2.default.createElement(
-          'h3',
+          _lib.Panel,
           null,
-          'Login'
-        ),
-        _react2.default.createElement(
-          _lib.Form,
-          { onSubmit: this.submitLoginForm },
           _react2.default.createElement(
-            _lib.FormGroup,
+            'h3',
             null,
-            _react2.default.createElement(
-              _lib.ControlLabel,
-              null,
-              'Username'
-            ),
-            _react2.default.createElement(_lib.FormControl, {
-              id: 'login-username',
-              name: 'username',
-              type: 'text',
-              value: username,
-              onChange: this.handleChange
-            })
+            'Login'
           ),
           _react2.default.createElement(
-            _lib.FormGroup,
-            null,
+            _lib.Form,
+            { onSubmit: this.submitLoginForm },
             _react2.default.createElement(
-              _lib.ControlLabel,
+              _lib.FormGroup,
               null,
-              'Password'
+              _react2.default.createElement(
+                _lib.ControlLabel,
+                null,
+                'Username'
+              ),
+              _react2.default.createElement(_lib.FormControl, {
+                id: 'login-username',
+                name: 'username',
+                type: 'text',
+                value: username,
+                onChange: this.handleChange
+              })
             ),
-            _react2.default.createElement(_lib.FormControl, {
-              name: 'password',
-              type: 'password',
-              value: password,
-              onChange: this.handleChange
-            })
-          ),
-          _react2.default.createElement(
-            _lib.FormGroup,
-            { validationState: 'error', className: 'auth-form-error' },
             _react2.default.createElement(
-              _lib.Button,
-              { className: 'button button-blue', type: 'submit', bsStyle: 'info' },
-              isFetching ? _react2.default.createElement(_Spinner2.default, null) : 'Login'
+              _lib.FormGroup,
+              null,
+              _react2.default.createElement(
+                _lib.ControlLabel,
+                null,
+                'Password'
+              ),
+              _react2.default.createElement(_lib.FormControl, {
+                name: 'password',
+                type: 'password',
+                value: password,
+                onChange: this.handleChange
+              })
             ),
-            !isFetching && error && _react2.default.createElement(
-              _lib.ControlLabel,
-              { className: 'auth-form-error-message' },
-              error.message
+            _react2.default.createElement(
+              _lib.FormGroup,
+              { validationState: 'error', className: 'auth-form-error' },
+              _react2.default.createElement(
+                _lib.Button,
+                { className: 'button button-blue', type: 'submit', bsStyle: 'info' },
+                isFetching ? _react2.default.createElement(_Spinner2.default, null) : 'Login'
+              ),
+              !isFetching && error && _react2.default.createElement(
+                _lib.ControlLabel,
+                { className: 'auth-form-error-message' },
+                error.message
+              )
             )
           )
         )
-      )
-    );
-  }
-};
+      );
+    }
+  }]);
+
+  return LoginForm;
+}(_react.Component);
+
 exports.default = LoginForm;
 
 /***/ }),
@@ -80617,7 +81077,9 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    requestSignUp: signUpInfo => dispatch((0, _auth.requestSignUp)(signUpInfo))
+    requestSignUp: function requestSignUp(signUpInfo) {
+      return dispatch((0, _auth.requestSignUp)(signUpInfo));
+    }
   };
 }
 
@@ -80634,6 +81096,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = __webpack_require__(0);
 
@@ -80653,10 +81117,23 @@ var _reactMaskedinput2 = _interopRequireDefault(_reactMaskedinput);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-let SignUpForm = class SignUpForm extends _react.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var SignUpForm = function (_Component) {
+  _inherits(SignUpForm, _Component);
+
+  function SignUpForm(props) {
+    _classCallCheck(this, SignUpForm);
+
+    var _this = _possibleConstructorReturn(this, (SignUpForm.__proto__ || Object.getPrototypeOf(SignUpForm)).call(this, props));
+
+    _this.state = {
       username: '',
       password: '',
       reenterPassword: '',
@@ -80666,230 +81143,274 @@ let SignUpForm = class SignUpForm extends _react.Component {
       email: '',
       phone: ''
     };
-    this.handleChange = this.handleChange.bind(this);
-    this.submitSignUpForm = this.submitSignUpForm.bind(this);
+    _this.handleChange = _this.handleChange.bind(_this);
+    _this.submitSignUpForm = _this.submitSignUpForm.bind(_this);
+    return _this;
   }
 
-  handleChange(e) {
-    if (e.target.name === 'reenterPassword' && !this.state.reenterDirty) {
-      this.setState({
-        reenterDirty: true
+  _createClass(SignUpForm, [{
+    key: 'handleChange',
+    value: function handleChange(e) {
+      if (e.target.name === 'reenterPassword' && !this.state.reenterDirty) {
+        this.setState({
+          reenterDirty: true
+        });
+      }
+
+      this.setState(_defineProperty({}, e.target.name, e.target.value));
+    }
+  }, {
+    key: 'submitSignUpForm',
+    value: function submitSignUpForm(e) {
+      var _state = this.state,
+          username = _state.username,
+          password = _state.password,
+          reenterPassword = _state.reenterPassword,
+          email = _state.email,
+          phone = _state.phone,
+          firstName = _state.firstName,
+          lastName = _state.lastName;
+      var requestSignUp = this.props.requestSignUp;
+
+
+      e.preventDefault();
+
+      requestSignUp({
+        username: username,
+        password: password,
+        reenterPassword: reenterPassword,
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        phone: phone
       });
     }
+  }, {
+    key: 'isPhoneNumberValidationState',
+    value: function isPhoneNumberValidationState() {
+      var phone = this.state.phone;
 
-    this.setState({
-      [e.target.name]: e.target.value
-    });
-  }
-
-  submitSignUpForm(e) {
-    const { username, password, reenterPassword, email, phone, firstName, lastName } = this.state;
-    const { requestSignUp } = this.props;
-
-    e.preventDefault();
-
-    requestSignUp({
-      username,
-      password,
-      reenterPassword,
-      firstName,
-      lastName,
-      email,
-      phone
-    });
-  }
-
-  isPhoneNumberValidationState() {
-    const { phone } = this.state;
-    const validPhoneNumber = (0, _authentication.isPhoneNumber)(phone);
-    return validPhoneNumber ? 'success' : phone.length === 0 ? null : 'error';
-  }
-
-  checkValidationState() {
-    const { username, password, reenterPassword, reenterDirty } = this.state;
-
-    if (reenterDirty) {
-      if (password && reenterPassword && password === reenterPassword) {
-        return 'success';
-      }
-      if (reenterPassword === '') return null;
-      return 'error';
+      var validPhoneNumber = (0, _authentication.isPhoneNumber)(phone);
+      return validPhoneNumber ? 'success' : phone.length === 0 ? null : 'error';
     }
-  }
+  }, {
+    key: 'checkValidationState',
+    value: function checkValidationState() {
+      var _state2 = this.state,
+          username = _state2.username,
+          password = _state2.password,
+          reenterPassword = _state2.reenterPassword,
+          reenterDirty = _state2.reenterDirty;
 
-  checkFormIsValid() {
-    const { username, password, reenterPassword, reenterDirty, firstName, lastName, email, phone } = this.state;
-    return username && password === reenterPassword && reenterDirty && email && firstName && lastName && phone && (0, _authentication.isPhoneNumber)(phone) && (0, _authentication.isPasswordValid)(password) && this.checkValidationState();
-  }
 
-  render() {
-    const { username, password, reenterPassword, firstName, lastName, reenterDirty, email, phone } = this.state;
-    const { isFetching, error } = this.props;
-    let validPassword = (0, _authentication.isPasswordValid)(password),
-        doPasswordsMatch = this.checkValidationState();
-    return _react2.default.createElement(
-      'div',
-      { className: 'signupPanel' },
-      _react2.default.createElement(
-        _lib.Panel,
-        null,
+      if (reenterDirty) {
+        if (password && reenterPassword && password === reenterPassword) {
+          return 'success';
+        }
+        if (reenterPassword === '') return null;
+        return 'error';
+      }
+    }
+  }, {
+    key: 'checkFormIsValid',
+    value: function checkFormIsValid() {
+      var _state3 = this.state,
+          username = _state3.username,
+          password = _state3.password,
+          reenterPassword = _state3.reenterPassword,
+          reenterDirty = _state3.reenterDirty,
+          firstName = _state3.firstName,
+          lastName = _state3.lastName,
+          email = _state3.email,
+          phone = _state3.phone;
+
+      return username && password === reenterPassword && reenterDirty && email && firstName && lastName && phone && (0, _authentication.isPhoneNumber)(phone) && (0, _authentication.isPasswordValid)(password) && this.checkValidationState();
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _state4 = this.state,
+          username = _state4.username,
+          password = _state4.password,
+          reenterPassword = _state4.reenterPassword,
+          firstName = _state4.firstName,
+          lastName = _state4.lastName,
+          reenterDirty = _state4.reenterDirty,
+          email = _state4.email,
+          phone = _state4.phone;
+      var _props = this.props,
+          isFetching = _props.isFetching,
+          error = _props.error;
+
+      var validPassword = (0, _authentication.isPasswordValid)(password),
+          doPasswordsMatch = this.checkValidationState();
+      return _react2.default.createElement(
+        'div',
+        { className: 'signupPanel' },
         _react2.default.createElement(
-          'h3',
+          _lib.Panel,
           null,
-          'Sign Up'
-        ),
-        _react2.default.createElement(
-          _lib.Form,
-          { onSubmit: this.submitSignUpForm },
           _react2.default.createElement(
-            _lib.FormGroup,
+            'h3',
             null,
-            _react2.default.createElement(
-              _lib.ControlLabel,
-              null,
-              'Username'
-            ),
-            _react2.default.createElement(_lib.FormControl, {
-              name: 'username',
-              type: 'text',
-              value: username,
-              onChange: this.handleChange
-            })
+            'Sign Up'
           ),
           _react2.default.createElement(
-            _lib.FormGroup,
-            {
-              validationState: password ? validPassword ? 'success' : 'error' : null
-            },
-            _react2.default.createElement(
-              _lib.ControlLabel,
-              null,
-              'Password'
-            ),
-            _react2.default.createElement(_lib.FormControl, {
-              name: 'password',
-              type: 'password',
-              value: password,
-              onChange: this.handleChange
-            }),
-            _react2.default.createElement(_lib.FormControl.Feedback, null),
-            !validPassword && password && _react2.default.createElement(
-              _lib.HelpBlock,
-              null,
-              'Enter a password between 7-14 characters, with at least one capital letter and at least one number.'
-            )
-          ),
-          _react2.default.createElement(
-            _lib.FormGroup,
-            { validationState: doPasswordsMatch
-            },
-            _react2.default.createElement(
-              _lib.ControlLabel,
-              null,
-              'Re-enter Password'
-            ),
-            _react2.default.createElement(_lib.FormControl, {
-              name: 'reenterPassword',
-              type: 'password',
-              value: reenterPassword,
-              onChange: this.handleChange
-            }),
-            _react2.default.createElement(_lib.FormControl.Feedback, null),
-            doPasswordsMatch === 'error' && reenterPassword && _react2.default.createElement(
-              _lib.HelpBlock,
-              null,
-              'Re-enter password correctly.'
-            )
-          ),
-          _react2.default.createElement(
-            _lib.Col,
-            { xs: 6, className: 'name-col' },
+            _lib.Form,
+            { onSubmit: this.submitSignUpForm },
             _react2.default.createElement(
               _lib.FormGroup,
-              { className: 'name-form' },
+              null,
               _react2.default.createElement(
                 _lib.ControlLabel,
                 null,
-                'First Name'
+                'Username'
               ),
               _react2.default.createElement(_lib.FormControl, {
-                name: 'firstName',
+                name: 'username',
                 type: 'text',
-                value: firstName,
+                value: username,
                 onChange: this.handleChange
               })
-            )
-          ),
-          _react2.default.createElement(
-            _lib.Col,
-            { xs: 6, className: 'name-col' },
+            ),
             _react2.default.createElement(
               _lib.FormGroup,
-              { className: 'name-form', id: 'lastName-form' },
+              {
+                validationState: password ? validPassword ? 'success' : 'error' : null
+              },
               _react2.default.createElement(
                 _lib.ControlLabel,
                 null,
-                'Last Name'
+                'Password'
               ),
               _react2.default.createElement(_lib.FormControl, {
-                name: 'lastName',
-                type: 'text',
-                value: lastName,
+                name: 'password',
+                type: 'password',
+                value: password,
+                onChange: this.handleChange
+              }),
+              _react2.default.createElement(_lib.FormControl.Feedback, null),
+              !validPassword && password && _react2.default.createElement(
+                _lib.HelpBlock,
+                null,
+                'Enter a password between 7-14 characters, with at least one capital letter and at least one number.'
+              )
+            ),
+            _react2.default.createElement(
+              _lib.FormGroup,
+              { validationState: doPasswordsMatch
+              },
+              _react2.default.createElement(
+                _lib.ControlLabel,
+                null,
+                'Re-enter Password'
+              ),
+              _react2.default.createElement(_lib.FormControl, {
+                name: 'reenterPassword',
+                type: 'password',
+                value: reenterPassword,
+                onChange: this.handleChange
+              }),
+              _react2.default.createElement(_lib.FormControl.Feedback, null),
+              doPasswordsMatch === 'error' && reenterPassword && _react2.default.createElement(
+                _lib.HelpBlock,
+                null,
+                'Re-enter password correctly.'
+              )
+            ),
+            _react2.default.createElement(
+              _lib.Col,
+              { xs: 6, className: 'name-col' },
+              _react2.default.createElement(
+                _lib.FormGroup,
+                { className: 'name-form' },
+                _react2.default.createElement(
+                  _lib.ControlLabel,
+                  null,
+                  'First Name'
+                ),
+                _react2.default.createElement(_lib.FormControl, {
+                  name: 'firstName',
+                  type: 'text',
+                  value: firstName,
+                  onChange: this.handleChange
+                })
+              )
+            ),
+            _react2.default.createElement(
+              _lib.Col,
+              { xs: 6, className: 'name-col' },
+              _react2.default.createElement(
+                _lib.FormGroup,
+                { className: 'name-form', id: 'lastName-form' },
+                _react2.default.createElement(
+                  _lib.ControlLabel,
+                  null,
+                  'Last Name'
+                ),
+                _react2.default.createElement(_lib.FormControl, {
+                  name: 'lastName',
+                  type: 'text',
+                  value: lastName,
+                  onChange: this.handleChange
+                })
+              )
+            ),
+            _react2.default.createElement(
+              _lib.FormGroup,
+              null,
+              _react2.default.createElement(
+                _lib.ControlLabel,
+                null,
+                'Email Address'
+              ),
+              _react2.default.createElement(_lib.FormControl, {
+                name: 'email',
+                type: 'email',
+                value: email,
                 onChange: this.handleChange
               })
-            )
-          ),
-          _react2.default.createElement(
-            _lib.FormGroup,
-            null,
-            _react2.default.createElement(
-              _lib.ControlLabel,
-              null,
-              'Email Address'
             ),
-            _react2.default.createElement(_lib.FormControl, {
-              name: 'email',
-              type: 'email',
-              value: email,
-              onChange: this.handleChange
-            })
-          ),
-          _react2.default.createElement(
-            _lib.FormGroup,
-            { validationState: this.isPhoneNumberValidationState() },
             _react2.default.createElement(
-              _lib.ControlLabel,
-              null,
-              'Phone Number'
+              _lib.FormGroup,
+              { validationState: this.isPhoneNumberValidationState() },
+              _react2.default.createElement(
+                _lib.ControlLabel,
+                null,
+                'Phone Number'
+              ),
+              _react2.default.createElement(_reactMaskedinput2.default, {
+                className: 'form-control',
+                mask: '(111) 111-1111',
+                placeholder: '(123) 456-7890',
+                name: 'phone',
+                value: phone,
+                onChange: this.handleChange
+              })
             ),
-            _react2.default.createElement(_reactMaskedinput2.default, {
-              className: 'form-control',
-              mask: '(111) 111-1111',
-              placeholder: '(123) 456-7890',
-              name: 'phone',
-              value: phone,
-              onChange: this.handleChange
-            })
-          ),
-          _react2.default.createElement(
-            _lib.FormGroup,
-            { validationState: 'error', className: 'auth-form-error' },
             _react2.default.createElement(
-              _lib.Button,
-              { className: 'button button-green', type: 'submit', disabled: !this.checkFormIsValid(), bsStyle: 'success' },
-              isFetching ? _react2.default.createElement(_Spinner2.default, null) : 'Sign Up'
-            ),
-            !isFetching && error && _react2.default.createElement(
-              _lib.ControlLabel,
-              { className: 'auth-form-error-message' },
-              error.message
+              _lib.FormGroup,
+              { validationState: 'error', className: 'auth-form-error' },
+              _react2.default.createElement(
+                _lib.Button,
+                { className: 'button button-green', type: 'submit', disabled: !this.checkFormIsValid(), bsStyle: 'success' },
+                isFetching ? _react2.default.createElement(_Spinner2.default, null) : 'Sign Up'
+              ),
+              !isFetching && error && _react2.default.createElement(
+                _lib.ControlLabel,
+                { className: 'auth-form-error-message' },
+                error.message
+              )
             )
           )
         )
-      )
-    );
-  }
-};
+      );
+    }
+  }]);
+
+  return SignUpForm;
+}(_react.Component);
+
 exports.default = SignUpForm;
 
 /***/ }),
@@ -81480,11 +82001,11 @@ var _component2 = _interopRequireDefault(_component);
 
 var _user = __webpack_require__(168);
 
-__webpack_require__(1083);
+__webpack_require__(1082);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-const mapStateToProps = state => {
+var mapStateToProps = function mapStateToProps(state) {
   return {
     username: state.user.profile.username,
     photoURL: state.user.profile.photoURL,
@@ -81499,9 +82020,11 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = dispatch => {
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
-    requestChangeInfo: userInfo => dispatch((0, _user.requestChangeInfo)(userInfo))
+    requestChangeInfo: function requestChangeInfo(userInfo) {
+      return dispatch((0, _user.requestChangeInfo)(userInfo));
+    }
   };
 };
 
@@ -81518,6 +82041,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = __webpack_require__(0);
 
@@ -81557,16 +82082,29 @@ var _reactScroll2 = _interopRequireDefault(_reactScroll);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 var scroll = _reactScroll2.default.animateScroll;
 
 var CLOUDINARY_UPLOAD_PRESET = 'hstdvlir';
 var CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/fresh-aire-mechanical-co/upload';
 
-let Settings = class Settings extends _react.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      uploadedFileCloudinaryUrl: this.props.photoURL || '',
+var Settings = function (_Component) {
+  _inherits(Settings, _Component);
+
+  function Settings(props) {
+    _classCallCheck(this, Settings);
+
+    var _this = _possibleConstructorReturn(this, (Settings.__proto__ || Object.getPrototypeOf(Settings)).call(this, props));
+
+    _this.state = {
+      uploadedFileCloudinaryUrl: _this.props.photoURL || '',
       newEmail: '',
       reenterNewEmail: '',
       reenterEmailDirty: false,
@@ -81581,280 +82119,346 @@ let Settings = class Settings extends _react.Component {
       savedEmail: false,
       deletedPhoto: false
     };
-    this.handleChange = this.handleChange.bind(this);
-    this.onImageDrop = this.onImageDrop.bind(this);
-    this.handleImageUpload = this.handleImageUpload.bind(this);
-    this.deletePhoto = this.deletePhoto.bind(this);
-    this.submitPasswordForm = this.submitPasswordForm.bind(this);
-    this.submitPhoneForm = this.submitPhoneForm.bind(this);
-    this.submitEmailForm = this.submitEmailForm.bind(this);
-    this.checkFormIsValid = this.checkFormIsValid.bind(this);
+    _this.handleChange = _this.handleChange.bind(_this);
+    _this.onImageDrop = _this.onImageDrop.bind(_this);
+    _this.handleImageUpload = _this.handleImageUpload.bind(_this);
+    _this.deletePhoto = _this.deletePhoto.bind(_this);
+    _this.submitPasswordForm = _this.submitPasswordForm.bind(_this);
+    _this.submitPhoneForm = _this.submitPhoneForm.bind(_this);
+    _this.submitEmailForm = _this.submitEmailForm.bind(_this);
+    _this.checkFormIsValid = _this.checkFormIsValid.bind(_this);
+    return _this;
   }
 
-  handleChange(e) {
-    if (e.target.name === 'reenterNewPassword' && !this.state.reenterPasswordDirty) {
-      this.setState({
-        reenterPasswordDirty: true,
-        savedPassword: false
-      });
-    }
-    if (e.target.name === 'newPassword' || e.target.name === 'oldPassword') {
-      this.setState({
-        savedPassword: false
-      });
-    }
-    if (e.target.name === 'reenterNewEmail' && !this.state.reenterEmailDirty) {
-      this.setState({
-        reenterEmailDirty: true,
-        savedEmail: false
-      });
-    }
-    if (e.target.name === 'newEmail') {
-      this.setState({
-        savedEmail: false
-      });
-    }
-    if (e.target.name === 'newPhone') {
-      this.setState({
-        phoneFormDirty: true,
-        savedPhone: false
-      });
-    }
-
-    this.setState({
-      [e.target.name]: e.target.value
-    });
-  }
-
-  onImageDrop(files) {
-    this.setState({
-      uploadedFile: files[0]
-    });
-
-    this.handleImageUpload(files[0]);
-  }
-
-  handleImageUpload(file) {
-    let upload = _superagent2.default.post(CLOUDINARY_UPLOAD_URL).field('upload_preset', CLOUDINARY_UPLOAD_PRESET).field('file', file);
-    const { requestChangeInfo, username } = this.props;
-    upload.end((err, response) => {
-      if (err) {
-        console.error(err);
-      }
-      let photoURL = response.body.secure_url;
-      if (photoURL && photoURL !== '') {
+  _createClass(Settings, [{
+    key: 'handleChange',
+    value: function handleChange(e) {
+      if (e.target.name === 'reenterNewPassword' && !this.state.reenterPasswordDirty) {
         this.setState({
-          uploadedFileCloudinaryUrl: photoURL
-        });
-        requestChangeInfo({
-          username,
-          photoURL
+          reenterPasswordDirty: true,
+          savedPassword: false
         });
       }
-    });
-  }
-
-  deletePhoto() {
-    const { requestChangeInfo, username } = this.props;
-    this.setState({
-      uploadedFileCloudinaryUrl: '',
-      deletedPhoto: true
-    });
-    requestChangeInfo({
-      username,
-      photoURL: ''
-    });
-  }
-
-  submitPasswordForm(e) {
-    const { oldPassword, newPassword, reenterNewPassword } = this.state;
-    const { requestChangeInfo, username } = this.props;
-
-    e.preventDefault();
-
-    this.setState({
-      oldPassword: '',
-      newPassword: '',
-      reenterNewPassword: '',
-      savedPassword: true
-    });
-
-    requestChangeInfo({
-      username,
-      oldPassword,
-      newPassword,
-      reenterNewPassword
-    });
-  }
-
-  submitPhoneForm(e) {
-    const { newPhone } = this.state;
-    const { requestChangeInfo, username } = this.props;
-
-    e.preventDefault();
-
-    this.setState({
-      savedPhone: true
-    });
-
-    requestChangeInfo({
-      username,
-      newPhone
-    });
-  }
-
-  submitEmailForm(e) {
-    const { newEmail, reenterNewEmail } = this.state;
-    const { requestChangeInfo, username } = this.props;
-
-    e.preventDefault();
-
-    this.setState({
-      newEmail: '',
-      reenterNewEmail: '',
-      savedEmail: true
-    });
-
-    requestChangeInfo({
-      username,
-      newEmail,
-      reenterNewEmail
-    });
-  }
-
-  checkValidationState(form) {
-    const { newEmail, reenterNewEmail, newPassword, reenterNewPassword,
-      reenterEmailDirty, reenterPasswordDirty } = this.state;
-    const { email } = this.props;
-
-    if (form === 'password' && reenterNewPassword === '') return null;
-    if (form === 'email' && reenterNewEmail === '') return null;
-    if (reenterEmailDirty || reenterPasswordDirty) {
-      if (form === 'email' && newEmail === reenterNewEmail || form === 'password' && newPassword === reenterNewPassword) return 'success';
-      return 'error';
-    }
-  }
-
-  checkFormIsValid(form) {
-    const { newEmail, reenterNewEmail, oldPassword, newPassword, reenterNewPassword } = this.state;
-    const { email } = this.props;
-
-    if (form === 'email') return newEmail && reenterNewEmail && newEmail === reenterNewEmail && newEmail !== email;
-    if (form === 'password') {
-      return oldPassword && newPassword && reenterNewPassword && newPassword === reenterNewPassword && (0, _authentication.isPasswordValid)(newPassword) && this.checkValidationState('password');
-    }
-  }
-
-  componentDidUpdate() {
-    if (this.state.uploadedFileCloudinaryUrl !== this.props.photoURL) {
-      if (this.state.deletedPhoto) {
+      if (e.target.name === 'newPassword' || e.target.name === 'oldPassword') {
         this.setState({
-          deletedPhoto: false
-        });
-      } else {
-        this.setState({
-          uploadedFileCloudinaryUrl: this.props.photoURL
+          savedPassword: false
         });
       }
+      if (e.target.name === 'reenterNewEmail' && !this.state.reenterEmailDirty) {
+        this.setState({
+          reenterEmailDirty: true,
+          savedEmail: false
+        });
+      }
+      if (e.target.name === 'newEmail') {
+        this.setState({
+          savedEmail: false
+        });
+      }
+      if (e.target.name === 'newPhone') {
+        this.setState({
+          phoneFormDirty: true,
+          savedPhone: false
+        });
+      }
+
+      this.setState(_defineProperty({}, e.target.name, e.target.value));
     }
-  }
+  }, {
+    key: 'onImageDrop',
+    value: function onImageDrop(files) {
+      this.setState({
+        uploadedFile: files[0]
+      });
 
-  componentDidMount() {
-    scroll.scrollToTop({ duration: 1 });
-  }
+      this.handleImageUpload(files[0]);
+    }
+  }, {
+    key: 'handleImageUpload',
+    value: function handleImageUpload(file) {
+      var _this2 = this;
 
-  render() {
-    const { email, phone, photoURL,
-      isFetchingEmail, errorEmail,
-      isFetchingPhone, errorPhone,
-      isFetchingPassword, errorPassword } = this.props;
-    const { oldPassword, newPassword, reenterNewPassword,
-      newEmail, reenterNewEmail, newPhone, phoneFormDirty,
-      savedPassword, savedEmail, savedPhone,
-      uploadedFileCloudinaryUrl, uploadedFile } = this.state;
-    let validPassword = (0, _authentication.isPasswordValid)(newPassword),
-        doPasswordsMatch = this.checkValidationState('password'),
-        doEmailsMatch = this.checkValidationState('email');
-    return _react2.default.createElement(
-      'div',
-      { className: 'settings' },
-      _react2.default.createElement(
-        _lib.Row,
-        { id: 'settings-header', className: 'settings-row' },
+      var upload = _superagent2.default.post(CLOUDINARY_UPLOAD_URL).field('upload_preset', CLOUDINARY_UPLOAD_PRESET).field('file', file);
+      var _props = this.props,
+          requestChangeInfo = _props.requestChangeInfo,
+          username = _props.username;
+
+      upload.end(function (err, response) {
+        if (err) {
+          console.error(err);
+        }
+        var photoURL = response.body.secure_url;
+        if (photoURL && photoURL !== '') {
+          _this2.setState({
+            uploadedFileCloudinaryUrl: photoURL
+          });
+          requestChangeInfo({
+            username: username,
+            photoURL: photoURL
+          });
+        }
+      });
+    }
+  }, {
+    key: 'deletePhoto',
+    value: function deletePhoto() {
+      var _props2 = this.props,
+          requestChangeInfo = _props2.requestChangeInfo,
+          username = _props2.username;
+
+      this.setState({
+        uploadedFileCloudinaryUrl: '',
+        deletedPhoto: true
+      });
+      requestChangeInfo({
+        username: username,
+        photoURL: ''
+      });
+    }
+  }, {
+    key: 'submitPasswordForm',
+    value: function submitPasswordForm(e) {
+      var _state = this.state,
+          oldPassword = _state.oldPassword,
+          newPassword = _state.newPassword,
+          reenterNewPassword = _state.reenterNewPassword;
+      var _props3 = this.props,
+          requestChangeInfo = _props3.requestChangeInfo,
+          username = _props3.username;
+
+
+      e.preventDefault();
+
+      this.setState({
+        oldPassword: '',
+        newPassword: '',
+        reenterNewPassword: '',
+        savedPassword: true
+      });
+
+      requestChangeInfo({
+        username: username,
+        oldPassword: oldPassword,
+        newPassword: newPassword,
+        reenterNewPassword: reenterNewPassword
+      });
+    }
+  }, {
+    key: 'submitPhoneForm',
+    value: function submitPhoneForm(e) {
+      var newPhone = this.state.newPhone;
+      var _props4 = this.props,
+          requestChangeInfo = _props4.requestChangeInfo,
+          username = _props4.username;
+
+
+      e.preventDefault();
+
+      this.setState({
+        savedPhone: true
+      });
+
+      requestChangeInfo({
+        username: username,
+        newPhone: newPhone
+      });
+    }
+  }, {
+    key: 'submitEmailForm',
+    value: function submitEmailForm(e) {
+      var _state2 = this.state,
+          newEmail = _state2.newEmail,
+          reenterNewEmail = _state2.reenterNewEmail;
+      var _props5 = this.props,
+          requestChangeInfo = _props5.requestChangeInfo,
+          username = _props5.username;
+
+
+      e.preventDefault();
+
+      this.setState({
+        newEmail: '',
+        reenterNewEmail: '',
+        savedEmail: true
+      });
+
+      requestChangeInfo({
+        username: username,
+        newEmail: newEmail,
+        reenterNewEmail: reenterNewEmail
+      });
+    }
+  }, {
+    key: 'checkValidationState',
+    value: function checkValidationState(form) {
+      var _state3 = this.state,
+          newEmail = _state3.newEmail,
+          reenterNewEmail = _state3.reenterNewEmail,
+          newPassword = _state3.newPassword,
+          reenterNewPassword = _state3.reenterNewPassword,
+          reenterEmailDirty = _state3.reenterEmailDirty,
+          reenterPasswordDirty = _state3.reenterPasswordDirty;
+      var email = this.props.email;
+
+
+      if (form === 'password' && reenterNewPassword === '') return null;
+      if (form === 'email' && reenterNewEmail === '') return null;
+      if (reenterEmailDirty || reenterPasswordDirty) {
+        if (form === 'email' && newEmail === reenterNewEmail || form === 'password' && newPassword === reenterNewPassword) return 'success';
+        return 'error';
+      }
+    }
+  }, {
+    key: 'checkFormIsValid',
+    value: function checkFormIsValid(form) {
+      var _state4 = this.state,
+          newEmail = _state4.newEmail,
+          reenterNewEmail = _state4.reenterNewEmail,
+          oldPassword = _state4.oldPassword,
+          newPassword = _state4.newPassword,
+          reenterNewPassword = _state4.reenterNewPassword;
+      var email = this.props.email;
+
+
+      if (form === 'email') return newEmail && reenterNewEmail && newEmail === reenterNewEmail && newEmail !== email;
+      if (form === 'password') {
+        return oldPassword && newPassword && reenterNewPassword && newPassword === reenterNewPassword && (0, _authentication.isPasswordValid)(newPassword) && this.checkValidationState('password');
+      }
+    }
+  }, {
+    key: 'componentDidUpdate',
+    value: function componentDidUpdate() {
+      if (this.state.uploadedFileCloudinaryUrl !== this.props.photoURL) {
+        if (this.state.deletedPhoto) {
+          this.setState({
+            deletedPhoto: false
+          });
+        } else {
+          this.setState({
+            uploadedFileCloudinaryUrl: this.props.photoURL
+          });
+        }
+      }
+    }
+  }, {
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      scroll.scrollToTop({ duration: 1 });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props6 = this.props,
+          email = _props6.email,
+          phone = _props6.phone,
+          photoURL = _props6.photoURL,
+          isFetchingEmail = _props6.isFetchingEmail,
+          errorEmail = _props6.errorEmail,
+          isFetchingPhone = _props6.isFetchingPhone,
+          errorPhone = _props6.errorPhone,
+          isFetchingPassword = _props6.isFetchingPassword,
+          errorPassword = _props6.errorPassword;
+      var _state5 = this.state,
+          oldPassword = _state5.oldPassword,
+          newPassword = _state5.newPassword,
+          reenterNewPassword = _state5.reenterNewPassword,
+          newEmail = _state5.newEmail,
+          reenterNewEmail = _state5.reenterNewEmail,
+          newPhone = _state5.newPhone,
+          phoneFormDirty = _state5.phoneFormDirty,
+          savedPassword = _state5.savedPassword,
+          savedEmail = _state5.savedEmail,
+          savedPhone = _state5.savedPhone,
+          uploadedFileCloudinaryUrl = _state5.uploadedFileCloudinaryUrl,
+          uploadedFile = _state5.uploadedFile;
+
+      var validPassword = (0, _authentication.isPasswordValid)(newPassword),
+          doPasswordsMatch = this.checkValidationState('password'),
+          doEmailsMatch = this.checkValidationState('email');
+      return _react2.default.createElement(
+        'div',
+        { className: 'settings' },
         _react2.default.createElement(
-          'h1',
-          null,
-          'Settings'
-        )
-      ),
-      _react2.default.createElement(
-        _lib.Row,
-        { className: 'settings-row' },
-        _react2.default.createElement(
-          _lib.Col,
-          { sm: 6 },
-          _react2.default.createElement(_Photo2.default, {
-            onImageDrop: this.onImageDrop,
-            uploadedFileCloudinaryUrl: uploadedFileCloudinaryUrl,
-            uploadedFile: uploadedFile,
-            deletePhoto: this.deletePhoto
-          })
+          _lib.Row,
+          { id: 'settings-header', className: 'settings-row' },
+          _react2.default.createElement(
+            'h1',
+            null,
+            'Settings'
+          )
         ),
         _react2.default.createElement(
-          _lib.Col,
-          { sm: 6 },
-          _react2.default.createElement(_Password2.default, {
-            isFetchingPassword: isFetchingPassword,
-            errorPassword: errorPassword,
-            oldPassword: oldPassword,
-            newPassword: newPassword,
-            reenterNewPassword: reenterNewPassword,
-            doPasswordsMatch: doPasswordsMatch,
-            validPassword: validPassword,
-            submitPasswordForm: this.submitPasswordForm,
-            handleChange: this.handleChange,
-            checkFormIsValid: this.checkFormIsValid,
-            savedPassword: savedPassword
-          })
-        )
-      ),
-      _react2.default.createElement(
-        _lib.Row,
-        { className: 'settings-row' },
-        _react2.default.createElement(
-          _lib.Col,
-          { sm: 6, id: 'phone-col' },
-          _react2.default.createElement(_Phone2.default, {
-            submitPhoneForm: this.submitPhoneForm,
-            handleChange: this.handleChange,
-            newPhone: newPhone,
-            phone: phone,
-            phoneFormDirty: phoneFormDirty,
-            isFetchingPhone: isFetchingPhone,
-            errorPhone: errorPhone,
-            savedPhone: savedPhone
-          })
+          _lib.Row,
+          { className: 'settings-row' },
+          _react2.default.createElement(
+            _lib.Col,
+            { sm: 6 },
+            _react2.default.createElement(_Photo2.default, {
+              onImageDrop: this.onImageDrop,
+              uploadedFileCloudinaryUrl: uploadedFileCloudinaryUrl,
+              uploadedFile: uploadedFile,
+              deletePhoto: this.deletePhoto
+            })
+          ),
+          _react2.default.createElement(
+            _lib.Col,
+            { sm: 6 },
+            _react2.default.createElement(_Password2.default, {
+              isFetchingPassword: isFetchingPassword,
+              errorPassword: errorPassword,
+              oldPassword: oldPassword,
+              newPassword: newPassword,
+              reenterNewPassword: reenterNewPassword,
+              doPasswordsMatch: doPasswordsMatch,
+              validPassword: validPassword,
+              submitPasswordForm: this.submitPasswordForm,
+              handleChange: this.handleChange,
+              checkFormIsValid: this.checkFormIsValid,
+              savedPassword: savedPassword
+            })
+          )
         ),
         _react2.default.createElement(
-          _lib.Col,
-          { sm: 6 },
-          _react2.default.createElement(_Email2.default, {
-            submitEmailForm: this.submitEmailForm,
-            handleChange: this.handleChange,
-            checkFormIsValid: this.checkFormIsValid,
-            email: email,
-            newEmail: newEmail,
-            reenterNewEmail: reenterNewEmail,
-            doEmailsMatch: doEmailsMatch,
-            isFetchingEmail: isFetchingEmail,
-            errorEmail: errorEmail,
-            savedEmail: savedEmail
-          })
+          _lib.Row,
+          { className: 'settings-row' },
+          _react2.default.createElement(
+            _lib.Col,
+            { sm: 6, id: 'phone-col' },
+            _react2.default.createElement(_Phone2.default, {
+              submitPhoneForm: this.submitPhoneForm,
+              handleChange: this.handleChange,
+              newPhone: newPhone,
+              phone: phone,
+              phoneFormDirty: phoneFormDirty,
+              isFetchingPhone: isFetchingPhone,
+              errorPhone: errorPhone,
+              savedPhone: savedPhone
+            })
+          ),
+          _react2.default.createElement(
+            _lib.Col,
+            { sm: 6 },
+            _react2.default.createElement(_Email2.default, {
+              submitEmailForm: this.submitEmailForm,
+              handleChange: this.handleChange,
+              checkFormIsValid: this.checkFormIsValid,
+              email: email,
+              newEmail: newEmail,
+              reenterNewEmail: reenterNewEmail,
+              doEmailsMatch: doEmailsMatch,
+              isFetchingEmail: isFetchingEmail,
+              errorEmail: errorEmail,
+              savedEmail: savedEmail
+            })
+          )
         )
-      )
-    );
-  }
-};
+      );
+    }
+  }]);
+
+  return Settings;
+}(_react.Component);
+
 exports.default = Settings;
 
 /***/ }),
@@ -83849,8 +84453,12 @@ __webpack_require__(1077);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = props => {
-	const { onImageDrop, uploadedFileCloudinaryUrl, uploadedFile, deletePhoto } = props;
+exports.default = function (props) {
+	var onImageDrop = props.onImageDrop,
+	    uploadedFileCloudinaryUrl = props.uploadedFileCloudinaryUrl,
+	    uploadedFile = props.uploadedFile,
+	    deletePhoto = props.deletePhoto;
+
 	return _react2.default.createElement(
 		_lib.Panel,
 		null,
@@ -84857,10 +85465,19 @@ var _Spinner2 = _interopRequireDefault(_Spinner);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = props => {
-		let { isFetchingPassword, errorPassword, oldPassword, savedPassword,
-				newPassword, reenterNewPassword, doPasswordsMatch, validPassword,
-				submitPasswordForm, handleChange, checkFormIsValid } = props;
+exports.default = function (props) {
+		var isFetchingPassword = props.isFetchingPassword,
+		    errorPassword = props.errorPassword,
+		    oldPassword = props.oldPassword,
+		    savedPassword = props.savedPassword,
+		    newPassword = props.newPassword,
+		    reenterNewPassword = props.reenterNewPassword,
+		    doPasswordsMatch = props.doPasswordsMatch,
+		    validPassword = props.validPassword,
+		    submitPasswordForm = props.submitPasswordForm,
+		    handleChange = props.handleChange,
+		    checkFormIsValid = props.checkFormIsValid;
+
 		return _react2.default.createElement(
 				_lib.Panel,
 				null,
@@ -84985,9 +85602,16 @@ var _reactMaskedinput2 = _interopRequireDefault(_reactMaskedinput);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = props => {
-  let { submitPhoneForm, handleChange, newPhone, phone,
-    phoneFormDirty, isFetchingPhone, errorPhone, savedPhone } = props;
+exports.default = function (props) {
+  var submitPhoneForm = props.submitPhoneForm,
+      handleChange = props.handleChange,
+      newPhone = props.newPhone,
+      phone = props.phone,
+      phoneFormDirty = props.phoneFormDirty,
+      isFetchingPhone = props.isFetchingPhone,
+      errorPhone = props.errorPhone,
+      savedPhone = props.savedPhone;
+
   return _react2.default.createElement(
     _lib.Panel,
     null,
@@ -85062,9 +85686,18 @@ var _Spinner2 = _interopRequireDefault(_Spinner);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = props => {
-  let { email, newEmail, reenterNewEmail, submitEmailForm, handleChange,
-    checkFormIsValid, doEmailsMatch, isFetchingEmail, errorEmail, savedEmail } = props;
+exports.default = function (props) {
+  var email = props.email,
+      newEmail = props.newEmail,
+      reenterNewEmail = props.reenterNewEmail,
+      submitEmailForm = props.submitEmailForm,
+      handleChange = props.handleChange,
+      checkFormIsValid = props.checkFormIsValid,
+      doEmailsMatch = props.doEmailsMatch,
+      isFetchingEmail = props.isFetchingEmail,
+      errorEmail = props.errorEmail,
+      savedEmail = props.savedEmail;
+
   return _react2.default.createElement(
     _lib.Panel,
     null,
@@ -85148,14 +85781,13 @@ exports.default = props => {
 };
 
 /***/ }),
-/* 1082 */,
-/* 1083 */
+/* 1082 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(1084);
+var content = __webpack_require__(1083);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -85180,7 +85812,7 @@ if(false) {
 }
 
 /***/ }),
-/* 1084 */
+/* 1083 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(50)(undefined);
@@ -85194,7 +85826,7 @@ exports.push([module.i, "#settings-header {\n  padding-top: 95px;\n  background-
 
 
 /***/ }),
-/* 1085 */
+/* 1084 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -85206,23 +85838,236 @@ Object.defineProperty(exports, "__esModule", {
 
 var _reactRedux = __webpack_require__(61);
 
-var _component = __webpack_require__(1086);
+var _component = __webpack_require__(1085);
 
 var _component2 = _interopRequireDefault(_component);
 
-__webpack_require__(1117);
+__webpack_require__(1116);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-const mapStateToProps = state => {
+var mapStateToProps = function mapStateToProps(state) {
   return {};
 };
 
-const mapDispatchToProps = dispatch => {
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {};
 };
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_component2.default);
+
+/***/ }),
+/* 1085 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _lib = __webpack_require__(43);
+
+var _Map = __webpack_require__(1086);
+
+var _Map2 = _interopRequireDefault(_Map);
+
+var _EmailForm = __webpack_require__(1107);
+
+var _EmailForm2 = _interopRequireDefault(_EmailForm);
+
+var _reactScroll = __webpack_require__(121);
+
+var _reactScroll2 = _interopRequireDefault(_reactScroll);
+
+var _team = __webpack_require__(1111);
+
+var _team2 = _interopRequireDefault(_team);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var scroll = _reactScroll2.default.animateScroll;
+
+var About = function (_Component) {
+  _inherits(About, _Component);
+
+  function About(props) {
+    _classCallCheck(this, About);
+
+    var _this = _possibleConstructorReturn(this, (About.__proto__ || Object.getPrototypeOf(About)).call(this, props));
+
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(About, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      // React 'saves' the current scroll position from the previous view, which is not what we want
+      // Scroll back to the very top
+      scroll.scrollToTop({ duration: 1 });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+          _lib.Row,
+          { id: 'about', className: 'standard-div' },
+          _react2.default.createElement(
+            _lib.Row,
+            null,
+            _react2.default.createElement(
+              'h1',
+              null,
+              'About Us'
+            ),
+            _react2.default.createElement('hr', null)
+          ),
+          _react2.default.createElement(
+            _lib.Row,
+            null,
+            _react2.default.createElement(
+              'h2',
+              null,
+              'Our Team'
+            )
+          ),
+          _react2.default.createElement(
+            _lib.Row,
+            { id: 'team' },
+            Object.keys(_team2.default).map(function (key, index) {
+              var member = _team2.default[key];
+              var id = "member" + (index + 1);
+              return _react2.default.createElement(
+                _lib.Col,
+                { md: 4, className: 'team-member', key: id },
+                _react2.default.createElement('img', { src: __webpack_require__(1112)("./pic" + (index + 1) + '.png') }),
+                _react2.default.createElement(
+                  'div',
+                  { className: 'team-name' },
+                  member.name
+                ),
+                _react2.default.createElement(
+                  'div',
+                  { className: 'team-role' },
+                  member.role
+                ),
+                _react2.default.createElement(
+                  'p',
+                  { className: 'team-description' },
+                  member.description
+                ),
+
+                // For the very last 'team member' (Other staff),
+                // also include an extra role for the business team.
+                member.role2 && member.description2 && _react2.default.createElement(
+                  'div',
+                  null,
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'team-role' },
+                    member.role2
+                  ),
+                  _react2.default.createElement(
+                    'p',
+                    { className: 'team-description' },
+                    member.description2
+                  )
+                )
+              );
+            })
+          )
+        ),
+        _react2.default.createElement(
+          _lib.Row,
+          { id: 'contact', className: 'standard-div' },
+          _react2.default.createElement(
+            _lib.Col,
+            { sm: 6 },
+            _react2.default.createElement(
+              'h2',
+              null,
+              'Contact Us'
+            ),
+            _react2.default.createElement(
+              'ul',
+              null,
+              _react2.default.createElement(
+                _lib.Row,
+                null,
+                _react2.default.createElement('i', { className: 'fa fa-map-marker fa-lg' }),
+                ' Address',
+                _react2.default.createElement(
+                  'p',
+                  null,
+                  '59-58 56th Ave ',
+                  _react2.default.createElement('br', null),
+                  'Maspeth, NY 11378'
+                )
+              ),
+              _react2.default.createElement('p', null),
+              _react2.default.createElement(
+                _lib.Row,
+                null,
+                _react2.default.createElement('i', { className: 'fa fa-phone fa-lg' }),
+                ' Phone',
+                _react2.default.createElement(
+                  'p',
+                  null,
+                  '(347) 612-4006'
+                )
+              ),
+              _react2.default.createElement('p', null),
+              _react2.default.createElement(
+                _lib.Row,
+                null,
+                _react2.default.createElement('i', { className: 'fa fa-fax fa-lg' }),
+                ' Fax',
+                _react2.default.createElement(
+                  'p',
+                  null,
+                  '(718) 456-7090'
+                )
+              )
+            ),
+            _react2.default.createElement(_Map2.default, null)
+          ),
+          _react2.default.createElement(
+            _lib.Col,
+            { sm: 6, className: 'email-col' },
+            _react2.default.createElement(
+              'h2',
+              null,
+              'Send us an Email'
+            ),
+            _react2.default.createElement(_EmailForm2.default, null)
+          )
+        )
+      );
+    }
+  }]);
+
+  return About;
+}(_react.Component);
+
+exports.default = About;
 
 /***/ }),
 /* 1086 */
@@ -85236,197 +86081,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = undefined;
 
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _lib = __webpack_require__(43);
-
-var _Map = __webpack_require__(1087);
-
-var _Map2 = _interopRequireDefault(_Map);
-
-var _EmailForm = __webpack_require__(1108);
-
-var _EmailForm2 = _interopRequireDefault(_EmailForm);
-
-var _reactScroll = __webpack_require__(121);
-
-var _reactScroll2 = _interopRequireDefault(_reactScroll);
-
-var _team = __webpack_require__(1112);
-
-var _team2 = _interopRequireDefault(_team);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var scroll = _reactScroll2.default.animateScroll;
-
-let About = class About extends _react.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
-  componentDidMount() {
-    // React 'saves' the current scroll position from the previous view, which is not what we want
-    // Scroll back to the very top
-    scroll.scrollToTop({ duration: 1 });
-  }
-
-  render() {
-    return _react2.default.createElement(
-      'div',
-      null,
-      _react2.default.createElement(
-        _lib.Row,
-        { id: 'about', className: 'standard-div' },
-        _react2.default.createElement(
-          _lib.Row,
-          null,
-          _react2.default.createElement(
-            'h1',
-            null,
-            'About Us'
-          ),
-          _react2.default.createElement('hr', null)
-        ),
-        _react2.default.createElement(
-          _lib.Row,
-          null,
-          _react2.default.createElement(
-            'h2',
-            null,
-            'Our Team'
-          )
-        ),
-        _react2.default.createElement(
-          _lib.Row,
-          { id: 'team' },
-          Object.keys(_team2.default).map((key, index) => {
-            let member = _team2.default[key];
-            let id = "member" + (index + 1);
-            return _react2.default.createElement(
-              _lib.Col,
-              { md: 4, className: 'team-member', key: id },
-              _react2.default.createElement('img', { src: __webpack_require__(1113)("./pic" + (index + 1) + '.png') }),
-              _react2.default.createElement(
-                'div',
-                { className: 'team-name' },
-                member.name
-              ),
-              _react2.default.createElement(
-                'div',
-                { className: 'team-role' },
-                member.role
-              ),
-              _react2.default.createElement(
-                'p',
-                { className: 'team-description' },
-                member.description
-              ),
-
-              // For the very last 'team member' (Other staff),
-              // also include an extra role for the business team.
-              member.role2 && member.description2 && _react2.default.createElement(
-                'div',
-                null,
-                _react2.default.createElement(
-                  'div',
-                  { className: 'team-role' },
-                  member.role2
-                ),
-                _react2.default.createElement(
-                  'p',
-                  { className: 'team-description' },
-                  member.description2
-                )
-              )
-            );
-          })
-        )
-      ),
-      _react2.default.createElement(
-        _lib.Row,
-        { id: 'contact', className: 'standard-div' },
-        _react2.default.createElement(
-          _lib.Col,
-          { sm: 6 },
-          _react2.default.createElement(
-            'h2',
-            null,
-            'Contact Us'
-          ),
-          _react2.default.createElement(
-            'ul',
-            null,
-            _react2.default.createElement(
-              _lib.Row,
-              null,
-              _react2.default.createElement('i', { className: 'fa fa-map-marker fa-lg' }),
-              ' Address',
-              _react2.default.createElement(
-                'p',
-                null,
-                '59-58 56th Ave ',
-                _react2.default.createElement('br', null),
-                'Maspeth, NY 11378'
-              )
-            ),
-            _react2.default.createElement('p', null),
-            _react2.default.createElement(
-              _lib.Row,
-              null,
-              _react2.default.createElement('i', { className: 'fa fa-phone fa-lg' }),
-              ' Phone',
-              _react2.default.createElement(
-                'p',
-                null,
-                '(347) 612-4006'
-              )
-            ),
-            _react2.default.createElement('p', null),
-            _react2.default.createElement(
-              _lib.Row,
-              null,
-              _react2.default.createElement('i', { className: 'fa fa-fax fa-lg' }),
-              ' Fax',
-              _react2.default.createElement(
-                'p',
-                null,
-                '(718) 456-7090'
-              )
-            )
-          ),
-          _react2.default.createElement(_Map2.default, null)
-        ),
-        _react2.default.createElement(
-          _lib.Col,
-          { sm: 6, className: 'email-col' },
-          _react2.default.createElement(
-            'h2',
-            null,
-            'Send us an Email'
-          ),
-          _react2.default.createElement(_EmailForm2.default, null)
-        )
-      )
-    );
-  }
-};
-exports.default = About;
-
-/***/ }),
-/* 1087 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = undefined;
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _class, _temp;
 
@@ -85434,15 +86089,24 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _googleMapReact = __webpack_require__(1088);
+var _googleMapReact = __webpack_require__(1087);
 
 var _googleMapReact2 = _interopRequireDefault(_googleMapReact);
 
-__webpack_require__(1106);
+__webpack_require__(1105);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-const Marker = ({ line1, line2 }) => {
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Marker = function Marker(_ref) {
+  var line1 = _ref.line1,
+      line2 = _ref.line2;
+
   return _react2.default.createElement(
     'div',
     { className: 'marker' },
@@ -85464,38 +86128,50 @@ const Marker = ({ line1, line2 }) => {
   );
 };
 
-const lat = 40.7249712;
-const lng = -73.9069504;
+var lat = 40.7249712;
+var lng = -73.9069504;
 
-let SetGoogleMap = (_temp = _class = class SetGoogleMap extends _react.Component {
+var SetGoogleMap = (_temp = _class = function (_Component) {
+  _inherits(SetGoogleMap, _Component);
 
-  render() {
-    return _react2.default.createElement(
-      'div',
-      { id: 'google-map' },
-      _react2.default.createElement(
-        _googleMapReact2.default,
-        {
-          defaultCenter: this.props.center,
-          defaultZoom: this.props.zoom
-        },
-        _react2.default.createElement(Marker, {
-          lat: lat,
-          lng: lng,
-          line1: '59-58 56th Ave',
-          line2: 'Maspeth, NY 11378'
-        })
-      )
-    );
+  function SetGoogleMap() {
+    _classCallCheck(this, SetGoogleMap);
+
+    return _possibleConstructorReturn(this, (SetGoogleMap.__proto__ || Object.getPrototypeOf(SetGoogleMap)).apply(this, arguments));
   }
-}, _class.defaultProps = {
+
+  _createClass(SetGoogleMap, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { id: 'google-map' },
+        _react2.default.createElement(
+          _googleMapReact2.default,
+          {
+            defaultCenter: this.props.center,
+            defaultZoom: this.props.zoom
+          },
+          _react2.default.createElement(Marker, {
+            lat: lat,
+            lng: lng,
+            line1: '59-58 56th Ave',
+            line2: 'Maspeth, NY 11378'
+          })
+        )
+      );
+    }
+  }]);
+
+  return SetGoogleMap;
+}(_react.Component), _class.defaultProps = {
   center: { lat: lat, lng: lng },
   zoom: 13
 }, _temp);
 exports.default = SetGoogleMap;
 
 /***/ }),
-/* 1088 */
+/* 1087 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -85506,7 +86182,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = undefined;
 
-var _google_map = __webpack_require__(1089);
+var _google_map = __webpack_require__(1088);
 
 var _google_map2 = _interopRequireDefault(_google_map);
 
@@ -85515,7 +86191,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 exports.default = _google_map2.default;
 
 /***/ }),
-/* 1089 */
+/* 1088 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -85545,11 +86221,11 @@ var _shallowEqual = __webpack_require__(130);
 
 var _shallowEqual2 = _interopRequireDefault(_shallowEqual);
 
-var _marker_dispatcher = __webpack_require__(1090);
+var _marker_dispatcher = __webpack_require__(1089);
 
 var _marker_dispatcher2 = _interopRequireDefault(_marker_dispatcher);
 
-var _google_map_map = __webpack_require__(1092);
+var _google_map_map = __webpack_require__(1091);
 
 var _google_map_map2 = _interopRequireDefault(_google_map_map);
 
@@ -85557,43 +86233,43 @@ var _google_map_markers = __webpack_require__(435);
 
 var _google_map_markers2 = _interopRequireDefault(_google_map_markers);
 
-var _google_map_markers_prerender = __webpack_require__(1093);
+var _google_map_markers_prerender = __webpack_require__(1092);
 
 var _google_map_markers_prerender2 = _interopRequireDefault(_google_map_markers_prerender);
 
-var _google_map_loader = __webpack_require__(1094);
+var _google_map_loader = __webpack_require__(1093);
 
 var _google_map_loader2 = _interopRequireDefault(_google_map_loader);
 
-var _detect = __webpack_require__(1096);
+var _detect = __webpack_require__(1095);
 
 var _detect2 = _interopRequireDefault(_detect);
 
-var _geo = __webpack_require__(1097);
+var _geo = __webpack_require__(1096);
 
 var _geo2 = _interopRequireDefault(_geo);
 
-var _array_helper = __webpack_require__(1099);
+var _array_helper = __webpack_require__(1098);
 
 var _array_helper2 = _interopRequireDefault(_array_helper);
 
-var _is_plain_object = __webpack_require__(1100);
+var _is_plain_object = __webpack_require__(1099);
 
 var _is_plain_object2 = _interopRequireDefault(_is_plain_object);
 
-var _pick = __webpack_require__(1101);
+var _pick = __webpack_require__(1100);
 
 var _pick2 = _interopRequireDefault(_pick);
 
-var _raf = __webpack_require__(1102);
+var _raf = __webpack_require__(1101);
 
 var _raf2 = _interopRequireDefault(_raf);
 
-var _log = __webpack_require__(1103);
+var _log = __webpack_require__(1102);
 
 var _log2 = _interopRequireDefault(_log);
 
-var _isNumber = __webpack_require__(1104);
+var _isNumber = __webpack_require__(1103);
 
 var _isNumber2 = _interopRequireDefault(_isNumber);
 
@@ -85601,7 +86277,7 @@ var _omit = __webpack_require__(436);
 
 var _omit2 = _interopRequireDefault(_omit);
 
-var _detectElementResize = __webpack_require__(1105);
+var _detectElementResize = __webpack_require__(1104);
 
 var _detectElementResize2 = _interopRequireDefault(_detectElementResize);
 
@@ -86569,7 +87245,7 @@ exports.default = GoogleMap;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
 
 /***/ }),
-/* 1090 */
+/* 1089 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -86581,7 +87257,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _eventemitter = __webpack_require__(1091);
+var _eventemitter = __webpack_require__(1090);
 
 var _eventemitter2 = _interopRequireDefault(_eventemitter);
 
@@ -86634,7 +87310,7 @@ var MarkerDispatcher = function (_EventEmitter) {
 exports.default = MarkerDispatcher;
 
 /***/ }),
-/* 1091 */
+/* 1090 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -86930,7 +87606,7 @@ if (true) {
 
 
 /***/ }),
-/* 1092 */
+/* 1091 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -86993,7 +87669,7 @@ var GoogleMapMap = function (_Component) {
 exports.default = GoogleMapMap;
 
 /***/ }),
-/* 1093 */
+/* 1092 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -87035,7 +87711,7 @@ var style = {
 };
 
 /***/ }),
-/* 1094 */
+/* 1093 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -87058,7 +87734,7 @@ var _customPromise = new Promise(function (resolve) {
 // TODO add libraries language and other map options
 function googleMapLoader(bootstrapURLKeys) {
   if (!$script_) {
-    $script_ = __webpack_require__(1095); // eslint-disable-line
+    $script_ = __webpack_require__(1094); // eslint-disable-line
   }
 
   // call from outside google-map-react
@@ -87115,7 +87791,7 @@ function googleMapLoader(bootstrapURLKeys) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
 
 /***/ }),
-/* 1095 */
+/* 1094 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -87248,7 +87924,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 
 
 /***/ }),
-/* 1096 */
+/* 1095 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -87304,7 +87980,7 @@ function detectBrowser() {
 }
 
 /***/ }),
-/* 1097 */
+/* 1096 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -87326,7 +88002,7 @@ var _lat_lng = __webpack_require__(438);
 
 var _lat_lng2 = _interopRequireDefault(_lat_lng);
 
-var _transform = __webpack_require__(1098);
+var _transform = __webpack_require__(1097);
 
 var _transform2 = _interopRequireDefault(_transform);
 
@@ -87464,7 +88140,7 @@ var Geo = function () {
 exports.default = Geo;
 
 /***/ }),
-/* 1098 */
+/* 1097 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -87646,7 +88322,7 @@ var Transform = function () {
 exports.default = Transform;
 
 /***/ }),
-/* 1099 */
+/* 1098 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -87669,7 +88345,7 @@ function isArraysEqualEps(arrayA, arrayB, eps) {
 }
 
 /***/ }),
-/* 1100 */
+/* 1099 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -87708,7 +88384,7 @@ function isPlainObject(obj) {
 }
 
 /***/ }),
-/* 1101 */
+/* 1100 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -87730,7 +88406,7 @@ function pick(obj, fn) {
 }
 
 /***/ }),
-/* 1102 */
+/* 1101 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -87751,7 +88427,7 @@ function raf(callback) {
 }
 
 /***/ }),
-/* 1103 */
+/* 1102 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -87767,7 +88443,7 @@ var log2 = Math.log2 ? Math.log2 : function (x) {
 exports.default = log2;
 
 /***/ }),
-/* 1104 */
+/* 1103 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -87792,7 +88468,7 @@ function isNumber(value) {
 }
 
 /***/ }),
-/* 1105 */
+/* 1104 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -87971,13 +88647,13 @@ module.exports = {
 };
 
 /***/ }),
-/* 1106 */
+/* 1105 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(1107);
+var content = __webpack_require__(1106);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -88002,7 +88678,7 @@ if(false) {
 }
 
 /***/ }),
-/* 1107 */
+/* 1106 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(50)(undefined);
@@ -88016,7 +88692,7 @@ exports.push([module.i, "#google-map {\n  width: 100%;\n  height: 350px; }\n\n.m
 
 
 /***/ }),
-/* 1108 */
+/* 1107 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -88028,13 +88704,13 @@ Object.defineProperty(exports, "__esModule", {
 
 var _reactRedux = __webpack_require__(61);
 
-var _component = __webpack_require__(1109);
+var _component = __webpack_require__(1108);
 
 var _component2 = _interopRequireDefault(_component);
 
 var _user = __webpack_require__(168);
 
-__webpack_require__(1110);
+__webpack_require__(1109);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -88051,14 +88727,16 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    requestSendEmail: formInfo => dispatch((0, _user.requestSendEmail)(formInfo))
+    requestSendEmail: function requestSendEmail(formInfo) {
+      return dispatch((0, _user.requestSendEmail)(formInfo));
+    }
   };
 }
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_component2.default);
 
 /***/ }),
-/* 1109 */
+/* 1108 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -88068,6 +88746,8 @@ Object.defineProperty(exports, "__esModule", {
 		value: true
 });
 exports.default = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = __webpack_require__(0);
 
@@ -88087,10 +88767,23 @@ var _reactMaskedinput2 = _interopRequireDefault(_reactMaskedinput);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-let EmailForm = class EmailForm extends _react.Component {
-		constructor(props) {
-				super(props);
-				this.state = {
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var EmailForm = function (_Component) {
+		_inherits(EmailForm, _Component);
+
+		function EmailForm(props) {
+				_classCallCheck(this, EmailForm);
+
+				var _this = _possibleConstructorReturn(this, (EmailForm.__proto__ || Object.getPrototypeOf(EmailForm)).call(this, props));
+
+				_this.state = {
 						name: '',
 						email: '',
 						phone: '',
@@ -88098,216 +88791,253 @@ let EmailForm = class EmailForm extends _react.Component {
 						message: '',
 						sentEmail: false
 				};
-				this.handleChange = this.handleChange.bind(this);
-				this.submitEmailForm = this.submitEmailForm.bind(this);
-				this.checkFormIsValid = this.checkFormIsValid.bind(this);
+				_this.handleChange = _this.handleChange.bind(_this);
+				_this.submitEmailForm = _this.submitEmailForm.bind(_this);
+				_this.checkFormIsValid = _this.checkFormIsValid.bind(_this);
+				return _this;
 		}
 
-		handleChange(e) {
-				this.setState({
-						[e.target.name]: e.target.value,
-						sentEmail: false
-				});
-		}
+		_createClass(EmailForm, [{
+				key: 'handleChange',
+				value: function handleChange(e) {
+						var _setState;
 
-		submitEmailForm(e) {
-				const { name, email, phone, subject, message } = this.state;
-				const { requestSendEmail } = this.props;
+						this.setState((_setState = {}, _defineProperty(_setState, e.target.name, e.target.value), _defineProperty(_setState, 'sentEmail', false), _setState));
+				}
+		}, {
+				key: 'submitEmailForm',
+				value: function submitEmailForm(e) {
+						var _state = this.state,
+						    name = _state.name,
+						    email = _state.email,
+						    phone = _state.phone,
+						    subject = _state.subject,
+						    message = _state.message;
+						var requestSendEmail = this.props.requestSendEmail;
 
-				e.preventDefault();
 
-				this.setState({
-						sentEmail: true,
-						isFetching: true
-				});
+						e.preventDefault();
 
-				requestSendEmail({
-						name,
-						email,
-						phone,
-						subject,
-						message
-				});
-		}
-
-		checkFormIsValid() {
-				const { name, email, phone, subject, message } = this.state;
-
-				return ((0, _authentication.isPhoneNumber)(phone) && phone || !phone) && name && email && subject && message;
-		}
-
-		fillOutForm() {
-				if (!this.state.firstName && this.props.firstName) {
 						this.setState({
-								firstName: this.props.firstName,
-								lastName: this.props.lastName,
-								name: this.props.firstName + ' ' + this.props.lastName || '',
-								email: this.props.email,
-								phone: this.props.phone,
-								subject: '',
-								message: '',
-								sentEmail: false
+								sentEmail: true,
+								isFetching: true
+						});
+
+						requestSendEmail({
+								name: name,
+								email: email,
+								phone: phone,
+								subject: subject,
+								message: message
 						});
 				}
-		}
+		}, {
+				key: 'checkFormIsValid',
+				value: function checkFormIsValid() {
+						var _state2 = this.state,
+						    name = _state2.name,
+						    email = _state2.email,
+						    phone = _state2.phone,
+						    subject = _state2.subject,
+						    message = _state2.message;
 
-		componentDidUpdate() {
-				this.fillOutForm.bind(this)();
-		}
 
-		componentWillMount() {
-				this.fillOutForm.bind(this)();
-		}
+						return ((0, _authentication.isPhoneNumber)(phone) && phone || !phone) && name && email && subject && message;
+				}
+		}, {
+				key: 'fillOutForm',
+				value: function fillOutForm() {
+						if (!this.state.firstName && this.props.firstName) {
+								this.setState({
+										firstName: this.props.firstName,
+										lastName: this.props.lastName,
+										name: this.props.firstName + ' ' + this.props.lastName || '',
+										email: this.props.email,
+										phone: this.props.phone,
+										subject: '',
+										message: '',
+										sentEmail: false
+								});
+						}
+				}
+		}, {
+				key: 'componentDidUpdate',
+				value: function componentDidUpdate() {
+						this.fillOutForm.bind(this)();
+				}
+		}, {
+				key: 'componentWillMount',
+				value: function componentWillMount() {
+						this.fillOutForm.bind(this)();
+				}
+		}, {
+				key: 'componentDidMount',
+				value: function componentDidMount() {
+						this.changeFormPadding();
+						window.addEventListener('resize', this.changeFormPadding);
+				}
+		}, {
+				key: 'changeFormPadding',
+				value: function changeFormPadding() {
+						var cols = document.getElementsByClassName('col-sm-4');
+						Array.from(cols).forEach(function (col) {
+								if (window.innerWidth < 768) col.style.padding = '0';else col.style.padding = '4%';
+						});
+				}
+		}, {
+				key: 'render',
+				value: function render() {
+						var _state3 = this.state,
+						    name = _state3.name,
+						    email = _state3.email,
+						    phone = _state3.phone,
+						    subject = _state3.subject,
+						    message = _state3.message,
+						    sentEmail = _state3.sentEmail;
+						var _props = this.props,
+						    isFetching = _props.isFetching,
+						    error = _props.error;
+						var submitEmailForm = this.submitEmailForm,
+						    handleChange = this.handleChange,
+						    checkFormIsValid = this.checkFormIsValid;
 
-		componentDidMount() {
-				this.changeFormPadding();
-				window.addEventListener('resize', this.changeFormPadding);
-		}
-
-		changeFormPadding() {
-				let cols = document.getElementsByClassName('col-sm-4');
-				Array.from(cols).forEach(col => {
-						if (window.innerWidth < 768) col.style.padding = '0';else col.style.padding = '4%';
-				});
-		}
-
-		render() {
-				let { name, email, phone, subject, message, sentEmail } = this.state;
-				const { isFetching, error } = this.props;
-				const { submitEmailForm, handleChange, checkFormIsValid } = this;
-				return _react2.default.createElement(
-						_lib.Form,
-						{ onSubmit: submitEmailForm },
-						_react2.default.createElement(
-								_lib.Col,
-								{ sm: 4, id: 'email-form-name' },
+						return _react2.default.createElement(
+								_lib.Form,
+								{ onSubmit: submitEmailForm },
+								_react2.default.createElement(
+										_lib.Col,
+										{ sm: 4, id: 'email-form-name' },
+										_react2.default.createElement(
+												_lib.FormGroup,
+												null,
+												_react2.default.createElement(
+														_lib.ControlLabel,
+														null,
+														'Name *'
+												),
+												_react2.default.createElement(_lib.FormControl, {
+														name: 'name',
+														type: 'text',
+														value: name,
+														onChange: handleChange
+												})
+										)
+								),
+								_react2.default.createElement(
+										_lib.Col,
+										{ sm: 4, id: 'email-form-email' },
+										_react2.default.createElement(
+												_lib.FormGroup,
+												null,
+												_react2.default.createElement(
+														_lib.ControlLabel,
+														null,
+														'Email *'
+												),
+												_react2.default.createElement(_lib.FormControl, {
+														name: 'email',
+														type: 'email',
+														value: email,
+														onChange: handleChange
+												})
+										)
+								),
+								_react2.default.createElement(
+										_lib.Col,
+										{ sm: 4, id: 'email-form-phone' },
+										_react2.default.createElement(
+												_lib.FormGroup,
+												null,
+												_react2.default.createElement(
+														_lib.ControlLabel,
+														null,
+														'Phone'
+												),
+												_react2.default.createElement(_reactMaskedinput2.default, {
+														className: 'form-control',
+														mask: '(111) 111-1111',
+														placeholder: '(123) 456-7890',
+														name: 'phone',
+														value: phone,
+														onChange: handleChange
+												})
+										)
+								),
 								_react2.default.createElement(
 										_lib.FormGroup,
 										null,
 										_react2.default.createElement(
 												_lib.ControlLabel,
 												null,
-												'Name *'
+												'Subject *'
 										),
 										_react2.default.createElement(_lib.FormControl, {
-												name: 'name',
+												name: 'subject',
 												type: 'text',
-												value: name,
+												value: subject,
 												onChange: handleChange
 										})
-								)
-						),
-						_react2.default.createElement(
-								_lib.Col,
-								{ sm: 4, id: 'email-form-email' },
+								),
+								_react2.default.createElement(
+										_lib.Col,
+										{ id: 'email-form-message' },
+										_react2.default.createElement(
+												_lib.FormGroup,
+												null,
+												_react2.default.createElement(
+														_lib.ControlLabel,
+														null,
+														'Message *'
+												),
+												_react2.default.createElement(_lib.FormControl, {
+														name: 'message',
+														componentClass: 'textarea',
+														value: message,
+														onChange: handleChange
+												})
+										)
+								),
 								_react2.default.createElement(
 										_lib.FormGroup,
-										null,
+										{ validationState: 'error', className: 'auth-form-error' },
 										_react2.default.createElement(
-												_lib.ControlLabel,
-												null,
-												'Email *'
+												_lib.Button,
+												{ className: 'button button-green', id: 'email-form-button', type: 'submit', disabled: !checkFormIsValid(), bsStyle: 'success' },
+												isFetching ? _react2.default.createElement(_Spinner2.default, null) : 'Send Email Message'
 										),
-										_react2.default.createElement(_lib.FormControl, {
-												name: 'email',
-												type: 'email',
-												value: email,
-												onChange: handleChange
-										})
-								)
-						),
-						_react2.default.createElement(
-								_lib.Col,
-								{ sm: 4, id: 'email-form-phone' },
-								_react2.default.createElement(
-										_lib.FormGroup,
-										null,
+										sentEmail && !isFetching && !error && _react2.default.createElement(
+												_lib.ControlLabel,
+												{ className: 'email-form-response auth-form-message-success' },
+												'Sent!'
+										),
+										!isFetching && error && _react2.default.createElement(
+												_lib.ControlLabel,
+												{ className: 'auth-form-message-error email-form-response' },
+												error.message
+										),
 										_react2.default.createElement(
-												_lib.ControlLabel,
-												null,
-												'Phone'
-										),
-										_react2.default.createElement(_reactMaskedinput2.default, {
-												className: 'form-control',
-												mask: '(111) 111-1111',
-												placeholder: '(123) 456-7890',
-												name: 'phone',
-												value: phone,
-												onChange: handleChange
-										})
+												'p',
+												{ id: 'email-form-required' },
+												'*Required fields'
+										)
 								)
-						),
-						_react2.default.createElement(
-								_lib.FormGroup,
-								null,
-								_react2.default.createElement(
-										_lib.ControlLabel,
-										null,
-										'Subject *'
-								),
-								_react2.default.createElement(_lib.FormControl, {
-										name: 'subject',
-										type: 'text',
-										value: subject,
-										onChange: handleChange
-								})
-						),
-						_react2.default.createElement(
-								_lib.Col,
-								{ id: 'email-form-message' },
-								_react2.default.createElement(
-										_lib.FormGroup,
-										null,
-										_react2.default.createElement(
-												_lib.ControlLabel,
-												null,
-												'Message *'
-										),
-										_react2.default.createElement(_lib.FormControl, {
-												name: 'message',
-												componentClass: 'textarea',
-												value: message,
-												onChange: handleChange
-										})
-								)
-						),
-						_react2.default.createElement(
-								_lib.FormGroup,
-								{ validationState: 'error', className: 'auth-form-error' },
-								_react2.default.createElement(
-										_lib.Button,
-										{ className: 'button button-green', id: 'email-form-button', type: 'submit', disabled: !checkFormIsValid(), bsStyle: 'success' },
-										isFetching ? _react2.default.createElement(_Spinner2.default, null) : 'Send Email Message'
-								),
-								sentEmail && !isFetching && !error && _react2.default.createElement(
-										_lib.ControlLabel,
-										{ className: 'email-form-response auth-form-message-success' },
-										'Sent!'
-								),
-								!isFetching && error && _react2.default.createElement(
-										_lib.ControlLabel,
-										{ className: 'auth-form-message-error email-form-response' },
-										error.message
-								),
-								_react2.default.createElement(
-										'p',
-										{ id: 'email-form-required' },
-										'*Required fields'
-								)
-						)
-				);
-		}
-};
+						);
+				}
+		}]);
+
+		return EmailForm;
+}(_react.Component);
+
 exports.default = EmailForm;
 
 /***/ }),
-/* 1110 */
+/* 1109 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(1111);
+var content = __webpack_require__(1110);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -88332,7 +89062,7 @@ if(false) {
 }
 
 /***/ }),
-/* 1111 */
+/* 1110 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(50)(undefined);
@@ -88346,7 +89076,7 @@ exports.push([module.i, "#email-form-name,\n#email-form-email {\n  padding-left:
 
 
 /***/ }),
-/* 1112 */
+/* 1111 */
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -88370,13 +89100,13 @@ module.exports = {
 };
 
 /***/ }),
-/* 1113 */
+/* 1112 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"./pic1.png": 1114,
-	"./pic2.png": 1115,
-	"./pic3.png": 1116
+	"./pic1.png": 1113,
+	"./pic2.png": 1114,
+	"./pic3.png": 1115
 };
 function webpackContext(req) {
 	return __webpack_require__(webpackContextResolve(req));
@@ -88392,34 +89122,34 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 1113;
+webpackContext.id = 1112;
+
+/***/ }),
+/* 1113 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "2c3e51bf3f8e315c02e9957ccbdb8db1.png";
 
 /***/ }),
 /* 1114 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "2c3e51bf3f8e315c02e9957ccbdb8db1.png";
+module.exports = __webpack_require__.p + "ef5f58c1980997ba2a15b947803b87e7.png";
 
 /***/ }),
 /* 1115 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "ef5f58c1980997ba2a15b947803b87e7.png";
+module.exports = __webpack_require__.p + "2c3e51bf3f8e315c02e9957ccbdb8db1.png";
 
 /***/ }),
 /* 1116 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "2c3e51bf3f8e315c02e9957ccbdb8db1.png";
-
-/***/ }),
-/* 1117 */
-/***/ (function(module, exports, __webpack_require__) {
-
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(1118);
+var content = __webpack_require__(1117);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -88444,7 +89174,7 @@ if(false) {
 }
 
 /***/ }),
-/* 1118 */
+/* 1117 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(50)(undefined);
@@ -88458,7 +89188,7 @@ exports.push([module.i, "@media (min-width: 990px) {\n  #team {\n    display: fl
 
 
 /***/ }),
-/* 1119 */
+/* 1118 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -88470,17 +89200,17 @@ Object.defineProperty(exports, "__esModule", {
 
 var _reactRedux = __webpack_require__(61);
 
-var _component = __webpack_require__(1120);
+var _component = __webpack_require__(1119);
 
 var _component2 = _interopRequireDefault(_component);
 
 var _user = __webpack_require__(168);
 
-__webpack_require__(1121);
+__webpack_require__(1120);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-const mapStateToProps = state => {
+var mapStateToProps = function mapStateToProps(state) {
   return {
     email: state.user.profile.email,
     firstName: state.user.profile.firstName,
@@ -88491,16 +89221,18 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = dispatch => {
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
-    requestSendEmail: formInfo => dispatch((0, _user.requestSendEmail)(formInfo))
+    requestSendEmail: function requestSendEmail(formInfo) {
+      return dispatch((0, _user.requestSendEmail)(formInfo));
+    }
   };
 };
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_component2.default);
 
 /***/ }),
-/* 1120 */
+/* 1119 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -88510,6 +89242,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = __webpack_require__(0);
 
@@ -88533,248 +89267,298 @@ var _reactScroll2 = _interopRequireDefault(_reactScroll);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 var scroll = _reactScroll2.default.animateScroll;
 
-let Request = class Request extends _react.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+var Request = function (_Component) {
+  _inherits(Request, _Component);
+
+  function Request(props) {
+    _classCallCheck(this, Request);
+
+    var _this = _possibleConstructorReturn(this, (Request.__proto__ || Object.getPrototypeOf(Request)).call(this, props));
+
+    _this.state = {
       name: '',
       email: '',
       phone: '',
       message: '',
       sentEmail: false
     };
-    this.handleChange = this.handleChange.bind(this);
-    this.submitRequestForm = this.submitRequestForm.bind(this);
-    this.checkFormIsValid = this.checkFormIsValid.bind(this);
+    _this.handleChange = _this.handleChange.bind(_this);
+    _this.submitRequestForm = _this.submitRequestForm.bind(_this);
+    _this.checkFormIsValid = _this.checkFormIsValid.bind(_this);
+    return _this;
   }
 
-  handleChange(e) {
-    this.setState({
-      [e.target.name]: e.target.value,
-      sentEmail: false
-    });
-  }
+  _createClass(Request, [{
+    key: 'handleChange',
+    value: function handleChange(e) {
+      var _setState;
 
-  submitRequestForm(e) {
-    const { name, email, phone, address, message } = this.state;
-    const { requestSendEmail } = this.props;
+      this.setState((_setState = {}, _defineProperty(_setState, e.target.name, e.target.value), _defineProperty(_setState, 'sentEmail', false), _setState));
+    }
+  }, {
+    key: 'submitRequestForm',
+    value: function submitRequestForm(e) {
+      var _state = this.state,
+          name = _state.name,
+          email = _state.email,
+          phone = _state.phone,
+          address = _state.address,
+          message = _state.message;
+      var requestSendEmail = this.props.requestSendEmail;
 
-    e.preventDefault();
 
-    this.setState({
-      sentEmail: true,
-      isFetching: true
-    });
+      e.preventDefault();
 
-    requestSendEmail({
-      name,
-      email,
-      phone,
-      address,
-      message
-    });
-  }
-
-  checkFormIsValid() {
-    const { name, email, phone, address, message } = this.state;
-
-    return ((0, _authentication.isPhoneNumber)(phone) && phone || !phone) && name && email && address && message;
-  }
-
-  fillOutForm() {
-    if (!this.state.firstName && this.props.firstName) {
       this.setState({
-        firstName: this.props.firstName,
-        lastName: this.props.lastName,
-        name: this.props.firstName + ' ' + this.props.lastName || '',
-        email: this.props.email,
-        phone: this.props.phone,
-        address: '',
-        message: '',
-        sentEmail: false
+        sentEmail: true,
+        isFetching: true
+      });
+
+      requestSendEmail({
+        name: name,
+        email: email,
+        phone: phone,
+        address: address,
+        message: message
       });
     }
-  }
+  }, {
+    key: 'checkFormIsValid',
+    value: function checkFormIsValid() {
+      var _state2 = this.state,
+          name = _state2.name,
+          email = _state2.email,
+          phone = _state2.phone,
+          address = _state2.address,
+          message = _state2.message;
 
-  componentDidUpdate() {
-    this.fillOutForm.bind(this)();
-  }
 
-  componentWillMount() {
-    this.fillOutForm.bind(this)();
-  }
+      return ((0, _authentication.isPhoneNumber)(phone) && phone || !phone) && name && email && address && message;
+    }
+  }, {
+    key: 'fillOutForm',
+    value: function fillOutForm() {
+      if (!this.state.firstName && this.props.firstName) {
+        this.setState({
+          firstName: this.props.firstName,
+          lastName: this.props.lastName,
+          name: this.props.firstName + ' ' + this.props.lastName || '',
+          email: this.props.email,
+          phone: this.props.phone,
+          address: '',
+          message: '',
+          sentEmail: false
+        });
+      }
+    }
+  }, {
+    key: 'componentDidUpdate',
+    value: function componentDidUpdate() {
+      this.fillOutForm.bind(this)();
+    }
+  }, {
+    key: 'componentWillMount',
+    value: function componentWillMount() {
+      this.fillOutForm.bind(this)();
+    }
+  }, {
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      scroll.scrollToTop({ duration: 1 });
+      this.changeFormPadding();
+      window.addEventListener('resize', this.changeFormPadding);
+    }
+  }, {
+    key: 'changeFormPadding',
+    value: function changeFormPadding() {
+      var cols = document.getElementsByClassName('col-sm-4');
+      Array.from(cols).forEach(function (col) {
+        if (window.innerWidth < 768) col.style.padding = '0';else col.style.padding = '4%';
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _state3 = this.state,
+          name = _state3.name,
+          email = _state3.email,
+          phone = _state3.phone,
+          message = _state3.message,
+          sentEmail = _state3.sentEmail,
+          address = _state3.address;
+      var _props = this.props,
+          isFetching = _props.isFetching,
+          error = _props.error;
+      var submitRequestForm = this.submitRequestForm,
+          handleChange = this.handleChange,
+          checkFormIsValid = this.checkFormIsValid;
 
-  componentDidMount() {
-    scroll.scrollToTop({ duration: 1 });
-    this.changeFormPadding();
-    window.addEventListener('resize', this.changeFormPadding);
-  }
-
-  changeFormPadding() {
-    let cols = document.getElementsByClassName('col-sm-4');
-    Array.from(cols).forEach(col => {
-      if (window.innerWidth < 768) col.style.padding = '0';else col.style.padding = '4%';
-    });
-  }
-
-  render() {
-    let { name, email, phone, message, sentEmail, address } = this.state;
-    const { isFetching, error } = this.props;
-    const { submitRequestForm, handleChange, checkFormIsValid } = this;
-    return _react2.default.createElement(
-      _lib.Form,
-      { onSubmit: submitRequestForm, id: 'request-form' },
-      _react2.default.createElement(
-        'h3',
-        null,
-        'Request an Appointment'
-      ),
-      _react2.default.createElement(
-        'p',
-        null,
-        'Schedule an appointment with us here. Details and conversations will be continued through an email chain.'
-      ),
-      _react2.default.createElement(
-        'p',
-        null,
-        'We will contact you as soon as possible.'
-      ),
-      _react2.default.createElement(
-        _lib.Col,
-        { sm: 4, id: 'request-form-left' },
+      return _react2.default.createElement(
+        _lib.Form,
+        { onSubmit: submitRequestForm, id: 'request-form' },
         _react2.default.createElement(
-          _lib.FormGroup,
+          'h3',
           null,
-          _react2.default.createElement(
-            _lib.ControlLabel,
-            null,
-            'Name *'
-          ),
-          _react2.default.createElement(_lib.FormControl, {
-            name: 'name',
-            type: 'text',
-            value: name,
-            onChange: handleChange,
-            placeholder: 'e.g. John Doe'
-          })
-        )
-      ),
-      _react2.default.createElement(
-        _lib.Col,
-        { sm: 4, id: 'request-form-middle' },
-        _react2.default.createElement(
-          _lib.FormGroup,
-          null,
-          _react2.default.createElement(
-            _lib.ControlLabel,
-            null,
-            'Email *'
-          ),
-          _react2.default.createElement(_lib.FormControl, {
-            name: 'email',
-            type: 'email',
-            value: email,
-            onChange: handleChange,
-            placeholder: 'e.g. johndoe123@gmail.com'
-          })
-        )
-      ),
-      _react2.default.createElement(
-        _lib.Col,
-        { sm: 4, id: 'request-form-right' },
-        _react2.default.createElement(
-          _lib.FormGroup,
-          null,
-          _react2.default.createElement(
-            _lib.ControlLabel,
-            null,
-            'Phone'
-          ),
-          _react2.default.createElement(_reactMaskedinput2.default, {
-            className: 'form-control',
-            mask: '(111) 111-1111',
-            placeholder: '(123) 456-7890',
-            name: 'phone',
-            value: phone,
-            onChange: handleChange
-          })
-        )
-      ),
-      _react2.default.createElement(
-        _lib.FormGroup,
-        null,
-        _react2.default.createElement(
-          _lib.ControlLabel,
-          null,
-          'Address *'
-        ),
-        _react2.default.createElement(_lib.FormControl, {
-          name: 'address',
-          type: 'text',
-          value: address,
-          onChange: handleChange,
-          placeholder: 'Street Address'
-        })
-      ),
-      _react2.default.createElement(
-        _lib.Col,
-        { id: 'request-form-message' },
-        _react2.default.createElement(
-          _lib.FormGroup,
-          null,
-          _react2.default.createElement(
-            _lib.ControlLabel,
-            null,
-            'Message *'
-          ),
-          _react2.default.createElement(_lib.FormControl, {
-            name: 'message',
-            componentClass: 'textarea',
-            value: message,
-            onChange: handleChange,
-            placeholder: 'How can we help?'
-          })
-        )
-      ),
-      _react2.default.createElement(
-        _lib.FormGroup,
-        { validationState: 'error', className: 'auth-form-error request-form-error' },
-        _react2.default.createElement(
-          _lib.Button,
-          { className: 'button button-green', id: 'request-form-button', type: 'submit', disabled: !checkFormIsValid(), bsStyle: 'success' },
-          isFetching ? _react2.default.createElement(_Spinner2.default, null) : 'Send Appointment Request'
-        ),
-        sentEmail && !isFetching && !error && _react2.default.createElement(
-          _lib.ControlLabel,
-          { className: 'request-form-response auth-form-message-success' },
-          'Sent!'
-        ),
-        !isFetching && error && _react2.default.createElement(
-          _lib.ControlLabel,
-          { className: 'auth-form-message-error request-form-response' },
-          error.message
+          'Request an Appointment'
         ),
         _react2.default.createElement(
           'p',
-          { id: 'request-form-required' },
-          '*Required fields'
+          null,
+          'Schedule an appointment with us here. Details and conversations will be continued through an email chain.'
+        ),
+        _react2.default.createElement(
+          'p',
+          null,
+          'We will contact you as soon as possible.'
+        ),
+        _react2.default.createElement(
+          _lib.Col,
+          { sm: 4, id: 'request-form-left' },
+          _react2.default.createElement(
+            _lib.FormGroup,
+            null,
+            _react2.default.createElement(
+              _lib.ControlLabel,
+              null,
+              'Name *'
+            ),
+            _react2.default.createElement(_lib.FormControl, {
+              name: 'name',
+              type: 'text',
+              value: name,
+              onChange: handleChange,
+              placeholder: 'e.g. John Doe'
+            })
+          )
+        ),
+        _react2.default.createElement(
+          _lib.Col,
+          { sm: 4, id: 'request-form-middle' },
+          _react2.default.createElement(
+            _lib.FormGroup,
+            null,
+            _react2.default.createElement(
+              _lib.ControlLabel,
+              null,
+              'Email *'
+            ),
+            _react2.default.createElement(_lib.FormControl, {
+              name: 'email',
+              type: 'email',
+              value: email,
+              onChange: handleChange,
+              placeholder: 'e.g. johndoe123@gmail.com'
+            })
+          )
+        ),
+        _react2.default.createElement(
+          _lib.Col,
+          { sm: 4, id: 'request-form-right' },
+          _react2.default.createElement(
+            _lib.FormGroup,
+            null,
+            _react2.default.createElement(
+              _lib.ControlLabel,
+              null,
+              'Phone'
+            ),
+            _react2.default.createElement(_reactMaskedinput2.default, {
+              className: 'form-control',
+              mask: '(111) 111-1111',
+              placeholder: '(123) 456-7890',
+              name: 'phone',
+              value: phone,
+              onChange: handleChange
+            })
+          )
+        ),
+        _react2.default.createElement(
+          _lib.FormGroup,
+          null,
+          _react2.default.createElement(
+            _lib.ControlLabel,
+            null,
+            'Address *'
+          ),
+          _react2.default.createElement(_lib.FormControl, {
+            name: 'address',
+            type: 'text',
+            value: address,
+            onChange: handleChange,
+            placeholder: 'Street Address'
+          })
+        ),
+        _react2.default.createElement(
+          _lib.Col,
+          { id: 'request-form-message' },
+          _react2.default.createElement(
+            _lib.FormGroup,
+            null,
+            _react2.default.createElement(
+              _lib.ControlLabel,
+              null,
+              'Message *'
+            ),
+            _react2.default.createElement(_lib.FormControl, {
+              name: 'message',
+              componentClass: 'textarea',
+              value: message,
+              onChange: handleChange,
+              placeholder: 'How can we help?'
+            })
+          )
+        ),
+        _react2.default.createElement(
+          _lib.FormGroup,
+          { validationState: 'error', className: 'auth-form-error request-form-error' },
+          _react2.default.createElement(
+            _lib.Button,
+            { className: 'button button-green', id: 'request-form-button', type: 'submit', disabled: !checkFormIsValid(), bsStyle: 'success' },
+            isFetching ? _react2.default.createElement(_Spinner2.default, null) : 'Send Appointment Request'
+          ),
+          sentEmail && !isFetching && !error && _react2.default.createElement(
+            _lib.ControlLabel,
+            { className: 'request-form-response auth-form-message-success' },
+            'Sent!'
+          ),
+          !isFetching && error && _react2.default.createElement(
+            _lib.ControlLabel,
+            { className: 'auth-form-message-error request-form-response' },
+            error.message
+          ),
+          _react2.default.createElement(
+            'p',
+            { id: 'request-form-required' },
+            '*Required fields'
+          )
         )
-      )
-    );
-  }
-};
+      );
+    }
+  }]);
+
+  return Request;
+}(_react.Component);
+
 exports.default = Request;
 
 /***/ }),
-/* 1121 */
+/* 1120 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(1122);
+var content = __webpack_require__(1121);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -88799,7 +89583,7 @@ if(false) {
 }
 
 /***/ }),
-/* 1122 */
+/* 1121 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(50)(undefined);

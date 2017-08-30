@@ -23,4 +23,10 @@
 .partner {
   display: flex !important;
   height: 250px;
+  img {
+    width: 75%;
+    display: block;
+    margin: auto;
+    -ms-interpolation-mode: bicubic;
+  }
 }
