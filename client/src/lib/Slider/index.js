@@ -33,6 +33,7 @@ export default class PartnerSlider extends Component {
   }
 
   componentDidMount() {
+    // image scaling so that height can be set to auto on internet explorer
     Array.from(document.getElementsByClassName('partner')).forEach(partner => {
       var i = partner.children[0];
       var i2 = new Image();
