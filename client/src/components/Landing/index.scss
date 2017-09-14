@@ -231,6 +231,11 @@
   opacity: 0.9;
   display: flex;
   cursor: pointer;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+
   img {
     margin: auto;
     height: auto;
