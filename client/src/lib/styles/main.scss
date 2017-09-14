@@ -7,8 +7,8 @@ html, body {
 }
 
 @font-face {
-  font-family: "Montserrat-ExtraBold";
-  src: url('./lib/fonts/Montserrat-ExtraBold.otf');
+  font-family: "Montserrat-Bold";
+  src: url('./lib/fonts/Montserrat-Bold.otf');
 }
 
 @font-face {
@@ -23,7 +23,7 @@ html, body {
 
 %text-format {
   text-align: center;
-  font-family: "Montserrat-ExtraBold", sans-serif;
+  font-family: "Montserrat-Bold", sans-serif;
   line-height: 1.1;
 }
 
