@@ -82,8 +82,35 @@
 .team-role {
   font-size: 1em;
   color: #949494;
+
+  @media (max-width: 600px) {
+    font-size: 12px;
+  }
 }
 
 .team-description {
   margin-top: 10px;
+  
+  @media (max-width: 836px) {
+    clear: both;
+  }
+}
+
+
+.team-name {
+  @media (max-width: 836px) {
+    margin-top: 8%;
+  }
+
+  @media (max-width: 680px) {
+    margin-top: 6%;
+  }
+
+  @media (max-width: 580px) {
+    margin-top: 4%;
+  }
+
+  @media (max-width: 480px) {
+    margin-top: 0;
+  }
 }
