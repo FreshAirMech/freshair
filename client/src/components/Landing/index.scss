@@ -20,7 +20,7 @@
 
 #banner-background {
   @extend %pictures;
-  background-image: url("lib/images/landing.jpg");
+  background-image: url("https://res.cloudinary.com/fresh-aire-mechanical-co/image/upload/v1505364361/landing_xri9fo.jpg");
   width: inherit;
   height: inherit;
   position: absolute;
@@ -37,7 +37,7 @@
 }
 
 #services-element {
-  background-image: url("lib/images/landing2.jpg");
+  background-image: url("https://res.cloudinary.com/fresh-aire-mechanical-co/image/upload/v1505364361/landing2_yjgcll.jpg");
 
   h1 {
     height: 40px;
@@ -139,15 +139,15 @@
 }
 
 #overview1 {
-  background-image: url("lib/images/overview1.jpg");
+  background-image: url("https://res.cloudinary.com/fresh-aire-mechanical-co/image/upload/v1505364360/overview1_dcfcpk.jpg");
 }
 
 #overview2 {
-  background-image: url("lib/images/overview2.jpg");
+  background-image: url("https://res.cloudinary.com/fresh-aire-mechanical-co/image/upload/v1505364359/overview2_lfh0nm.jpg");
 }
 
 #overview3 {
-  background-image: url("lib/images/overview3.jpg");
+  background-image: url("https://res.cloudinary.com/fresh-aire-mechanical-co/image/upload/v1505364359/overview3_hfcvhj.jpg");
 }
 
 .makeDim {
@@ -161,33 +161,33 @@
 }
 
 #service1 {
-  background-image: url("lib/images/hvac.jpg");
+  background-image: url("https://res.cloudinary.com/fresh-aire-mechanical-co/image/upload/v1505364360/hvac_zoa8jg.jpg");
   height: 500px !important;
   background-position: 60% 80% !important;
   background-size: 1600px auto !important;
 }
 
 #service2 {
-  background-image: url("lib/images/displaycase.jpg");
+  background-image: url("https://res.cloudinary.com/fresh-aire-mechanical-co/image/upload/v1505364358/displaycase_sn95xj.jpg");
 }
 
 #service3 {
-  background-image: url("lib/images/opencase.jpg");
+  background-image: url("https://res.cloudinary.com/fresh-aire-mechanical-co/image/upload/v1505364358/opencase_t0ola7.jpg");
 }
 
 #service4 {
-  background-image: url("lib/images/rack.jpg");
+  background-image: url("https://res.cloudinary.com/fresh-aire-mechanical-co/image/upload/v1505364361/rack_ssgrco.jpg");
 }
 
 #service5 {
-  background-image: url("lib/images/icemachine.jpg");
+  background-image: url("https://res.cloudinary.com/fresh-aire-mechanical-co/image/upload/v1505364360/icemachine_rqljlu.jpg");
   float: right;
   height: 500px !important;
   background-size: auto 110% !important;
 }
 
 #service6 {
-  background-image: url("lib/images/e2.jpg");
+  background-image: url("https://res.cloudinary.com/fresh-aire-mechanical-co/image/upload/v1505364359/e2_ovrlpp.jpg");
   background-size: 130% !important;
   background-position: 60% 35% !important;
 }
@@ -234,6 +234,8 @@
   cursor: pointer;
   img {
     margin: auto;
+    height: auto;
+    object-fit: cover;
   }
 }
 
@@ -270,7 +272,6 @@
 }
 
 .landing-images {
-  height: 30vw;
   width: 50%;
   min-width: 300px;
   margin: auto;
@@ -303,6 +304,12 @@
   animation-delay: 0.5s;
   animation-fill-mode: forwards;
   animation-timing-function: ease-in;
+}
+
+#landing1 {
+  object-fit: cover;
+  height: 28vw;
+  min-height: 200px;
 }
 
 @media (max-width: 768px) {

@@ -7,6 +7,12 @@ import team from 'lib/objects/team';
 
 var scroll = Scroll.animateScroll;
 
+let images = [
+  'https://res.cloudinary.com/fresh-aire-mechanical-co/image/upload/v1505364361/pic1_mzha1m.png',
+  'https://res.cloudinary.com/fresh-aire-mechanical-co/image/upload/v1505364361/pic2_kxk6dm.png',
+  'https://res.cloudinary.com/fresh-aire-mechanical-co/image/upload/v1505364361/pic3_pt3vwp.png'
+];
+
 export default class About extends Component {
   constructor(props) {
     super(props);
@@ -38,21 +44,21 @@ export default class About extends Component {
                 let id = "member" + (index + 1);
                 return (
                   <Col md={4} className="team-member" key={id}>
-                      <img src={require('lib/images/pic' + (index + 1) + '.png')}></img>
-                      <div className="team-name">{member.name}</div>
-                      <div className="team-role">{member.role}</div>
-                      <p className="team-description">{member.description}</p>
-                      {
-                        // For the very last 'team member' (Other staff),
-                        // also include an extra role for the business team.
-                        (member.role2 && member.description2) && 
-                        (
-                          <div>
-                            <div className="team-role">{member.role2}</div>
-                            <p className="team-description">{member.description2}</p>
-                          </div>
-                        )
-                      }
+                    <img src={images[index]}></img>
+                    <div className="team-name">{member.name}</div>
+                    <div className="team-role">{member.role}</div>
+                    <p className="team-description">{member.description}</p>
+                    {
+                      // For the very last 'team member' (Other staff),
+                      // also include an extra role for the business team.
+                      (member.role2 && member.description2) && 
+                      (
+                        <div>
+                          <div className="team-role">{member.role2}</div>
+                          <p className="team-description">{member.description2}</p>
+                        </div>
+                      )
+                    }
                   </Col>
                 );
               })

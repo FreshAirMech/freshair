@@ -17,7 +17,8 @@ app.use(morgan('dev'));
 
 app.use(cookieSession({
   secret: secrets.SESSION_SECRET,
-  maxAge: 1000 * 60 * 60 * 24 * 7
+  maxAge: 1000 * 60 * 60 * 24 * 7,
+  keys: ['verification9123', 'helperkey9123']
 }));
 app.use((req, res, next) => {
   if (req.session.user) {

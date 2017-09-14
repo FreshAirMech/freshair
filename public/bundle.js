@@ -60074,7 +60074,7 @@ exports = module.exports = __webpack_require__(50)(undefined);
 
 
 // module
-exports.push([module.i, "html, body {\n  width: 100%;\n  margin: 0px;\n  padding: 0px;\n  overflow-x: hidden;\n  font-family: \"OpenSans\", sans-serif; }\n\n@font-face {\n  font-family: \"Montserrat-Regular\";\n  src: url(" + __webpack_require__(835) + "); }\n\n@font-face {\n  font-family: \"OpenSans\";\n  src: url(" + __webpack_require__(836) + ") format(\"truetype\"); }\n\nh1, h2, h3 {\n  text-align: center;\n  font-family: \"Montserrat-Regular\", sans-serif;\n  line-height: 1.1; }\n\nh1, h2 {\n  margin-bottom: 10px;\n  margin-top: 20px;\n  width: 100%;\n  font-weight: 600; }\n\nh4 {\n  font-weight: 500; }\n\ntextarea {\n  resize: none; }\n\n.button {\n  background-color: #4CAF50;\n  border: none;\n  color: white;\n  padding: 16px 32px;\n  text-align: center;\n  text-decoration: none;\n  display: inline-block;\n  font-size: 16px;\n  margin: 4px 2px;\n  -webkit-transition-duration: 0.4s;\n  transition-duration: 0.4s;\n  cursor: pointer;\n  font-weight: bold !important; }\n\n.button-green {\n  background-color: white;\n  color: #4CAF50;\n  border: 2px solid #4CAF50; }\n  .button-green:hover {\n    background-color: #4CAF50;\n    color: white; }\n\n.button-blue {\n  background-color: white;\n  color: #008CBA;\n  border: 2px solid #008CBA; }\n  .button-blue:hover {\n    background-color: #008CBA;\n    color: white; }\n\n.button-red {\n  background-color: white;\n  color: #f44336;\n  border: 2px solid #f44336; }\n  .button-red:hover {\n    background-color: #f44336;\n    color: white; }\n\n.standard-div {\n  padding: 6% 10%; }\n  .standard-div hr {\n    width: 25%;\n    border: none;\n    height: 2px;\n    background-color: #eee;\n    margin: auto;\n    margin-bottom: 50px; }\n\n.col-sm-4 {\n  padding: 4%; }\n\n@-webkit-keyframes fadein {\n  from {\n    opacity: 0; }\n  to {\n    opacity: 1; } }\n\n@-moz-keyframes fadein {\n  from {\n    opacity: 0; }\n  to {\n    opacity: 1; } }\n\n@-o-keyframes fadein {\n  from {\n    opacity: 0; }\n  to {\n    opacity: 1; } }\n\n@keyframes fadein {\n  from {\n    opacity: 0; }\n  to {\n    opacity: 1; } }\n\n@-webkit-keyframes fadeout {\n  from {\n    opacity: 1; }\n  to {\n    opacity: 0; } }\n\n@-moz-keyframes fadeout {\n  from {\n    opacity: 1; }\n  to {\n    opacity: 0; } }\n\n@-o-keyframes fadeout {\n  from {\n    opacity: 1; }\n  to {\n    opacity: 0; } }\n\n@keyframes fadeout {\n  from {\n    opacity: 1; }\n  to {\n    opacity: 0; } }\n\n.picture-div, #banner-background {\n  background-attachment: fixed;\n  background-position: center;\n  background-size: cover;\n  display: flex;\n  position: relative;\n  height: 300px; }\n\n.picture-div {\n  color: #fff; }\n  .picture-div h1, .picture-div h2 {\n    opacity: 0.7;\n    margin: auto;\n    font-weight: 600;\n    text-align: center; }\n\n#banner-background {\n  background-image: url(" + __webpack_require__(837) + ");\n  width: inherit;\n  height: inherit;\n  position: absolute;\n  animation: changeBrightness 0.5s;\n  animation-delay: 1s;\n  animation-fill-mode: forwards;\n  -ms-interpolation-mode: bicubic; }\n\n#banner-div {\n  height: 100vh;\n  width: 100%;\n  margin: 0; }\n\n#services-element {\n  background-image: url(" + __webpack_require__(838) + "); }\n  #services-element h1, #services-element h2 {\n    height: 40px; }\n\n#overview-element {\n  width: 100%; }\n  #overview-element .overview-text {\n    height: 95px; }\n\n#services, #overview {\n  font-size: 14px;\n  text-align: center;\n  padding: 0;\n  margin: 0;\n  display: flex; }\n\n#services .col-sm-6, #overview .col-sm-4 {\n  height: 250px;\n  color: #fff;\n  background-size: cover;\n  background-position: center; }\n\n#services .row {\n  width: 100%;\n  margin: 0; }\n\n#services .col-sm-6 {\n  margin: auto;\n  padding: 0;\n  height: 250px;\n  background-position: center;\n  background-size: 150% auto; }\n  #services .col-sm-6 div {\n    display: flex;\n    height: 100%; }\n  #services .col-sm-6 h2 {\n    margin: auto;\n    height: 100px;\n    width: 350px;\n    display: flex;\n    background: radial-gradient(rgba(0, 0, 0, 0.6) 60%, rgba(255, 255, 255, 0) 70%);\n    justify-content: center;\n    align-items: center; }\n\n#overview .row {\n  width: 100%;\n  margin: 0; }\n\n#overview .col-sm-4 {\n  display: flex;\n  margin: 0; }\n  #overview .col-sm-4 div {\n    margin: auto; }\n  #overview .col-sm-4 h4 {\n    margin-top: 30px;\n    transition: margin-top 0.4s;\n    transition-timing-function: ease-in-out; }\n  #overview .col-sm-4:hover h4 {\n    margin-top: -30px; }\n  #overview .col-sm-4:hover .description {\n    display: inline-block;\n    max-width: 80%;\n    visibility: visible;\n    animation: fadein 0.25s;\n    animation-delay: 0.5s;\n    animation-fill-mode: forwards;\n    animation-timing-function: ease-in-out; }\n\n#overview .description {\n  visibility: hidden;\n  transition: visibility 0.4s;\n  opacity: 0; }\n\n#overview hr {\n  border-top-color: #fff; }\n\n#overview1 {\n  background-image: url(" + __webpack_require__(839) + "); }\n\n#overview2 {\n  background-image: url(" + __webpack_require__(840) + "); }\n\n#overview3 {\n  background-image: url(" + __webpack_require__(841) + "); }\n\n.makeDim {\n  animation: dimBackground 0.5s;\n  animation-fill-mode: forwards; }\n\n.makeBright {\n  animation: brightenBackground 0.5s;\n  animation-fill-mode: forwards; }\n\n#service1 {\n  background-image: url(" + __webpack_require__(842) + ");\n  height: 500px !important;\n  background-position: 60% 80% !important;\n  background-size: 1600px auto !important; }\n\n#service2 {\n  background-image: url(" + __webpack_require__(843) + "); }\n\n#service3 {\n  background-image: url(" + __webpack_require__(844) + "); }\n\n#service4 {\n  background-image: url(" + __webpack_require__(845) + "); }\n\n#service5 {\n  background-image: url(" + __webpack_require__(846) + ");\n  float: right;\n  height: 500px !important;\n  background-size: auto 110% !important; }\n\n#service6 {\n  background-image: url(" + __webpack_require__(847) + ");\n  background-size: 130% !important;\n  background-position: 60% 35% !important; }\n\n#service1 h2, #service5 h2, #service6 h2 {\n  display: inline-block;\n  height: 70px; }\n\n#why {\n  text-align: center; }\n  #why p {\n    font-size: 14px; }\n  #why i {\n    color: #0688fe;\n    font-size: 70px;\n    margin-bottom: 15px; }\n\n.subtitle {\n  color: #949494; }\n\n#icon1 {\n  margin-left: 10px; }\n\n.arrowButton {\n  position: fixed;\n  width: 100%;\n  z-index: 1;\n  background-color: #292929;\n  bottom: 0;\n  text-align: center;\n  height: 6.5vw;\n  min-height: 30px;\n  max-height: 50px;\n  opacity: 0.9;\n  display: flex;\n  cursor: pointer; }\n  .arrowButton img {\n    margin: auto; }\n\n#scrollImage {\n  width: 2vw;\n  max-width: 20px;\n  min-width: 10px;\n  animation: animateArrow 1s infinite; }\n\n#scroll-top {\n  display: flex;\n  height: 50px;\n  background-color: #333;\n  color: #fff;\n  transition: color 0.5s ease-in-out; }\n  #scroll-top a {\n    height: 31px;\n    margin: auto;\n    font-weight: bold;\n    cursor: pointer;\n    padding: 5px;\n    display: inline-block; }\n    #scroll-top a:hover {\n      color: #fff;\n      text-decoration: none; }\n    #scroll-top a p {\n      margin: 0;\n      text-align: center; }\n\n.landing-images {\n  height: 30vw;\n  width: 50%;\n  min-width: 300px;\n  margin: auto;\n  z-index: 0;\n  opacity: 0;\n  animation: fadein 0.1s;\n  animation-delay: 1.5s;\n  animation-fill-mode: forwards;\n  -ms-interpolation-mode: bicubic; }\n\n.landing-triangles {\n  opacity: 0.6;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  position: absolute; }\n\n#landing-left {\n  animation: slideleft 1s;\n  animation-delay: 0.5s;\n  animation-fill-mode: forwards;\n  animation-timing-function: ease-in; }\n\n#landing-right {\n  animation: slideright 1s;\n  animation-delay: 0.5s;\n  animation-fill-mode: forwards;\n  animation-timing-function: ease-in; }\n\n@media (max-width: 768px) {\n  #services .col-sm-6 {\n    height: 250px !important; }\n  #service5 {\n    float: none; } }\n\n@-webkit-keyframes slideleft {\n  from {\n    transform: translateX(0); }\n  to {\n    transform: translateX(-100%); } }\n\n@-moz-keyframes slideleft {\n  from {\n    transform: translateX(0); }\n  to {\n    transform: translateX(-100%); } }\n\n@-o-keyframes slideleft {\n  from {\n    transform: translateX(0); }\n  to {\n    transform: translateX(-100%); } }\n\n@keyframes slideleft {\n  from {\n    transform: translateX(0); }\n  to {\n    transform: translateX(-100%); } }\n\n@-webkit-keyframes slideright {\n  from {\n    transform: translateX(0); }\n  to {\n    transform: translateX(100%); } }\n\n@-moz-keyframes slideright {\n  from {\n    transform: translateX(0); }\n  to {\n    transform: translateX(100%); } }\n\n@-o-keyframes slideright {\n  from {\n    transform: translateX(0); }\n  to {\n    transform: translateX(100%); } }\n\n@keyframes slideright {\n  from {\n    transform: translateX(0); }\n  to {\n    transform: translateX(100%); } }\n\n@-webkit-keyframes slideup {\n  from {\n    margin-top: 0; }\n  to {\n    margin-top: -20px; } }\n\n@-moz-keyframes slideup {\n  from {\n    margin-top: 0; }\n  to {\n    margin-top: -20px; } }\n\n@-o-keyframes slideup {\n  from {\n    margin-top: 0; }\n  to {\n    margin-top: -20px; } }\n\n@keyframes slideup {\n  from {\n    margin-top: 0; }\n  to {\n    margin-top: -20px; } }\n\n@-webkit-keyframes animateArrow {\n  from {\n    margin-top: 0.7vw; }\n  to {\n    margin-top: 1.8vw; } }\n\n@-moz-keyframes animateArrow {\n  from {\n    margin-top: 0.7vw; }\n  to {\n    margin-top: 1.8vw; } }\n\n@-o-keyframes animateArrow {\n  from {\n    margin-top: 0.7vw; }\n  to {\n    margin-top: 1.8vw; } }\n\n@keyframes animateArrow {\n  from {\n    margin-top: 0.7vw; }\n  to {\n    margin-top: 1.8vw; } }\n\n@-webkit-keyframes changeBrightness {\n  from {\n    filter: brightness(100%); }\n  to {\n    filter: brightness(70%); } }\n\n@-moz-keyframes changeBrightness {\n  from {\n    filter: brightness(100%); }\n  to {\n    filter: brightness(70%); } }\n\n@-o-keyframes changeBrightness {\n  from {\n    filter: brightness(100%); }\n  to {\n    filter: brightness(70%); } }\n\n@keyframes changeBrightness {\n  from {\n    filter: brightness(100%); }\n  to {\n    filter: brightness(70%); } }\n\n@-webkit-keyframes dimBackground {\n  0% {\n    background-color: transparent; }\n  100% {\n    background-color: rgba(0, 0, 0, 0.25); } }\n\n@-moz-keyframes dimBackground {\n  0% {\n    background-color: transparent; }\n  100% {\n    background-color: rgba(0, 0, 0, 0.25); } }\n\n@-o-keyframes dimBackground {\n  0% {\n    background-color: transparent; }\n  100% {\n    background-color: rgba(0, 0, 0, 0.25); } }\n\n@keyframes dimBackground {\n  0% {\n    background-color: transparent; }\n  100% {\n    background-color: rgba(0, 0, 0, 0.25); } }\n\n@-webkit-keyframes brightenBackground {\n  0% {\n    background-color: rgba(0, 0, 0, 0.25); }\n  100% {\n    background-color: transparent; } }\n\n@-moz-keyframes brightenBackground {\n  0% {\n    background-color: rgba(0, 0, 0, 0.25); }\n  100% {\n    background-color: transparent; } }\n\n@-o-keyframes brightenBackground {\n  0% {\n    background-color: rgba(0, 0, 0, 0.25); }\n  100% {\n    background-color: transparent; } }\n\n@keyframes brightenBackground {\n  0% {\n    background-color: rgba(0, 0, 0, 0.25); }\n  100% {\n    background-color: transparent; } }\n", ""]);
+exports.push([module.i, "html, body {\n  width: 100%;\n  margin: 0px;\n  padding: 0px;\n  overflow-x: hidden;\n  font-family: \"OpenSans\", sans-serif; }\n\n@font-face {\n  font-family: \"Montserrat-Regular\";\n  src: url(" + __webpack_require__(835) + "); }\n\n@font-face {\n  font-family: \"OpenSans\";\n  src: url(" + __webpack_require__(836) + ") format(\"truetype\"); }\n\nh1, h2, h3 {\n  text-align: center;\n  font-family: \"Montserrat-Regular\", sans-serif;\n  line-height: 1.1; }\n\nh1, h2 {\n  margin-bottom: 10px;\n  margin-top: 20px;\n  width: 100%;\n  font-weight: 600; }\n\nh4 {\n  font-weight: 500; }\n\ntextarea {\n  resize: none; }\n\n.button {\n  background-color: #4CAF50;\n  border: none;\n  color: white;\n  padding: 16px 32px;\n  text-align: center;\n  text-decoration: none;\n  display: inline-block;\n  font-size: 16px;\n  margin: 4px 2px;\n  -webkit-transition-duration: 0.4s;\n  transition-duration: 0.4s;\n  cursor: pointer;\n  font-weight: bold !important; }\n\n.button-green {\n  background-color: white;\n  color: #4CAF50;\n  border: 2px solid #4CAF50; }\n  .button-green:hover {\n    background-color: #4CAF50;\n    color: white; }\n\n.button-blue {\n  background-color: white;\n  color: #008CBA;\n  border: 2px solid #008CBA; }\n  .button-blue:hover {\n    background-color: #008CBA;\n    color: white; }\n\n.button-red {\n  background-color: white;\n  color: #f44336;\n  border: 2px solid #f44336; }\n  .button-red:hover {\n    background-color: #f44336;\n    color: white; }\n\n.standard-div {\n  padding: 6% 10%; }\n  .standard-div hr {\n    width: 25%;\n    border: none;\n    height: 2px;\n    background-color: #eee;\n    margin: auto;\n    margin-bottom: 50px; }\n\n.col-sm-4 {\n  padding: 4%; }\n\n@-webkit-keyframes fadein {\n  from {\n    opacity: 0; }\n  to {\n    opacity: 1; } }\n\n@-moz-keyframes fadein {\n  from {\n    opacity: 0; }\n  to {\n    opacity: 1; } }\n\n@-o-keyframes fadein {\n  from {\n    opacity: 0; }\n  to {\n    opacity: 1; } }\n\n@keyframes fadein {\n  from {\n    opacity: 0; }\n  to {\n    opacity: 1; } }\n\n@-webkit-keyframes fadeout {\n  from {\n    opacity: 1; }\n  to {\n    opacity: 0; } }\n\n@-moz-keyframes fadeout {\n  from {\n    opacity: 1; }\n  to {\n    opacity: 0; } }\n\n@-o-keyframes fadeout {\n  from {\n    opacity: 1; }\n  to {\n    opacity: 0; } }\n\n@keyframes fadeout {\n  from {\n    opacity: 1; }\n  to {\n    opacity: 0; } }\n\n.picture-div, #banner-background {\n  background-attachment: fixed;\n  background-position: center;\n  background-size: cover;\n  display: flex;\n  position: relative;\n  height: 300px; }\n\n.picture-div {\n  color: #fff; }\n  .picture-div h1, .picture-div h2 {\n    opacity: 0.7;\n    margin: auto;\n    font-weight: 600;\n    text-align: center; }\n\n#banner-background {\n  background-image: url(\"https://res.cloudinary.com/fresh-aire-mechanical-co/image/upload/v1505364361/landing_xri9fo.jpg\");\n  width: inherit;\n  height: inherit;\n  position: absolute;\n  animation: changeBrightness 0.5s;\n  animation-delay: 1s;\n  animation-fill-mode: forwards;\n  -ms-interpolation-mode: bicubic; }\n\n#banner-div {\n  height: 100vh;\n  width: 100%;\n  margin: 0; }\n\n#services-element {\n  background-image: url(\"https://res.cloudinary.com/fresh-aire-mechanical-co/image/upload/v1505364361/landing2_yjgcll.jpg\"); }\n  #services-element h1, #services-element h2 {\n    height: 40px; }\n\n#overview-element {\n  width: 100%; }\n  #overview-element .overview-text {\n    height: 95px; }\n\n#services, #overview {\n  font-size: 14px;\n  text-align: center;\n  padding: 0;\n  margin: 0;\n  display: flex; }\n\n#services .col-sm-6, #overview .col-sm-4 {\n  height: 250px;\n  color: #fff;\n  background-size: cover;\n  background-position: center; }\n\n#services .row {\n  width: 100%;\n  margin: 0; }\n\n#services .col-sm-6 {\n  margin: auto;\n  padding: 0;\n  height: 250px;\n  background-position: center;\n  background-size: 150% auto; }\n  #services .col-sm-6 div {\n    display: flex;\n    height: 100%; }\n  #services .col-sm-6 h2 {\n    margin: auto;\n    height: 100px;\n    width: 350px;\n    display: flex;\n    background: radial-gradient(rgba(0, 0, 0, 0.6) 60%, rgba(255, 255, 255, 0) 70%);\n    justify-content: center;\n    align-items: center; }\n\n#overview .row {\n  width: 100%;\n  margin: 0; }\n\n#overview .col-sm-4 {\n  display: flex;\n  margin: 0; }\n  #overview .col-sm-4 div {\n    margin: auto; }\n  #overview .col-sm-4 h4 {\n    margin-top: 30px;\n    transition: margin-top 0.4s;\n    transition-timing-function: ease-in-out; }\n  #overview .col-sm-4:hover h4 {\n    margin-top: -30px; }\n  #overview .col-sm-4:hover .description {\n    display: inline-block;\n    max-width: 80%;\n    visibility: visible;\n    animation: fadein 0.25s;\n    animation-delay: 0.5s;\n    animation-fill-mode: forwards;\n    animation-timing-function: ease-in-out; }\n\n#overview .description {\n  visibility: hidden;\n  transition: visibility 0.4s;\n  opacity: 0; }\n\n#overview hr {\n  border-top-color: #fff; }\n\n#overview1 {\n  background-image: url(\"https://res.cloudinary.com/fresh-aire-mechanical-co/image/upload/v1505364360/overview1_dcfcpk.jpg\"); }\n\n#overview2 {\n  background-image: url(\"https://res.cloudinary.com/fresh-aire-mechanical-co/image/upload/v1505364359/overview2_lfh0nm.jpg\"); }\n\n#overview3 {\n  background-image: url(\"https://res.cloudinary.com/fresh-aire-mechanical-co/image/upload/v1505364359/overview3_hfcvhj.jpg\"); }\n\n.makeDim {\n  animation: dimBackground 0.5s;\n  animation-fill-mode: forwards; }\n\n.makeBright {\n  animation: brightenBackground 0.5s;\n  animation-fill-mode: forwards; }\n\n#service1 {\n  background-image: url(\"https://res.cloudinary.com/fresh-aire-mechanical-co/image/upload/v1505364360/hvac_zoa8jg.jpg\");\n  height: 500px !important;\n  background-position: 60% 80% !important;\n  background-size: 1600px auto !important; }\n\n#service2 {\n  background-image: url(\"https://res.cloudinary.com/fresh-aire-mechanical-co/image/upload/v1505364358/displaycase_sn95xj.jpg\"); }\n\n#service3 {\n  background-image: url(\"https://res.cloudinary.com/fresh-aire-mechanical-co/image/upload/v1505364358/opencase_t0ola7.jpg\"); }\n\n#service4 {\n  background-image: url(\"https://res.cloudinary.com/fresh-aire-mechanical-co/image/upload/v1505364361/rack_ssgrco.jpg\"); }\n\n#service5 {\n  background-image: url(\"https://res.cloudinary.com/fresh-aire-mechanical-co/image/upload/v1505364360/icemachine_rqljlu.jpg\");\n  float: right;\n  height: 500px !important;\n  background-size: auto 110% !important; }\n\n#service6 {\n  background-image: url(\"https://res.cloudinary.com/fresh-aire-mechanical-co/image/upload/v1505364359/e2_ovrlpp.jpg\");\n  background-size: 130% !important;\n  background-position: 60% 35% !important; }\n\n#service1 h2, #service5 h2, #service6 h2 {\n  display: inline-block;\n  height: 70px; }\n\n#why {\n  text-align: center; }\n  #why p {\n    font-size: 14px; }\n  #why i {\n    color: #0688fe;\n    font-size: 70px;\n    margin-bottom: 15px; }\n\n.subtitle {\n  color: #949494; }\n\n#icon1 {\n  margin-left: 10px; }\n\n.arrowButton {\n  position: fixed;\n  width: 100%;\n  z-index: 1;\n  background-color: #292929;\n  bottom: 0;\n  text-align: center;\n  height: 6.5vw;\n  min-height: 30px;\n  max-height: 50px;\n  opacity: 0.9;\n  display: flex;\n  cursor: pointer; }\n  .arrowButton img {\n    margin: auto;\n    height: auto;\n    object-fit: cover; }\n\n#scrollImage {\n  width: 2vw;\n  max-width: 20px;\n  min-width: 10px;\n  animation: animateArrow 1s infinite; }\n\n#scroll-top {\n  display: flex;\n  height: 50px;\n  background-color: #333;\n  color: #fff;\n  transition: color 0.5s ease-in-out; }\n  #scroll-top a {\n    height: 31px;\n    margin: auto;\n    font-weight: bold;\n    cursor: pointer;\n    padding: 5px;\n    display: inline-block; }\n    #scroll-top a:hover {\n      color: #fff;\n      text-decoration: none; }\n    #scroll-top a p {\n      margin: 0;\n      text-align: center; }\n\n.landing-images {\n  width: 50%;\n  min-width: 300px;\n  margin: auto;\n  z-index: 0;\n  opacity: 0;\n  animation: fadein 0.1s;\n  animation-delay: 1.5s;\n  animation-fill-mode: forwards;\n  -ms-interpolation-mode: bicubic; }\n\n.landing-triangles {\n  opacity: 0.6;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  position: absolute; }\n\n#landing-left {\n  animation: slideleft 1s;\n  animation-delay: 0.5s;\n  animation-fill-mode: forwards;\n  animation-timing-function: ease-in; }\n\n#landing-right {\n  animation: slideright 1s;\n  animation-delay: 0.5s;\n  animation-fill-mode: forwards;\n  animation-timing-function: ease-in; }\n\n#landing1 {\n  object-fit: cover;\n  height: 28vw;\n  min-height: 200px; }\n\n@media (max-width: 768px) {\n  #services .col-sm-6 {\n    height: 250px !important; }\n  #service5 {\n    float: none; } }\n\n@-webkit-keyframes slideleft {\n  from {\n    transform: translateX(0); }\n  to {\n    transform: translateX(-100%); } }\n\n@-moz-keyframes slideleft {\n  from {\n    transform: translateX(0); }\n  to {\n    transform: translateX(-100%); } }\n\n@-o-keyframes slideleft {\n  from {\n    transform: translateX(0); }\n  to {\n    transform: translateX(-100%); } }\n\n@keyframes slideleft {\n  from {\n    transform: translateX(0); }\n  to {\n    transform: translateX(-100%); } }\n\n@-webkit-keyframes slideright {\n  from {\n    transform: translateX(0); }\n  to {\n    transform: translateX(100%); } }\n\n@-moz-keyframes slideright {\n  from {\n    transform: translateX(0); }\n  to {\n    transform: translateX(100%); } }\n\n@-o-keyframes slideright {\n  from {\n    transform: translateX(0); }\n  to {\n    transform: translateX(100%); } }\n\n@keyframes slideright {\n  from {\n    transform: translateX(0); }\n  to {\n    transform: translateX(100%); } }\n\n@-webkit-keyframes slideup {\n  from {\n    margin-top: 0; }\n  to {\n    margin-top: -20px; } }\n\n@-moz-keyframes slideup {\n  from {\n    margin-top: 0; }\n  to {\n    margin-top: -20px; } }\n\n@-o-keyframes slideup {\n  from {\n    margin-top: 0; }\n  to {\n    margin-top: -20px; } }\n\n@keyframes slideup {\n  from {\n    margin-top: 0; }\n  to {\n    margin-top: -20px; } }\n\n@-webkit-keyframes animateArrow {\n  from {\n    margin-top: 0.7vw; }\n  to {\n    margin-top: 1.8vw; } }\n\n@-moz-keyframes animateArrow {\n  from {\n    margin-top: 0.7vw; }\n  to {\n    margin-top: 1.8vw; } }\n\n@-o-keyframes animateArrow {\n  from {\n    margin-top: 0.7vw; }\n  to {\n    margin-top: 1.8vw; } }\n\n@keyframes animateArrow {\n  from {\n    margin-top: 0.7vw; }\n  to {\n    margin-top: 1.8vw; } }\n\n@-webkit-keyframes changeBrightness {\n  from {\n    filter: brightness(100%); }\n  to {\n    filter: brightness(70%); } }\n\n@-moz-keyframes changeBrightness {\n  from {\n    filter: brightness(100%); }\n  to {\n    filter: brightness(70%); } }\n\n@-o-keyframes changeBrightness {\n  from {\n    filter: brightness(100%); }\n  to {\n    filter: brightness(70%); } }\n\n@keyframes changeBrightness {\n  from {\n    filter: brightness(100%); }\n  to {\n    filter: brightness(70%); } }\n\n@-webkit-keyframes dimBackground {\n  0% {\n    background-color: transparent; }\n  100% {\n    background-color: rgba(0, 0, 0, 0.25); } }\n\n@-moz-keyframes dimBackground {\n  0% {\n    background-color: transparent; }\n  100% {\n    background-color: rgba(0, 0, 0, 0.25); } }\n\n@-o-keyframes dimBackground {\n  0% {\n    background-color: transparent; }\n  100% {\n    background-color: rgba(0, 0, 0, 0.25); } }\n\n@keyframes dimBackground {\n  0% {\n    background-color: transparent; }\n  100% {\n    background-color: rgba(0, 0, 0, 0.25); } }\n\n@-webkit-keyframes brightenBackground {\n  0% {\n    background-color: rgba(0, 0, 0, 0.25); }\n  100% {\n    background-color: transparent; } }\n\n@-moz-keyframes brightenBackground {\n  0% {\n    background-color: rgba(0, 0, 0, 0.25); }\n  100% {\n    background-color: transparent; } }\n\n@-o-keyframes brightenBackground {\n  0% {\n    background-color: rgba(0, 0, 0, 0.25); }\n  100% {\n    background-color: transparent; } }\n\n@keyframes brightenBackground {\n  0% {\n    background-color: rgba(0, 0, 0, 0.25); }\n  100% {\n    background-color: transparent; } }\n", ""]);
 
 // exports
 
@@ -60092,72 +60092,17 @@ module.exports = __webpack_require__.p + "fonts/Montserrat-Regular.otf";
 module.exports = __webpack_require__.p + "fonts/OpenSans-Regular.ttf";
 
 /***/ }),
-/* 837 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "49c9f5385f51ee347dd90b56b5319b66.jpg";
-
-/***/ }),
-/* 838 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "e08e925dd36bc9ee5e20b28db40123ce.jpg";
-
-/***/ }),
-/* 839 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "6ce9dae3e1f61f80f03f198a31247383.jpg";
-
-/***/ }),
-/* 840 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "2a150104696071a4e552c66f1d978dc7.jpg";
-
-/***/ }),
-/* 841 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "f20139b2f6c27f57dc1468d7a04c9e81.jpg";
-
-/***/ }),
-/* 842 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "8f5a7fcac64f62b088cde4f59bb03ef7.jpg";
-
-/***/ }),
-/* 843 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "1ba761ac3939c88ce5c48992b3057dea.jpg";
-
-/***/ }),
-/* 844 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "7a34fe7f013b5fe200440427bf59538b.jpg";
-
-/***/ }),
-/* 845 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "ce315db5f62c1879250165e8d0786942.jpg";
-
-/***/ }),
-/* 846 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "2a5827b543071cac710a87c8e95ba0bc.jpg";
-
-/***/ }),
-/* 847 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "32283df19e76b71668f47f2114841443.jpg";
-
-/***/ }),
+/* 837 */,
+/* 838 */,
+/* 839 */,
+/* 840 */,
+/* 841 */,
+/* 842 */,
+/* 843 */,
+/* 844 */,
+/* 845 */,
+/* 846 */,
+/* 847 */,
 /* 848 */
 /***/ (function(module, exports) {
 
@@ -60410,7 +60355,7 @@ var NavBar = function (_Component) {
                 _react2.default.createElement(
                   _reactRouter.Link,
                   { to: { pathname: '/' } },
-                  _react2.default.createElement('img', { id: 'navbar-logo', src: __webpack_require__(1058), alt: 'Fresh Aire' })
+                  _react2.default.createElement('img', { id: 'navbar-logo', src: 'https://res.cloudinary.com/fresh-aire-mechanical-co/image/upload/v1505364358/logo_t9mgow.png', alt: 'Fresh Aire' })
                 )
               ),
               _react2.default.createElement(_reactBootstrap.Navbar.Toggle, null)
@@ -79935,12 +79880,7 @@ var Element = function (_React$Component) {
 module.exports = Helpers.Element(Element);
 
 /***/ }),
-/* 1058 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "094f3af95482c9ea633b76e5838aa949.png";
-
-/***/ }),
+/* 1058 */,
 /* 1059 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -79980,7 +79920,7 @@ exports = module.exports = __webpack_require__(50)(undefined);
 
 
 // module
-exports.push([module.i, "#navbar-container {\n  width: 100%;\n  z-index: 3;\n  position: fixed;\n  background-color: rgba(255, 255, 255, 0.9);\n  max-height: 93px;\n  transition: color 0.3s ease-in-out;\n  height: 93px; }\n\n#navbar {\n  width: 100%;\n  z-index: 2;\n  background-color: transparent;\n  padding-top: 10px;\n  padding-bottom: 10px;\n  font-size: 20px;\n  font-weight: bold;\n  border-radius: 0;\n  border-color: transparent; }\n  #navbar .collapse {\n    padding-top: 0.25vw; }\n  #navbar a {\n    background-color: transparent;\n    overflow: hidden;\n    color: #222; }\n    #navbar a .navbar-text {\n      display: inline-block;\n      color: #222;\n      transition: color 0.25s ease-in-out; }\n    #navbar a:hover {\n      color: #0688fe;\n      font-weight: bold; }\n      #navbar a:hover .navbar-text {\n        color: #0688fe !important; }\n      #navbar a:hover .glyphicon-triangle-top {\n        display: block;\n        top: 38px; }\n    #navbar a:not(:hover) .glyphicon-triangle-top {\n      display: block; }\n    #navbar a .glyphicon-triangle-top {\n      top: 51px;\n      left: calc(50% - 10px);\n      position: absolute;\n      display: none;\n      transition: top 0.5s; }\n  #navbar .glyphicon-triangle-top,\n  #navbar .glyphicon-triangle-right {\n    color: #828282; }\n  #navbar .icon-bar {\n    background-color: #000; }\n\n.dropdown-menu {\n  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);\n  animation: fadein 0.2s; }\n  .dropdown-menu a {\n    transition: margin-left 0.5s !important; }\n    .dropdown-menu a:hover {\n      margin-left: 10px; }\n      .dropdown-menu a:hover .glyphicon-triangle-right {\n        opacity: 1; }\n    .dropdown-menu a .glyphicon-triangle-right {\n      transition: opacity 0.5s;\n      opacity: 0;\n      font-size: 10px; }\n\n.dropdown:not(:hover) .dropdown-menu {\n  display: none; }\n\n.dropdown:hover .dropdown-menu {\n  display: block; }\n\n.dropdown-toggle div {\n  display: inline; }\n\n#navbar-logo {\n  position: absolute;\n  margin-left: 15px;\n  margin-top: -5px;\n  max-width: 250px;\n  width: 27vw;\n  min-width: 180px; }\n\n#navbar-img {\n  width: 40px;\n  height: 40px;\n  border-radius: 20px;\n  margin: -8px 0px -8px 5px; }\n\n.nav-li {\n  margin: 8px 0; }\n\n.navbar-toggle {\n  background-color: transparent; }\n  .navbar-toggle:active {\n    background-color: #333; }\n\n.navbar-text {\n  margin: 0 !important; }\n\n@media (max-width: 768px) {\n  .navbar-collapse {\n    background-color: rgba(255, 255, 255, 0.9); }\n  #navbar-container {\n    height: 73px !important; }\n  #navbar {\n    font-size: 15px; }\n    #navbar a .navbar-text {\n      color: #222 !important; } }\n\n@media (min-width: 768px) {\n  .container {\n    width: 95vw; }\n  .navbar-right {\n    font-size: 14px; }\n  .dropdown-menu {\n    border: solid;\n    border-width: 1px;\n    border-color: lightgrey;\n    border-radius: 10px; } }\n\n@media (min-width: 990px) {\n  .navbar-right {\n    font-size: 16px; } }\n", ""]);
+exports.push([module.i, "#navbar-container {\n  width: 100%;\n  z-index: 3;\n  position: fixed;\n  background-color: rgba(255, 255, 255, 0.9);\n  max-height: 93px;\n  transition: color 0.3s ease-in-out;\n  height: 93px; }\n\n#navbar {\n  width: 100%;\n  z-index: 2;\n  background-color: transparent;\n  padding-top: 10px;\n  padding-bottom: 10px;\n  font-size: 20px;\n  font-weight: bold;\n  border-radius: 0;\n  border-color: transparent; }\n  #navbar .collapse {\n    padding-top: 0.25vw; }\n  #navbar a {\n    background-color: transparent;\n    overflow: hidden;\n    color: #222; }\n    #navbar a .navbar-text {\n      display: inline-block;\n      color: #222;\n      transition: color 0.25s ease-in-out; }\n    #navbar a:hover {\n      color: #0688fe;\n      font-weight: bold; }\n      #navbar a:hover .navbar-text {\n        color: #0688fe !important; }\n      #navbar a:hover .glyphicon-triangle-top {\n        display: block;\n        top: 38px; }\n    #navbar a:not(:hover) .glyphicon-triangle-top {\n      display: block; }\n    #navbar a .glyphicon-triangle-top {\n      top: 51px;\n      left: calc(50% - 10px);\n      position: absolute;\n      display: none;\n      transition: top 0.5s; }\n  #navbar .glyphicon-triangle-top,\n  #navbar .glyphicon-triangle-right {\n    color: #828282; }\n  #navbar .icon-bar {\n    background-color: #000; }\n\n.dropdown-menu {\n  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);\n  animation: fadein 0.2s; }\n  .dropdown-menu a {\n    transition: margin-left 0.5s !important; }\n    .dropdown-menu a:hover {\n      margin-left: 10px; }\n      .dropdown-menu a:hover .glyphicon-triangle-right {\n        opacity: 1; }\n    .dropdown-menu a .glyphicon-triangle-right {\n      transition: opacity 0.5s;\n      opacity: 0;\n      font-size: 10px; }\n\n.dropdown:not(:hover) .dropdown-menu {\n  display: none; }\n\n.dropdown:hover .dropdown-menu {\n  display: block; }\n\n.dropdown-toggle div {\n  display: inline; }\n\n#navbar-logo {\n  position: absolute;\n  margin-left: 15px;\n  margin-top: -5px;\n  max-width: 250px;\n  width: 27vw;\n  min-width: 180px;\n  object-fit: cover;\n  height: auto; }\n\n#navbar-img {\n  width: 40px;\n  height: 40px;\n  border-radius: 20px;\n  margin: -8px 0px -8px 5px; }\n\n.nav-li {\n  margin: 8px 0; }\n\n.navbar-toggle {\n  background-color: transparent; }\n  .navbar-toggle:active {\n    background-color: #333; }\n\n.navbar-text {\n  margin: 0 !important; }\n\n@media (max-width: 768px) {\n  .navbar-collapse {\n    background-color: rgba(255, 255, 255, 0.9); }\n  #navbar-container {\n    height: 73px !important; }\n  #navbar {\n    font-size: 15px; }\n    #navbar a .navbar-text {\n      color: #222 !important; } }\n\n@media (min-width: 768px) {\n  .container {\n    width: 95vw; }\n  .navbar-right {\n    font-size: 14px; }\n  .dropdown-menu {\n    border: solid;\n    border-width: 1px;\n    border-color: lightgrey;\n    border-radius: 10px; } }\n\n@media (min-width: 990px) {\n  .navbar-right {\n    font-size: 16px; } }\n", ""]);
 
 // exports
 
@@ -80057,6 +79997,10 @@ var _why2 = _interopRequireDefault(_why);
 var _services = __webpack_require__(1087);
 
 var _services2 = _interopRequireDefault(_services);
+
+var _objectFitImages = __webpack_require__(1156);
+
+var _objectFitImages2 = _interopRequireDefault(_objectFitImages);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -80194,6 +80138,7 @@ var Landing = function (_Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
+      (0, _objectFitImages2.default)();
       this.initializeNavbarOpacity();
       scroll.scrollToTop({ duration: 1 });
       // Set a timeout before updating colors so that the font can change
@@ -80354,15 +80299,15 @@ var Landing = function (_Component) {
         _react2.default.createElement(
           'a',
           { onClick: this.goToNextDiv, className: 'arrowButton' },
-          _react2.default.createElement('img', { id: 'scrollImage', src: __webpack_require__(1088), alt: 'SCROLL DOWN' })
+          _react2.default.createElement('img', { id: 'scrollImage', src: 'https://res.cloudinary.com/fresh-aire-mechanical-co/image/upload/v1505364359/arrows_c4rxxj.png', alt: 'SCROLL DOWN' })
         ),
         _react2.default.createElement(
           _lib.Row,
           { className: 'picture-div', id: 'banner-div' },
           _react2.default.createElement('div', { id: 'banner-background' }),
-          _react2.default.createElement('img', { id: 'landing-left', className: 'landing-triangles', src: __webpack_require__(1089) }),
-          _react2.default.createElement('img', { id: 'landing-right', className: 'landing-triangles', src: __webpack_require__(1090) }),
-          _react2.default.createElement('img', { id: 'landing1', className: 'landing-images', src: __webpack_require__(1091) })
+          _react2.default.createElement('img', { id: 'landing-left', className: 'landing-triangles', src: 'https://res.cloudinary.com/fresh-aire-mechanical-co/image/upload/v1505364358/landing_left_quyefk.png' }),
+          _react2.default.createElement('img', { id: 'landing-right', className: 'landing-triangles', src: 'https://res.cloudinary.com/fresh-aire-mechanical-co/image/upload/v1505364361/landing_right_pmahvq.png' }),
+          _react2.default.createElement('img', { id: 'landing1', className: 'landing-images', src: 'https://res.cloudinary.com/fresh-aire-mechanical-co/image/upload/v1505364361/landing1_ioebyw.png' })
         ),
         _react2.default.createElement(
           _lib.Row,
@@ -80617,12 +80562,12 @@ var PartnerSlider = function (_Component) {
     value: function componentDidMount() {
       // image scaling so that height can be set to auto on internet explorer
       Array.from(document.getElementsByClassName('partner')).forEach(function (partner) {
-        var i = partner.children[0];
+        var i = partner.firstChild;
         var i2 = new Image();
         i2.onload = function () {
-          var width = partner.children[0].getBoundingClientRect().width;
+          var width = partner.firstChild.getBoundingClientRect().width;
           var ratio = i2.width / width;
-          partner.children[0].style.height = i2.height / ratio + 'px';
+          partner.firstChild.style.height = i2.height / ratio + 'px';
         };
         i2.src = i.src;
       });
@@ -80651,7 +80596,7 @@ var PartnerSlider = function (_Component) {
         _react2.default.createElement(
           'div',
           { className: 'partner' },
-          _react2.default.createElement('img', { src: __webpack_require__(1081) })
+          _react2.default.createElement('img', { src: 'https://res.cloudinary.com/fresh-aire-mechanical-co/image/upload/v1505364359/abco_ndmyra.jpg' })
         ),
         _react2.default.createElement(
           'div',
@@ -82367,18 +82312,13 @@ exports = module.exports = __webpack_require__(50)(undefined);
 
 
 // module
-exports.push([module.i, ".slick-slider button {\n  position: absolute;\n  top: calc(50% - 25px);\n  z-index: 2;\n  background: transparent;\n  border: none;\n  outline: 0; }\n  .slick-slider button:hover {\n    color: #0688fe; }\n\n.fa-chevron-circle-left {\n  left: -4%; }\n\n.fa-chevron-circle-right {\n  right: -4%; }\n\n.partner {\n  display: flex !important;\n  height: 250px; }\n  .partner img {\n    width: 75%;\n    display: block;\n    margin: auto;\n    -ms-interpolation-mode: bicubic; }\n", ""]);
+exports.push([module.i, ".slick-slider button {\n  position: absolute;\n  top: calc(50% - 25px);\n  z-index: 2;\n  background: transparent;\n  border: none;\n  outline: 0; }\n  .slick-slider button:hover {\n    color: #0688fe; }\n\n.fa-chevron-circle-left {\n  left: -4%; }\n\n.fa-chevron-circle-right {\n  right: -4%; }\n\n.partner {\n  display: flex !important;\n  height: 250px; }\n  .partner img {\n    object-fit: cover;\n    width: 75%;\n    display: block;\n    margin: auto;\n    -ms-interpolation-mode: bicubic; }\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 1081 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "76f0a4d079e95f6c024625020c4442cb.jpg";
-
-/***/ }),
+/* 1081 */,
 /* 1082 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -82480,30 +82420,10 @@ module.exports = {"0":{"title":"No Uncertainties","subtitle":"KNOWN FOR RELIABIL
 module.exports = {"0":"Heating, Ventilation & Air Conditioning","1":"Display Cases","2":"Open Cases","3":"Rack Systems","4":"Freezers and Ice Machines","5":"E2 Refrigeration Control"}
 
 /***/ }),
-/* 1088 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "fa28ace65d9c75231147c1f30f58eb9a.png";
-
-/***/ }),
-/* 1089 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "15df2738093d164e15f70cb5fce44f06.png";
-
-/***/ }),
-/* 1090 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "0dd1d6054d94260fbf4e58032c68b825.png";
-
-/***/ }),
-/* 1091 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "c4e865f1b24d7c8cfba99582bf65aeb2.png";
-
-/***/ }),
+/* 1088 */,
+/* 1089 */,
+/* 1090 */,
+/* 1091 */,
 /* 1092 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -87644,6 +87564,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 var scroll = _reactScroll2.default.animateScroll;
 
+var images = ['https://res.cloudinary.com/fresh-aire-mechanical-co/image/upload/v1505364361/pic1_mzha1m.png', 'https://res.cloudinary.com/fresh-aire-mechanical-co/image/upload/v1505364361/pic2_kxk6dm.png', 'https://res.cloudinary.com/fresh-aire-mechanical-co/image/upload/v1505364361/pic3_pt3vwp.png'];
+
 var About = function (_Component) {
   _inherits(About, _Component);
 
@@ -87700,7 +87622,7 @@ var About = function (_Component) {
               return _react2.default.createElement(
                 _lib.Col,
                 { md: 4, className: 'team-member', key: id },
-                _react2.default.createElement('img', { src: __webpack_require__(1146)("./pic" + (index + 1) + '.png') }),
+                _react2.default.createElement('img', { src: images[index] }),
                 _react2.default.createElement(
                   'div',
                   { className: 'team-name' },
@@ -90824,49 +90746,10 @@ exports.push([module.i, "#email-form-name,\n#email-form-email {\n  padding-left:
 module.exports = {"0":{"name":"Kenny Rim","role":"FOUNDER, CEO, BUSINESSMAN, ELECTRICAL & MECHANICAL ENGINEER","description":"Kenny founded Fresh Air in 1989 as a sole proprietorship. Using his Bachelor's degree in Electrical Engineering from Korea's prestigious Kyonggi University as well as his work experience in Mechanical Engineering, he used the best practices in both to run our business single-handedly."},"1":{"name":"Jonathan Rim","role":"SOFTWARE ENGINEER","description":"Jonathan built our website and ensures that everything runs smoothly on both the front-end and back-end. He handles everything web related for our company. He graduated from New York City's Fullstack Academy, a software engineering academy that is rapidly rising in prestige. He graduated from the University of Michigan with a Computer Engineering degree in 2015."},"2":{"name":"Other Staff","role":"TECHNICIAN TEAM","description":"Our team of 8 technicians is sent out to different sites of our clients, where the most urgent need is given priority in our queue.","role2":"BUSINESS TEAM","description2":"Our team of 2 in business is responsible for management and interaction between our company and our clients."}}
 
 /***/ }),
-/* 1146 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var map = {
-	"./pic1.png": 1147,
-	"./pic2.png": 1148,
-	"./pic3.png": 1149
-};
-function webpackContext(req) {
-	return __webpack_require__(webpackContextResolve(req));
-};
-function webpackContextResolve(req) {
-	var id = map[req];
-	if(!(id + 1)) // check for number or string
-		throw new Error("Cannot find module '" + req + "'.");
-	return id;
-};
-webpackContext.keys = function webpackContextKeys() {
-	return Object.keys(map);
-};
-webpackContext.resolve = webpackContextResolve;
-module.exports = webpackContext;
-webpackContext.id = 1146;
-
-/***/ }),
-/* 1147 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "382f250042667f25a7bb260dfa315475.png";
-
-/***/ }),
-/* 1148 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "4cc24d1dfde331359c1cc4c1d787dc3f.png";
-
-/***/ }),
-/* 1149 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "382f250042667f25a7bb260dfa315475.png";
-
-/***/ }),
+/* 1146 */,
+/* 1147 */,
+/* 1148 */,
+/* 1149 */,
 /* 1150 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -90906,7 +90789,7 @@ exports = module.exports = __webpack_require__(50)(undefined);
 
 
 // module
-exports.push([module.i, "@media (min-width: 990px) {\n  #team {\n    display: flex; }\n  .col-md-4 {\n    width: 33.33333333%; } }\n\n#about {\n  padding-top: 100px;\n  color: #000; }\n  #about hr {\n    width: 10%;\n    margin-bottom: -10px; }\n  #about .team-member {\n    margin: 10px 5px;\n    border-width: 1px;\n    border-color: #f0f0f0;\n    background-color: rgba(0, 0, 0, 0.01);\n    border-style: solid;\n    border-radius: 10px;\n    padding: 3vw;\n    overflow: hidden; }\n    #about .team-member:before {\n      opacity: 0.5; }\n    #about .team-member .row {\n      padding: 20px;\n      display: table; }\n  #about img {\n    width: 100%;\n    border-radius: 10px;\n    max-width: 20vw;\n    margin-right: 3vw;\n    margin-bottom: 1.5vw;\n    float: left; }\n  #about h2 {\n    margin-top: 30px;\n    color: #000; }\n\n.img-col {\n  max-width: 20vw; }\n\n#contact {\n  padding-top: 0;\n  background-color: #635f5b;\n  color: #fff; }\n  #contact h2 {\n    margin: 50px 0 45px; }\n  #contact ul {\n    font-weight: bold; }\n    #contact ul p {\n      margin: 0 0 5px 26px; }\n  #contact i {\n    width: 24px;\n    text-align: center; }\n  #contact img {\n    width: 100%;\n    max-width: 350px;\n    margin: 0 auto; }\n\n.team-name {\n  font-size: 1.4em;\n  margin: 0; }\n\n.team-role {\n  font-size: 1em;\n  color: #949494; }\n\n.team-description {\n  margin-top: 10px; }\n", ""]);
+exports.push([module.i, "@media (min-width: 990px) {\n  #team {\n    display: flex; }\n  .col-md-4 {\n    width: 33.33333333%; } }\n\n#about {\n  padding-top: 100px;\n  color: #000; }\n  #about hr {\n    width: 10%;\n    margin-bottom: -10px; }\n  #about .team-member {\n    margin: 10px 5px;\n    border-width: 1px;\n    border-color: #f0f0f0;\n    background-color: rgba(0, 0, 0, 0.01);\n    border-style: solid;\n    border-radius: 10px;\n    padding: 3vw;\n    overflow: hidden; }\n    #about .team-member:before {\n      opacity: 0.5; }\n    #about .team-member .row {\n      padding: 20px;\n      display: table; }\n  #about img {\n    width: 100%;\n    border-radius: 10px;\n    max-width: 20vw;\n    margin-right: 3vw;\n    margin-bottom: 1.5vw;\n    height: auto;\n    float: left; }\n  #about h2 {\n    margin-top: 30px;\n    color: #000; }\n\n.img-col {\n  max-width: 20vw; }\n\n#contact {\n  padding-top: 0;\n  background-color: #635f5b;\n  color: #fff; }\n  #contact h2 {\n    margin: 50px 0 45px; }\n  #contact ul {\n    font-weight: bold; }\n    #contact ul p {\n      margin: 0 0 5px 26px; }\n  #contact i {\n    width: 24px;\n    text-align: center; }\n  #contact img {\n    width: 100%;\n    max-width: 350px;\n    margin: 0 auto; }\n\n.team-name {\n  font-size: 1.4em;\n  margin: 0; }\n\n.team-role {\n  font-size: 1em;\n  color: #949494; }\n\n.team-description {\n  margin-top: 10px; }\n", ""]);
 
 // exports
 
@@ -91318,6 +91201,244 @@ exports = module.exports = __webpack_require__(50)(undefined);
 exports.push([module.i, "#request-form {\n  padding: 10%;\n  padding-top: 17vh; }\n  #request-form h3 {\n    margin-bottom: 40px; }\n  #request-form p {\n    margin: 0 0 10px;\n    text-align: center;\n    color: #808080;\n    margin-bottom: 50px; }\n    #request-form p:first-of-type {\n      margin: 0; }\n\n#request-form-left,\n#request-form-middle,\n#request-form-right {\n  padding-top: 0 !important;\n  padding-bottom: 0 !important; }\n\n#request-form-left,\n#request-form-middle {\n  padding-left: 0 !important; }\n\n#request-form-middle,\n#request-form-right {\n  padding-right: 0 !important; }\n\n#request-form-message {\n  height: 300px; }\n  #request-form-message .form-control {\n    height: 265px; }\n\n#request-form-button {\n  float: right; }\n\n#request-form-required {\n  float: left; }\n\n.request-form-response {\n  float: right;\n  margin-right: 10px;\n  margin-top: 7px; }\n", ""]);
 
 // exports
+
+
+/***/ }),
+/* 1156 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/*! npm.im/object-fit-images 3.2.3 */
+
+
+var OFI = 'bfred-it:object-fit-images';
+var propRegex = /(object-fit|object-position)\s*:\s*([-\w\s%]+)/g;
+var testImg = typeof Image === 'undefined' ? {style: {'object-position': 1}} : new Image();
+var supportsObjectFit = 'object-fit' in testImg.style;
+var supportsObjectPosition = 'object-position' in testImg.style;
+var supportsOFI = 'background-size' in testImg.style;
+var supportsCurrentSrc = typeof testImg.currentSrc === 'string';
+var nativeGetAttribute = testImg.getAttribute;
+var nativeSetAttribute = testImg.setAttribute;
+var autoModeEnabled = false;
+
+function createPlaceholder(w, h) {
+	return ("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='" + w + "' height='" + h + "'%3E%3C/svg%3E");
+}
+
+function polyfillCurrentSrc(el) {
+	if (el.srcset && !supportsCurrentSrc && window.picturefill) {
+		var pf = window.picturefill._;
+		// parse srcset with picturefill where currentSrc isn't available
+		if (!el[pf.ns] || !el[pf.ns].evaled) {
+			// force synchronous srcset parsing
+			pf.fillImg(el, {reselect: true});
+		}
+
+		if (!el[pf.ns].curSrc) {
+			// force picturefill to parse srcset
+			el[pf.ns].supported = false;
+			pf.fillImg(el, {reselect: true});
+		}
+
+		// retrieve parsed currentSrc, if any
+		el.currentSrc = el[pf.ns].curSrc || el.src;
+	}
+}
+
+function getStyle(el) {
+	var style = getComputedStyle(el).fontFamily;
+	var parsed;
+	var props = {};
+	while ((parsed = propRegex.exec(style)) !== null) {
+		props[parsed[1]] = parsed[2];
+	}
+	return props;
+}
+
+function setPlaceholder(img, width, height) {
+	// Default: fill width, no height
+	var placeholder = createPlaceholder(width || 1, height || 0);
+
+	// Only set placeholder if it's different
+	if (nativeGetAttribute.call(img, 'src') !== placeholder) {
+		nativeSetAttribute.call(img, 'src', placeholder);
+	}
+}
+
+function onImageReady(img, callback) {
+	// naturalWidth is only available when the image headers are loaded,
+	// this loop will poll it every 100ms.
+	if (img.naturalWidth) {
+		callback(img);
+	} else {
+		setTimeout(onImageReady, 100, img, callback);
+	}
+}
+
+function fixOne(el) {
+	var style = getStyle(el);
+	var ofi = el[OFI];
+	style['object-fit'] = style['object-fit'] || 'fill'; // default value
+
+	// Avoid running where unnecessary, unless OFI had already done its deed
+	if (!ofi.img) {
+		// fill is the default behavior so no action is necessary
+		if (style['object-fit'] === 'fill') {
+			return;
+		}
+
+		// Where object-fit is supported and object-position isn't (Safari < 10)
+		if (
+			!ofi.skipTest && // unless user wants to apply regardless of browser support
+			supportsObjectFit && // if browser already supports object-fit
+			!style['object-position'] // unless object-position is used
+		) {
+			return;
+		}
+	}
+
+	// keep a clone in memory while resetting the original to a blank
+	if (!ofi.img) {
+		ofi.img = new Image(el.width, el.height);
+		ofi.img.srcset = nativeGetAttribute.call(el, "data-ofi-srcset") || el.srcset;
+		ofi.img.src = nativeGetAttribute.call(el, "data-ofi-src") || el.src;
+
+		// preserve for any future cloneNode calls
+		// https://github.com/bfred-it/object-fit-images/issues/53
+		nativeSetAttribute.call(el, "data-ofi-src", el.src);
+		if (el.srcset) {
+			nativeSetAttribute.call(el, "data-ofi-srcset", el.srcset);
+		}
+
+		setPlaceholder(el, el.naturalWidth || el.width, el.naturalHeight || el.height);
+
+		// remove srcset because it overrides src
+		if (el.srcset) {
+			el.srcset = '';
+		}
+		try {
+			keepSrcUsable(el);
+		} catch (err) {
+			if (window.console) {
+				console.warn('https://bit.ly/ofi-old-browser');
+			}
+		}
+	}
+
+	polyfillCurrentSrc(ofi.img);
+
+	el.style.backgroundImage = "url(\"" + ((ofi.img.currentSrc || ofi.img.src).replace(/"/g, '\\"')) + "\")";
+	el.style.backgroundPosition = style['object-position'] || 'center';
+	el.style.backgroundRepeat = 'no-repeat';
+	el.style.backgroundOrigin = 'content-box';
+
+	if (/scale-down/.test(style['object-fit'])) {
+		onImageReady(ofi.img, function () {
+			if (ofi.img.naturalWidth > el.width || ofi.img.naturalHeight > el.height) {
+				el.style.backgroundSize = 'contain';
+			} else {
+				el.style.backgroundSize = 'auto';
+			}
+		});
+	} else {
+		el.style.backgroundSize = style['object-fit'].replace('none', 'auto').replace('fill', '100% 100%');
+	}
+
+	onImageReady(ofi.img, function (img) {
+		setPlaceholder(el, img.naturalWidth, img.naturalHeight);
+	});
+}
+
+function keepSrcUsable(el) {
+	var descriptors = {
+		get: function get(prop) {
+			return el[OFI].img[prop ? prop : 'src'];
+		},
+		set: function set(value, prop) {
+			el[OFI].img[prop ? prop : 'src'] = value;
+			nativeSetAttribute.call(el, ("data-ofi-" + prop), value); // preserve for any future cloneNode
+			fixOne(el);
+			return value;
+		}
+	};
+	Object.defineProperty(el, 'src', descriptors);
+	Object.defineProperty(el, 'currentSrc', {
+		get: function () { return descriptors.get('currentSrc'); }
+	});
+	Object.defineProperty(el, 'srcset', {
+		get: function () { return descriptors.get('srcset'); },
+		set: function (ss) { return descriptors.set(ss, 'srcset'); }
+	});
+}
+
+function hijackAttributes() {
+	function getOfiImageMaybe(el, name) {
+		return el[OFI] && el[OFI].img && (name === 'src' || name === 'srcset') ? el[OFI].img : el;
+	}
+	if (!supportsObjectPosition) {
+		HTMLImageElement.prototype.getAttribute = function (name) {
+			return nativeGetAttribute.call(getOfiImageMaybe(this, name), name);
+		};
+
+		HTMLImageElement.prototype.setAttribute = function (name, value) {
+			return nativeSetAttribute.call(getOfiImageMaybe(this, name), name, String(value));
+		};
+	}
+}
+
+function fix(imgs, opts) {
+	var startAutoMode = !autoModeEnabled && !imgs;
+	opts = opts || {};
+	imgs = imgs || 'img';
+
+	if ((supportsObjectPosition && !opts.skipTest) || !supportsOFI) {
+		return false;
+	}
+
+	// use imgs as a selector or just select all images
+	if (imgs === 'img') {
+		imgs = document.getElementsByTagName('img');
+	} else if (typeof imgs === 'string') {
+		imgs = document.querySelectorAll(imgs);
+	} else if (!('length' in imgs)) {
+		imgs = [imgs];
+	}
+
+	// apply fix to all
+	for (var i = 0; i < imgs.length; i++) {
+		imgs[i][OFI] = imgs[i][OFI] || {
+			skipTest: opts.skipTest
+		};
+		fixOne(imgs[i]);
+	}
+
+	if (startAutoMode) {
+		document.body.addEventListener('load', function (e) {
+			if (e.target.tagName === 'IMG') {
+				fix(e.target, {
+					skipTest: opts.skipTest
+				});
+			}
+		}, true);
+		autoModeEnabled = true;
+		imgs = 'img'; // reset to a generic selector for watchMQ
+	}
+
+	// if requested, watch media queries for object-fit change
+	if (opts.watchMQ) {
+		window.addEventListener('resize', fix.bind(null, imgs, {
+			skipTest: opts.skipTest
+		}));
+	}
+}
+
+fix.supportsObjectFit = supportsObjectFit;
+fix.supportsObjectPosition = supportsObjectPosition;
+
+hijackAttributes();
+
+module.exports = fix;
 
 
 /***/ })

@@ -6,6 +6,7 @@ import ApptBtn from 'lib/ApptBtn';
 import overviews from 'lib/objects/overviews';
 import why from 'lib/objects/why';
 import services from 'lib/objects/services';
+import objectFitImages from 'object-fit-images';
 
 var { Element, Events, scrollSpy, scroller } = Scroll;
 var scroll = Scroll.animateScroll;
@@ -118,6 +119,7 @@ export default class Landing extends Component {
   }
 
   componentDidMount() {
+    objectFitImages();
     this.initializeNavbarOpacity();
     scroll.scrollToTop({duration: 1});
     // Set a timeout before updating colors so that the font can change
@@ -270,13 +272,13 @@ export default class Landing extends Component {
       <div>
         <ApptBtn />
         <a onClick={this.goToNextDiv} className="arrowButton">
-          <img id="scrollImage" src={require('lib/images/arrows.png')} alt="SCROLL DOWN" />
+          <img id="scrollImage" src='https://res.cloudinary.com/fresh-aire-mechanical-co/image/upload/v1505364359/arrows_c4rxxj.png' alt="SCROLL DOWN" />
         </a>
         <Row className="picture-div" id="banner-div">
           <div id="banner-background"></div>
-          <img id="landing-left" className="landing-triangles" src={require('lib/images/landing_left.png')} />
-          <img id="landing-right" className="landing-triangles" src={require('lib/images/landing_right.png')} />
-          <img id="landing1" className="landing-images" src={require('lib/images/landing1.png')} />
+          <img id="landing-left" className="landing-triangles" src='https://res.cloudinary.com/fresh-aire-mechanical-co/image/upload/v1505364358/landing_left_quyefk.png' />
+          <img id="landing-right" className="landing-triangles" src='https://res.cloudinary.com/fresh-aire-mechanical-co/image/upload/v1505364361/landing_right_pmahvq.png' />
+          <img id="landing1" className="landing-images" src='https://res.cloudinary.com/fresh-aire-mechanical-co/image/upload/v1505364361/landing1_ioebyw.png' />
         </Row>
         <Row id="overview" className="standard-div">
           <Element name="overview-div" className="element" id="overview-element">
