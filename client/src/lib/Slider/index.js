@@ -65,7 +65,7 @@ export default class PartnerSlider extends Component {
       <Slider {...settings}>
         {
           partners.map(partner => ( 
-            <div className="partner">
+            <div className="partner" key={partner}>
               <img src={partner} />
             </div>
           ))
@@ -75,7 +75,7 @@ export default class PartnerSlider extends Component {
   }
 }
 
-partners = [
+const partners = [
   'https://res.cloudinary.com/fresh-aire-mechanical-co/image/upload/v1505364359/abco_ndmyra.jpg',
   'https://www.edissonelectric.com/wp-content/uploads/2015/09/Sporlan-2.png',
   'https://mehvac.com/images/logo.png',
