@@ -63,14 +63,24 @@ export default class PartnerSlider extends Component {
     };
     return (
       <Slider {...settings}>
-        <div className="partner"><img src='https://res.cloudinary.com/fresh-aire-mechanical-co/image/upload/v1505364359/abco_ndmyra.jpg' /></div>
-        <div className="partner"><img src="https://www.edissonelectric.com/wp-content/uploads/2015/09/Sporlan-2.png" /></div>
-        <div className="partner"><img src="https://mehvac.com/images/logo.png" /></div>
-        <div className="partner"><img src="https://static.wixstatic.com/media/edf714_a8177bc6df634641bae452cf3bc90e8f.jpg" /></div>
-        <div className="partner"><img src="https://climatecontroltt.com/media/wysiwyg/York/yorklogo.jpg" /></div>
-        <div className="partner"><img src="https://i.ytimg.com/vi/pSjKU1XA0ps/maxresdefault.jpg" /></div>
-        <div className="partner"><img src="https://www.knuthrefrigeration.com/wp-content/uploads/2016/03/logo_NEW_kysor_warren.jpg" /></div>
+        {
+          partners.map(partner => ( 
+            <div className="partner">
+              <img src={partner} />
+            </div>
+          ))
+        }
       </Slider>
     );
   }
 }
+
+partners = [
+  'https://res.cloudinary.com/fresh-aire-mechanical-co/image/upload/v1505364359/abco_ndmyra.jpg',
+  'https://www.edissonelectric.com/wp-content/uploads/2015/09/Sporlan-2.png',
+  'https://mehvac.com/images/logo.png',
+  'https://static.wixstatic.com/media/edf714_a8177bc6df634641bae452cf3bc90e8f.jpg',
+  'https://climatecontroltt.com/media/wysiwyg/York/yorklogo.jpg',
+  'https://i.ytimg.com/vi/pSjKU1XA0ps/maxresdefault.jpg',
+  'https://www.knuthrefrigeration.com/wp-content/uploads/2016/03/logo_NEW_kysor_warren.jpg'
+];
