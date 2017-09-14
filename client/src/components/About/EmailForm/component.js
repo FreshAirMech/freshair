@@ -153,16 +153,16 @@ export default class EmailForm extends Component {
 				  </FormGroup>
 				</Col>
 			  <FormGroup validationState="error" className="auth-form-error">
-			    <Button className="button button-green" id="email-form-button" type="submit" disabled={ !checkFormIsValid() } bsStyle="success">
-			      { isFetching ? <Spinner /> : 'Send Email Message' }
-			    </Button>
-			    {
-			      (sentEmail && !isFetching && !error) && <ControlLabel className="email-form-response auth-form-message-success">Sent!</ControlLabel>
-			    }
-			    {
-			      (!isFetching && error) && <ControlLabel className="auth-form-message-error email-form-response">{ error.message }</ControlLabel>
-			    }
 			  	<p id="email-form-required">*Required fields</p>
+          <Button className="button button-green" id="email-form-button" type="submit" disabled={ !checkFormIsValid() } bsStyle="success">
+            { isFetching ? <Spinner /> : 'Send Email Message' }
+          </Button>
+          {
+            (sentEmail && !isFetching && !error) && <ControlLabel className="email-form-response auth-form-message-success">Sent!</ControlLabel>
+          }
+          {
+            (!isFetching && error) && <ControlLabel className="auth-form-message-error email-form-response">{ error.message }</ControlLabel>
+          }
 			  </FormGroup>
 			</Form>
 		);
