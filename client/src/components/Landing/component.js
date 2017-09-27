@@ -276,9 +276,9 @@ export default class Landing extends Component {
         </a>
         <Row className="picture-div" id="banner-div">
           <div id="banner-background"></div>
-          <img id="landing-left" className="landing-triangles" src={require('lib/images/landing_left.png')} />
-          <img id="landing-right" className="landing-triangles" src={require('lib/images/landing_right.png')} />
-          <img id="landing1" className="landing-images" src={require('lib/images/landing1.png')} />
+          <img id="landing-left" className="landing-triangles" src={require('lib/images/landing_left.png') || 'https://res.cloudinary.com/fresh-aire-mechanical-co/image/upload/v1506475739/landing_left_bzb2xc.png'} />
+          <img id="landing-right" className="landing-triangles" src={require('lib/images/landing_right.png') || 'https://res.cloudinary.com/fresh-aire-mechanical-co/image/upload/v1506475739/landing_right_c3kdnn.png'} />
+          <img id="landing1" className="landing-images" src={require('lib/images/landing1.png') || 'https://res.cloudinary.com/fresh-aire-mechanical-co/image/upload/v1506475739/landing1_l2cxgd.png'} />
         </Row>
         <Row id="overview" className="standard-div">
           <Element name="overview-div" className="element" id="overview-element">
