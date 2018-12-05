@@ -9,7 +9,7 @@ var scroll = Scroll.animateScroll;
 
 let images = [
   'https://res.cloudinary.com/fresh-aire-mechanical-co/image/upload/v1505364361/pic1_mzha1m.png',
-  'https://res.cloudinary.com/fresh-aire-mechanical-co/image/upload/v1505364361/pic2_kxk6dm.png',
+  'https://res.cloudinary.com/fresh-aire-mechanical-co/image/upload/v1516162328/wi2mum1vn313basoz1fj.png',
   'https://res.cloudinary.com/fresh-aire-mechanical-co/image/upload/v1505364361/pic3_pt3vwp.png'
 ];
 
