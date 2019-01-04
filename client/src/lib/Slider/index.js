@@ -78,7 +78,7 @@ export default class PartnerSlider extends Component {
 const partners = [
   'https://res.cloudinary.com/fresh-aire-mechanical-co/image/upload/v1505364359/abco_ndmyra.jpg',
   'https://www.edissonelectric.com/wp-content/uploads/2015/09/Sporlan-2.png',
-  'https://mehvac.com/images/logo.png',
+  'http://kencar.net/wp-content/uploads/2017/05/Mitsubishi-AC-Logo.jpg',
   'https://static.wixstatic.com/media/edf714_a8177bc6df634641bae452cf3bc90e8f.jpg',
   'https://climatecontroltt.com/media/wysiwyg/York/yorklogo.jpg',
   'https://i.ytimg.com/vi/pSjKU1XA0ps/maxresdefault.jpg',
