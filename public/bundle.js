@@ -80245,7 +80245,7 @@ var PartnerSlider = function (_Component) {
 exports.default = PartnerSlider;
 
 
-var partners = ['https://res.cloudinary.com/fresh-aire-mechanical-co/image/upload/v1505364359/abco_ndmyra.jpg', 'https://www.edissonelectric.com/wp-content/uploads/2015/09/Sporlan-2.png', 'https://mehvac.com/images/logo.png', 'https://static.wixstatic.com/media/edf714_a8177bc6df634641bae452cf3bc90e8f.jpg', 'https://climatecontroltt.com/media/wysiwyg/York/yorklogo.jpg', 'https://i.ytimg.com/vi/pSjKU1XA0ps/maxresdefault.jpg', 'https://www.knuthrefrigeration.com/wp-content/uploads/2016/03/logo_NEW_kysor_warren.jpg'];
+var partners = ['https://res.cloudinary.com/fresh-aire-mechanical-co/image/upload/v1505364359/abco_ndmyra.jpg', 'https://www.edissonelectric.com/wp-content/uploads/2015/09/Sporlan-2.png', 'http://kencar.net/wp-content/uploads/2017/05/Mitsubishi-AC-Logo.jpg', 'https://static.wixstatic.com/media/edf714_a8177bc6df634641bae452cf3bc90e8f.jpg', 'https://climatecontroltt.com/media/wysiwyg/York/yorklogo.jpg', 'https://i.ytimg.com/vi/pSjKU1XA0ps/maxresdefault.jpg', 'https://www.knuthrefrigeration.com/wp-content/uploads/2016/03/logo_NEW_kysor_warren.jpg'];
 
 /***/ }),
 /* 1052 */
@@ -86960,7 +86960,7 @@ exports = module.exports = __webpack_require__(50)(undefined);
 
 
 // module
-exports.push([module.i, ".img-div, #uploadedImg, .dropzone {\n  width: 200px;\n  height: 200px;\n  border-radius: 10px; }\n\n#uploadedImg {\n  width: 200px;\n  height: 200px;\n  border-radius: 10px; }\n  #uploadedImg:hover {\n    opacity: 0.7; }\n  #uploadedImg:active {\n    opacity: 0.5; }\n\n.dropzone {\n  margin: 41px auto; }\n  .dropzone p {\n    margin-top: 75px;\n    text-align: center;\n    width: 200px;\n    height: 200px;\n    margin: 54px auto;\n    border-width: 2px;\n    border-color: #666666;\n    border-style: dashed;\n    border-radius: 10px;\n    padding: 36% 0; }\n  .dropzone:hover {\n    opacity: 0.7; }\n  .dropzone:active {\n    opacity: 0.5; }\n\n#delete-photo {\n  margin-top: -25px;\n  margin-bottom: 5px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex; }\n  #delete-photo button {\n    margin: auto;\n    min-width: 100px; }\n", ""]);
+exports.push([module.i, ".img-div, #uploadedImg, .dropzone {\n  width: 200px;\n  height: 200px;\n  border-radius: 10px; }\n\n#uploadedImg:hover {\n  opacity: 0.7; }\n\n#uploadedImg:active {\n  opacity: 0.5; }\n\n.dropzone {\n  margin: 41px auto; }\n  .dropzone p {\n    margin-top: 75px;\n    text-align: center;\n    width: 200px;\n    height: 200px;\n    margin: 54px auto;\n    border-width: 2px;\n    border-color: #666666;\n    border-style: dashed;\n    border-radius: 10px;\n    padding: 36% 0; }\n  .dropzone:hover {\n    opacity: 0.7; }\n  .dropzone:active {\n    opacity: 0.5; }\n\n#delete-photo {\n  margin-top: -25px;\n  margin-bottom: 5px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex; }\n  #delete-photo button {\n    margin: auto;\n    min-width: 100px; }\n", ""]);
 
 // exports
 
